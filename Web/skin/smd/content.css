@@ -1,0 +1,17 @@
+.l h1,.r h1{
+	font-size:16px;
+	font-family:ºÚÌå;
+	color:#bd0000;
+}
+.content
+{
+	font-family:ºÚÌå;
+	margin-top:20px;
+}
+#content_cn,#content_en{
+	width:470px;
+}
+.leftdotted{
+	border-left:#6e6e6e 1px dotted;
+	padding-left:10px;
+}

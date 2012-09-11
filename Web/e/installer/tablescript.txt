@@ -1,0 +1,1261 @@
+﻿
+/****** Object:  Table [dbo].[Zt]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[Zt](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[ClassID] [int] NULL,
+	[ZtName] [nvarchar](50) NULL,
+	[Forder] [nvarchar](255) NULL,
+	[ExtName] [nvarchar](50) NULL,
+	[ICON] [nvarchar](255) NULL,
+	[KeyWords] [nvarchar](255) NULL,
+	[Description] [nvarchar](255) NULL,
+	[LtIndex] [int] NULL,
+	[ShowInNav] [bit] NULL,
+	[FaceModel] [int] NULL,
+	[ListModel] [int] NULL,
+	[ListOrder] [int] NULL,
+	[ListPageSize] [int] NULL,
+ CONSTRAINT [PK_Zt] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+/****** Object:  Table [dbo].[UserRerm]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[UserRerm](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[FormName] [nvarchar](50) NULL,
+	[FormContent] [ntext] NULL,
+	[Remark] [ntext] NULL,
+ CONSTRAINT [PK_UserRerm] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+/****** Object:  Table [dbo].[UserGroup]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[UserGroup](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[GroupName] [nvarchar](50) NULL,
+	[Grade] [int] NULL,
+	[MaxPost] [int] NULL,
+	[PostAotuAudit] [bit] NULL,
+	[RegForm] [int] NULL,
+	[EnableReg] [bit] NULL,
+	[RegAutoAudit] [bit] NULL,
+ CONSTRAINT [PK_UserGroup] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+/****** Object:  Table [dbo].[UserForm]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[UserForm](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[FormName] [nvarchar](100) NULL,
+	[Content] [ntext] NULL,
+ CONSTRAINT [PK_UserForm] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+/****** Object:  Table [dbo].[UserClassRelation]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[UserClassRelation](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[UserID] [int] NULL,
+	[ClassID] [int] NULL,
+ CONSTRAINT [PK_UserClassRelation] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+/****** Object:  Table [dbo].[User]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[User](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[UserName] [nvarchar](50) NULL,
+	[UserPass] [nvarchar](50) NULL,
+	[Email] [nvarchar](255) NULL,
+	[ChineseName] [nvarchar](50) NULL,
+	[QQ] [nvarchar](50) NULL,
+	[MSN] [nvarchar](50) NULL,
+	[Tel] [nvarchar](50) NULL,
+	[Mobile] [nvarchar](50) NULL,
+	[WebSite] [nvarchar](255) NULL,
+	[Image] [nvarchar](255) NULL,
+	[Address] [nvarchar](255) NULL,
+	[ZipCode] [nvarchar](50) NULL,
+	[Intro] [nvarchar](512) NULL,
+	[RegTime] [datetime] NULL,
+	[RegIP] [nvarchar](50) NULL,
+	[LoginCount] [int] NULL,
+	[LastLoginTime] [datetime] NULL,
+	[LastLoginIP] [nvarchar](50) NULL,
+	[Cent] [int] NULL,
+	[PostCount] [int] NULL,
+	[GTalk] [nvarchar](255) NULL,
+	[Twitter] [nvarchar](255) NULL,
+	[weibo] [nvarchar](255) NULL,
+	[ICQ] [nvarchar](255) NULL,
+	[Group] [int] NULL,
+	[Enable] [bit] NULL,
+	[StudentNo] [nvarchar](50) NULL,
+	[TeachNo] [nvarchar](50) NULL,
+ CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+/****** Object:  Table [dbo].[TemplTags]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[TemplTags](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[TagName] [nvarchar](50) NULL,
+	[TagCode] [nvarchar](50) NULL,
+	[FunctionName] [nvarchar](255) NULL,
+	[TagFormat] [nvarchar](255) NULL,
+	[Remark] [ntext] NULL,
+	[Enable] [bit] NULL,
+	[TagIndex] [int] NULL,
+ CONSTRAINT [PK_TemplTags] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+/****** Object:  Table [dbo].[TemplateVar]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[TemplateVar](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[GroupID] [int] NULL,
+	[VarName] [nvarchar](50) NULL,
+	[Content] [ntext] NULL,
+ CONSTRAINT [PK_TemplateVar] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+/****** Object:  Table [dbo].[TemplateSearch]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[TemplateSearch](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[GroupID] [int] NULL,
+	[TempName] [nvarchar](50) NULL,
+	[SysModel] [int] NULL,
+	[CutKeywords] [int] NULL,
+	[CutTitle] [int] NULL,
+	[ShowRecordCount] [int] NULL,
+	[TimeFormat] [nvarchar](50) NULL,
+	[Content] [ntext] NULL,
+	[ListVar] [ntext] NULL,
+ CONSTRAINT [PK_TemplateSearch] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+/****** Object:  Table [dbo].[TemplateReply]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[TemplateReply](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[GroupID] [int] NULL,
+	[Content] [ntext] NULL,
+ CONSTRAINT [PK_TemplateReply] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+/****** Object:  Table [dbo].[TemplatePublic]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[TemplatePublic](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[GroupID] [int] NULL,
+	[IndexContent] [ntext] NULL,
+	[Controlcontent] [ntext] NULL,
+	[SiteSearchContent] [ntext] NULL,
+	[AdvancedSearch] [ntext] NULL,
+	[HorizontaSearch] [ntext] NULL,
+	[VerticalSearch] [ntext] NULL,
+	[RelationInfo] [ntext] NULL,
+	[MessageBoard] [ntext] NULL,
+	[Reply] [ntext] NULL,
+	[FinalDown] [ntext] NULL,
+	[DownAddress] [ntext] NULL,
+	[OLPlayaddress] [ntext] NULL,
+	[ListPager] [ntext] NULL,
+	[LoginStatus] [ntext] NULL,
+	[JSLogin] [ntext] NULL,
+	[ImageList] [ntext] NULL,
+	[AnswerList] [ntext] NULL,
+	[ChapterList] [ntext] NULL,
+	[BookChapter] [ntext] NULL,
+	[KuaiboPage] [ntext] NULL,
+	[BaiduPage] [ntext] NULL,
+	[SingleDrama] [ntext] NULL,
+ CONSTRAINT [PK_TemplatePublic] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+/****** Object:  Table [dbo].[TemplatePage]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[TemplatePage](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[Enable] [bit] NULL,
+	[PageName] [nvarchar](500) NULL,
+	[FileName] [nvarchar](255) NULL,
+	[Content] [ntext] NULL,
+	[CreateWith] [int] NULL,
+ CONSTRAINT [PK_TemplatePage] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'0不生成 1首页 2列表 3内容 4章节、播放、图片等内页' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'TemplatePage', @level2type=N'COLUMN',@level2name=N'CreateWith'
+
+/****** Object:  Table [dbo].[TemplateList]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[TemplateList](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[GroupID] [int] NULL,
+	[TempName] [nvarchar](50) NULL,
+	[SysModel] [int] NULL,
+	[CutKeywords] [int] NULL,
+	[CutTitle] [int] NULL,
+	[ShowRecordCount] [int] NULL,
+	[TimeFormat] [nvarchar](50) NULL,
+	[Content] [ntext] NULL,
+	[ListVar] [ntext] NULL,
+ CONSTRAINT [PK_TemplateList] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+/****** Object:  Table [dbo].[TemplateGroup]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[TemplateGroup](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[GroupName] [nvarchar](50) NULL,
+	[IsDefault] [bit] NULL,
+ CONSTRAINT [PK_TemplateGroup] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+/****** Object:  Table [dbo].[TemplateFace]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[TemplateFace](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[GroupID] [int] NULL,
+	[Content] [ntext] NULL,
+ CONSTRAINT [PK_TemplateFace] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+/****** Object:  Table [dbo].[TemplateContent]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[TemplateContent](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[GroupID] [int] NULL,
+	[SysModel] [int] NULL,
+	[TempName] [nvarchar](50) NULL,
+	[TimeFormat] [nvarchar](50) NULL,
+	[Content] [ntext] NULL,
+ CONSTRAINT [PK_TemplateContent] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+/****** Object:  Table [dbo].[SysUser]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[SysUser](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[UserName] [nvarchar](50) NULL,
+	[UserPass] [nvarchar](50) NULL,
+	[Logincount] [bigint] NULL,
+	[LastLoginTime] [datetime] NULL,
+	[LastLoginIP] [nvarchar](50) NULL,
+	[SafeQuestion] [nvarchar](50) NULL,
+	[SafeAnswer] [nvarchar](50) NULL,
+	[Department] [int] NULL,
+	[ChineseName] [nvarchar](50) NULL,
+	[UserGroup] [int] NULL,
+	[Email] [nvarchar](50) NULL,
+	[TelNumber] [nvarchar](50) NULL,
+	[Enabled] [bit] NULL,
+ CONSTRAINT [PK_SysUser] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+/****** Object:  Table [dbo].[SysRole]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[SysRole](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[RoleName] [nvarchar](50) NULL,
+	[RoleGroup] [int] NULL,
+	[URL] [nvarchar](255) NULL,
+	[AddRole] [bit] NULL,
+	[EditRole] [bit] NULL,
+	[DelRole] [bit] NULL,
+ CONSTRAINT [PK_SysRole] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+/****** Object:  Table [dbo].[SysModel]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[SysModel](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[ModelName] [nvarchar](50) NULL,
+	[TableName] [nvarchar](50) NULL,
+	[SonClass] [nvarchar](255) NULL,
+ CONSTRAINT [PK_SysModel] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'模型名称' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SysModel', @level2type=N'COLUMN',@level2name=N'ModelName'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'表' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SysModel', @level2type=N'COLUMN',@level2name=N'TableName'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'子类' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SysModel', @level2type=N'COLUMN',@level2name=N'SonClass'
+
+/****** Object:  Table [dbo].[SysKeyword]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[SysKeyword](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Keyword] [nvarchar](50) NULL,
+	[ModelID] [int] NULL,
+	[ClickCount] [int] NULL,
+ CONSTRAINT [PK_SysKeyword] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+/****** Object:  Table [dbo].[SysGroup]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[SysGroup](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[GroupName] [nvarchar](50) NULL,
+ CONSTRAINT [PK_SysGroup] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+/****** Object:  Table [dbo].[SysDepartment]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[SysDepartment](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[DepartName] [nvarchar](50) NULL,
+ CONSTRAINT [PK_SysDepartment] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+/****** Object:  Table [dbo].[Relpy]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[Relpy](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[ModelID] [int] NULL,
+	[NewsID] [int] NULL,
+	[UserID] [int] NULL,
+	[UserName] [nvarchar](50) NULL,
+	[IP] [nvarchar](50) NULL,
+	[ReplyTime] [datetime] NULL,
+	[Content] [ntext] NULL,
+ CONSTRAINT [PK_Relpy] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+/****** Object:  Table [dbo].[Question]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[Question](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[ClassID] [int] NULL,
+	[ZtID] [int] NULL,
+	[Title] [nvarchar](255) NULL,
+	[Content] [ntext] NULL,
+	[UserID] [int] NULL,
+	[UserName] [nvarchar](50) NULL,
+	[AskTime] [datetime] NULL,
+	[ClickCount] [int] NULL,
+ CONSTRAINT [PK_Question] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'问题' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Question', @level2type=N'COLUMN',@level2name=N'Title'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'内容' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Question', @level2type=N'COLUMN',@level2name=N'Content'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'提问者ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Question', @level2type=N'COLUMN',@level2name=N'UserID'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'提问者账号' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Question', @level2type=N'COLUMN',@level2name=N'UserName'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'提问时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Question', @level2type=N'COLUMN',@level2name=N'AskTime'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'浏览次数' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Question', @level2type=N'COLUMN',@level2name=N'ClickCount'
+
+/****** Object:  Table [dbo].[News]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[News](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[NewsTime] [datetime] NULL,
+	[Title] [nvarchar](100) NULL,
+	[TitleB] [bit] NULL,
+	[TitleI] [bit] NULL,
+	[TitleS] [bit] NULL,
+	[TitleColor] [nvarchar](50) NULL,
+	[FTitle] [nvarchar](100) NULL,
+	[Audit] [bit] NULL,
+	[Tuijian] [bit] NULL,
+	[Toutiao] [bit] NULL,
+	[KeyWords] [nvarchar](200) NULL,
+	[NavUrl] [nvarchar](255) NULL,
+	[TitleImage] [nvarchar](255) NULL,
+	[Description] [nvarchar](512) NULL,
+	[Author] [nvarchar](50) NULL,
+	[AutorID] [int] NULL,
+	[Content] [ntext] NULL,
+	[SetTop] [bit] NULL,
+	[ModelID] [int] NULL,
+	[ClickCount] [int] NULL,
+	[DownCount] [int] NULL,
+	[FileForder] [nvarchar](50) NULL,
+	[FileName] [nvarchar](50) NULL,
+	[ZtID] [int] NULL,
+	[ClassID] [int] NULL,
+	[ReplyCount] [int] NULL,
+	[Source] [nvarchar](50) NULL,
+	[EnableReply] [bit] NULL,
+ CONSTRAINT [PK_News] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+/****** Object:  Table [dbo].[MovieUrlMag]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[MovieUrlMag](
+	[id] [bigint] IDENTITY(1,1) NOT NULL,
+	[MovieID] [int] NULL,
+	[MovieTitle] [nvarchar](50) NULL,
+	[Title] [nvarchar](50) NULL,
+	[UpdateTime] [datetime] NULL,
+	[Enable] [bit] NULL,
+	[Url] [nvarchar](500) NULL,
+ CONSTRAINT [PK_MovieUrlMag] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+/****** Object:  Table [dbo].[MovieUrlKuaib]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[MovieUrlKuaib](
+	[id] [bigint] IDENTITY(1,1) NOT NULL,
+	[MovieID] [int] NULL,
+	[MovieTitle] [nvarchar](50) NULL,
+	[Title] [nvarchar](50) NULL,
+	[UpdateTime] [datetime] NULL,
+	[Enable] [bit] NULL,
+	[Url] [nvarchar](500) NULL,
+ CONSTRAINT [PK_MovieUrlKuaib] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+/****** Object:  Table [dbo].[MovieUrlBaidu]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[MovieUrlBaidu](
+	[id] [bigint] IDENTITY(1,1) NOT NULL,
+	[MovieID] [int] NULL,
+	[MovieTitle] [nvarchar](255) NULL,
+	[Title] [nvarchar](255) NULL,
+	[UpdateTime] [datetime] NULL,
+	[Enable] [bit] NULL,
+	[Url] [nvarchar](500) NULL,
+ CONSTRAINT [PK_MovieUrlBaidu] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+/****** Object:  Table [dbo].[MovieUrl]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[MovieUrl](
+	[id] [bigint] IDENTITY(1,1) NOT NULL,
+	[MoviewID] [int] NULL,
+	[MoviewTitle] [nvarchar](50) NULL,
+	[Title] [nvarchar](50) NULL,
+	[UpdateTime] [datetime] NULL,
+	[Enable] [bit] NULL,
+	[HttpUrl] [nvarchar](1000) NULL,
+	[MagUrl] [nvarchar](1000) NULL,
+	[KuaibUrl] [nvarchar](1000) NULL,
+	[BaiduUrl] [nvarchar](1000) NULL,
+ CONSTRAINT [PK_MovieUrl] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+/****** Object:  Table [dbo].[MovieInfo]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[MovieInfo](
+	[id] [int] IDENTITY(21114,1) NOT NULL,
+	[ClassID] [int] NULL,
+	[ClassName] [nvarchar](50) NULL,
+	[Title] [nvarchar](50) NULL,
+	[Director] [nvarchar](50) NULL,
+	[Actors] [nvarchar](500) NULL,
+	[Tags] [nvarchar](50) NULL,
+	[Location] [nvarchar](50) NULL,
+	[PublicYear] [nvarchar](50) NULL,
+	[Intro] [nvarchar](4000) NULL,
+	[IsMove] [bit] NULL,
+	[FaceImage] [nvarchar](500) NULL,
+	[InsertTime] [datetime] NULL,
+	[LastDramaTitle] [nvarchar](500) NULL,
+	[LastDramaID] [bigint] NULL,
+	[UpdateTime] [datetime] NULL,
+	[Status] [int] NULL,
+	[Enable] [bit] NULL,
+	[ReplyCount] [bigint] NULL,
+	[TjCount] [bigint] NULL,
+	[ScoreAvg] [decimal](18, 0) NULL,
+	[ScoreTime] [bigint] NULL,
+	[Info] [ntext] NULL,
+	[ClickCount] [bigint] NULL,
+	[MonthClick] [bigint] NULL,
+	[WeekClick] [bigint] NULL,
+	[DayClick] [bigint] NULL,
+	[LastClickTime] [datetime] NULL,
+	[StandardTitle] [nvarchar](50) NULL,
+ CONSTRAINT [PK_MovieInfo] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'总点击数' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'MovieInfo', @level2type=N'COLUMN',@level2name=N'ClickCount'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'月点击数' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'MovieInfo', @level2type=N'COLUMN',@level2name=N'MonthClick'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'周点击数' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'MovieInfo', @level2type=N'COLUMN',@level2name=N'WeekClick'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'日点击数' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'MovieInfo', @level2type=N'COLUMN',@level2name=N'DayClick'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'最后点击时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'MovieInfo', @level2type=N'COLUMN',@level2name=N'LastClickTime'
+
+/****** Object:  Table [dbo].[MovieDramaUrl]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[MovieDramaUrl](
+	[id] [bigint] IDENTITY(1,1) NOT NULL,
+	[MovieID] [int] NULL,
+	[MovieTitle] [nvarchar](50) NULL,
+	[MovieDramaID] [bigint] NULL,
+	[MovieDramaTitle] [nvarchar](50) NULL,
+	[Title] [nvarchar](50) NULL,
+	[UpdateTime] [datetime] NULL,
+	[Enable] [bit] NULL,
+	[Url] [nvarchar](500) NULL,
+	[SourceSite] [nvarchar](50) NULL,
+ CONSTRAINT [PK_MovieDramaUrl] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+/****** Object:  Table [dbo].[MovieDrama]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[MovieDrama](
+	[id] [bigint] IDENTITY(1,1) NOT NULL,
+	[MovieID] [int] NULL,
+	[MovieTitle] [nvarchar](50) NULL,
+	[Title] [nvarchar](50) NULL,
+	[UpdateTime] [datetime] NULL,
+	[Enable] [bit] NULL,
+ CONSTRAINT [PK_MovieDrama] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+/****** Object:  Table [dbo].[Link]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[Link](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[LinkTitle] [nvarchar](100) NULL,
+	[Url] [nvarchar](255) NULL,
+	[Index] [int] NULL,
+ CONSTRAINT [PK_Link] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+/****** Object:  Table [dbo].[InfoType]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[InfoType](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[TypeName] [nvarchar](50) NULL,
+	[TemplateIndex] [text] NULL,
+	[TemplateList] [text] NULL,
+	[TemlateAdminForm] [text] NULL,
+	[TemplateForm] [text] NULL,
+	[TemplateContent] [text] NULL,
+	[num1] [nvarchar](50) NULL,
+	[num2] [nvarchar](50) NULL,
+	[num3] [nvarchar](50) NULL,
+	[num4] [nvarchar](50) NULL,
+	[num5] [nvarchar](50) NULL,
+	[num6] [nvarchar](50) NULL,
+	[num7] [nvarchar](50) NULL,
+	[num8] [nvarchar](50) NULL,
+	[num9] [nvarchar](50) NULL,
+	[num10] [nvarchar](50) NULL,
+	[nvarchar1] [nvarchar](50) NULL,
+	[nvarchar2] [nvarchar](50) NULL,
+	[nvarchar3] [nvarchar](50) NULL,
+	[nvarchar4] [nvarchar](50) NULL,
+	[nvarchar5] [nvarchar](50) NULL,
+	[nvarchar6] [nvarchar](50) NULL,
+	[nvarchar7] [nvarchar](50) NULL,
+	[nvarchar8] [nvarchar](50) NULL,
+	[nvarchar9] [nvarchar](50) NULL,
+	[nvarchar10] [nvarchar](50) NULL,
+	[nvarchar11] [nvarchar](50) NULL,
+	[nvarchar12] [nvarchar](50) NULL,
+	[nvarchar13] [nvarchar](50) NULL,
+	[nvarchar14] [nvarchar](50) NULL,
+	[nvarchar15] [nvarchar](50) NULL,
+	[decimal1] [nvarchar](50) NULL,
+	[decimal2] [nvarchar](50) NULL,
+	[decimal3] [nvarchar](50) NULL,
+	[decimal4] [nvarchar](50) NULL,
+	[decimal5] [nvarchar](50) NULL,
+	[text1] [nvarchar](50) NULL,
+	[text2] [nvarchar](50) NULL,
+	[text3] [nvarchar](50) NULL,
+	[text4] [nvarchar](50) NULL,
+	[text5] [nvarchar](50) NULL,
+	[bit1] [nvarchar](50) NULL,
+	[bit2] [nvarchar](50) NULL,
+	[bit3] [nvarchar](50) NULL,
+	[bit4] [nvarchar](50) NULL,
+	[bit5] [nvarchar](50) NULL,
+ CONSTRAINT [PK_InfoType] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+/****** Object:  Table [dbo].[InfoImage]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[InfoImage](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[ModelID] [int] NULL,
+	[InfoID] [int] NULL,
+	[Title] [nvarchar](255) NULL,
+	[Url] [nvarchar](500) NULL,
+ CONSTRAINT [PK_InfoImage] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'图片标题' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'InfoImage', @level2type=N'COLUMN',@level2name=N'Title'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'图片地址' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'InfoImage', @level2type=N'COLUMN',@level2name=N'Url'
+
+/****** Object:  Table [dbo].[Info]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[Info](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[InfoTypeID] [nvarchar](50) NULL,
+	[ClassID] [int] NULL,
+	[ClassName] [nvarchar](50) NULL,
+	[ZtID] [int] NULL,
+	[ZtName] [nvarchar](50) NULL,
+	[Title] [nvarchar](50) NULL,
+	[UserName] [nvarchar](50) NULL,
+	[UserID] [int] NULL,
+	[Contact] [nvarchar](50) NULL,
+	[ContactType] [nvarchar](50) NULL,
+	[Tel] [nvarchar](50) NULL,
+	[TelLocation] [nvarchar](50) NULL,
+	[Address] [nvarchar](255) NULL,
+	[Intro] [nvarchar](1000) NULL,
+	[ImageCount] [int] NULL,
+	[ReplyCount] [int] NULL,
+	[ClickCount] [int] NULL,
+	[IsSetTop] [bit] NULL,
+	[OutTime] [datetime] NULL,
+	[PostTime] [datetime] NULL,
+	[num1] [int] NULL,
+	[num2] [int] NULL,
+	[num3] [int] NULL,
+	[num4] [int] NULL,
+	[num5] [int] NULL,
+	[num6] [int] NULL,
+	[num7] [int] NULL,
+	[num8] [int] NULL,
+	[num9] [int] NULL,
+	[num10] [int] NULL,
+	[nvarchar1] [nvarchar](255) NULL,
+	[nvarchar2] [nvarchar](255) NULL,
+	[nvarchar3] [nvarchar](255) NULL,
+	[nvarchar4] [nvarchar](255) NULL,
+	[nvarchar5] [nvarchar](255) NULL,
+	[nvarchar6] [nvarchar](255) NULL,
+	[nvarchar7] [nvarchar](255) NULL,
+	[nvarchar8] [nvarchar](255) NULL,
+	[nvarchar9] [nvarchar](255) NULL,
+	[nvarchar10] [nvarchar](255) NULL,
+	[nvarchar11] [nvarchar](50) NULL,
+	[nvarchar12] [nvarchar](50) NULL,
+	[nvarchar13] [nvarchar](50) NULL,
+	[nvarchar14] [nvarchar](50) NULL,
+	[nvarchar15] [nvarchar](50) NULL,
+	[decimal1] [decimal](18, 2) NULL,
+	[decimal2] [decimal](18, 2) NULL,
+	[decimal3] [decimal](18, 2) NULL,
+	[decimal4] [decimal](18, 2) NULL,
+	[decimal5] [decimal](18, 2) NULL,
+	[text1] [nvarchar](1000) NULL,
+	[text2] [nvarchar](1000) NULL,
+	[text3] [nvarchar](1000) NULL,
+	[text4] [nvarchar](1000) NULL,
+	[text5] [nvarchar](1000) NULL,
+	[bit1] [bit] NULL,
+	[bit2] [bit] NULL,
+	[bit3] [bit] NULL,
+	[bit4] [bit] NULL,
+	[bit5] [bit] NULL,
+ CONSTRAINT [PK_Info] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+/****** Object:  Table [dbo].[Images]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[Images](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[AlbumID] [int] NULL,
+	[Title] [nvarchar](255) NULL,
+	[Intro] [nvarchar](500) NULL,
+	[UploadTime] [datetime] NULL,
+	[ClickCount] [int] NULL,
+	[ReplyCount] [int] NULL,
+	[FilePath] [nvarchar](255) NULL,
+	[SmallPath] [nvarchar](255) NULL,
+	[FileSize] [int] NULL,
+	[ExtName] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Images] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'相册ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Images', @level2type=N'COLUMN',@level2name=N'AlbumID'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'标题' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Images', @level2type=N'COLUMN',@level2name=N'Title'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'简介' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Images', @level2type=N'COLUMN',@level2name=N'Intro'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'上传时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Images', @level2type=N'COLUMN',@level2name=N'UploadTime'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'点击数' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Images', @level2type=N'COLUMN',@level2name=N'ClickCount'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'评论数' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Images', @level2type=N'COLUMN',@level2name=N'ReplyCount'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'图片地址' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Images', @level2type=N'COLUMN',@level2name=N'FilePath'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'缩略图地址' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Images', @level2type=N'COLUMN',@level2name=N'SmallPath'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'文件大小' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Images', @level2type=N'COLUMN',@level2name=N'FileSize'
+
+/****** Object:  Table [dbo].[ImageAlbum]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[ImageAlbum](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[ClassID] [int] NULL,
+	[ZtID] [int] NULL,
+	[AuthorID] [int] NULL,
+	[Author] [nvarchar](50) NULL,
+	[Title] [nvarchar](255) NULL,
+	[CreateTime] [datetime] NULL,
+	[UpdateTime] [datetime] NULL,
+	[Intro] [nvarchar](500) NULL,
+	[Size] [int] NULL,
+	[Folder] [nvarchar](255) NULL,
+	[ClickCount] [int] NULL,
+	[ReplyCount] [int] NULL,
+	[SetTop] [bit] NULL,
+	[ShotCut] [nvarchar](255) NULL,
+	[KeyWords] [nvarchar](255) NULL,
+ CONSTRAINT [PK_ImageAlbum] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'所属栏目' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ImageAlbum', @level2type=N'COLUMN',@level2name=N'ClassID'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'专题ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ImageAlbum', @level2type=N'COLUMN',@level2name=N'ZtID'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'作者ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ImageAlbum', @level2type=N'COLUMN',@level2name=N'AuthorID'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'作者' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ImageAlbum', @level2type=N'COLUMN',@level2name=N'Author'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'相册标题' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ImageAlbum', @level2type=N'COLUMN',@level2name=N'Title'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ImageAlbum', @level2type=N'COLUMN',@level2name=N'CreateTime'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'更新时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ImageAlbum', @level2type=N'COLUMN',@level2name=N'UpdateTime'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'简介' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ImageAlbum', @level2type=N'COLUMN',@level2name=N'Intro'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'图片数量' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ImageAlbum', @level2type=N'COLUMN',@level2name=N'Size'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'存放文件夹' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ImageAlbum', @level2type=N'COLUMN',@level2name=N'Folder'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'点击数' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ImageAlbum', @level2type=N'COLUMN',@level2name=N'ClickCount'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'评论数量' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ImageAlbum', @level2type=N'COLUMN',@level2name=N'ReplyCount'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'置顶' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ImageAlbum', @level2type=N'COLUMN',@level2name=N'SetTop'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'封面' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ImageAlbum', @level2type=N'COLUMN',@level2name=N'ShotCut'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'关键词' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ImageAlbum', @level2type=N'COLUMN',@level2name=N'KeyWords'
+
+/****** Object:  Table [dbo].[GroupRole]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[GroupRole](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[UserID] [int] NULL,
+	[RoleID] [int] NULL,
+ CONSTRAINT [PK_GroupRole] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+/****** Object:  Table [dbo].[File]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[File](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[ClassID] [int] NULL,
+	[UpTime] [datetime] NULL,
+	[FileType] [int] NULL,
+	[FileSize] [bigint] NULL,
+	[FileDirectory] [nvarchar](255) NULL,
+	[FileName] [nvarchar](255) NULL,
+	[FileExtName] [nvarchar](255) NULL,
+	[FilePath] [nvarchar](500) NULL,
+	[SmallPath] [nvarchar](500) NULL,
+ CONSTRAINT [PK_File] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+/****** Object:  Table [dbo].[Class]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[Class](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[ClassName] [nvarchar](50) NULL,
+	[Alter] [nvarchar](50) NULL,
+	[ParentID] [int] NULL,
+	[IsLeafClass] [bit] NULL,
+	[ParentClassForder] [nvarchar](50) NULL,
+	[ClassForder] [nvarchar](50) NULL,
+	[ModelID] [int] NULL,
+	[ClassKeywords] [nvarchar](255) NULL,
+	[ClassDescription] [nvarchar](512) NULL,
+	[ClassICON] [nvarchar](255) NULL,
+	[ShowInNav] [bit] NULL,
+	[NavIndex] [int] NULL,
+	[VisitRole] [nvarchar](512) NULL,
+	[EnablePost] [bit] NULL,
+	[EnableVCode] [bit] NULL,
+	[PostRoles] [nvarchar](512) NULL,
+	[PostcreateList] [int] NULL,
+	[PostAddCent] [int] NULL,
+	[NeedAudit] [bit] NULL,
+	[PostManagement] [int] NULL,
+	[EditcreateList] [int] NULL,
+	[EnableSameTitle] [bit] NULL,
+	[AutoAudt] [bit] NULL,
+	[EnableReply] [bit] NULL,
+	[ReplyNeedAudit] [bit] NULL,
+	[ListModel] [int] NULL,
+	[ContentModel] [int] NULL,
+	[ReplyModel] [int] NULL,
+	[SearchModel] [int] NULL,
+	[ClassPageMode] [int] NULL,
+	[ContentPageMode] [int] NULL,
+	[ManagementOrder] [nvarchar](512) NULL,
+	[ListPageOrder] [nvarchar](512) NULL,
+	[ClassPageExtName] [nvarchar](50) NULL,
+	[ListPageSize] [int] NULL,
+	[ContentPageForder] [nvarchar](512) NULL,
+	[ContentPageExtName] [nvarchar](50) NULL,
+	[ContentPageNameMode] [int] NULL,
+	[ContentPageDirMode] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Class] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+/****** Object:  Table [dbo].[BookVolume]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[BookVolume](
+	[ID] [bigint] IDENTITY(1,1) NOT NULL,
+	[BookID] [int] NOT NULL,
+	[booktitle] [nvarchar](100) NULL,
+	[booknclass] [nvarchar](50) NULL,
+ CONSTRAINT [PK_BookVolume] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+/****** Object:  Table [dbo].[BookRole]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[BookRole](
+	[id] [bigint] IDENTITY(1,1) NOT NULL,
+	[BookID] [int] NULL,
+	[RoleName] [nvarchar](50) NULL,
+	[Intro] [nvarchar](2000) NULL,
+ CONSTRAINT [PK_BookRole] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+/****** Object:  Table [dbo].[BookChapter]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[BookChapter](
+	[ID] [bigint] IDENTITY(1,1) NOT NULL,
+	[BookID] [int] NOT NULL,
+	[BookTitle] [nvarchar](200) NULL,
+	[ClassID] [bigint] NOT NULL,
+	[ClassName] [nvarchar](100) NULL,
+	[ValumeID] [bigint] NOT NULL,
+	[ValumeName] [nvarchar](100) NULL,
+	[Title] [nvarchar](200) NULL,
+	[IsVipChapter] [bit] NULL,
+	[TextLength] [int] NULL,
+	[UpdateTime] [datetime] NOT NULL,
+	[Enable] [bit] NULL,
+	[IsTemp] [bit] NULL,
+	[IsFree] [bit] NULL,
+	[ChapterIndex] [int] NOT NULL,
+	[IsImageChapter] [bit] NULL,
+	[Content] [ntext] NULL,
+	[ClickCount] [int] NULL,
+ CONSTRAINT [PK_BookChapter] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+/****** Object:  Table [dbo].[Book]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[Book](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[ClassID] [int] NOT NULL,
+	[ClassName] [nvarchar](50) NULL,
+	[ZtID] [int] NULL,
+	[ZtName] [nvarchar](50) NULL,
+	[Title] [nvarchar](100) NULL,
+	[Author] [nvarchar](100) NULL,
+	[Intro] [ntext] NULL,
+	[Length] [bigint] NULL,
+	[ReplyCount] [bigint] NULL,
+	[ClickCount] [bigint] NULL,
+	[Addtime] [datetime] NULL,
+	[Status] [tinyint] NULL,
+	[IsVip] [bit] NULL,
+	[FaceImage] [nvarchar](100) NULL,
+	[SaveCount] [bigint] NULL,
+	[Enable] [bit] NULL,
+	[IsFirstPost] [bit] NULL,
+	[LastChapterID] [bigint] NULL,
+	[LastChapterTitle] [nvarchar](100) NULL,
+	[UpdateTime] [datetime] NULL,
+	[LastVipChapterID] [bigint] NULL,
+	[LastVipChapterTitle] [nvarchar](100) NULL,
+	[VipUpdateTime] [datetime] NULL,
+	[CorpusID] [int] NULL,
+	[CorpusTitle] [nvarchar](200) NULL,
+	[TjCount] [int] NULL,
+ CONSTRAINT [PK_Book] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+/****** Object:  Table [dbo].[Answer]    Script Date: 06/28/2012 14:53:49 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[Answer](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[QuestionID] [int] NULL,
+	[Content] [ntext] NULL,
+	[UserID] [int] NULL,
+	[UserName] [nvarchar](50) NULL,
+	[AnswerTime] [datetime] NULL,
+	[Agree] [int] NULL,
+ CONSTRAINT [PK_Answer] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'回答' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Answer', @level2type=N'COLUMN',@level2name=N'Content'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'用户Id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Answer', @level2type=N'COLUMN',@level2name=N'UserID'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'用户账号' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Answer', @level2type=N'COLUMN',@level2name=N'UserName'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'回答时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Answer', @level2type=N'COLUMN',@level2name=N'AnswerTime'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'赞同' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Answer', @level2type=N'COLUMN',@level2name=N'Agree'
+
+/****** Object:  Default [DF_Answer_Agree]    Script Date: 06/28/2012 14:53:49 ******/
+ALTER TABLE [dbo].[Answer] ADD  CONSTRAINT [DF_Answer_Agree]  DEFAULT ((0)) FOR [Agree]
+
+/****** Object:  Default [DF_Book_TjCount]    Script Date: 06/28/2012 14:53:49 ******/
+ALTER TABLE [dbo].[Book] ADD  CONSTRAINT [DF_Book_TjCount]  DEFAULT ((0)) FOR [TjCount]
+
+/****** Object:  Default [DF_BookChapter_ChapterIndex]    Script Date: 06/28/2012 14:53:49 ******/
+ALTER TABLE [dbo].[BookChapter] ADD  CONSTRAINT [DF_BookChapter_ChapterIndex]  DEFAULT ((0)) FOR [ChapterIndex]
+
+/****** Object:  Default [DF_BookChapter_ClickCount]    Script Date: 06/28/2012 14:53:49 ******/
+ALTER TABLE [dbo].[BookChapter] ADD  CONSTRAINT [DF_BookChapter_ClickCount]  DEFAULT ((0)) FOR [ClickCount]
+
+/****** Object:  Default [DF_MovieDrama_UpdateTime]    Script Date: 06/28/2012 14:53:49 ******/
+ALTER TABLE [dbo].[MovieDrama] ADD  CONSTRAINT [DF_MovieDrama_UpdateTime]  DEFAULT (getdate()) FOR [UpdateTime]
+
+/****** Object:  Default [DF_MovieDramaUrl_UpdateTime]    Script Date: 06/28/2012 14:53:49 ******/
+ALTER TABLE [dbo].[MovieDramaUrl] ADD  CONSTRAINT [DF_MovieDramaUrl_UpdateTime]  DEFAULT (getdate()) FOR [UpdateTime]
+
+/****** Object:  Default [DF_MovieInfo_ReplyCount]    Script Date: 06/28/2012 14:53:49 ******/
+ALTER TABLE [dbo].[MovieInfo] ADD  CONSTRAINT [DF_MovieInfo_ReplyCount]  DEFAULT ((0)) FOR [ReplyCount]
+
+/****** Object:  Default [DF_MovieInfo_TjCount]    Script Date: 06/28/2012 14:53:49 ******/
+ALTER TABLE [dbo].[MovieInfo] ADD  CONSTRAINT [DF_MovieInfo_TjCount]  DEFAULT ((0)) FOR [TjCount]
+
+/****** Object:  Default [DF_MovieInfo_ScoreAvg]    Script Date: 06/28/2012 14:53:49 ******/
+ALTER TABLE [dbo].[MovieInfo] ADD  CONSTRAINT [DF_MovieInfo_ScoreAvg]  DEFAULT ((10)) FOR [ScoreAvg]
+
+/****** Object:  Default [DF_MovieInfo_ScoreTime]    Script Date: 06/28/2012 14:53:49 ******/
+ALTER TABLE [dbo].[MovieInfo] ADD  CONSTRAINT [DF_MovieInfo_ScoreTime]  DEFAULT ((0)) FOR [ScoreTime]
+
+/****** Object:  Default [DF_MovieInfo_ClickCount]    Script Date: 06/28/2012 14:53:49 ******/
+ALTER TABLE [dbo].[MovieInfo] ADD  CONSTRAINT [DF_MovieInfo_ClickCount]  DEFAULT ((0)) FOR [ClickCount]
+
+/****** Object:  Default [DF_MovieInfo_MonthClick]    Script Date: 06/28/2012 14:53:49 ******/
+ALTER TABLE [dbo].[MovieInfo] ADD  CONSTRAINT [DF_MovieInfo_MonthClick]  DEFAULT ((0)) FOR [MonthClick]
+
+/****** Object:  Default [DF_MovieInfo_WeekClick]    Script Date: 06/28/2012 14:53:49 ******/
+ALTER TABLE [dbo].[MovieInfo] ADD  CONSTRAINT [DF_MovieInfo_WeekClick]  DEFAULT ((0)) FOR [WeekClick]
+
+/****** Object:  Default [DF_MovieInfo_DayClick]    Script Date: 06/28/2012 14:53:49 ******/
+ALTER TABLE [dbo].[MovieInfo] ADD  CONSTRAINT [DF_MovieInfo_DayClick]  DEFAULT ((0)) FOR [DayClick]
+
+/****** Object:  Default [DF_MovieInfo_LastClickTime]    Script Date: 06/28/2012 14:53:49 ******/
+ALTER TABLE [dbo].[MovieInfo] ADD  CONSTRAINT [DF_MovieInfo_LastClickTime]  DEFAULT (getdate()) FOR [LastClickTime]
+
+/****** Object:  Default [DF_MovieUrlBaidu_UpdateTime]    Script Date: 06/28/2012 14:53:49 ******/
+ALTER TABLE [dbo].[MovieUrlBaidu] ADD  CONSTRAINT [DF_MovieUrlBaidu_UpdateTime]  DEFAULT (getdate()) FOR [UpdateTime]
+
+/****** Object:  Default [DF_MovieUrlKuaib_UpdateTime]    Script Date: 06/28/2012 14:53:49 ******/
+ALTER TABLE [dbo].[MovieUrlKuaib] ADD  CONSTRAINT [DF_MovieUrlKuaib_UpdateTime]  DEFAULT (getdate()) FOR [UpdateTime]
+
+/****** Object:  Default [DF_MovieUrlMag_UpdateTime]    Script Date: 06/28/2012 14:53:49 ******/
+ALTER TABLE [dbo].[MovieUrlMag] ADD  CONSTRAINT [DF_MovieUrlMag_UpdateTime]  DEFAULT (getdate()) FOR [UpdateTime]
+
+/****** Object:  Default [DF_Question_ZtID]    Script Date: 06/28/2012 14:53:49 ******/
+ALTER TABLE [dbo].[Question] ADD  CONSTRAINT [DF_Question_ZtID]  DEFAULT ((0)) FOR [ZtID]
+
+/****** Object:  Default [DF_SysKeyword_ModelID]    Script Date: 06/28/2012 14:53:49 ******/
+ALTER TABLE [dbo].[SysKeyword] ADD  CONSTRAINT [DF_SysKeyword_ModelID]  DEFAULT ((0)) FOR [ModelID]
+
+/****** Object:  Default [DF_SysKeyword_ClickCount]    Script Date: 06/28/2012 14:53:49 ******/
+ALTER TABLE [dbo].[SysKeyword] ADD  CONSTRAINT [DF_SysKeyword_ClickCount]  DEFAULT ((0)) FOR [ClickCount]
+
+/****** Object:  Default [DF_TemplatePage_CreateWith]    Script Date: 06/28/2012 14:53:49 ******/
+ALTER TABLE [dbo].[TemplatePage] ADD  CONSTRAINT [DF_TemplatePage_CreateWith]  DEFAULT ((0)) FOR [CreateWith]
+

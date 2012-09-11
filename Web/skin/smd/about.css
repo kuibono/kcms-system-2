@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* CSS Document */
+
+#h_menu
+{
+	width:203px;
+	background-image:url(images/left_bg.gif);
+	background-repeat:repeat-y;
+	min-height:500px;
+	
+}
+#h_menu ul li
+{
+	float:none;
+	height:30px;
+	line-height:30px;
+}
+#h_menu ul li a
+{
+	font-family:黑体;
+	font-weight:bold;
+	font-size:14px;
+}
+#h_menu .focus{
+	background-image:url(images/bg_focus_menu.gif);
+	background-repeat:no-repeat;
+}
+#h_menu .focus a{
+	color:#000;
+}
+#content_right
+{
+	max-width:730px;
+	padding-left:25px;
+}
+.fn h1{
+	font-size:16px;
+	font-family:黑体;
+	color:#bd0000;
+}
+.fn p
+{
+	font-family:黑体;
+}
+

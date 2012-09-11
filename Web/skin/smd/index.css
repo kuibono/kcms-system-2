@@ -1,0 +1,59 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+#menu
+{
+	height:512px;
+	background-image:url(images/blank_menu.gif);
+	background-repeat:no-repeat;
+}
+
+.index_item
+{
+	width:320px;	
+	float:left;
+}
+.item_head{
+	height:17px;
+	margin: 5px 0 0 0;
+}
+.item_text
+{
+	position:relative;
+}
+.more{
+	position:absolute;
+	right:12px;
+	bottom:5px;
+	font-weight:bold;
+}
+#item1
+{
+	background-image:url(images/bg_product.gif);
+	background-repeat:no-repeat;
+}
+#item2
+{
+	background-image:url(images/bg_about.gif);
+	background-repeat:no-repeat;
+}
+#item3
+{
+	background-image:url(images/bg_mall.gif);
+	background-repeat:no-repeat;
+}
+
+#contact_head
+{
+	background-image:url(images/bg_contact.gif);
+	background-repeat:no-repeat;
+	height:22px;
+}
+#address{
+	border-bottom: #6e6e6e 1px dotted;
+	margin-left:10px;
+}
+li {    
+ padding:5px 10px 0 10px;
+} 

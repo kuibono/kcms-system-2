@@ -1,0 +1,2387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+        <EntityContainer Name="DataModelStoreContainer">
+          <EntitySet Name="Answer" EntityType="DataModel.Store.Answer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Book" EntityType="DataModel.Store.Book" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BookChapter" EntityType="DataModel.Store.BookChapter" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BookRole" EntityType="DataModel.Store.BookRole" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BookVolume" EntityType="DataModel.Store.BookVolume" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Class" EntityType="DataModel.Store.Class" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="File" EntityType="DataModel.Store.File" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="GroupRole" EntityType="DataModel.Store.GroupRole" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ImageAlbum" EntityType="DataModel.Store.ImageAlbum" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Images" EntityType="DataModel.Store.Images" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Info" EntityType="DataModel.Store.Info" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="InfoImage" EntityType="DataModel.Store.InfoImage" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="InfoType" EntityType="DataModel.Store.InfoType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Link" EntityType="DataModel.Store.Link" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MovieDrama" EntityType="DataModel.Store.MovieDrama" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MovieDramaUrl" EntityType="DataModel.Store.MovieDramaUrl" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MovieInfo" EntityType="DataModel.Store.MovieInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MovieUrl" EntityType="DataModel.Store.MovieUrl" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MovieUrlBaidu" EntityType="DataModel.Store.MovieUrlBaidu" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MovieUrlKuaib" EntityType="DataModel.Store.MovieUrlKuaib" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MovieUrlMag" EntityType="DataModel.Store.MovieUrlMag" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="News" EntityType="DataModel.Store.News" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Question" EntityType="DataModel.Store.Question" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Relpy" EntityType="DataModel.Store.Relpy" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SysDepartment" EntityType="DataModel.Store.SysDepartment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SysGroup" EntityType="DataModel.Store.SysGroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SysKeyword" EntityType="DataModel.Store.SysKeyword" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SysModel" EntityType="DataModel.Store.SysModel" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SysRole" EntityType="DataModel.Store.SysRole" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SysUser" EntityType="DataModel.Store.SysUser" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TemplateContent" EntityType="DataModel.Store.TemplateContent" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TemplateFace" EntityType="DataModel.Store.TemplateFace" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TemplateGroup" EntityType="DataModel.Store.TemplateGroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TemplateList" EntityType="DataModel.Store.TemplateList" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TemplatePage" EntityType="DataModel.Store.TemplatePage" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TemplatePublic" EntityType="DataModel.Store.TemplatePublic" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TemplateReply" EntityType="DataModel.Store.TemplateReply" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TemplateSearch" EntityType="DataModel.Store.TemplateSearch" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TemplateVar" EntityType="DataModel.Store.TemplateVar" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TemplTags" EntityType="DataModel.Store.TemplTags" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="DataModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserClassRelation" EntityType="DataModel.Store.UserClassRelation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserForm" EntityType="DataModel.Store.UserForm" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserGroup" EntityType="DataModel.Store.UserGroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserRerm" EntityType="DataModel.Store.UserRerm" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Zt" EntityType="DataModel.Store.Zt" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Answer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionID" Type="int" />
+          <Property Name="Content" Type="ntext" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AnswerTime" Type="datetime" />
+          <Property Name="Agree" Type="int" />
+        </EntityType>
+        <EntityType Name="Book">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ClassID" Type="int" Nullable="false" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZtID" Type="int" />
+          <Property Name="ZtName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="Author" Type="nvarchar" MaxLength="100" />
+          <Property Name="Intro" Type="ntext" />
+          <Property Name="Length" Type="bigint" />
+          <Property Name="ReplyCount" Type="bigint" />
+          <Property Name="ClickCount" Type="bigint" />
+          <Property Name="Addtime" Type="datetime" />
+          <Property Name="Status" Type="tinyint" />
+          <Property Name="IsVip" Type="bit" />
+          <Property Name="FaceImage" Type="nvarchar" MaxLength="100" />
+          <Property Name="SaveCount" Type="bigint" />
+          <Property Name="Enable" Type="bit" />
+          <Property Name="IsFirstPost" Type="bit" />
+          <Property Name="LastChapterID" Type="bigint" />
+          <Property Name="LastChapterTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="LastVipChapterID" Type="bigint" />
+          <Property Name="LastVipChapterTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="VipUpdateTime" Type="datetime" />
+          <Property Name="CorpusID" Type="int" />
+          <Property Name="CorpusTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="TjCount" Type="int" />
+        </EntityType>
+        <EntityType Name="BookChapter">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BookID" Type="int" Nullable="false" />
+          <Property Name="BookTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="ClassID" Type="bigint" Nullable="false" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ValumeID" Type="bigint" Nullable="false" />
+          <Property Name="ValumeName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Title" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsVipChapter" Type="bit" />
+          <Property Name="TextLength" Type="int" />
+          <Property Name="UpdateTime" Type="datetime" Nullable="false" />
+          <Property Name="Enable" Type="bit" />
+          <Property Name="IsTemp" Type="bit" />
+          <Property Name="IsFree" Type="bit" />
+          <Property Name="ChapterIndex" Type="int" Nullable="false" />
+          <Property Name="IsImageChapter" Type="bit" />
+          <Property Name="Content" Type="ntext" />
+          <Property Name="ClickCount" Type="int" />
+        </EntityType>
+        <EntityType Name="BookRole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BookID" Type="int" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Intro" Type="nvarchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="BookVolume">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BookID" Type="int" Nullable="false" />
+          <Property Name="booktitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="booknclass" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Class">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Alter" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="IsLeafClass" Type="bit" />
+          <Property Name="ParentClassForder" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClassForder" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModelID" Type="int" />
+          <Property Name="ClassKeywords" Type="nvarchar" MaxLength="255" />
+          <Property Name="ClassDescription" Type="nvarchar" MaxLength="512" />
+          <Property Name="ClassICON" Type="nvarchar" MaxLength="255" />
+          <Property Name="ShowInNav" Type="bit" />
+          <Property Name="NavIndex" Type="int" />
+          <Property Name="VisitRole" Type="nvarchar" MaxLength="512" />
+          <Property Name="EnablePost" Type="bit" />
+          <Property Name="EnableVCode" Type="bit" />
+          <Property Name="PostRoles" Type="nvarchar" MaxLength="512" />
+          <Property Name="PostcreateList" Type="int" />
+          <Property Name="PostAddCent" Type="int" />
+          <Property Name="NeedAudit" Type="bit" />
+          <Property Name="PostManagement" Type="int" />
+          <Property Name="EditcreateList" Type="int" />
+          <Property Name="EnableSameTitle" Type="bit" />
+          <Property Name="AutoAudt" Type="bit" />
+          <Property Name="EnableReply" Type="bit" />
+          <Property Name="ReplyNeedAudit" Type="bit" />
+          <Property Name="ListModel" Type="int" />
+          <Property Name="ContentModel" Type="int" />
+          <Property Name="ReplyModel" Type="int" />
+          <Property Name="SearchModel" Type="int" />
+          <Property Name="ClassPageMode" Type="int" />
+          <Property Name="ContentPageMode" Type="int" />
+          <Property Name="ManagementOrder" Type="nvarchar" MaxLength="512" />
+          <Property Name="ListPageOrder" Type="nvarchar" MaxLength="512" />
+          <Property Name="ClassPageExtName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ListPageSize" Type="int" />
+          <Property Name="ContentPageForder" Type="nvarchar" MaxLength="512" />
+          <Property Name="ContentPageExtName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContentPageNameMode" Type="int" />
+          <Property Name="ContentPageDirMode" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="File">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ClassID" Type="int" />
+          <Property Name="UpTime" Type="datetime" />
+          <Property Name="FileType" Type="int" />
+          <Property Name="FileSize" Type="bigint" />
+          <Property Name="FileDirectory" Type="nvarchar" MaxLength="255" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="255" />
+          <Property Name="FileExtName" Type="nvarchar" MaxLength="255" />
+          <Property Name="FilePath" Type="nvarchar" MaxLength="500" />
+          <Property Name="SmallPath" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="GroupRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="RoleID" Type="int" />
+        </EntityType>
+        <EntityType Name="ImageAlbum">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ClassID" Type="int" />
+          <Property Name="ZtID" Type="int" />
+          <Property Name="AuthorID" Type="int" />
+          <Property Name="Author" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="Intro" Type="nvarchar" MaxLength="500" />
+          <Property Name="Size" Type="int" />
+          <Property Name="Folder" Type="nvarchar" MaxLength="255" />
+          <Property Name="ClickCount" Type="int" />
+          <Property Name="ReplyCount" Type="int" />
+          <Property Name="SetTop" Type="bit" />
+          <Property Name="ShotCut" Type="nvarchar" MaxLength="255" />
+          <Property Name="KeyWords" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Images">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AlbumID" Type="int" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" />
+          <Property Name="Intro" Type="nvarchar" MaxLength="500" />
+          <Property Name="UploadTime" Type="datetime" />
+          <Property Name="ClickCount" Type="int" />
+          <Property Name="ReplyCount" Type="int" />
+          <Property Name="FilePath" Type="nvarchar" MaxLength="255" />
+          <Property Name="SmallPath" Type="nvarchar" MaxLength="255" />
+          <Property Name="FileSize" Type="int" />
+          <Property Name="ExtName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Info">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="InfoTypeID" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClassID" Type="int" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZtID" Type="int" />
+          <Property Name="ZtName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="Contact" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactType" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="TelLocation" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="Intro" Type="nvarchar" MaxLength="1000" />
+          <Property Name="ImageCount" Type="int" />
+          <Property Name="ReplyCount" Type="int" />
+          <Property Name="ClickCount" Type="int" />
+          <Property Name="IsSetTop" Type="bit" />
+          <Property Name="OutTime" Type="datetime" />
+          <Property Name="PostTime" Type="datetime" />
+          <Property Name="num1" Type="int" />
+          <Property Name="num2" Type="int" />
+          <Property Name="num3" Type="int" />
+          <Property Name="num4" Type="int" />
+          <Property Name="num5" Type="int" />
+          <Property Name="num6" Type="int" />
+          <Property Name="num7" Type="int" />
+          <Property Name="num8" Type="int" />
+          <Property Name="num9" Type="int" />
+          <Property Name="num10" Type="int" />
+          <Property Name="nvarchar1" Type="nvarchar" MaxLength="255" />
+          <Property Name="nvarchar2" Type="nvarchar" MaxLength="255" />
+          <Property Name="nvarchar3" Type="nvarchar" MaxLength="255" />
+          <Property Name="nvarchar4" Type="nvarchar" MaxLength="255" />
+          <Property Name="nvarchar5" Type="nvarchar" MaxLength="255" />
+          <Property Name="nvarchar6" Type="nvarchar" MaxLength="255" />
+          <Property Name="nvarchar7" Type="nvarchar" MaxLength="255" />
+          <Property Name="nvarchar8" Type="nvarchar" MaxLength="255" />
+          <Property Name="nvarchar9" Type="nvarchar" MaxLength="255" />
+          <Property Name="nvarchar10" Type="nvarchar" MaxLength="255" />
+          <Property Name="nvarchar11" Type="nvarchar" MaxLength="50" />
+          <Property Name="nvarchar12" Type="nvarchar" MaxLength="50" />
+          <Property Name="nvarchar13" Type="nvarchar" MaxLength="50" />
+          <Property Name="nvarchar14" Type="nvarchar" MaxLength="50" />
+          <Property Name="nvarchar15" Type="nvarchar" MaxLength="50" />
+          <Property Name="decimal1" Type="decimal" Scale="2" />
+          <Property Name="decimal2" Type="decimal" Scale="2" />
+          <Property Name="decimal3" Type="decimal" Scale="2" />
+          <Property Name="decimal4" Type="decimal" Scale="2" />
+          <Property Name="decimal5" Type="decimal" Scale="2" />
+          <Property Name="text1" Type="nvarchar" MaxLength="1000" />
+          <Property Name="text2" Type="nvarchar" MaxLength="1000" />
+          <Property Name="text3" Type="nvarchar" MaxLength="1000" />
+          <Property Name="text4" Type="nvarchar" MaxLength="1000" />
+          <Property Name="text5" Type="nvarchar" MaxLength="1000" />
+          <Property Name="bit1" Type="bit" />
+          <Property Name="bit2" Type="bit" />
+          <Property Name="bit3" Type="bit" />
+          <Property Name="bit4" Type="bit" />
+          <Property Name="bit5" Type="bit" />
+        </EntityType>
+        <EntityType Name="InfoImage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ModelID" Type="int" />
+          <Property Name="InfoID" Type="int" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" />
+          <Property Name="Url" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="InfoType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="TemplateIndex" Type="text" />
+          <Property Name="TemplateList" Type="text" />
+          <Property Name="TemlateAdminForm" Type="text" />
+          <Property Name="TemplateForm" Type="text" />
+          <Property Name="TemplateContent" Type="text" />
+          <Property Name="num1" Type="nvarchar" MaxLength="50" />
+          <Property Name="num2" Type="nvarchar" MaxLength="50" />
+          <Property Name="num3" Type="nvarchar" MaxLength="50" />
+          <Property Name="num4" Type="nvarchar" MaxLength="50" />
+          <Property Name="num5" Type="nvarchar" MaxLength="50" />
+          <Property Name="num6" Type="nvarchar" MaxLength="50" />
+          <Property Name="num7" Type="nvarchar" MaxLength="50" />
+          <Property Name="num8" Type="nvarchar" MaxLength="50" />
+          <Property Name="num9" Type="nvarchar" MaxLength="50" />
+          <Property Name="num10" Type="nvarchar" MaxLength="50" />
+          <Property Name="nvarchar1" Type="nvarchar" MaxLength="50" />
+          <Property Name="nvarchar2" Type="nvarchar" MaxLength="50" />
+          <Property Name="nvarchar3" Type="nvarchar" MaxLength="50" />
+          <Property Name="nvarchar4" Type="nvarchar" MaxLength="50" />
+          <Property Name="nvarchar5" Type="nvarchar" MaxLength="50" />
+          <Property Name="nvarchar6" Type="nvarchar" MaxLength="50" />
+          <Property Name="nvarchar7" Type="nvarchar" MaxLength="50" />
+          <Property Name="nvarchar8" Type="nvarchar" MaxLength="50" />
+          <Property Name="nvarchar9" Type="nvarchar" MaxLength="50" />
+          <Property Name="nvarchar10" Type="nvarchar" MaxLength="50" />
+          <Property Name="nvarchar11" Type="nvarchar" MaxLength="50" />
+          <Property Name="nvarchar12" Type="nvarchar" MaxLength="50" />
+          <Property Name="nvarchar13" Type="nvarchar" MaxLength="50" />
+          <Property Name="nvarchar14" Type="nvarchar" MaxLength="50" />
+          <Property Name="nvarchar15" Type="nvarchar" MaxLength="50" />
+          <Property Name="decimal1" Type="nvarchar" MaxLength="50" />
+          <Property Name="decimal2" Type="nvarchar" MaxLength="50" />
+          <Property Name="decimal3" Type="nvarchar" MaxLength="50" />
+          <Property Name="decimal4" Type="nvarchar" MaxLength="50" />
+          <Property Name="decimal5" Type="nvarchar" MaxLength="50" />
+          <Property Name="text1" Type="nvarchar" MaxLength="50" />
+          <Property Name="text2" Type="nvarchar" MaxLength="50" />
+          <Property Name="text3" Type="nvarchar" MaxLength="50" />
+          <Property Name="text4" Type="nvarchar" MaxLength="50" />
+          <Property Name="text5" Type="nvarchar" MaxLength="50" />
+          <Property Name="bit1" Type="nvarchar" MaxLength="50" />
+          <Property Name="bit2" Type="nvarchar" MaxLength="50" />
+          <Property Name="bit3" Type="nvarchar" MaxLength="50" />
+          <Property Name="bit4" Type="nvarchar" MaxLength="50" />
+          <Property Name="bit5" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Link">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LinkTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="Url" Type="nvarchar" MaxLength="255" />
+          <Property Name="Index" Type="int" />
+        </EntityType>
+        <EntityType Name="MovieDrama">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MovieID" Type="int" />
+          <Property Name="MovieTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="Enable" Type="bit" />
+        </EntityType>
+        <EntityType Name="MovieDramaUrl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MovieID" Type="int" />
+          <Property Name="MovieTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="MovieDramaID" Type="bigint" />
+          <Property Name="MovieDramaTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="Enable" Type="bit" />
+          <Property Name="Url" Type="nvarchar" MaxLength="500" />
+          <Property Name="SourceSite" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MovieInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ClassID" Type="int" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Director" Type="nvarchar" MaxLength="50" />
+          <Property Name="Actors" Type="nvarchar" MaxLength="500" />
+          <Property Name="Tags" Type="nvarchar" MaxLength="50" />
+          <Property Name="Location" Type="nvarchar" MaxLength="50" />
+          <Property Name="PublicYear" Type="nvarchar" MaxLength="50" />
+          <Property Name="Intro" Type="nvarchar" />
+          <Property Name="IsMove" Type="bit" />
+          <Property Name="FaceImage" Type="nvarchar" MaxLength="500" />
+          <Property Name="InsertTime" Type="datetime" />
+          <Property Name="LastDramaTitle" Type="nvarchar" MaxLength="500" />
+          <Property Name="LastDramaID" Type="bigint" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Enable" Type="bit" />
+          <Property Name="ReplyCount" Type="bigint" />
+          <Property Name="TjCount" Type="bigint" />
+          <Property Name="ScoreAvg" Type="decimal" />
+          <Property Name="ScoreTime" Type="bigint" />
+          <Property Name="Info" Type="ntext" />
+          <Property Name="ClickCount" Type="bigint" />
+          <Property Name="MonthClick" Type="bigint" />
+          <Property Name="WeekClick" Type="bigint" />
+          <Property Name="DayClick" Type="bigint" />
+          <Property Name="LastClickTime" Type="datetime" />
+          <Property Name="StandardTitle" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MovieUrl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MoviewID" Type="int" />
+          <Property Name="MoviewTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="Enable" Type="bit" />
+          <Property Name="HttpUrl" Type="nvarchar" MaxLength="1000" />
+          <Property Name="MagUrl" Type="nvarchar" MaxLength="1000" />
+          <Property Name="KuaibUrl" Type="nvarchar" MaxLength="1000" />
+          <Property Name="BaiduUrl" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="MovieUrlBaidu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MovieID" Type="int" />
+          <Property Name="MovieTitle" Type="nvarchar" MaxLength="255" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="Enable" Type="bit" />
+          <Property Name="Url" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="MovieUrlKuaib">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MovieID" Type="int" />
+          <Property Name="MovieTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="Enable" Type="bit" />
+          <Property Name="Url" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="MovieUrlMag">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MovieID" Type="int" />
+          <Property Name="MovieTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="Enable" Type="bit" />
+          <Property Name="Url" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NewsTime" Type="datetime" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="TitleB" Type="bit" />
+          <Property Name="TitleI" Type="bit" />
+          <Property Name="TitleS" Type="bit" />
+          <Property Name="TitleColor" Type="nvarchar" MaxLength="50" />
+          <Property Name="FTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="Audit" Type="bit" />
+          <Property Name="Tuijian" Type="bit" />
+          <Property Name="Toutiao" Type="bit" />
+          <Property Name="KeyWords" Type="nvarchar" MaxLength="200" />
+          <Property Name="NavUrl" Type="nvarchar" MaxLength="255" />
+          <Property Name="TitleImage" Type="nvarchar" MaxLength="255" />
+          <Property Name="Description" Type="nvarchar" MaxLength="512" />
+          <Property Name="Author" Type="nvarchar" MaxLength="50" />
+          <Property Name="AutorID" Type="int" />
+          <Property Name="Content" Type="ntext" />
+          <Property Name="SetTop" Type="bit" />
+          <Property Name="ModelID" Type="int" />
+          <Property Name="ClickCount" Type="int" />
+          <Property Name="DownCount" Type="int" />
+          <Property Name="FileForder" Type="nvarchar" MaxLength="50" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZtID" Type="int" />
+          <Property Name="ClassID" Type="int" />
+          <Property Name="ReplyCount" Type="int" />
+          <Property Name="Source" Type="nvarchar" MaxLength="50" />
+          <Property Name="EnableReply" Type="bit" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ClassID" Type="int" />
+          <Property Name="ZtID" Type="int" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" />
+          <Property Name="Content" Type="ntext" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AskTime" Type="datetime" />
+          <Property Name="ClickCount" Type="int" />
+        </EntityType>
+        <EntityType Name="Relpy">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ModelID" Type="int" />
+          <Property Name="NewsID" Type="int" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="IP" Type="nvarchar" MaxLength="50" />
+          <Property Name="ReplyTime" Type="datetime" />
+          <Property Name="Content" Type="ntext" />
+        </EntityType>
+        <EntityType Name="SysDepartment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DepartName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SysGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SysKeyword">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Keyword" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModelID" Type="int" />
+          <Property Name="ClickCount" Type="int" />
+        </EntityType>
+        <EntityType Name="SysModel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ModelName" Type="nvarchar" MaxLength="50" />
+          <Property Name="TableName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SonClass" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="SysRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoleGroup" Type="int" />
+          <Property Name="URL" Type="nvarchar" MaxLength="255" />
+          <Property Name="AddRole" Type="bit" />
+          <Property Name="EditRole" Type="bit" />
+          <Property Name="DelRole" Type="bit" />
+        </EntityType>
+        <EntityType Name="SysUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserPass" Type="nvarchar" MaxLength="50" />
+          <Property Name="Logincount" Type="bigint" />
+          <Property Name="LastLoginTime" Type="datetime" />
+          <Property Name="LastLoginIP" Type="nvarchar" MaxLength="50" />
+          <Property Name="SafeQuestion" Type="nvarchar" MaxLength="50" />
+          <Property Name="SafeAnswer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Department" Type="int" />
+          <Property Name="ChineseName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserGroup" Type="int" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="TelNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Enabled" Type="bit" />
+        </EntityType>
+        <EntityType Name="TemplateContent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="int" />
+          <Property Name="SysModel" Type="int" />
+          <Property Name="TempName" Type="nvarchar" MaxLength="50" />
+          <Property Name="TimeFormat" Type="nvarchar" MaxLength="50" />
+          <Property Name="Content" Type="ntext" />
+        </EntityType>
+        <EntityType Name="TemplateFace">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="int" />
+          <Property Name="Content" Type="ntext" />
+        </EntityType>
+        <EntityType Name="TemplateGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDefault" Type="bit" />
+        </EntityType>
+        <EntityType Name="TemplateList">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="int" />
+          <Property Name="TempName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SysModel" Type="int" />
+          <Property Name="CutKeywords" Type="int" />
+          <Property Name="CutTitle" Type="int" />
+          <Property Name="ShowRecordCount" Type="int" />
+          <Property Name="TimeFormat" Type="nvarchar" MaxLength="50" />
+          <Property Name="Content" Type="ntext" />
+          <Property Name="ListVar" Type="ntext" />
+        </EntityType>
+        <EntityType Name="TemplatePage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Enable" Type="bit" />
+          <Property Name="PageName" Type="nvarchar" MaxLength="500" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Content" Type="ntext" />
+          <Property Name="CreateWith" Type="int" />
+        </EntityType>
+        <EntityType Name="TemplatePublic">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="int" />
+          <Property Name="IndexContent" Type="ntext" />
+          <Property Name="Controlcontent" Type="ntext" />
+          <Property Name="SiteSearchContent" Type="ntext" />
+          <Property Name="AdvancedSearch" Type="ntext" />
+          <Property Name="HorizontaSearch" Type="ntext" />
+          <Property Name="VerticalSearch" Type="ntext" />
+          <Property Name="RelationInfo" Type="ntext" />
+          <Property Name="MessageBoard" Type="ntext" />
+          <Property Name="Reply" Type="ntext" />
+          <Property Name="FinalDown" Type="ntext" />
+          <Property Name="DownAddress" Type="ntext" />
+          <Property Name="OLPlayaddress" Type="ntext" />
+          <Property Name="ListPager" Type="ntext" />
+          <Property Name="LoginStatus" Type="ntext" />
+          <Property Name="JSLogin" Type="ntext" />
+          <Property Name="ImageList" Type="ntext" />
+          <Property Name="AnswerList" Type="ntext" />
+          <Property Name="ChapterList" Type="ntext" />
+          <Property Name="BookChapter" Type="ntext" />
+          <Property Name="KuaiboPage" Type="ntext" />
+          <Property Name="BaiduPage" Type="ntext" />
+          <Property Name="SingleDrama" Type="ntext" />
+        </EntityType>
+        <EntityType Name="TemplateReply">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="int" />
+          <Property Name="Content" Type="ntext" />
+        </EntityType>
+        <EntityType Name="TemplateSearch">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="int" />
+          <Property Name="TempName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SysModel" Type="int" />
+          <Property Name="CutKeywords" Type="int" />
+          <Property Name="CutTitle" Type="int" />
+          <Property Name="ShowRecordCount" Type="int" />
+          <Property Name="TimeFormat" Type="nvarchar" MaxLength="50" />
+          <Property Name="Content" Type="ntext" />
+          <Property Name="ListVar" Type="ntext" />
+        </EntityType>
+        <EntityType Name="TemplateVar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="int" />
+          <Property Name="VarName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Content" Type="ntext" />
+        </EntityType>
+        <EntityType Name="TemplTags">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TagName" Type="nvarchar" MaxLength="50" />
+          <Property Name="TagCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="FunctionName" Type="nvarchar" MaxLength="255" />
+          <Property Name="TagFormat" Type="nvarchar" MaxLength="255" />
+          <Property Name="Remark" Type="ntext" />
+          <Property Name="Enable" Type="bit" />
+          <Property Name="TagIndex" Type="int" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserPass" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="ChineseName" Type="nvarchar" MaxLength="50" />
+          <Property Name="QQ" Type="nvarchar" MaxLength="50" />
+          <Property Name="MSN" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="WebSite" Type="nvarchar" MaxLength="255" />
+          <Property Name="Image" Type="nvarchar" MaxLength="255" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Intro" Type="nvarchar" MaxLength="512" />
+          <Property Name="RegTime" Type="datetime" />
+          <Property Name="RegIP" Type="nvarchar" MaxLength="50" />
+          <Property Name="LoginCount" Type="int" />
+          <Property Name="LastLoginTime" Type="datetime" />
+          <Property Name="LastLoginIP" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cent" Type="int" />
+          <Property Name="PostCount" Type="int" />
+          <Property Name="GTalk" Type="nvarchar" MaxLength="255" />
+          <Property Name="Twitter" Type="nvarchar" MaxLength="255" />
+          <Property Name="weibo" Type="nvarchar" MaxLength="255" />
+          <Property Name="ICQ" Type="nvarchar" MaxLength="255" />
+          <Property Name="Group" Type="int" />
+          <Property Name="Enable" Type="bit" />
+          <Property Name="StudentNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="TeachNo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserClassRelation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="ClassID" Type="int" />
+        </EntityType>
+        <EntityType Name="UserForm">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FormName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Content" Type="ntext" />
+        </EntityType>
+        <EntityType Name="UserGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Grade" Type="int" />
+          <Property Name="MaxPost" Type="int" />
+          <Property Name="PostAotuAudit" Type="bit" />
+          <Property Name="RegForm" Type="int" />
+          <Property Name="EnableReg" Type="bit" />
+          <Property Name="RegAutoAudit" Type="bit" />
+        </EntityType>
+        <EntityType Name="UserRerm">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FormName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FormContent" Type="ntext" />
+          <Property Name="Remark" Type="ntext" />
+        </EntityType>
+        <EntityType Name="Zt">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ClassID" Type="int" />
+          <Property Name="ZtName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Forder" Type="nvarchar" MaxLength="255" />
+          <Property Name="ExtName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ICON" Type="nvarchar" MaxLength="255" />
+          <Property Name="KeyWords" Type="nvarchar" MaxLength="255" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="LtIndex" Type="int" />
+          <Property Name="ShowInNav" Type="bit" />
+          <Property Name="FaceModel" Type="int" />
+          <Property Name="ListModel" Type="int" />
+          <Property Name="ListOrder" Type="int" />
+          <Property Name="ListPageSize" Type="int" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+        <EntityContainer Name="DataEntities">
+          <EntitySet Name="Answer" EntityType="DataModel.Answer" />
+          <EntitySet Name="Book" EntityType="DataModel.Book" />
+          <EntitySet Name="BookChapter" EntityType="DataModel.BookChapter" />
+          <EntitySet Name="BookRole" EntityType="DataModel.BookRole" />
+          <EntitySet Name="BookVolume" EntityType="DataModel.BookVolume" />
+          <EntitySet Name="Class" EntityType="DataModel.Class" />
+          <EntitySet Name="File" EntityType="DataModel.File" />
+          <EntitySet Name="GroupRole" EntityType="DataModel.GroupRole" />
+          <EntitySet Name="ImageAlbum" EntityType="DataModel.ImageAlbum" />
+          <EntitySet Name="Images" EntityType="DataModel.Images" />
+          <EntitySet Name="Info" EntityType="DataModel.Info" />
+          <EntitySet Name="InfoImage" EntityType="DataModel.InfoImage" />
+          <EntitySet Name="InfoType" EntityType="DataModel.InfoType" />
+          <EntitySet Name="Link" EntityType="DataModel.Link" />
+          <EntitySet Name="MovieDrama" EntityType="DataModel.MovieDrama" />
+          <EntitySet Name="MovieDramaUrl" EntityType="DataModel.MovieDramaUrl" />
+          <EntitySet Name="MovieInfo" EntityType="DataModel.MovieInfo" />
+          <EntitySet Name="MovieUrl" EntityType="DataModel.MovieUrl" />
+          <EntitySet Name="MovieUrlBaidu" EntityType="DataModel.MovieUrlBaidu" />
+          <EntitySet Name="MovieUrlKuaib" EntityType="DataModel.MovieUrlKuaib" />
+          <EntitySet Name="MovieUrlMag" EntityType="DataModel.MovieUrlMag" />
+          <EntitySet Name="News" EntityType="DataModel.News" />
+          <EntitySet Name="Question" EntityType="DataModel.Question" />
+          <EntitySet Name="Relpy" EntityType="DataModel.Relpy" />
+          <EntitySet Name="SysDepartment" EntityType="DataModel.SysDepartment" />
+          <EntitySet Name="SysGroup" EntityType="DataModel.SysGroup" />
+          <EntitySet Name="SysKeyword" EntityType="DataModel.SysKeyword" />
+          <EntitySet Name="SysModel" EntityType="DataModel.SysModel" />
+          <EntitySet Name="SysRole" EntityType="DataModel.SysRole" />
+          <EntitySet Name="SysUser" EntityType="DataModel.SysUser" />
+          <EntitySet Name="TemplateContent" EntityType="DataModel.TemplateContent" />
+          <EntitySet Name="TemplateFace" EntityType="DataModel.TemplateFace" />
+          <EntitySet Name="TemplateGroup" EntityType="DataModel.TemplateGroup" />
+          <EntitySet Name="TemplateList" EntityType="DataModel.TemplateList" />
+          <EntitySet Name="TemplatePage" EntityType="DataModel.TemplatePage" />
+          <EntitySet Name="TemplatePublic" EntityType="DataModel.TemplatePublic" />
+          <EntitySet Name="TemplateReply" EntityType="DataModel.TemplateReply" />
+          <EntitySet Name="TemplateSearch" EntityType="DataModel.TemplateSearch" />
+          <EntitySet Name="TemplateVar" EntityType="DataModel.TemplateVar" />
+          <EntitySet Name="TemplTags" EntityType="DataModel.TemplTags" />
+          <EntitySet Name="User" EntityType="DataModel.User" />
+          <EntitySet Name="UserClassRelation" EntityType="DataModel.UserClassRelation" />
+          <EntitySet Name="UserForm" EntityType="DataModel.UserForm" />
+          <EntitySet Name="UserGroup" EntityType="DataModel.UserGroup" />
+          <EntitySet Name="UserRerm" EntityType="DataModel.UserRerm" />
+          <EntitySet Name="Zt" EntityType="DataModel.Zt" />
+        </EntityContainer>
+        <EntityType Name="Answer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionID" Type="Int32" />
+          <Property Name="Content" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AnswerTime" Type="DateTime" />
+          <Property Name="Agree" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Book">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassID" Type="Int32" Nullable="false" />
+          <Property Name="ClassName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ZtID" Type="Int32" />
+          <Property Name="ZtName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Author" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Intro" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Length" Type="Int64" />
+          <Property Name="ReplyCount" Type="Int64" />
+          <Property Name="ClickCount" Type="Int64" />
+          <Property Name="Addtime" Type="DateTime" />
+          <Property Name="Status" Type="Byte" />
+          <Property Name="IsVip" Type="Boolean" />
+          <Property Name="FaceImage" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="SaveCount" Type="Int64" />
+          <Property Name="Enable" Type="Boolean" />
+          <Property Name="IsFirstPost" Type="Boolean" />
+          <Property Name="LastChapterID" Type="Int64" />
+          <Property Name="LastChapterTitle" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="UpdateTime" Type="DateTime" />
+          <Property Name="LastVipChapterID" Type="Int64" />
+          <Property Name="LastVipChapterTitle" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="VipUpdateTime" Type="DateTime" />
+          <Property Name="CorpusID" Type="Int32" />
+          <Property Name="CorpusTitle" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="TjCount" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BookChapter">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookID" Type="Int32" Nullable="false" />
+          <Property Name="BookTitle" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="ClassID" Type="Int64" Nullable="false" />
+          <Property Name="ClassName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ValumeID" Type="Int64" Nullable="false" />
+          <Property Name="ValumeName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="IsVipChapter" Type="Boolean" />
+          <Property Name="TextLength" Type="Int32" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="false" />
+          <Property Name="Enable" Type="Boolean" />
+          <Property Name="IsTemp" Type="Boolean" />
+          <Property Name="IsFree" Type="Boolean" />
+          <Property Name="ChapterIndex" Type="Int32" Nullable="false" />
+          <Property Name="IsImageChapter" Type="Boolean" />
+          <Property Name="Content" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ClickCount" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BookRole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookID" Type="Int32" />
+          <Property Name="RoleName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Intro" Type="String" MaxLength="2000" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="BookVolume">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookID" Type="Int32" Nullable="false" />
+          <Property Name="booktitle" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="booknclass" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Class">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Alter" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="IsLeafClass" Type="Boolean" />
+          <Property Name="ParentClassForder" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ClassForder" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ModelID" Type="Int32" />
+          <Property Name="ClassKeywords" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="ClassDescription" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="ClassICON" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="ShowInNav" Type="Boolean" />
+          <Property Name="NavIndex" Type="Int32" />
+          <Property Name="VisitRole" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="EnablePost" Type="Boolean" />
+          <Property Name="EnableVCode" Type="Boolean" />
+          <Property Name="PostRoles" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="PostcreateList" Type="Int32" />
+          <Property Name="PostAddCent" Type="Int32" />
+          <Property Name="NeedAudit" Type="Boolean" />
+          <Property Name="PostManagement" Type="Int32" />
+          <Property Name="EditcreateList" Type="Int32" />
+          <Property Name="EnableSameTitle" Type="Boolean" />
+          <Property Name="AutoAudt" Type="Boolean" />
+          <Property Name="EnableReply" Type="Boolean" />
+          <Property Name="ReplyNeedAudit" Type="Boolean" />
+          <Property Name="ListModel" Type="Int32" />
+          <Property Name="ContentModel" Type="Int32" />
+          <Property Name="ReplyModel" Type="Int32" />
+          <Property Name="SearchModel" Type="Int32" />
+          <Property Name="ClassPageMode" Type="Int32" />
+          <Property Name="ContentPageMode" Type="Int32" />
+          <Property Name="ManagementOrder" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="ListPageOrder" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="ClassPageExtName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ListPageSize" Type="Int32" />
+          <Property Name="ContentPageForder" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="ContentPageExtName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ContentPageNameMode" Type="Int32" />
+          <Property Name="ContentPageDirMode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="File">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassID" Type="Int32" />
+          <Property Name="UpTime" Type="DateTime" />
+          <Property Name="FileType" Type="Int32" />
+          <Property Name="FileSize" Type="Int64" />
+          <Property Name="FileDirectory" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="FileName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="FileExtName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="FilePath" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="SmallPath" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="GroupRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="RoleID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ImageAlbum">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassID" Type="Int32" />
+          <Property Name="ZtID" Type="Int32" />
+          <Property Name="AuthorID" Type="Int32" />
+          <Property Name="Author" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="CreateTime" Type="DateTime" />
+          <Property Name="UpdateTime" Type="DateTime" />
+          <Property Name="Intro" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="Size" Type="Int32" />
+          <Property Name="Folder" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="ClickCount" Type="Int32" />
+          <Property Name="ReplyCount" Type="Int32" />
+          <Property Name="SetTop" Type="Boolean" />
+          <Property Name="ShotCut" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="KeyWords" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Images">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AlbumID" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Intro" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="UploadTime" Type="DateTime" />
+          <Property Name="ClickCount" Type="Int32" />
+          <Property Name="ReplyCount" Type="Int32" />
+          <Property Name="FilePath" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="SmallPath" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="FileSize" Type="Int32" />
+          <Property Name="ExtName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Info">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InfoTypeID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ClassID" Type="Int32" />
+          <Property Name="ClassName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ZtID" Type="Int32" />
+          <Property Name="ZtName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="Contact" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ContactType" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Tel" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="TelLocation" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Intro" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="ImageCount" Type="Int32" />
+          <Property Name="ReplyCount" Type="Int32" />
+          <Property Name="ClickCount" Type="Int32" />
+          <Property Name="IsSetTop" Type="Boolean" />
+          <Property Name="OutTime" Type="DateTime" />
+          <Property Name="PostTime" Type="DateTime" />
+          <Property Name="num1" Type="Int32" />
+          <Property Name="num2" Type="Int32" />
+          <Property Name="num3" Type="Int32" />
+          <Property Name="num4" Type="Int32" />
+          <Property Name="num5" Type="Int32" />
+          <Property Name="num6" Type="Int32" />
+          <Property Name="num7" Type="Int32" />
+          <Property Name="num8" Type="Int32" />
+          <Property Name="num9" Type="Int32" />
+          <Property Name="num10" Type="Int32" />
+          <Property Name="nvarchar1" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar2" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar3" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar4" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar5" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar6" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar7" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar8" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar9" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar10" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar11" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar12" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar13" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar14" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar15" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="decimal1" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="decimal2" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="decimal3" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="decimal4" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="decimal5" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="text1" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="text2" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="text3" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="text4" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="text5" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="bit1" Type="Boolean" />
+          <Property Name="bit2" Type="Boolean" />
+          <Property Name="bit3" Type="Boolean" />
+          <Property Name="bit4" Type="Boolean" />
+          <Property Name="bit5" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="InfoImage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ModelID" Type="Int32" />
+          <Property Name="InfoID" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Url" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="InfoType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="TemplateIndex" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="TemplateList" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="TemlateAdminForm" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="TemplateForm" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="TemplateContent" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="num1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="num2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="num3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="num4" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="num5" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="num6" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="num7" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="num8" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="num9" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="num10" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar4" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar5" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar6" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar7" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar8" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar9" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar10" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar11" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar12" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar13" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar14" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="nvarchar15" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="decimal1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="decimal2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="decimal3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="decimal4" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="decimal5" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="text1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="text2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="text3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="text4" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="text5" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="bit1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="bit2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="bit3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="bit4" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="bit5" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Link">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LinkTitle" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Url" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Index" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MovieDrama">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MovieID" Type="Int32" />
+          <Property Name="MovieTitle" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UpdateTime" Type="DateTime" />
+          <Property Name="Enable" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="MovieDramaUrl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MovieID" Type="Int32" />
+          <Property Name="MovieTitle" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MovieDramaID" Type="Int64" />
+          <Property Name="MovieDramaTitle" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UpdateTime" Type="DateTime" />
+          <Property Name="Enable" Type="Boolean" />
+          <Property Name="Url" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="SourceSite" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="MovieInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassID" Type="Int32" />
+          <Property Name="ClassName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Director" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Actors" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="Tags" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Location" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="PublicYear" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Intro" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="IsMove" Type="Boolean" />
+          <Property Name="FaceImage" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="InsertTime" Type="DateTime" />
+          <Property Name="LastDramaTitle" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="LastDramaID" Type="Int64" />
+          <Property Name="UpdateTime" Type="DateTime" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Enable" Type="Boolean" />
+          <Property Name="ReplyCount" Type="Int64" />
+          <Property Name="TjCount" Type="Int64" />
+          <Property Name="ScoreAvg" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ScoreTime" Type="Int64" />
+          <Property Name="Info" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ClickCount" Type="Int64" />
+          <Property Name="MonthClick" Type="Int64" />
+          <Property Name="WeekClick" Type="Int64" />
+          <Property Name="DayClick" Type="Int64" />
+          <Property Name="LastClickTime" Type="DateTime" />
+          <Property Name="StandardTitle" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="MovieUrl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MoviewID" Type="Int32" />
+          <Property Name="MoviewTitle" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UpdateTime" Type="DateTime" />
+          <Property Name="Enable" Type="Boolean" />
+          <Property Name="HttpUrl" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="MagUrl" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="KuaibUrl" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="BaiduUrl" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="MovieUrlBaidu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MovieID" Type="Int32" />
+          <Property Name="MovieTitle" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="UpdateTime" Type="DateTime" />
+          <Property Name="Enable" Type="Boolean" />
+          <Property Name="Url" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="MovieUrlKuaib">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MovieID" Type="Int32" />
+          <Property Name="MovieTitle" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UpdateTime" Type="DateTime" />
+          <Property Name="Enable" Type="Boolean" />
+          <Property Name="Url" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="MovieUrlMag">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MovieID" Type="Int32" />
+          <Property Name="MovieTitle" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UpdateTime" Type="DateTime" />
+          <Property Name="Enable" Type="Boolean" />
+          <Property Name="Url" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NewsTime" Type="DateTime" />
+          <Property Name="Title" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="TitleB" Type="Boolean" />
+          <Property Name="TitleI" Type="Boolean" />
+          <Property Name="TitleS" Type="Boolean" />
+          <Property Name="TitleColor" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FTitle" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Audit" Type="Boolean" />
+          <Property Name="Tuijian" Type="Boolean" />
+          <Property Name="Toutiao" Type="Boolean" />
+          <Property Name="KeyWords" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="NavUrl" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="TitleImage" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="Author" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AutorID" Type="Int32" />
+          <Property Name="Content" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SetTop" Type="Boolean" />
+          <Property Name="ModelID" Type="Int32" />
+          <Property Name="ClickCount" Type="Int32" />
+          <Property Name="DownCount" Type="Int32" />
+          <Property Name="FileForder" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FileName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ZtID" Type="Int32" />
+          <Property Name="ClassID" Type="Int32" />
+          <Property Name="ReplyCount" Type="Int32" />
+          <Property Name="Source" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="EnableReply" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassID" Type="Int32" />
+          <Property Name="ZtID" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AskTime" Type="DateTime" />
+          <Property Name="ClickCount" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Relpy">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ModelID" Type="Int32" />
+          <Property Name="NewsID" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="IP" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ReplyTime" Type="DateTime" />
+          <Property Name="Content" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SysDepartment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SysGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SysKeyword">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Keyword" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ModelID" Type="Int32" />
+          <Property Name="ClickCount" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SysModel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ModelName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="TableName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SonClass" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SysRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="RoleGroup" Type="Int32" />
+          <Property Name="URL" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="AddRole" Type="Boolean" />
+          <Property Name="EditRole" Type="Boolean" />
+          <Property Name="DelRole" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="SysUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UserPass" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Logincount" Type="Int64" />
+          <Property Name="LastLoginTime" Type="DateTime" />
+          <Property Name="LastLoginIP" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SafeQuestion" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SafeAnswer" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Department" Type="Int32" />
+          <Property Name="ChineseName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UserGroup" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="TelNumber" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Enabled" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TemplateContent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="Int32" />
+          <Property Name="SysModel" Type="Int32" />
+          <Property Name="TempName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="TimeFormat" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TemplateFace">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="Int32" />
+          <Property Name="Content" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TemplateGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="IsDefault" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TemplateList">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="Int32" />
+          <Property Name="TempName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SysModel" Type="Int32" />
+          <Property Name="CutKeywords" Type="Int32" />
+          <Property Name="CutTitle" Type="Int32" />
+          <Property Name="ShowRecordCount" Type="Int32" />
+          <Property Name="TimeFormat" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ListVar" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TemplatePage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Enable" Type="Boolean" />
+          <Property Name="PageName" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="FileName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CreateWith" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TemplatePublic">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="Int32" />
+          <Property Name="IndexContent" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Controlcontent" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SiteSearchContent" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="AdvancedSearch" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="HorizontaSearch" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="VerticalSearch" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="RelationInfo" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="MessageBoard" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Reply" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="FinalDown" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="DownAddress" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="OLPlayaddress" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ListPager" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="LoginStatus" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="JSLogin" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ImageList" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="AnswerList" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ChapterList" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="BookChapter" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="KuaiboPage" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="BaiduPage" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SingleDrama" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TemplateReply">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="Int32" />
+          <Property Name="Content" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TemplateSearch">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="Int32" />
+          <Property Name="TempName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SysModel" Type="Int32" />
+          <Property Name="CutKeywords" Type="Int32" />
+          <Property Name="CutTitle" Type="Int32" />
+          <Property Name="ShowRecordCount" Type="Int32" />
+          <Property Name="TimeFormat" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ListVar" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TemplateVar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="Int32" />
+          <Property Name="VarName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TemplTags">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TagName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="TagCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FunctionName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="TagFormat" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Remark" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Enable" Type="Boolean" />
+          <Property Name="TagIndex" Type="Int32" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UserPass" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="ChineseName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="QQ" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MSN" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Tel" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="WebSite" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Image" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="ZipCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Intro" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="RegTime" Type="DateTime" />
+          <Property Name="RegIP" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LoginCount" Type="Int32" />
+          <Property Name="LastLoginTime" Type="DateTime" />
+          <Property Name="LastLoginIP" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Cent" Type="Int32" />
+          <Property Name="PostCount" Type="Int32" />
+          <Property Name="GTalk" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Twitter" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="weibo" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="ICQ" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Group" Type="Int32" />
+          <Property Name="Enable" Type="Boolean" />
+          <Property Name="StudentNo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="TeachNo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="UserClassRelation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="ClassID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="UserForm">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FormName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="UserGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Grade" Type="Int32" />
+          <Property Name="MaxPost" Type="Int32" />
+          <Property Name="PostAotuAudit" Type="Boolean" />
+          <Property Name="RegForm" Type="Int32" />
+          <Property Name="EnableReg" Type="Boolean" />
+          <Property Name="RegAutoAudit" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="UserRerm">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FormName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FormContent" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Remark" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Zt">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassID" Type="Int32" />
+          <Property Name="ZtName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Forder" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="ExtName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ICON" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="KeyWords" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="LtIndex" Type="Int32" />
+          <Property Name="ShowInNav" Type="Boolean" />
+          <Property Name="FaceModel" Type="Int32" />
+          <Property Name="ListModel" Type="Int32" />
+          <Property Name="ListOrder" Type="Int32" />
+          <Property Name="ListPageSize" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+        <EntityContainerMapping StorageEntityContainer="DataModelStoreContainer" CdmEntityContainer="DataEntities">
+          <EntitySetMapping Name="Answer"><EntityTypeMapping TypeName="DataModel.Answer"><MappingFragment StoreEntitySet="Answer">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+            <ScalarProperty Name="Content" ColumnName="Content" />
+            <ScalarProperty Name="UserID" ColumnName="UserID" />
+            <ScalarProperty Name="UserName" ColumnName="UserName" />
+            <ScalarProperty Name="AnswerTime" ColumnName="AnswerTime" />
+            <ScalarProperty Name="Agree" ColumnName="Agree" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Book"><EntityTypeMapping TypeName="DataModel.Book"><MappingFragment StoreEntitySet="Book">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+            <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+            <ScalarProperty Name="ZtID" ColumnName="ZtID" />
+            <ScalarProperty Name="ZtName" ColumnName="ZtName" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="Author" ColumnName="Author" />
+            <ScalarProperty Name="Intro" ColumnName="Intro" />
+            <ScalarProperty Name="Length" ColumnName="Length" />
+            <ScalarProperty Name="ReplyCount" ColumnName="ReplyCount" />
+            <ScalarProperty Name="ClickCount" ColumnName="ClickCount" />
+            <ScalarProperty Name="Addtime" ColumnName="Addtime" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+            <ScalarProperty Name="IsVip" ColumnName="IsVip" />
+            <ScalarProperty Name="FaceImage" ColumnName="FaceImage" />
+            <ScalarProperty Name="SaveCount" ColumnName="SaveCount" />
+            <ScalarProperty Name="Enable" ColumnName="Enable" />
+            <ScalarProperty Name="IsFirstPost" ColumnName="IsFirstPost" />
+            <ScalarProperty Name="LastChapterID" ColumnName="LastChapterID" />
+            <ScalarProperty Name="LastChapterTitle" ColumnName="LastChapterTitle" />
+            <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+            <ScalarProperty Name="LastVipChapterID" ColumnName="LastVipChapterID" />
+            <ScalarProperty Name="LastVipChapterTitle" ColumnName="LastVipChapterTitle" />
+            <ScalarProperty Name="VipUpdateTime" ColumnName="VipUpdateTime" />
+            <ScalarProperty Name="CorpusID" ColumnName="CorpusID" />
+            <ScalarProperty Name="CorpusTitle" ColumnName="CorpusTitle" />
+            <ScalarProperty Name="TjCount" ColumnName="TjCount" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="BookChapter"><EntityTypeMapping TypeName="DataModel.BookChapter"><MappingFragment StoreEntitySet="BookChapter">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="BookID" ColumnName="BookID" />
+            <ScalarProperty Name="BookTitle" ColumnName="BookTitle" />
+            <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+            <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+            <ScalarProperty Name="ValumeID" ColumnName="ValumeID" />
+            <ScalarProperty Name="ValumeName" ColumnName="ValumeName" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="IsVipChapter" ColumnName="IsVipChapter" />
+            <ScalarProperty Name="TextLength" ColumnName="TextLength" />
+            <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+            <ScalarProperty Name="Enable" ColumnName="Enable" />
+            <ScalarProperty Name="IsTemp" ColumnName="IsTemp" />
+            <ScalarProperty Name="IsFree" ColumnName="IsFree" />
+            <ScalarProperty Name="ChapterIndex" ColumnName="ChapterIndex" />
+            <ScalarProperty Name="IsImageChapter" ColumnName="IsImageChapter" />
+            <ScalarProperty Name="Content" ColumnName="Content" />
+            <ScalarProperty Name="ClickCount" ColumnName="ClickCount" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="BookRole"><EntityTypeMapping TypeName="DataModel.BookRole"><MappingFragment StoreEntitySet="BookRole">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="BookID" ColumnName="BookID" />
+            <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+            <ScalarProperty Name="Intro" ColumnName="Intro" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="BookVolume"><EntityTypeMapping TypeName="DataModel.BookVolume"><MappingFragment StoreEntitySet="BookVolume">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="BookID" ColumnName="BookID" />
+            <ScalarProperty Name="booktitle" ColumnName="booktitle" />
+            <ScalarProperty Name="booknclass" ColumnName="booknclass" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Class"><EntityTypeMapping TypeName="DataModel.Class"><MappingFragment StoreEntitySet="Class">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+            <ScalarProperty Name="Alter" ColumnName="Alter" />
+            <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+            <ScalarProperty Name="IsLeafClass" ColumnName="IsLeafClass" />
+            <ScalarProperty Name="ParentClassForder" ColumnName="ParentClassForder" />
+            <ScalarProperty Name="ClassForder" ColumnName="ClassForder" />
+            <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+            <ScalarProperty Name="ClassKeywords" ColumnName="ClassKeywords" />
+            <ScalarProperty Name="ClassDescription" ColumnName="ClassDescription" />
+            <ScalarProperty Name="ClassICON" ColumnName="ClassICON" />
+            <ScalarProperty Name="ShowInNav" ColumnName="ShowInNav" />
+            <ScalarProperty Name="NavIndex" ColumnName="NavIndex" />
+            <ScalarProperty Name="VisitRole" ColumnName="VisitRole" />
+            <ScalarProperty Name="EnablePost" ColumnName="EnablePost" />
+            <ScalarProperty Name="EnableVCode" ColumnName="EnableVCode" />
+            <ScalarProperty Name="PostRoles" ColumnName="PostRoles" />
+            <ScalarProperty Name="PostcreateList" ColumnName="PostcreateList" />
+            <ScalarProperty Name="PostAddCent" ColumnName="PostAddCent" />
+            <ScalarProperty Name="NeedAudit" ColumnName="NeedAudit" />
+            <ScalarProperty Name="PostManagement" ColumnName="PostManagement" />
+            <ScalarProperty Name="EditcreateList" ColumnName="EditcreateList" />
+            <ScalarProperty Name="EnableSameTitle" ColumnName="EnableSameTitle" />
+            <ScalarProperty Name="AutoAudt" ColumnName="AutoAudt" />
+            <ScalarProperty Name="EnableReply" ColumnName="EnableReply" />
+            <ScalarProperty Name="ReplyNeedAudit" ColumnName="ReplyNeedAudit" />
+            <ScalarProperty Name="ListModel" ColumnName="ListModel" />
+            <ScalarProperty Name="ContentModel" ColumnName="ContentModel" />
+            <ScalarProperty Name="ReplyModel" ColumnName="ReplyModel" />
+            <ScalarProperty Name="SearchModel" ColumnName="SearchModel" />
+            <ScalarProperty Name="ClassPageMode" ColumnName="ClassPageMode" />
+            <ScalarProperty Name="ContentPageMode" ColumnName="ContentPageMode" />
+            <ScalarProperty Name="ManagementOrder" ColumnName="ManagementOrder" />
+            <ScalarProperty Name="ListPageOrder" ColumnName="ListPageOrder" />
+            <ScalarProperty Name="ClassPageExtName" ColumnName="ClassPageExtName" />
+            <ScalarProperty Name="ListPageSize" ColumnName="ListPageSize" />
+            <ScalarProperty Name="ContentPageForder" ColumnName="ContentPageForder" />
+            <ScalarProperty Name="ContentPageExtName" ColumnName="ContentPageExtName" />
+            <ScalarProperty Name="ContentPageNameMode" ColumnName="ContentPageNameMode" />
+            <ScalarProperty Name="ContentPageDirMode" ColumnName="ContentPageDirMode" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="File"><EntityTypeMapping TypeName="DataModel.File"><MappingFragment StoreEntitySet="File">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+            <ScalarProperty Name="UpTime" ColumnName="UpTime" />
+            <ScalarProperty Name="FileType" ColumnName="FileType" />
+            <ScalarProperty Name="FileSize" ColumnName="FileSize" />
+            <ScalarProperty Name="FileDirectory" ColumnName="FileDirectory" />
+            <ScalarProperty Name="FileName" ColumnName="FileName" />
+            <ScalarProperty Name="FileExtName" ColumnName="FileExtName" />
+            <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+            <ScalarProperty Name="SmallPath" ColumnName="SmallPath" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="GroupRole"><EntityTypeMapping TypeName="DataModel.GroupRole"><MappingFragment StoreEntitySet="GroupRole">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="UserID" ColumnName="UserID" />
+            <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ImageAlbum"><EntityTypeMapping TypeName="DataModel.ImageAlbum"><MappingFragment StoreEntitySet="ImageAlbum">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+            <ScalarProperty Name="ZtID" ColumnName="ZtID" />
+            <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
+            <ScalarProperty Name="Author" ColumnName="Author" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+            <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+            <ScalarProperty Name="Intro" ColumnName="Intro" />
+            <ScalarProperty Name="Size" ColumnName="Size" />
+            <ScalarProperty Name="Folder" ColumnName="Folder" />
+            <ScalarProperty Name="ClickCount" ColumnName="ClickCount" />
+            <ScalarProperty Name="ReplyCount" ColumnName="ReplyCount" />
+            <ScalarProperty Name="SetTop" ColumnName="SetTop" />
+            <ScalarProperty Name="ShotCut" ColumnName="ShotCut" />
+            <ScalarProperty Name="KeyWords" ColumnName="KeyWords" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Images"><EntityTypeMapping TypeName="DataModel.Images"><MappingFragment StoreEntitySet="Images">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="Intro" ColumnName="Intro" />
+            <ScalarProperty Name="UploadTime" ColumnName="UploadTime" />
+            <ScalarProperty Name="ClickCount" ColumnName="ClickCount" />
+            <ScalarProperty Name="ReplyCount" ColumnName="ReplyCount" />
+            <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+            <ScalarProperty Name="SmallPath" ColumnName="SmallPath" />
+            <ScalarProperty Name="FileSize" ColumnName="FileSize" />
+            <ScalarProperty Name="ExtName" ColumnName="ExtName" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Info"><EntityTypeMapping TypeName="DataModel.Info"><MappingFragment StoreEntitySet="Info">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="InfoTypeID" ColumnName="InfoTypeID" />
+            <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+            <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+            <ScalarProperty Name="ZtID" ColumnName="ZtID" />
+            <ScalarProperty Name="ZtName" ColumnName="ZtName" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="UserName" ColumnName="UserName" />
+            <ScalarProperty Name="UserID" ColumnName="UserID" />
+            <ScalarProperty Name="Contact" ColumnName="Contact" />
+            <ScalarProperty Name="ContactType" ColumnName="ContactType" />
+            <ScalarProperty Name="Tel" ColumnName="Tel" />
+            <ScalarProperty Name="TelLocation" ColumnName="TelLocation" />
+            <ScalarProperty Name="Address" ColumnName="Address" />
+            <ScalarProperty Name="Intro" ColumnName="Intro" />
+            <ScalarProperty Name="ImageCount" ColumnName="ImageCount" />
+            <ScalarProperty Name="ReplyCount" ColumnName="ReplyCount" />
+            <ScalarProperty Name="ClickCount" ColumnName="ClickCount" />
+            <ScalarProperty Name="IsSetTop" ColumnName="IsSetTop" />
+            <ScalarProperty Name="OutTime" ColumnName="OutTime" />
+            <ScalarProperty Name="PostTime" ColumnName="PostTime" />
+            <ScalarProperty Name="num1" ColumnName="num1" />
+            <ScalarProperty Name="num2" ColumnName="num2" />
+            <ScalarProperty Name="num3" ColumnName="num3" />
+            <ScalarProperty Name="num4" ColumnName="num4" />
+            <ScalarProperty Name="num5" ColumnName="num5" />
+            <ScalarProperty Name="num6" ColumnName="num6" />
+            <ScalarProperty Name="num7" ColumnName="num7" />
+            <ScalarProperty Name="num8" ColumnName="num8" />
+            <ScalarProperty Name="num9" ColumnName="num9" />
+            <ScalarProperty Name="num10" ColumnName="num10" />
+            <ScalarProperty Name="nvarchar1" ColumnName="nvarchar1" />
+            <ScalarProperty Name="nvarchar2" ColumnName="nvarchar2" />
+            <ScalarProperty Name="nvarchar3" ColumnName="nvarchar3" />
+            <ScalarProperty Name="nvarchar4" ColumnName="nvarchar4" />
+            <ScalarProperty Name="nvarchar5" ColumnName="nvarchar5" />
+            <ScalarProperty Name="nvarchar6" ColumnName="nvarchar6" />
+            <ScalarProperty Name="nvarchar7" ColumnName="nvarchar7" />
+            <ScalarProperty Name="nvarchar8" ColumnName="nvarchar8" />
+            <ScalarProperty Name="nvarchar9" ColumnName="nvarchar9" />
+            <ScalarProperty Name="nvarchar10" ColumnName="nvarchar10" />
+            <ScalarProperty Name="nvarchar11" ColumnName="nvarchar11" />
+            <ScalarProperty Name="nvarchar12" ColumnName="nvarchar12" />
+            <ScalarProperty Name="nvarchar13" ColumnName="nvarchar13" />
+            <ScalarProperty Name="nvarchar14" ColumnName="nvarchar14" />
+            <ScalarProperty Name="nvarchar15" ColumnName="nvarchar15" />
+            <ScalarProperty Name="decimal1" ColumnName="decimal1" />
+            <ScalarProperty Name="decimal2" ColumnName="decimal2" />
+            <ScalarProperty Name="decimal3" ColumnName="decimal3" />
+            <ScalarProperty Name="decimal4" ColumnName="decimal4" />
+            <ScalarProperty Name="decimal5" ColumnName="decimal5" />
+            <ScalarProperty Name="text1" ColumnName="text1" />
+            <ScalarProperty Name="text2" ColumnName="text2" />
+            <ScalarProperty Name="text3" ColumnName="text3" />
+            <ScalarProperty Name="text4" ColumnName="text4" />
+            <ScalarProperty Name="text5" ColumnName="text5" />
+            <ScalarProperty Name="bit1" ColumnName="bit1" />
+            <ScalarProperty Name="bit2" ColumnName="bit2" />
+            <ScalarProperty Name="bit3" ColumnName="bit3" />
+            <ScalarProperty Name="bit4" ColumnName="bit4" />
+            <ScalarProperty Name="bit5" ColumnName="bit5" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="InfoImage"><EntityTypeMapping TypeName="DataModel.InfoImage"><MappingFragment StoreEntitySet="InfoImage">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+            <ScalarProperty Name="InfoID" ColumnName="InfoID" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="Url" ColumnName="Url" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="InfoType"><EntityTypeMapping TypeName="DataModel.InfoType"><MappingFragment StoreEntitySet="InfoType">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+            <ScalarProperty Name="TemplateIndex" ColumnName="TemplateIndex" />
+            <ScalarProperty Name="TemplateList" ColumnName="TemplateList" />
+            <ScalarProperty Name="TemlateAdminForm" ColumnName="TemlateAdminForm" />
+            <ScalarProperty Name="TemplateForm" ColumnName="TemplateForm" />
+            <ScalarProperty Name="TemplateContent" ColumnName="TemplateContent" />
+            <ScalarProperty Name="num1" ColumnName="num1" />
+            <ScalarProperty Name="num2" ColumnName="num2" />
+            <ScalarProperty Name="num3" ColumnName="num3" />
+            <ScalarProperty Name="num4" ColumnName="num4" />
+            <ScalarProperty Name="num5" ColumnName="num5" />
+            <ScalarProperty Name="num6" ColumnName="num6" />
+            <ScalarProperty Name="num7" ColumnName="num7" />
+            <ScalarProperty Name="num8" ColumnName="num8" />
+            <ScalarProperty Name="num9" ColumnName="num9" />
+            <ScalarProperty Name="num10" ColumnName="num10" />
+            <ScalarProperty Name="nvarchar1" ColumnName="nvarchar1" />
+            <ScalarProperty Name="nvarchar2" ColumnName="nvarchar2" />
+            <ScalarProperty Name="nvarchar3" ColumnName="nvarchar3" />
+            <ScalarProperty Name="nvarchar4" ColumnName="nvarchar4" />
+            <ScalarProperty Name="nvarchar5" ColumnName="nvarchar5" />
+            <ScalarProperty Name="nvarchar6" ColumnName="nvarchar6" />
+            <ScalarProperty Name="nvarchar7" ColumnName="nvarchar7" />
+            <ScalarProperty Name="nvarchar8" ColumnName="nvarchar8" />
+            <ScalarProperty Name="nvarchar9" ColumnName="nvarchar9" />
+            <ScalarProperty Name="nvarchar10" ColumnName="nvarchar10" />
+            <ScalarProperty Name="nvarchar11" ColumnName="nvarchar11" />
+            <ScalarProperty Name="nvarchar12" ColumnName="nvarchar12" />
+            <ScalarProperty Name="nvarchar13" ColumnName="nvarchar13" />
+            <ScalarProperty Name="nvarchar14" ColumnName="nvarchar14" />
+            <ScalarProperty Name="nvarchar15" ColumnName="nvarchar15" />
+            <ScalarProperty Name="decimal1" ColumnName="decimal1" />
+            <ScalarProperty Name="decimal2" ColumnName="decimal2" />
+            <ScalarProperty Name="decimal3" ColumnName="decimal3" />
+            <ScalarProperty Name="decimal4" ColumnName="decimal4" />
+            <ScalarProperty Name="decimal5" ColumnName="decimal5" />
+            <ScalarProperty Name="text1" ColumnName="text1" />
+            <ScalarProperty Name="text2" ColumnName="text2" />
+            <ScalarProperty Name="text3" ColumnName="text3" />
+            <ScalarProperty Name="text4" ColumnName="text4" />
+            <ScalarProperty Name="text5" ColumnName="text5" />
+            <ScalarProperty Name="bit1" ColumnName="bit1" />
+            <ScalarProperty Name="bit2" ColumnName="bit2" />
+            <ScalarProperty Name="bit3" ColumnName="bit3" />
+            <ScalarProperty Name="bit4" ColumnName="bit4" />
+            <ScalarProperty Name="bit5" ColumnName="bit5" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Link"><EntityTypeMapping TypeName="DataModel.Link"><MappingFragment StoreEntitySet="Link">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="LinkTitle" ColumnName="LinkTitle" />
+            <ScalarProperty Name="Url" ColumnName="Url" />
+            <ScalarProperty Name="Index" ColumnName="Index" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="MovieDrama"><EntityTypeMapping TypeName="DataModel.MovieDrama"><MappingFragment StoreEntitySet="MovieDrama">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="MovieID" ColumnName="MovieID" />
+            <ScalarProperty Name="MovieTitle" ColumnName="MovieTitle" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+            <ScalarProperty Name="Enable" ColumnName="Enable" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="MovieDramaUrl"><EntityTypeMapping TypeName="DataModel.MovieDramaUrl"><MappingFragment StoreEntitySet="MovieDramaUrl">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="MovieID" ColumnName="MovieID" />
+            <ScalarProperty Name="MovieTitle" ColumnName="MovieTitle" />
+            <ScalarProperty Name="MovieDramaID" ColumnName="MovieDramaID" />
+            <ScalarProperty Name="MovieDramaTitle" ColumnName="MovieDramaTitle" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+            <ScalarProperty Name="Enable" ColumnName="Enable" />
+            <ScalarProperty Name="Url" ColumnName="Url" />
+            <ScalarProperty Name="SourceSite" ColumnName="SourceSite" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="MovieInfo"><EntityTypeMapping TypeName="DataModel.MovieInfo"><MappingFragment StoreEntitySet="MovieInfo">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+            <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="Director" ColumnName="Director" />
+            <ScalarProperty Name="Actors" ColumnName="Actors" />
+            <ScalarProperty Name="Tags" ColumnName="Tags" />
+            <ScalarProperty Name="Location" ColumnName="Location" />
+            <ScalarProperty Name="PublicYear" ColumnName="PublicYear" />
+            <ScalarProperty Name="Intro" ColumnName="Intro" />
+            <ScalarProperty Name="IsMove" ColumnName="IsMove" />
+            <ScalarProperty Name="FaceImage" ColumnName="FaceImage" />
+            <ScalarProperty Name="InsertTime" ColumnName="InsertTime" />
+            <ScalarProperty Name="LastDramaTitle" ColumnName="LastDramaTitle" />
+            <ScalarProperty Name="LastDramaID" ColumnName="LastDramaID" />
+            <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+            <ScalarProperty Name="Enable" ColumnName="Enable" />
+            <ScalarProperty Name="ReplyCount" ColumnName="ReplyCount" />
+            <ScalarProperty Name="TjCount" ColumnName="TjCount" />
+            <ScalarProperty Name="ScoreAvg" ColumnName="ScoreAvg" />
+            <ScalarProperty Name="ScoreTime" ColumnName="ScoreTime" />
+            <ScalarProperty Name="Info" ColumnName="Info" />
+            <ScalarProperty Name="ClickCount" ColumnName="ClickCount" />
+            <ScalarProperty Name="MonthClick" ColumnName="MonthClick" />
+            <ScalarProperty Name="WeekClick" ColumnName="WeekClick" />
+            <ScalarProperty Name="DayClick" ColumnName="DayClick" />
+            <ScalarProperty Name="LastClickTime" ColumnName="LastClickTime" />
+            <ScalarProperty Name="StandardTitle" ColumnName="StandardTitle" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="MovieUrl"><EntityTypeMapping TypeName="DataModel.MovieUrl"><MappingFragment StoreEntitySet="MovieUrl">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="MoviewID" ColumnName="MoviewID" />
+            <ScalarProperty Name="MoviewTitle" ColumnName="MoviewTitle" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+            <ScalarProperty Name="Enable" ColumnName="Enable" />
+            <ScalarProperty Name="HttpUrl" ColumnName="HttpUrl" />
+            <ScalarProperty Name="MagUrl" ColumnName="MagUrl" />
+            <ScalarProperty Name="KuaibUrl" ColumnName="KuaibUrl" />
+            <ScalarProperty Name="BaiduUrl" ColumnName="BaiduUrl" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="MovieUrlBaidu"><EntityTypeMapping TypeName="DataModel.MovieUrlBaidu"><MappingFragment StoreEntitySet="MovieUrlBaidu">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="MovieID" ColumnName="MovieID" />
+            <ScalarProperty Name="MovieTitle" ColumnName="MovieTitle" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+            <ScalarProperty Name="Enable" ColumnName="Enable" />
+            <ScalarProperty Name="Url" ColumnName="Url" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="MovieUrlKuaib"><EntityTypeMapping TypeName="DataModel.MovieUrlKuaib"><MappingFragment StoreEntitySet="MovieUrlKuaib">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="MovieID" ColumnName="MovieID" />
+            <ScalarProperty Name="MovieTitle" ColumnName="MovieTitle" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+            <ScalarProperty Name="Enable" ColumnName="Enable" />
+            <ScalarProperty Name="Url" ColumnName="Url" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="MovieUrlMag"><EntityTypeMapping TypeName="DataModel.MovieUrlMag"><MappingFragment StoreEntitySet="MovieUrlMag">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="MovieID" ColumnName="MovieID" />
+            <ScalarProperty Name="MovieTitle" ColumnName="MovieTitle" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+            <ScalarProperty Name="Enable" ColumnName="Enable" />
+            <ScalarProperty Name="Url" ColumnName="Url" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="News"><EntityTypeMapping TypeName="DataModel.News"><MappingFragment StoreEntitySet="News">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="NewsTime" ColumnName="NewsTime" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="TitleB" ColumnName="TitleB" />
+            <ScalarProperty Name="TitleI" ColumnName="TitleI" />
+            <ScalarProperty Name="TitleS" ColumnName="TitleS" />
+            <ScalarProperty Name="TitleColor" ColumnName="TitleColor" />
+            <ScalarProperty Name="FTitle" ColumnName="FTitle" />
+            <ScalarProperty Name="Audit" ColumnName="Audit" />
+            <ScalarProperty Name="Tuijian" ColumnName="Tuijian" />
+            <ScalarProperty Name="Toutiao" ColumnName="Toutiao" />
+            <ScalarProperty Name="KeyWords" ColumnName="KeyWords" />
+            <ScalarProperty Name="NavUrl" ColumnName="NavUrl" />
+            <ScalarProperty Name="TitleImage" ColumnName="TitleImage" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Author" ColumnName="Author" />
+            <ScalarProperty Name="AutorID" ColumnName="AutorID" />
+            <ScalarProperty Name="Content" ColumnName="Content" />
+            <ScalarProperty Name="SetTop" ColumnName="SetTop" />
+            <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+            <ScalarProperty Name="ClickCount" ColumnName="ClickCount" />
+            <ScalarProperty Name="DownCount" ColumnName="DownCount" />
+            <ScalarProperty Name="FileForder" ColumnName="FileForder" />
+            <ScalarProperty Name="FileName" ColumnName="FileName" />
+            <ScalarProperty Name="ZtID" ColumnName="ZtID" />
+            <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+            <ScalarProperty Name="ReplyCount" ColumnName="ReplyCount" />
+            <ScalarProperty Name="Source" ColumnName="Source" />
+            <ScalarProperty Name="EnableReply" ColumnName="EnableReply" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Question"><EntityTypeMapping TypeName="DataModel.Question"><MappingFragment StoreEntitySet="Question">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+            <ScalarProperty Name="ZtID" ColumnName="ZtID" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="Content" ColumnName="Content" />
+            <ScalarProperty Name="UserID" ColumnName="UserID" />
+            <ScalarProperty Name="UserName" ColumnName="UserName" />
+            <ScalarProperty Name="AskTime" ColumnName="AskTime" />
+            <ScalarProperty Name="ClickCount" ColumnName="ClickCount" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Relpy"><EntityTypeMapping TypeName="DataModel.Relpy"><MappingFragment StoreEntitySet="Relpy">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+            <ScalarProperty Name="NewsID" ColumnName="NewsID" />
+            <ScalarProperty Name="UserID" ColumnName="UserID" />
+            <ScalarProperty Name="UserName" ColumnName="UserName" />
+            <ScalarProperty Name="IP" ColumnName="IP" />
+            <ScalarProperty Name="ReplyTime" ColumnName="ReplyTime" />
+            <ScalarProperty Name="Content" ColumnName="Content" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="SysDepartment"><EntityTypeMapping TypeName="DataModel.SysDepartment"><MappingFragment StoreEntitySet="SysDepartment">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="DepartName" ColumnName="DepartName" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="SysGroup"><EntityTypeMapping TypeName="DataModel.SysGroup"><MappingFragment StoreEntitySet="SysGroup">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="SysKeyword"><EntityTypeMapping TypeName="DataModel.SysKeyword"><MappingFragment StoreEntitySet="SysKeyword">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+            <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+            <ScalarProperty Name="ClickCount" ColumnName="ClickCount" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="SysModel"><EntityTypeMapping TypeName="DataModel.SysModel"><MappingFragment StoreEntitySet="SysModel">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+            <ScalarProperty Name="TableName" ColumnName="TableName" />
+            <ScalarProperty Name="SonClass" ColumnName="SonClass" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="SysRole"><EntityTypeMapping TypeName="DataModel.SysRole"><MappingFragment StoreEntitySet="SysRole">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+            <ScalarProperty Name="RoleGroup" ColumnName="RoleGroup" />
+            <ScalarProperty Name="URL" ColumnName="URL" />
+            <ScalarProperty Name="AddRole" ColumnName="AddRole" />
+            <ScalarProperty Name="EditRole" ColumnName="EditRole" />
+            <ScalarProperty Name="DelRole" ColumnName="DelRole" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="SysUser"><EntityTypeMapping TypeName="DataModel.SysUser"><MappingFragment StoreEntitySet="SysUser">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="UserName" ColumnName="UserName" />
+            <ScalarProperty Name="UserPass" ColumnName="UserPass" />
+            <ScalarProperty Name="Logincount" ColumnName="Logincount" />
+            <ScalarProperty Name="LastLoginTime" ColumnName="LastLoginTime" />
+            <ScalarProperty Name="LastLoginIP" ColumnName="LastLoginIP" />
+            <ScalarProperty Name="SafeQuestion" ColumnName="SafeQuestion" />
+            <ScalarProperty Name="SafeAnswer" ColumnName="SafeAnswer" />
+            <ScalarProperty Name="Department" ColumnName="Department" />
+            <ScalarProperty Name="ChineseName" ColumnName="ChineseName" />
+            <ScalarProperty Name="UserGroup" ColumnName="UserGroup" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+            <ScalarProperty Name="TelNumber" ColumnName="TelNumber" />
+            <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TemplateContent"><EntityTypeMapping TypeName="DataModel.TemplateContent"><MappingFragment StoreEntitySet="TemplateContent">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+            <ScalarProperty Name="SysModel" ColumnName="SysModel" />
+            <ScalarProperty Name="TempName" ColumnName="TempName" />
+            <ScalarProperty Name="TimeFormat" ColumnName="TimeFormat" />
+            <ScalarProperty Name="Content" ColumnName="Content" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TemplateFace"><EntityTypeMapping TypeName="DataModel.TemplateFace"><MappingFragment StoreEntitySet="TemplateFace">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+            <ScalarProperty Name="Content" ColumnName="Content" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TemplateGroup"><EntityTypeMapping TypeName="DataModel.TemplateGroup"><MappingFragment StoreEntitySet="TemplateGroup">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+            <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TemplateList"><EntityTypeMapping TypeName="DataModel.TemplateList"><MappingFragment StoreEntitySet="TemplateList">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+            <ScalarProperty Name="TempName" ColumnName="TempName" />
+            <ScalarProperty Name="SysModel" ColumnName="SysModel" />
+            <ScalarProperty Name="CutKeywords" ColumnName="CutKeywords" />
+            <ScalarProperty Name="CutTitle" ColumnName="CutTitle" />
+            <ScalarProperty Name="ShowRecordCount" ColumnName="ShowRecordCount" />
+            <ScalarProperty Name="TimeFormat" ColumnName="TimeFormat" />
+            <ScalarProperty Name="Content" ColumnName="Content" />
+            <ScalarProperty Name="ListVar" ColumnName="ListVar" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TemplatePage"><EntityTypeMapping TypeName="DataModel.TemplatePage"><MappingFragment StoreEntitySet="TemplatePage">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="Enable" ColumnName="Enable" />
+            <ScalarProperty Name="PageName" ColumnName="PageName" />
+            <ScalarProperty Name="FileName" ColumnName="FileName" />
+            <ScalarProperty Name="Content" ColumnName="Content" />
+            <ScalarProperty Name="CreateWith" ColumnName="CreateWith" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TemplatePublic"><EntityTypeMapping TypeName="DataModel.TemplatePublic"><MappingFragment StoreEntitySet="TemplatePublic">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+            <ScalarProperty Name="IndexContent" ColumnName="IndexContent" />
+            <ScalarProperty Name="Controlcontent" ColumnName="Controlcontent" />
+            <ScalarProperty Name="SiteSearchContent" ColumnName="SiteSearchContent" />
+            <ScalarProperty Name="AdvancedSearch" ColumnName="AdvancedSearch" />
+            <ScalarProperty Name="HorizontaSearch" ColumnName="HorizontaSearch" />
+            <ScalarProperty Name="VerticalSearch" ColumnName="VerticalSearch" />
+            <ScalarProperty Name="RelationInfo" ColumnName="RelationInfo" />
+            <ScalarProperty Name="MessageBoard" ColumnName="MessageBoard" />
+            <ScalarProperty Name="Reply" ColumnName="Reply" />
+            <ScalarProperty Name="FinalDown" ColumnName="FinalDown" />
+            <ScalarProperty Name="DownAddress" ColumnName="DownAddress" />
+            <ScalarProperty Name="OLPlayaddress" ColumnName="OLPlayaddress" />
+            <ScalarProperty Name="ListPager" ColumnName="ListPager" />
+            <ScalarProperty Name="LoginStatus" ColumnName="LoginStatus" />
+            <ScalarProperty Name="JSLogin" ColumnName="JSLogin" />
+            <ScalarProperty Name="ImageList" ColumnName="ImageList" />
+            <ScalarProperty Name="AnswerList" ColumnName="AnswerList" />
+            <ScalarProperty Name="ChapterList" ColumnName="ChapterList" />
+            <ScalarProperty Name="BookChapter" ColumnName="BookChapter" />
+            <ScalarProperty Name="KuaiboPage" ColumnName="KuaiboPage" />
+            <ScalarProperty Name="BaiduPage" ColumnName="BaiduPage" />
+            <ScalarProperty Name="SingleDrama" ColumnName="SingleDrama" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TemplateReply"><EntityTypeMapping TypeName="DataModel.TemplateReply"><MappingFragment StoreEntitySet="TemplateReply">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+            <ScalarProperty Name="Content" ColumnName="Content" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TemplateSearch"><EntityTypeMapping TypeName="DataModel.TemplateSearch"><MappingFragment StoreEntitySet="TemplateSearch">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+            <ScalarProperty Name="TempName" ColumnName="TempName" />
+            <ScalarProperty Name="SysModel" ColumnName="SysModel" />
+            <ScalarProperty Name="CutKeywords" ColumnName="CutKeywords" />
+            <ScalarProperty Name="CutTitle" ColumnName="CutTitle" />
+            <ScalarProperty Name="ShowRecordCount" ColumnName="ShowRecordCount" />
+            <ScalarProperty Name="TimeFormat" ColumnName="TimeFormat" />
+            <ScalarProperty Name="Content" ColumnName="Content" />
+            <ScalarProperty Name="ListVar" ColumnName="ListVar" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TemplateVar"><EntityTypeMapping TypeName="DataModel.TemplateVar"><MappingFragment StoreEntitySet="TemplateVar">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+            <ScalarProperty Name="VarName" ColumnName="VarName" />
+            <ScalarProperty Name="Content" ColumnName="Content" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TemplTags"><EntityTypeMapping TypeName="DataModel.TemplTags"><MappingFragment StoreEntitySet="TemplTags">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="TagName" ColumnName="TagName" />
+            <ScalarProperty Name="TagCode" ColumnName="TagCode" />
+            <ScalarProperty Name="FunctionName" ColumnName="FunctionName" />
+            <ScalarProperty Name="TagFormat" ColumnName="TagFormat" />
+            <ScalarProperty Name="Remark" ColumnName="Remark" />
+            <ScalarProperty Name="Enable" ColumnName="Enable" />
+            <ScalarProperty Name="TagIndex" ColumnName="TagIndex" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="User"><EntityTypeMapping TypeName="DataModel.User"><MappingFragment StoreEntitySet="User">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="UserName" ColumnName="UserName" />
+            <ScalarProperty Name="UserPass" ColumnName="UserPass" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+            <ScalarProperty Name="ChineseName" ColumnName="ChineseName" />
+            <ScalarProperty Name="QQ" ColumnName="QQ" />
+            <ScalarProperty Name="MSN" ColumnName="MSN" />
+            <ScalarProperty Name="Tel" ColumnName="Tel" />
+            <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+            <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+            <ScalarProperty Name="Image" ColumnName="Image" />
+            <ScalarProperty Name="Address" ColumnName="Address" />
+            <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+            <ScalarProperty Name="Intro" ColumnName="Intro" />
+            <ScalarProperty Name="RegTime" ColumnName="RegTime" />
+            <ScalarProperty Name="RegIP" ColumnName="RegIP" />
+            <ScalarProperty Name="LoginCount" ColumnName="LoginCount" />
+            <ScalarProperty Name="LastLoginTime" ColumnName="LastLoginTime" />
+            <ScalarProperty Name="LastLoginIP" ColumnName="LastLoginIP" />
+            <ScalarProperty Name="Cent" ColumnName="Cent" />
+            <ScalarProperty Name="PostCount" ColumnName="PostCount" />
+            <ScalarProperty Name="GTalk" ColumnName="GTalk" />
+            <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+            <ScalarProperty Name="weibo" ColumnName="weibo" />
+            <ScalarProperty Name="ICQ" ColumnName="ICQ" />
+            <ScalarProperty Name="Group" ColumnName="Group" />
+            <ScalarProperty Name="Enable" ColumnName="Enable" />
+            <ScalarProperty Name="StudentNo" ColumnName="StudentNo" />
+            <ScalarProperty Name="TeachNo" ColumnName="TeachNo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="UserClassRelation"><EntityTypeMapping TypeName="DataModel.UserClassRelation"><MappingFragment StoreEntitySet="UserClassRelation">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="UserID" ColumnName="UserID" />
+            <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="UserForm"><EntityTypeMapping TypeName="DataModel.UserForm"><MappingFragment StoreEntitySet="UserForm">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="FormName" ColumnName="FormName" />
+            <ScalarProperty Name="Content" ColumnName="Content" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="UserGroup"><EntityTypeMapping TypeName="DataModel.UserGroup"><MappingFragment StoreEntitySet="UserGroup">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+            <ScalarProperty Name="Grade" ColumnName="Grade" />
+            <ScalarProperty Name="MaxPost" ColumnName="MaxPost" />
+            <ScalarProperty Name="PostAotuAudit" ColumnName="PostAotuAudit" />
+            <ScalarProperty Name="RegForm" ColumnName="RegForm" />
+            <ScalarProperty Name="EnableReg" ColumnName="EnableReg" />
+            <ScalarProperty Name="RegAutoAudit" ColumnName="RegAutoAudit" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="UserRerm"><EntityTypeMapping TypeName="DataModel.UserRerm"><MappingFragment StoreEntitySet="UserRerm">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="FormName" ColumnName="FormName" />
+            <ScalarProperty Name="FormContent" ColumnName="FormContent" />
+            <ScalarProperty Name="Remark" ColumnName="Remark" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Zt"><EntityTypeMapping TypeName="DataModel.Zt"><MappingFragment StoreEntitySet="Zt">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+            <ScalarProperty Name="ZtName" ColumnName="ZtName" />
+            <ScalarProperty Name="Forder" ColumnName="Forder" />
+            <ScalarProperty Name="ExtName" ColumnName="ExtName" />
+            <ScalarProperty Name="ICON" ColumnName="ICON" />
+            <ScalarProperty Name="KeyWords" ColumnName="KeyWords" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="LtIndex" ColumnName="LtIndex" />
+            <ScalarProperty Name="ShowInNav" ColumnName="ShowInNav" />
+            <ScalarProperty Name="FaceModel" ColumnName="FaceModel" />
+            <ScalarProperty Name="ListModel" ColumnName="ListModel" />
+            <ScalarProperty Name="ListOrder" ColumnName="ListOrder" />
+            <ScalarProperty Name="ListPageSize" ColumnName="ListPageSize" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Data">
+        <EntityTypeShape EntityType="DataModel.Answer" Width="1.5" PointX="0.75" PointY="0.75" Height="2.085348307291667" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Book" Width="1.5" PointX="2.75" PointY="0.75" Height="5.372294921875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.BookChapter" Width="1.5" PointX="4.75" PointY="0.75" Height="3.8931689453124996" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.BookRole" Width="1.5" PointX="4.75" PointY="5.75" Height="1.5923063151041657" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.BookVolume" Width="1.5" PointX="6.75" PointY="0.75" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Class" Width="1.5" PointX="6.75" PointY="3.75" Height="7.5088102213541674" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.File" Width="1.5" PointX="0.75" PointY="7.75" Height="2.5783902994791674" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.GroupRole" Width="1.5" PointX="8.75" PointY="0.75" Height="1.4279589843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.ImageAlbum" Width="1.5" PointX="2.75" PointY="8.75" Height="3.5644742838541674" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Images" Width="1.5" PointX="8.75" PointY="3.75" Height="2.7427376302083353" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Info" Width="1.5" PointX="8.75" PointY="7.75" Height="10.960104166666667" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.InfoImage" Width="1.5" PointX="10.75" PointY="0.75" Height="1.7566536458333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.InfoType" Width="1.5" PointX="10.75" PointY="3.75" Height="8.6592415364583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Link" Width="1.5" PointX="12.75" PointY="0.75" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.MovieDrama" Width="1.5" PointX="12.75" PointY="3.75" Height="1.9210009765625031" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.MovieDramaUrl" Width="1.5" PointX="4.75" PointY="12.75" Height="2.5783902994791674" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.MovieInfo" Width="1.5" PointX="12.75" PointY="6.75" Height="5.7009895833333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.MovieUrl" Width="1.5" PointX="0.75" PointY="13.75" Height="2.5783902994791674" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.MovieUrlBaidu" Width="1.5" PointX="10.75" PointY="13.75" Height="2.0853483072916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.MovieUrlKuaib" Width="1.5" PointX="12.75" PointY="13.75" Height="2.0853483072916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.MovieUrlMag" Width="1.5" PointX="14.75" PointY="0.75" Height="2.0853483072916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.News" Width="1.5" PointX="14.75" PointY="3.75" Height="5.7009895833333282" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Question" Width="1.5" PointX="14.75" PointY="10.75" Height="2.4140429687500102" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Relpy" Width="1.5" PointX="14.75" PointY="14.75" Height="2.2496956380208246" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.SysDepartment" Width="1.5" PointX="16.75" PointY="0.75" Height="1.2636116536458246" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.SysGroup" Width="1.5" PointX="2.75" PointY="16.75" Height="1.2636116536458246" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.SysKeyword" Width="1.5" PointX="16.75" PointY="3.75" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.SysModel" Width="1.5" PointX="4.75" PointY="16.75" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.SysRole" Width="1.5" PointX="16.75" PointY="6.75" Height="2.0853483072916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.SysUser" Width="1.5" PointX="16.75" PointY="9.75" Height="3.2357796223958246" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.TemplateContent" Width="1.5" PointX="10.75" PointY="16.75" Height="1.9210009765625102" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.TemplateFace" Width="1.5" PointX="16.75" PointY="13.75" Height="1.4279589843750102" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.TemplateGroup" Width="1.5" PointX="16.75" PointY="16.75" Height="1.4279589843750102" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.TemplateList" Width="1.5" PointX="12.75" PointY="17.75" Height="2.5783902994791674" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.TemplatePage" Width="1.5" PointX="18.75" PointY="0.75" Height="1.9210009765625102" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.TemplatePublic" Width="1.5" PointX="18.75" PointY="3.75" Height="4.87925292968751" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.TemplateReply" Width="1.5" PointX="18.75" PointY="9.75" Height="1.4279589843750102" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.TemplateSearch" Width="1.5" PointX="18.75" PointY="12.75" Height="2.5783902994791674" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.TemplateVar" Width="1.5" PointX="18.75" PointY="16.75" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.TemplTags" Width="1.5" PointX="0.75" PointY="19.75" Height="2.2496956380208246" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.User" Width="1.5" PointX="2.75" PointY="19.75" Height="5.7009895833333246" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.UserClassRelation" Width="1.5" PointX="4.75" PointY="19.75" Height="1.4279589843750102" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.UserForm" Width="1.5" PointX="6.75" PointY="19.75" Height="1.427958984374996" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.UserGroup" Width="1.5" PointX="8.75" PointY="19.75" Height="2.2496956380208246" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.UserRerm" Width="1.5" PointX="14.75" PointY="19.75" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Zt" Width="1.5" PointX="16.75" PointY="19.75" Height="3.2357796223958246" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

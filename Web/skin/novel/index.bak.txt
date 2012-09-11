@@ -1,0 +1,40 @@
+[!--temp.header--]
+    <div class="header block">
+        <h1 style="font-size: 20px">
+            <%=SystemSetting.SiteName %>
+        </h1>
+    </div>
+    <hr />
+    <div class="search block">
+        <form method="get" action="Search.aspx">
+            <input type="hidden" name="m" value="4" />
+            <input type="text" name="key" />
+            <input type="submit" value="搜索" />
+        </form>
+    </div>
+    <hr />
+    <div class="history block">
+        继续阅读：<script type="text/javascript" src="/e/tool/GetReadHistory.aspx"></script>
+    </div>
+    <hr />
+    <div class="_class block">
+        <h2>
+            小说分类
+        </h2>
+        <div>
+            [getallnovelclass][/getallnovelclass]
+        </div>
+    </div>
+    <hr />
+    <div class="update block">
+        <h2>
+            最新更新
+        </h2>
+        <table>
+            [getnoveltopupdate]10[/getnoveltopupdate]
+        </table>
+    </div>
+[!--temp.footer--]
+
+
+

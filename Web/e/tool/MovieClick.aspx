@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MovieClick.aspx.cs" Inherits="Web.e.tool.MovieClick" %>

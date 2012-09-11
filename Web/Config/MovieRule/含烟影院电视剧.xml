@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MovieRule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>含烟影院电视剧</Name>
+  <SiteName>含烟影院</SiteName>
+  <IsMovie>false</IsMovie>
+  <IsSearchRule>false</IsSearchRule>
+  <UseTagAsClass>false</UseTagAsClass>
+  <UseLocationAsClass>true</UseLocationAsClass>
+  <DefaultClass>其他</DefaultClass>
+  <Encoding>gb2312</Encoding>
+  <ListPageUrl>http://www.hanyanyy.com/tv/</ListPageUrl>
+  <NextListRule>&lt;a href='(?&lt;key&gt;[^&lt;&gt;]*?)'&gt;下一页&lt;/a&gt;</NextListRule>
+  <ListInfoRule>&lt;div class="info2_box"&gt;[\s]*?&lt;a.*?&gt;&lt;img src="(?&lt;image&gt;.*?)" alt=".*?" onerror=".*?" /&gt;.*?&lt;/a&gt;[\s\S]*?&lt;h1 class="fl"&gt;&lt;a href="(?&lt;url&gt;.*?)" target="_blank"&gt;(?&lt;title&gt;.*?)&lt;/a&gt;  &lt;small&gt;(?&lt;location&gt;.*?)&lt;/small&gt;&lt;/h1&gt;[\s\S]*?&lt;dd class="actor"&gt;主演: &lt;script&gt;document.write\(Detail.ac_search\('(?&lt;actors&gt;.*?)',.*?\)\);&lt;/script&gt;&lt;/dd&gt;[\s]*?&lt;dd&gt;年份: &lt;a .*?&gt;(?&lt;publicyear&gt;.*?)&lt;/a&gt;&lt;/dd&gt;[\s\S]*?&lt;/div&gt;</ListInfoRule>
+  <InfoRule>&lt;h1 class="fl"&gt;《(?&lt;title&gt;.*?)》[\s]*?&lt;small&gt;.*?&lt;/small&gt;[\s]*?&lt;/h1&gt;[\s\S]*?&lt;dd&gt;类型: &lt;a href="/.*?" target="_blank"&gt;(?&lt;class&gt;.*?)&lt;/a&gt; &lt;/dd&gt;[\s\S]*?&lt;dd&gt;地区: &lt;a href=".*?" target="_blank"&gt;(?&lt;location&gt;.*?)&lt;/a&gt;&lt;/dd&gt;[\s\S]*?&lt;div class="soytxt"&gt;.*?《.*?&lt;br&gt;[\s\S]*?&lt;p&gt;(?&lt;intro&gt;[\s\S]*?)&lt;/p&gt;</InfoRule>
+  <KuaibAreaRule />
+  <BaiduAreaRule>&lt;h2&gt;&lt;span&gt; 播放来源:百度影音&lt;/span&gt;(?&lt;key&gt;[\s\S]*?)&lt;/ul&gt;</BaiduAreaRule>
+  <KuaibDramaRule />
+  <BaiduDramaRule>&lt;li&gt;&lt;a title='.*?' href='(?&lt;playurl&gt;.*?)' target="_blank"&gt;(?&lt;title&gt;.*?)&lt;/a&gt;&lt;/li&gt;</BaiduDramaRule>
+  <DramaPageKuaibRule />
+  <DramaPageBaiduRule>&lt;!-- 百度影音播放器 --&gt;[\s]*?&lt;script type="text/javascript" src="(?&lt;source&gt;.*?)"&gt;&lt;/script&gt;&lt;script&gt;var param=getHtmlParas</DramaPageBaiduRule>
+  <SourceKuaibRule />
+  <SourceBaiduRule>{title}\$(?&lt;key&gt;.*?)\$bdhd</SourceBaiduRule>
+</MovieRule>

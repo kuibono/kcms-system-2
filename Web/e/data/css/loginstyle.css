@@ -1,0 +1,127 @@
+divv
+{
+	border:1px solid #F00;
+}
+body{
+	background-image:url(../images/login_bg.png);
+	background-position:0px 700px;
+}
+li {   
+ text-align: center;   
+ float: left;     
+ list-style-type: none;   
+} 
+ul
+{
+	padding:0;
+}
+*{
+	margin:0;
+	padding:0;
+	font-size:12px;
+	color:#333
+}
+#main
+{
+	margin-top:100px;
+	margin-left:auto;
+	margin-right:auto;
+	width:660px;
+	
+}
+.t{
+	filter:alpha(opacity=70);
+	 -moz-opacity:0.7;
+	 -khtml-opacity: 0.7;
+	 opacity: 0.7;
+}
+.l
+{
+	float:left;
+}
+.r
+{
+	float:right;
+}
+.fn{
+	float:none;
+}
+.clear{
+	clear:both;
+}
+#loginForm
+{
+	width:228px;
+	height:319px;
+	background-image:url(../images/bg_login.jpg);
+	background-repeat:no-repeat;
+	position:relative;
+}
+#info
+{
+	height:319px;
+	line-height:319px;
+	vertical-align:middle;
+}
+.textbox
+{
+	background-image:url(../images/bg_textbox.jpg);
+	width:188px;
+	height:33px;
+	padding-left:3px;
+	border-width:0;
+	line-height:33px;
+	vertical-align:middle;
+}
+.submit{
+	background-image:url(../images/bg_login_btn.png);
+	width:98px;
+	height:32px;
+	border-width:0;
+}
+#form_username
+{
+	top:40px;
+	left:15px;
+	position:absolute;
+}
+#form_password
+{
+	top:100px;
+	left:15px;
+	position:absolute;
+}
+#form_vcode{
+	top:160px;
+	left:15px;
+	position:absolute;
+	vertical-align:baseline;
+	height:56px;
+}
+#form_vcode img
+{
+    position:absolute;
+    top:15px;
+    left:89px;
+    height:32px;
+}
+#form_submit{
+	top:220px;
+	left:15px;
+	position:absolute;
+}
+#form_other
+{
+	bottom:12px;
+	left:0px;
+	position:absolute;
+	float:none;
+	width:100%;
+	line-height:30px;
+	vertical-align:bottom;
+}
+.other
+{
+	width:100px;
+	padding-left:12px;
+}

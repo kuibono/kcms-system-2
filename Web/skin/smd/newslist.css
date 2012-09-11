@@ -1,0 +1,72 @@
+@charset "utf-8";
+/* CSS Document */
+
+.detail{
+	max-width:600px;
+	text-align:left;
+	padding:0px 10px 2px 10px;
+}
+h1
+{
+	
+	color:#bd0000;
+}
+.detail div h1 a
+{
+	color:#bd0000;
+	font-family:黑体;
+	font-size:16px;
+}
+.viewdetail
+{
+	text-align:right;
+}
+.viewdetail a
+{
+	width: 60px;
+	height: 22px;
+	line-height: 22px;
+	font-size: 12px;
+	text-align: center;
+	line-height: 22px;
+	display: inline-block;
+	border: 1px solid #E7ECF0;
+	background:#BD0000;
+	color:#FFF;
+	margin-right: 5px;
+	text-decoration: none;
+	vertical-align: middle;
+}
+.item
+{
+	margin-top:10px;
+}
+.item_cn,.item
+{
+	border-bottom: #6e6e6e 1px dotted;
+}
+#pager{
+	font-size:14px;
+	font-weight:bold;
+	text-align:center;
+}
+#pager a{
+	font-family:黑体;
+	width: 23px;
+	height: 22px;
+	line-height: 22px;
+	font-size: 12px;
+	text-align: center;
+	line-height: 22px;
+	display: inline-block;
+	border: 1px solid #E7ECF0;
+	background:#999;
+	color:#FFF;
+	margin-right: 5px;
+	text-decoration: none;
+	vertical-align: middle;
+}
+#pager a.current
+{
+	background:#BD0000;
+}

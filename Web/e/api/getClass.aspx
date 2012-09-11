@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="getClass.aspx.cs" Inherits="Web.e.api.getClass" %>

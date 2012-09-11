@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ServerCollect.aspx.cs" Inherits="Web.e.tool.Collect.Novel.ServerCollect" ValidateRequest="false" %>

@@ -1,0 +1,53 @@
+@charset "utf-8";
+/* CSS Document */
+
+#imgs .l{
+	width:315px;
+}
+#address .l{
+	width:315px;
+}
+.l h1{
+	font-size:16px;
+	font-family:黑体;
+	color:#bd0000;
+}
+.l p
+{
+	font-family:黑体;
+}
+#online{
+	height:50px;
+}
+#online li{
+	padding:0 10px 0 10px;
+}
+#live_msg tr td{
+	color:#999;
+	font-family:黑体;
+	font-size:14px;
+}
+.textbox{
+	height:34px;
+	width:305px;
+	background-image:url(images/bg_input_single.gif);
+	background-repeat:no-repeat;
+	border-width:0px;
+	font-size:14px;
+}
+.textarea{
+	height:107px;
+	width:305px;
+	background-image:url(images/bg_input_multi.gif);
+	background-repeat:no-repeat;
+	border-width:0px;
+	font-size:14px;
+}
+.submit
+{
+	height:47px;
+	width:305px;
+	background-image:url(images/bg_submit_message.gif);
+	background-repeat:no-repeat;
+	border-width:0px;
+}

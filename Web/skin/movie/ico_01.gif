@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>404错误</title>
+<meta http-equiv=pragma content=no-cache> 
+<meta http-equiv="refresh" content="1;url='http://www.aimizi.com?404_err' ">
+<style type="text/css">
+<!--
+body {
+	background-image: url(/404/404.jpg);
+	background-repeat: repeat-x;
+	background-color: #032f52;
+	margin-top: 0px;
+}
+#foot{
+width:685px;
+height:690px;
+margin: auto;
+margin-top:0px;
+background-image : url(/404/404_bg.jpg);
+background-repeat : repeat-x;
+}
+#footright1 {margin:auto;width:450px;height:250px;border-style:solid;border-width :1px; border-color :#fff;background-color : #052a45; filter:alpha(opacity=40);}
+#foot_top {margin:auto;width:420px;height:120px;}
+#footsearch {width:420px;height:36px;margin-top:20px;margin-left:10px; position:absolute;}
+#foot_k {
+	width:310px;
+	height:20px;
+	margin-top:120px;
+	margin-left:70px;
+	position:absolute;
+	text-align: center;
+}
+body,td,th {
+	color: #cccccc;
+	font-size: 12px;
+}
+a:link {
+	color: #cccccc;
+	text-decoration: underline;
+}
+a:visited {
+	text-decoration: underline;
+	color: #cccccc;
+}
+a:hover {
+	text-decoration: none;
+	color: #cccccc;
+}
+a:active {
+	text-decoration: underline;
+	color: #cccccc;
+}
+-->
+</style>
+</head>
+
+<body>
+<div id="foot">
+<div id="foot_top"></div>
+<div id="footright1">
+<div id="footsearch"><img src="/404/401.gif" width="36" height="36" align="absmiddle" /> <font size=6px>您访问的页面已经转移</font></div>
+<div id="foot_k"><a href="/">请从这里登陆  http://www.aimizi.com</a>
+  <p>本页将自动转入首页，希望您进首页后寻找到需要的!
+</div>
+</div>
+</div>
+</body>
+</html>

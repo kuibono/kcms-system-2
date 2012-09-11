@@ -1,0 +1,326 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link type="text/css" rel="Stylesheet" href="../data/css/management.css" />
+    <script type="text/javascript" src="../data/script/jquery-1.7.min.js"></script>
+    <script type="text/javascript">
+
+
+        $(function () {
+            $.ajax({
+                url: "/e/tool/Collect/Movie/ServerCollecor.aspx?a=getrules",
+                dataType: "json",
+                type: "POST",
+                success: function (rules) {
+                    getListInfo(rules, 0);
+                },
+                complete: function (XHR, TS) { XHR = null }
+            })
+        })
+
+
+
+
+        //获取列表中的影视信息
+
+        var getListInfo = function (rules, i) {
+            $("#ruleinfo").text(rules[i].Name);
+            $("#listurl").text(rules[i].ListPageUrl);
+            $.ajax({
+                url: "/e/tool/Collect/Movie/ServerCollecor.aspx?a=getlistmovies",
+                data: {
+                    "rulename": rules[i].Name,
+                    "listurl": rules[i].ListPageUrl
+                },
+                dataType: "json",
+                type: "POST",
+                success: function (movies) {
+                    getMovieInfo(rules[i].Name, movies, 0, function () {
+                        try {
+                            if (movies.NextPageUrl != null && movies.NextPageUrl.length > 0) {
+                                rules[i].ListPageUrl = movies.NextPageUrl;
+                                getListInfo(rules, i);
+                            }
+                            else {
+                                if (i < rules.length - 1) {
+                                    i++;
+                                    getListInfo(rules, i);
+                                }
+                            }
+                        }
+                        catch (ex) {
+                            i++;
+                            getListInfo(rules, i);
+                        }
+                    });
+
+                },
+                complete: function (XHR, TS) { XHR = null; return false; }
+            });
+        }
+
+        var getMovieInfo = function (rulename, movies, i, callback) {
+            $("#movie").text(movies.Movies[i].Title)
+            $.ajax({
+                url: "/e/tool/Collect/Movie/ServerCollecor.aspx?a=getmovieinfo",
+                data: {
+                    "rulename": rulename,
+                    "url": movies.Movies[i].Url,
+                    "cls": movies.Movies[i].ClassName,
+                    "title": movies.Movies[i].Title,
+                    "director": movies.Movies[i].Director,
+                    "actors": movies.Movies[i].Actors,
+                    "tags": movies.Movies[i].Tags,
+                    "location": movies.Movies[i].Location,
+                    "publicyear": movies.Movies[i].PublicYear,
+                    "intro": movies.Movies[i].Intro,
+                    "image": movies.Movies[i].FaceImage
+                },
+                dataType: "json",
+                type: "POST",
+                success: function (movie) {
+
+                    if ((movie.KuaiboDramas.length > 0 && movie.KuaiboDramas[0].Url.length > 0) || (movie.BaiduDramas.length > 0 && movie.BaiduDramas[0].Url.length > 0)) {
+                        i++;
+                        if (i < movies.Movies.length - 1) {
+                            getMovieInfo(rulename, movies, i, callback);
+                        }
+                        else {
+                            callback();
+                        }
+                        return false;
+                    }
+                    var finish = 0;
+                    getKuaiboDrama(rulename, movie, 0, function () {
+                        finish++;
+                        if (finish > 1) {
+                            i++;
+                            if (i < movies.Movies.length - 1) {
+                                getMovieInfo(rulename, movies, i, callback);
+                            }
+                            else {
+                                //createContentPage(movie.Id, movie.ClassID, function () { callback(); });
+                                callback();
+                            }
+                        }
+                    });
+                    getBaiduDrama(rulename, movie, 0, function () {
+                        finish++;
+                        if (finish > 1) {
+                            i++;
+                            if (i < movies.Movies.length - 1) {
+                                getMovieInfo(rulename, movies, i, callback);
+                            }
+                            else {
+                                //createContentPage(movie.Id, movie.ClassID, function () { callback(); });
+                                callback();
+                            }
+                        }
+                    });
+
+
+                },
+                complete: function (XHR, TS) { XHR = null; return false; },
+                error: function () {
+                    callback();
+                }
+            });
+        }
+
+        var getKuaiboDrama = function (rulename, movie, i, callback) {
+            if (movie.KuaiboDramas.length == 0) {
+                return callback();
+            }
+            $("#drama").text(movie.KuaiboDramas[i].Title);
+            $("#status").text("打开快播播放页面");
+            $.ajax({
+                url: "/e/tool/Collect/Movie/ServerCollecor.aspx?a=getkuaibodrama",
+                data: {
+                    "rulename": rulename,
+                    "url": movie.KuaiboDramas[i].PlayUrl,
+                    "title": movie.KuaiboDramas[i].Title,
+                    "movieid": movie.Id,
+                    "movietitle": movie.Title
+                },
+                dataType: "json",
+                type: "POST",
+                success: function (drama) {
+                    if (drama.Id <= 0) {
+                        getKuaiboSource(rulename,
+                            drama.SourceUrl,
+                            drama.Title,
+                            movie.Id,
+                            movie.Title, function () {
+                                if (i < movie.KuaiboDramas.length - 1) {
+                                    i++;
+                                    getKuaiboDrama(rulename, movie, i, callback);
+                                }
+                                else {
+                                    //callback();
+                                    createContentPage(movie.Id, movie.ClassID, function () { callback(); });
+                                }
+                            }
+                            );
+                    }
+                    else {
+                        callback();
+                    }
+                },
+                complete: function (XHR, TS) { XHR = null; return false; },
+                error: function () {
+                    callback();
+                }
+            });
+        }
+        var getBaiduDrama = function (rulename, movie, i, callback) {
+            if (movie.BaiduDramas.length == 0) {
+                return callback();
+            }
+            $("#drama").text(movie.BaiduDramas[i].Title);
+            $("#status").text("打开百度播放页面");
+            $.ajax({
+                url: "/e/tool/Collect/Movie/ServerCollecor.aspx?a=getbaidudrama",
+                data: {
+                    "rulename": rulename,
+                    "url": movie.BaiduDramas[i].PlayUrl,
+                    "title": movie.BaiduDramas[i].Title,
+                    "movieid": movie.Id,
+                    "movietitle": movie.Title
+                },
+                dataType: "json",
+                type: "POST",
+                success: function (drama) {
+                    if (drama.Id <= 0) {
+                        getBaiduSource(rulename,
+                            drama.SourceUrl,
+                            drama.Title,
+                            movie.Id,
+                            movie.Title, function () {
+                                if (i < movie.BaiduDramas.length - 1) {
+                                    i++;
+                                    getBaiduDrama(rulename, movie, i, callback);
+                                }
+                                else {
+                                    //callback();
+                                    createContentPage(movie.Id, movie.ClassID, function () { callback(); });
+                                }
+                            });
+                    }
+                    else {
+                        callback();
+                    }
+                },
+                complete: function (XHR, TS) { XHR = null; return false; },
+                error: function () {
+                    callback();
+                }
+            });
+        }
+        var getKuaiboSource = function (rulename, url, title, movieid, movietitle, callback) {
+            $("#status").text("打开快播资源文件");
+            $.ajax({
+                url: "/e/tool/Collect/Movie/ServerCollecor.aspx?a=getkuaibosourceurl",
+                data: { "rulename": rulename, "url": url, "title": title, "movieid": movieid, "movietitle": movietitle },
+                dataType: "json",
+                type: "POST",
+                success: function (drama) { return callback() },
+                complete: function (XHR, TS) { XHR = null; return false; },
+                error: function () {
+                    callback();
+                }
+            })
+        }
+        var getBaiduSource = function (rulename, url, title, movieid, movietitle, callback) {
+            $("#status").text("打开百度资源文件");
+            $.ajax({
+                url: "/e/tool/Collect/Movie/ServerCollecor.aspx?a=getbaidusourceurl",
+                data: { "rulename": rulename, "url": url, "title": title, "movieid": movieid, "movietitle": movietitle },
+                dataType: "json",
+                type: "POST",
+                success: function (drama) { return callback() },
+                complete: function (XHR, TS) { XHR = null; return false; },
+                error: function () {
+                    callback();
+                }
+            })
+        }
+
+        var createContentPage = function (id, classid, callback) {
+            callback();
+//            $.ajax({
+//                url: "/e/tool/Collect/Movie/ServerCollecor.aspx?a=createcontentpage",
+//                data: { "id": id },
+//                dataType: "json",
+//                type: "POST",
+//                success: function (success) {
+//                    if (success == true) {
+//                        $("#status").text("生成内容页完成");
+//                        createListPage(classid, function () { callback() });
+//                    }
+//                },
+//                complete: function (XHR, TS) { XHR = null; },
+//                error: function () {
+//                    callback();
+//                }
+//            });
+        }
+        var createListPage = function (id, callback) {
+            callback();
+//            $.ajax({
+//                url: "/e/tool/Collect/Movie/ServerCollecor.aspx?a=createlistpage",
+//                data: { "id": id },
+//                dataType: "json",
+//                type: "POST",
+//                success: function (success) {
+//                    if (success == true) {
+//                        $("#status").text("生成列表页完成");
+//                        createIndexPage(function () { callback() });
+//                    }
+//                },
+//                complete: function (XHR, TS) { XHR = null; },
+//                error: function () {
+//                    callback();
+//                }
+//            });
+        }
+        var createIndexPage = function (callback) {
+            callback();
+            //            $.ajax({
+            //                url: "/e/tool/Collect/Movie/ServerCollecor.aspx?a=createindexpage",
+            //                dataType: "json",
+            //                type: "POST",
+            //                success: function (success) {
+            //                    if (success == true) {
+            //                        $("#status").text("生成首页完成");
+            //                        callback();
+            //                    }
+            //                },
+            //                complete: function (XHR, TS) { XHR = null; },
+            //                error: function () {
+            //                    callback();
+            //                }
+            //            });
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>规则：<label id="ruleinfo"></label>
+            </li>
+            <li>列表：<label id="listurl"></label>
+            </li>
+            <li>影视：<label id="movie"></label>
+            </li>
+            <li>剧集：<label id="drama"></label>
+            </li>
+            <li>状态：<label id="status"></label>
+            </li>
+        </ul>
+        <input type="button" id="btn_start" value="开始" />
+    </div>
+</body>
+</html>

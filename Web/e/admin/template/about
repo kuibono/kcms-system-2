@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>关于我们-三摩地</title>
+<link href="/skin/smd/public.css" type="text/css" rel="stylesheet" />
+<link href="about.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+<div id="main">
+	<div id="top">
+    	<div class="r mt10"> 
+        	<form action="xxx" method="get" class="l search">
+            	<input class="key l" name="key" type="text" value="请输入内容" onfocus="if(this.value==''请输入内容''){this.value='''';}"  onblur="if(this.value==''''){this.value=''请输入内容'';}" value="请输入内容" />
+                <input class="submit" type="submit" value="搜索" />
+            </form>
+    		<img src="images/plus.gif" /> 
+            <a href="javascript:void(0)" onclick="this.style.behavior=''url(#default#homepage)'';this.setHomePage(''http://www.xxx.net'');">设为首页</a>
+            &nbsp;&nbsp;
+            <img src="images/plus.gif" /> 
+            <a href="javascript:window.external.AddFavorite(document.URL,document.title);">加入收藏</a>
+        </div>
+    </div>
+    <div id="menu">
+    	<img src="images/menu_small.gif" alt="" />
+    </div>
+    <div class="content mt10">
+		<div class="l" id="h_menu">
+        	<ul>
+            	<li class="focus"><a href="#">关于三摩地</a></li>
+                <li><a href="#">三摩地简介</a></li>
+                <li><a href="#">三摩地理念</a></li>
+                <li><a href="#">三摩地己任</a></li>
+            </ul>
+        </div>
+        <div class="l" id="content_right">
+        	<div class="fn">
+            	<img src="images/image_aboutus.gif" alt=""/>
+            </div>
+            <div class="fn dot mt10">
+            	<h1>三摩地简介</h1>
+                <p>
+                三摩地成立于2004年，多年来致力于
+创意产品、创意展示、创意包装、高端商业形象设计、品牌表现力的释放、IMC、环保艺术与新科技
+的结合、意识形态与哲学思辨、美学研究与超视觉表现。
+                </p>
+            </div>
+            <div class="fn mt10">
+            <h1>SAMADHI Profile</h1>
+                <p>
+                Samadhi was founded in 2004, over the years to
+Creative products, creative display, creative packaging, high-end commercial image design, 
+the release of the brand expression, the IMC, environmental art and new technology The 
+combination of ideology and philosophical speculation, and aesthetic research and the 
+performance of super-vision.
+
+                </p>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear mt10"></div>
+
+        <div id="bottom" class="pt20">
+    	<p></p>
+        <p></p>
+        <p></p>
+    	<p>网站首页  |  三摩地世界  |  艺术家市场  |  产品目录  |  前沿资讯  |  联系我们  |  加入我们</p>
+		<p>《中华人民共和国电信与信息服务业务经营许可证》编号：苏ICP备10075370号</p>
+    </div>
+</div>
+
+</body>
+</html>
