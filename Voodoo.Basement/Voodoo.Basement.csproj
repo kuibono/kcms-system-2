@@ -53,9 +53,8 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CookComputing.XmlRpcV2, Version=2.3.2.0, Culture=neutral, PublicKeyToken=a7d6e17aa302004d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\voodoo\ref\CookComputing.XmlRpcV2.dll</HintPath>
+    <Reference Include="CookComputing.XmlRpcV2">
+      <HintPath>..\..\..\Voodoo\ref\CookComputing.XmlRpcV2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -111,7 +110,7 @@
     <Compile Include="UserAction.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Voodoo\Voodoo.csproj">
+    <ProjectReference Include="..\..\..\Voodoo\Voodoo.csproj">
       <Project>{CF4C09DC-B002-4A0D-856B-DCD5E3719213}</Project>
       <Name>Voodoo</Name>
     </ProjectReference>
@@ -155,6 +154,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data.edmx.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

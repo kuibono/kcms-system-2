@@ -72,7 +72,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Voodoo\Voodoo.csproj">
+    <ProjectReference Include="..\..\..\Voodoo\Voodoo.csproj">
       <Project>{CF4C09DC-B002-4A0D-856B-DCD5E3719213}</Project>
       <Name>Voodoo</Name>
     </ProjectReference>

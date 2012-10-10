@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Voodoo.Basement", "Voodoo.B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Voodoo.Setting", "Voodoo.Setting\Voodoo.Setting.csproj", "{EB265D9F-9F2C-4408-9EC1-A6C4EB2AA44F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Voodoo", "..\Voodoo\Voodoo.csproj", "{CF4C09DC-B002-4A0D-856B-DCD5E3719213}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Voodoo", "..\..\Voodoo\Voodoo.csproj", "{CF4C09DC-B002-4A0D-856B-DCD5E3719213}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
