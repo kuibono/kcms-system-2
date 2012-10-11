@@ -11,6 +11,11 @@ namespace Voodoo.Basement
 	///</summary>
 	public class SysSetting
 	{
+        /// <summary>
+        /// 默认模型
+        /// </summary>
+        public int DefaultModel { get; set; }
+
 		/// <summary>
 		/// 
 		/// </summary>

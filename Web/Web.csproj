@@ -1599,6 +1599,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="e\admin\Job\" />
     <Folder Include="u\fckup\" />
     <Folder Include="u\MoviekFace\" />
   </ItemGroup>
