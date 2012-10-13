@@ -280,5 +280,25 @@ namespace Voodoo.Basement
             }
         }
         #endregion
+
+        #region 根据id获取用户
+        /// <summary>
+        /// 根据id获取用户
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static User GetUserByID(int id)
+        {
+            using (DataEntities ent = new DataEntities())
+            {
+                return (from l in ent.User where l.ID == id select l).FirstOrDefault();
+            }
+        }
+
+        public static string GetUserNameByID(int id)
+        {
+            return GetUserByID(id).UserName;
+        }
+        #endregion
     }
 }

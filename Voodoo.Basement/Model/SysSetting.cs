@@ -16,6 +16,11 @@ namespace Voodoo.Basement
         /// </summary>
         public int DefaultModel { get; set; }
 
+        /// <summary>
+        /// 是否显示信息管理菜单
+        /// </summary>
+        public bool ShowMenuMessage { get; set; }
+
 		/// <summary>
 		/// 
 		/// </summary>

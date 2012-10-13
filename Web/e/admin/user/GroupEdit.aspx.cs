@@ -33,7 +33,7 @@ namespace Web.e.admin.user
 
             int id = WS.RequestInt("id");
             UserGroup g = (from l in ent.UserGroup where l.ID == id select l).FirstOrDefault();
-            if (g.ID < 0)
+            if (null==g)
             {
                 return;
             }
@@ -53,6 +53,10 @@ namespace Web.e.admin.user
             DataEntities ent = new DataEntities();
             int id = WS.RequestInt("id");
             UserGroup g = (from l in ent.UserGroup where l.ID == id select l).FirstOrDefault();
+            if (g == null)
+            {
+                g = new UserGroup();
+            }
 
             g.GroupName = txt_GroupName.Text;
             g.Grade = txt_grade.Text.ToInt32();

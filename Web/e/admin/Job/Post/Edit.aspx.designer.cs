@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.e.admin.sysuser {
+namespace Web.e.admin.Job.Post {
     
     
-    public partial class SysUserList {
+    public partial class Edit {
         
         /// <summary>
         /// form1 控件。
@@ -22,66 +22,102 @@ namespace Web.e.admin.sysuser {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// rp_list 控件。
+        /// ddl_User 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rp_list;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_User;
         
         /// <summary>
-        /// btn_disable 控件。
+        /// ddl_Company 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_disable;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_Company;
         
         /// <summary>
-        /// btn_enable 控件。
+        /// txt_Title 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_enable;
+        protected global::Voodoo.UI.VTextBox txt_Title;
         
         /// <summary>
-        /// btn_Add 控件。
+        /// ddl_Province 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Add;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_Province;
         
         /// <summary>
-        /// Button1 控件。
+        /// ddl_City 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_City;
         
         /// <summary>
-        /// btn_MangeDep 控件。
+        /// ddl_Salary 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_MangeDep;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_Salary;
         
         /// <summary>
-        /// pager 控件。
+        /// ddl_Expressions 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Voodoo.UI.AspNetPager pager;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_Expressions;
+        
+        /// <summary>
+        /// ddl_Edu 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddl_Edu;
+        
+        /// <summary>
+        /// txt_EmployNumber 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::Voodoo.UI.VTextBox txt_EmployNumber;
+        
+        /// <summary>
+        /// txt_Intro 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::Voodoo.UI.VTextBox txt_Intro;
+        
+        /// <summary>
+        /// btn_Save 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_Save;
     }
 }

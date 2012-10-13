@@ -76,7 +76,7 @@ namespace Web.e.admin.user
 
             pager.RecordCount = q.Count();
 
-            rp_list.DataSource = q.Skip(pager.CurrentPageIndex - 1).Take(pager.PageSize);
+            rp_list.DataSource = q.OrderByDescending(p=>p.ID).Skip((pager.CurrentPageIndex - 1)*pager.PageSize).Take(pager.PageSize);
             rp_list.DataBind();
             ent.Dispose();
 

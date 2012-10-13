@@ -49,6 +49,8 @@
           <EntitySet Name="SysGroup" EntityType="DataModel.Store.SysGroup" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SysKeyword" EntityType="DataModel.Store.SysKeyword" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SysModel" EntityType="DataModel.Store.SysModel" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SysNavPanel" EntityType="DataModel.Store.SysNavPanel" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SysNavTree" EntityType="DataModel.Store.SysNavTree" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SysRole" EntityType="DataModel.Store.SysRole" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SysUser" EntityType="DataModel.Store.SysUser" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TemplateContent" EntityType="DataModel.Store.TemplateContent" store:Type="Tables" Schema="dbo" />
@@ -421,6 +423,7 @@
           <Property Name="CompanyType" Type="int" />
           <Property Name="EmployeeCount" Type="int" />
           <Property Name="Intro" Type="nvarchar(max)" />
+          <Property Name="UserID" Type="int" />
         </EntityType>
         <EntityType Name="JobEduSpecialty">
           <Key>
@@ -783,6 +786,30 @@
           <Property Name="TableName" Type="nvarchar" MaxLength="50" />
           <Property Name="SonClass" Type="nvarchar" MaxLength="255" />
         </EntityType>
+        <EntityType Name="SysNavPanel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Icon" Type="nvarchar" MaxLength="255" />
+          <Property Name="OrderIndex" Type="int" />
+          <Property Name="Group" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="SysNavTree">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="PanelID" Type="int" />
+          <Property Name="Icon" Type="nvarchar" MaxLength="255" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrderIndex" Type="int" />
+          <Property Name="Url" Type="nvarchar" MaxLength="255" />
+          <Property Name="InnerHtml" Type="nvarchar" MaxLength="255" />
+          <Property Name="Group" Type="nvarchar" MaxLength="500" />
+        </EntityType>
         <EntityType Name="SysRole">
           <Key>
             <PropertyRef Name="ID" />
@@ -1099,6 +1126,8 @@
           <EntitySet Name="JobType" EntityType="DataModel.JobType" />
           <EntitySet Name="Province" EntityType="DataModel.Province" />
           <EntitySet Name="JobResumeFile" EntityType="DataModel.JobResumeFile" />
+          <EntitySet Name="SysNavPanel" EntityType="DataModel.SysNavPanel" />
+          <EntitySet Name="SysNavTree" EntityType="DataModel.SysNavTree" />
         </EntityContainer>
         <EntityType Name="Answer">
           <Key>
@@ -1892,6 +1921,7 @@
           <Property Type="Int32" Name="CompanyType" />
           <Property Type="Int32" Name="EmployeeCount" />
           <Property Type="String" Name="Intro" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="UserID" />
         </EntityType>
         <EntityType Name="JobPost">
           <Key>
@@ -2064,6 +2094,30 @@
           <Property Type="Int64" Name="ResumeID" />
           <Property Type="String" Name="FileName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="FilePath" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SysNavPanel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Icon" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="OrderIndex" />
+          <Property Type="String" Name="Group" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SysNavTree">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ParentID" />
+          <Property Type="Int32" Name="PanelID" />
+          <Property Type="String" Name="Icon" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="OrderIndex" />
+          <Property Type="String" Name="Url" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="InnerHtml" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Group" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2902,7 +2956,8 @@
     <EntitySetMapping Name="JobCompany">
       <EntityTypeMapping TypeName="IsTypeOf(DataModel.JobCompany)">
         <MappingFragment StoreEntitySet="JobCompany">
-          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
           <ScalarProperty Name="Industry" ColumnName="Industry" />
           <ScalarProperty Name="CompanyType" ColumnName="CompanyType" />
@@ -3097,6 +3152,32 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="SysNavPanel">
+            <EntityTypeMapping TypeName="DataModel.SysNavPanel">
+              <MappingFragment StoreEntitySet="SysNavPanel">
+                <ScalarProperty Name="Group" ColumnName="Group" />
+                <ScalarProperty Name="OrderIndex" ColumnName="OrderIndex" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SysNavTree">
+            <EntityTypeMapping TypeName="DataModel.SysNavTree">
+              <MappingFragment StoreEntitySet="SysNavTree">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Group" ColumnName="Group" />
+                <ScalarProperty Name="InnerHtml" ColumnName="InnerHtml" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="OrderIndex" ColumnName="OrderIndex" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="PanelID" ColumnName="PanelID" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
@@ -3178,6 +3259,8 @@
         <EntityTypeShape EntityType="DataModel.JobType" Width="1.5" PointX="23.375" PointY="0.75" Height="1.5879931640624818" />
         <EntityTypeShape EntityType="DataModel.Province" Width="1.5" PointX="23.375" PointY="3.75" Height="1.9700325520833246" />
         <EntityTypeShape EntityType="DataModel.JobResumeFile" Width="1.5" PointX="23.375" PointY="6.75" Height="1.9700325520833246" />
+        <EntityTypeShape EntityType="DataModel.SysNavPanel" Width="1.5" PointX="7.375" PointY="23.75" Height="1.9700325520833246" />
+        <EntityTypeShape EntityType="DataModel.SysNavTree" Width="1.5" PointX="23.375" PointY="9.75" Height="2.5430916341145746" />
       </Diagram>
     </Diagrams>
   </Designer>

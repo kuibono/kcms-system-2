@@ -143,7 +143,13 @@ namespace Voodoo.Basement
             }
 
         }
+        public string GetGroupNameByID(int id)
+        {
+            return GetGroupByID(id).GroupName;
+        }
         #endregion
+
+       
 
         #region  根据ID获得部门名
         /// <summary>

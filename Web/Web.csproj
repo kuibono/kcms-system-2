@@ -101,6 +101,11 @@
     <Content Include="e\admin\Info\InfoList.aspx" />
     <Content Include="e\admin\Info\InfoTypeEdit.aspx" />
     <Content Include="e\admin\Info\InfoTypeList.aspx" />
+    <Content Include="e\admin\Job\Company\Edit.aspx" />
+    <Content Include="e\admin\Job\Company\List.aspx" />
+    <Content Include="e\admin\Job\Default.aspx" />
+    <Content Include="e\admin\Job\Post\Edit.aspx" />
+    <Content Include="e\admin\Job\Post\List.aspx" />
     <Content Include="e\admin\Login.aspx" />
     <Content Include="e\admin\Movie\MovieEdit.aspx" />
     <Content Include="e\admin\Movie\MovieList.aspx" />
@@ -112,6 +117,7 @@
     <Content Include="e\admin\news\NewsEdit.aspx" />
     <Content Include="e\admin\news\NewsList.aspx" />
     <Content Include="e\admin\system\Basement\FileManagement.aspx" />
+    <Content Include="e\admin\system\Basement\SysmenuManagement.aspx" />
     <Content Include="e\admin\system\friendlink\LinkEdit.aspx" />
     <Content Include="e\admin\system\friendlink\LinkList.aspx" />
     <Content Include="e\admin\system\SystemParameter\basic.aspx" />
@@ -678,6 +684,41 @@
     <Compile Include="e\admin\Info\InfoTypeList.aspx.designer.cs">
       <DependentUpon>InfoTypeList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="e\admin\Job\Company\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\admin\Job\Company\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="e\admin\Job\Company\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\admin\Job\Company\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="e\admin\Job\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\admin\Job\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="e\admin\Job\Post\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\admin\Job\Post\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="e\admin\Job\Post\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\admin\Job\Post\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
     <Compile Include="e\admin\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -775,6 +816,13 @@
     </Compile>
     <Compile Include="e\admin\system\Basement\FileManagement.aspx.designer.cs">
       <DependentUpon>FileManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="e\admin\system\Basement\SysmenuManagement.aspx.cs">
+      <DependentUpon>SysmenuManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\admin\system\Basement\SysmenuManagement.aspx.designer.cs">
+      <DependentUpon>SysmenuManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="e\admin\system\friendlink\LinkEdit.aspx.cs">
       <DependentUpon>LinkEdit.aspx</DependentUpon>
@@ -1599,7 +1647,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="e\admin\Job\" />
     <Folder Include="u\fckup\" />
     <Folder Include="u\MoviekFace\" />
   </ItemGroup>

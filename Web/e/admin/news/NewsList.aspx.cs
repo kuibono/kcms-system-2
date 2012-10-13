@@ -71,7 +71,7 @@ namespace Web.e.admin.news
 
             DataEntities ent = new DataEntities();
 
-            var q = from l in ent.News select l;
+            var q = from l in ent.News  select l;
 
             if (ddl_Prop.SelectedValue != "")
             {
@@ -126,7 +126,7 @@ namespace Web.e.admin.news
 
 
 
-            rp_list.DataSource = q.Skip(pager.CurrentPageIndex - 1).Take(pager.PageSize);
+            rp_list.DataSource = q.OrderByDescending(p=>p.ID).Skip(pager.CurrentPageIndex - 1).Take(pager.PageSize);
             pager.RecordCount = q.Count();
             rp_list.DataBind();
             ent.Dispose();

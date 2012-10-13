@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SysUserList.aspx.cs" Inherits="Web.e.admin.sysuser.SysUserList" %>
 <%@ Import Namespace="Voodoo" %>
+<%@ Import Namespace="Voodoo.Basement" %>
 <%@ Register Assembly="Voodoo" Namespace="Voodoo.UI" TagPrefix="vd" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -67,7 +68,7 @@
                                 <%#GetDepartmentByID(Eval("Department").ToInt32())%>
                             </td>
                             <td>
-                                <%#GetGroupByID(Eval("UserGroup").ToInt32()).GroupName%>
+                                <%#GetGroupNameByID(Eval("UserGroup").ToInt32())%>
                             </td>
                             <td>
                                 <%#Eval("Email") %>

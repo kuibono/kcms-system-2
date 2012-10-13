@@ -95,6 +95,7 @@
     <Compile Include="ExtendClass.cs" />
     <Compile Include="Functions.cs" />
     <Compile Include="ImageAction.cs" />
+    <Compile Include="JobAction.cs" />
     <Compile Include="Model\PageAttribute.cs" />
     <Compile Include="NewsAction.cs" />
     <Compile Include="ObjectExtents.cs" />

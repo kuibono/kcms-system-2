@@ -51,7 +51,7 @@ namespace Web.e.admin.sysuser
             DataEntities ent = new DataEntities();
             var q=from l in ent.SysUser select l;
 
-            rp_list.DataSource = q.Skip(pager.CurrentPageIndex).Take(pager.PageSize);
+            rp_list.DataSource = q.OrderByDescending(p=>p.ID).Skip((pager.CurrentPageIndex-1)*pager.PageSize).Take(pager.PageSize);
             rp_list.DataBind();
             pager.RecordCount = q.Count();
             ent.Dispose();
@@ -140,5 +140,6 @@ namespace Web.e.admin.sysuser
             Delete(ids);
         }
         #endregion
+
     }
 }

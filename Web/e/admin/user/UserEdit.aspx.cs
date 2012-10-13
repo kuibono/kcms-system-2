@@ -32,7 +32,7 @@ namespace Web.e.admin.user
 
             int id = WS.RequestInt("id");
             User u = (from l in ent.User where l.ID == id select l).FirstOrDefault();
-            if (u.ID < 0)
+            if (u==null)
             {
                 return;
             }
@@ -72,6 +72,10 @@ namespace Web.e.admin.user
             DataEntities ent = new DataEntities();
             int id = WS.RequestInt("id");
             User u = (from l in ent.User where l.ID == id select l).FirstOrDefault();
+            if (u == null)
+            {
+                u = new User();
+            }
             u.UserName = txt_UserName.Text;
             u.ChineseName = txt_ChineseName.Text;
             u.Email = txt_Email.Text;
