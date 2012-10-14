@@ -530,6 +530,7 @@
           <Property Name="QQ" Type="nvarchar" MaxLength="50" />
           <Property Name="MSN" Type="nvarchar" MaxLength="255" />
           <Property Name="Intro" Type="nvarchar(max)" />
+          <Property Name="ChineseName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="JobResumeLanguage">
           <Key>
@@ -2002,6 +2003,7 @@
           <Property Type="String" Name="QQ" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="MSN" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Intro" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ChineseName" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="JobResumeLanguage">
           <Key>
@@ -3024,7 +3026,8 @@
     <EntitySetMapping Name="JobResumeInfo">
       <EntityTypeMapping TypeName="IsTypeOf(DataModel.JobResumeInfo)">
         <MappingFragment StoreEntitySet="JobResumeInfo">
-          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ChineseName" ColumnName="ChineseName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Birthday" ColumnName="Birthday" />
@@ -3197,7 +3200,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="Data" ZoomLevel="11">
+      <Diagram Name="Data" ZoomLevel="80">
         <EntityTypeShape EntityType="DataModel.Answer" Width="1.5" PointX="0.75" PointY="0.75" Height="2.085348307291667" IsExpanded="true" />
         <EntityTypeShape EntityType="DataModel.Book" Width="1.5" PointX="2.75" PointY="0.75" Height="5.372294921875" IsExpanded="true" />
         <EntityTypeShape EntityType="DataModel.BookChapter" Width="1.5" PointX="4.75" PointY="0.75" Height="3.8931689453124996" IsExpanded="true" />

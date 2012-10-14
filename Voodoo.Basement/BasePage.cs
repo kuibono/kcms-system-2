@@ -1098,6 +1098,34 @@ namespace Voodoo.Basement
             r.Text = FilePath;
             return r;
         }
+
+        /// <summary>
+        /// 上传并且裁剪图片
+        /// </summary>
+        /// <param name="file">文件内容</param>
+        /// <param name="PathWithName">文件路径（相对）</param>
+        /// <param name="width">保留宽度</param>
+        /// <param name="height">保留高度</param>
+        /// <returns></returns>
+        public static Result UpLoadImage(HttpPostedFile file,string PathWithName, int width, int height)
+        {
+            Result r = new Result();
+            try
+            {
+                file.SaveAs(System.Web.HttpContext.Current.Server.MapPath("~/u/tmp.jpg"), true);
+                ImageHelper.MakeThumbnail(System.Web.HttpContext.Current.Server.MapPath("~/u/tmp.jpg"), System.Web.HttpContext.Current.Server.MapPath(PathWithName), width, height, "Cut");
+                r.Success = true;
+                r.Text = PathWithName;
+            }
+            catch (Exception ex)
+            {
+                r.Success = false;
+                r.Text = ex.Message;
+            }
+
+            return r;
+
+        }
         #endregion
 
         #region 创建系统关键词

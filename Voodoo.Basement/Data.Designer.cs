@@ -11,7 +11,7 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmSchemaAttribute()]
 
 // 原始文件名:
-// 生成日期: 2012/10/13 16:36:41
+// 生成日期: 2012/10/14 20:03:08
 namespace Voodoo.Basement
 {
     
@@ -19408,6 +19408,33 @@ namespace Voodoo.Basement
         partial void OnIntroChanging(string value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         partial void OnIntroChanged();
+        /// <summary>
+        /// 架构中不存在属性 ChineseName 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string ChineseName
+        {
+            get
+            {
+                return this._ChineseName;
+            }
+            set
+            {
+                this.OnChineseNameChanging(value);
+                this.ReportPropertyChanging("ChineseName");
+                this._ChineseName = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("ChineseName");
+                this.OnChineseNameChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _ChineseName;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnChineseNameChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnChineseNameChanged();
     }
     /// <summary>
     /// 架构中不存在 DataModel.JobResumeLanguage 的注释。

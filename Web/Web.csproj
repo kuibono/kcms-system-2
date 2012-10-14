@@ -103,9 +103,15 @@
     <Content Include="e\admin\Info\InfoTypeList.aspx" />
     <Content Include="e\admin\Job\Company\Edit.aspx" />
     <Content Include="e\admin\Job\Company\List.aspx" />
+    <Content Include="e\admin\Job\Config\JobEduSpecialtyManagement.aspx" />
+    <Content Include="e\admin\Job\Config\JobIndustryManagement.aspx" />
     <Content Include="e\admin\Job\Default.aspx" />
+    <Content Include="e\admin\Job\Person\Edit.aspx" />
+    <Content Include="e\admin\Job\Person\List.aspx" />
     <Content Include="e\admin\Job\Post\Edit.aspx" />
     <Content Include="e\admin\Job\Post\List.aspx" />
+    <Content Include="e\admin\Job\Resume\Edit.aspx" />
+    <Content Include="e\admin\Job\Resume\List.aspx" />
     <Content Include="e\admin\Login.aspx" />
     <Content Include="e\admin\Movie\MovieEdit.aspx" />
     <Content Include="e\admin\Movie\MovieList.aspx" />
@@ -576,6 +582,7 @@
     <Content Include="skin\smd\newslist.html" />
     <Content Include="skin\smd\public.css" />
     <Content Include="skin\smd\content.css" />
+    <Content Include="u\ResumeFace\0.jpg" />
     <Content Include="wap\Book\B.aspx" />
     <Content Include="wap\Book\C.aspx" />
     <Content Include="wap\Book\cls.aspx" />
@@ -698,12 +705,40 @@
     <Compile Include="e\admin\Job\Company\List.aspx.designer.cs">
       <DependentUpon>List.aspx</DependentUpon>
     </Compile>
+    <Compile Include="e\admin\Job\Config\JobEduSpecialtyManagement.aspx.cs">
+      <DependentUpon>JobEduSpecialtyManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\admin\Job\Config\JobEduSpecialtyManagement.aspx.designer.cs">
+      <DependentUpon>JobEduSpecialtyManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="e\admin\Job\Config\JobIndustryManagement.aspx.cs">
+      <DependentUpon>JobIndustryManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\admin\Job\Config\JobIndustryManagement.aspx.designer.cs">
+      <DependentUpon>JobIndustryManagement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="e\admin\Job\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="e\admin\Job\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="e\admin\Job\Person\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\admin\Job\Person\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="e\admin\Job\Person\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\admin\Job\Person\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
     </Compile>
     <Compile Include="e\admin\Job\Post\Edit.aspx.cs">
       <DependentUpon>Edit.aspx</DependentUpon>
@@ -717,6 +752,20 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="e\admin\Job\Post\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="e\admin\Job\Resume\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\admin\Job\Resume\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="e\admin\Job\Resume\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\admin\Job\Resume\List.aspx.designer.cs">
       <DependentUpon>List.aspx</DependentUpon>
     </Compile>
     <Compile Include="e\admin\Login.aspx.cs">
@@ -1649,6 +1698,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="u\fckup\" />
     <Folder Include="u\MoviekFace\" />
+    <Folder Include="u\ResumeFile\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
@@ -1665,7 +1715,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>2903</DevelopmentServerPort>
+          <DevelopmentServerPort>61081</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
