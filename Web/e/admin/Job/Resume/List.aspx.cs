@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 using Voodoo;
 using Voodoo.Basement;
 
-namespace Web.e.admin.Job.Post
+namespace Web.e.admin.Job.Resume
 {
     public partial class List : AdminBase
     {
@@ -40,22 +40,6 @@ namespace Web.e.admin.Job.Post
             }
 
             LoadCity();
-
-            foreach (var sal in JobAction.SalaryDegree)
-            {
-                ddl_Salary.Items.Add(new ListItem(sal.Value, sal.Key.ToS()));
-            }
-
-            foreach (var exp in JobAction.Expressions)
-            {
-                ddl_Expressions.Items.Add(new ListItem(exp.Value, exp.Key.ToS()));
-            }
-
-            foreach (var edu in JobAction.Edu)
-            {
-
-                ddl_Edu.Items.Add(new ListItem(edu.Value, edu.Key.ToS()));
-            }
 
             ent.Dispose();
         }
@@ -93,22 +77,26 @@ namespace Web.e.admin.Job.Post
         /// </summary>
         protected void BindList()
         {
+            int uid = WS.RequestInt("uid");
+
             DataEntities ent = new DataEntities();
 
-            var q = from l in ent.JobPost
+            var q = from l in ent.JobResumeInfo
                     from c in ent.City
                     from p in ent.Province
-                    from com in ent.JobCompany
                     where
                         l.City == c.id &&
-                        l.Province == p.ID &&
-                        l.CompanyID == com.ID
+                        l.Province == p.ID
                     select
-                new { l.Title,l.Province,l.City,l.Salary,l.Expressions,l.Edu,l.ID,l.PostTime,l.EmployNumber, p.province1, c.city1, com.CompanyName };
+                new { l.UserID,l.ID,l.Title,l.ChineseName,l.Mobile,l.Email,l.IsMale,l.Province,l.City, p.province1, c.city1};
 
             if (txt_Key.Text.Length > 0)
             {
-                q = q.Where(p => p.Title.Contains(txt_Key.Text));
+                q = q.Where(p => p.Title.Contains(txt_Key.Text)
+                    || p.ChineseName.Contains(txt_Key.Text)
+                    || p.Mobile.Contains(txt_Key.Text)
+                    || p.Email.Contains(txt_Key.Text)
+                    );
             }
 
             if (ddl_Province.SelectedValue.Length > 0)
@@ -121,21 +109,12 @@ namespace Web.e.admin.Job.Post
                 int ct = ddl_City.SelectedValue.ToInt32();
                 q = q.Where(p => p.City == ct);
             }
-            if (ddl_Salary.SelectedValue.Length > 0)
+
+            if (uid > 0)
             {
-                int sal = ddl_Salary.SelectedValue.ToInt32();
-                q = q.Where(p => p.Salary == sal);
+                q = q.Where(p => p.UserID == uid);
             }
-            if (ddl_Expressions.SelectedValue.Length > 0)
-            {
-                int exp = ddl_Expressions.SelectedValue.ToInt32();
-                q = q.Where(p => p.Expressions == exp);
-            }
-            if (ddl_Edu.SelectedValue.Length > 0)
-            {
-                int ed = ddl_Edu.SelectedValue.ToInt32();
-                q = q.Where(p => p.Edu == ed);
-            }
+
 
             pager.RecordCount = q.Count();
             rp_list.DataSource = q.OrderByDescending(p => p.ID)
@@ -158,7 +137,7 @@ namespace Web.e.admin.Job.Post
             }
             ent.SaveChanges();
             ent.Dispose();
-            Js.AlertAndChangUrl("删除成功！", "List.aspx");
+            Js.AlertAndChangUrl("删除成功！", "List.aspx?uid="+WS.RequestInt("uid").ToS());
         }
 
         protected void pager_PageChanged(object sender, EventArgs e)

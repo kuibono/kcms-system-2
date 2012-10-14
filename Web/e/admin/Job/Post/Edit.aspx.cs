@@ -151,6 +151,7 @@ namespace Web.e.admin.Job.Post
             p.Edu = ddl_Edu.SelectedValue.ToInt32();
             p.EmployNumber = txt_EmployNumber.Text.ToInt32();
             p.Intro = txt_Intro.Text;
+            p.PostTime = DateTime.Now;
 
             if (p.ID <= 0)
             {

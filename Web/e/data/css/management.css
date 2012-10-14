@@ -8,6 +8,10 @@ table
 	border-collapse: collapse;
 	width:100%;
 }
+table tr td
+{
+    text-align:center;
+}
 thead
 {
 	background-image:url("../images/theader.png");
@@ -54,6 +58,8 @@ input[type='button'],input[type='submit'],input[type='reset']
 	padding-top:2px;
 	padding-bottom:2px;
 	padding-left:3px;
+	text-align:left;
+	height:25px;
 }
 #southPn
 {
@@ -126,4 +132,12 @@ div.search
     /*height:30px;*/
     line-height:30px;
     vertical-align:middle;
+}
+
+.treeselected
+{
+    font-weight:bold;
+    color:White;
+    background-color:gray;
+   
 }
