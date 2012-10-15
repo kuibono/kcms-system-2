@@ -283,6 +283,96 @@ namespace Web.e.admin.Job.Resume {
         protected global::System.Web.UI.WebControls.CheckBox chk_Enable;
         
         /// <summary>
+        /// rp_listExperience 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rp_listExperience;
+        
+        /// <summary>
+        /// txt_Exp_CompanyName 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::Voodoo.UI.VTextBox txt_Exp_CompanyName;
+        
+        /// <summary>
+        /// lb_id 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lb_id;
+        
+        /// <summary>
+        /// ddl_exp_StartTime_Year 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddl_exp_StartTime_Year;
+        
+        /// <summary>
+        /// ddl_exp_StartTime_Month 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddl_exp_StartTime_Month;
+        
+        /// <summary>
+        /// ddl_exp_LeftTime_Year 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddl_exp_LeftTime_Year;
+        
+        /// <summary>
+        /// ddl_exp_LeftTime_Month 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddl_exp_LeftTime_Month;
+        
+        /// <summary>
+        /// ddl_exp_Post 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddl_exp_Post;
+        
+        /// <summary>
+        /// txt_Exp_Intro 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::Voodoo.UI.VTextBox txt_Exp_Intro;
+        
+        /// <summary>
+        /// btn_Exp_Save 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_Exp_Save;
+        
+        /// <summary>
         /// btn_Save 控件。
         /// </summary>
         /// <remarks>

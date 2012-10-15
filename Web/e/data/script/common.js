@@ -1,18 +1,18 @@
-﻿$(function() {
-    $(".disabled").click(function() {
+﻿$(function () {
+    $(".disabled").click(function () {
         //return false;
     })
 
     $("table tbody tr:even").addClass("evenrow");
     $("table tbody tr:odd").addClass("oddrow");
 
-    $("table.list tbody tr").mouseover(function() {
+    $("table.list tbody tr").mouseover(function () {
         $(this).addClass("mouseover");
-    }).mouseout(function() {
+    }).mouseout(function () {
         $(this).removeClass("mouseover");
     })
 
-    $("#checkall").click(function() {
+    $("#checkall").click(function () {
         if ($(this).prop("checked") == true) {
             $("input:checkbox").prop("checked", true);
         }
@@ -21,17 +21,26 @@
         }
     });
 
-    $("input:submit[value='删除']").click(function() {
+    $("input:submit[value='删除']").click(function () {
         if (confirm("确定要删除吗？") == false) {
             return false;
         }
     })
-    $("input:button[value='删除']").click(function() {
+    $("input:button[value='删除']").click(function () {
         if (confirm("确定要删除吗？") == false) {
+            return false;
+        }
+    })
+
+    $("select").change(function () {
+        if ($(this).find(":selected").attr("class") == "disabled") {
+            $(this).val("");
             return false;
         }
     })
 })
+
+
 
 Date.prototype.Format = function(formatStr) {
     var str = formatStr;

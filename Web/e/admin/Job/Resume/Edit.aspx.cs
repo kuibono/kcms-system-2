@@ -14,13 +14,28 @@ namespace Web.e.admin.Job.Resume
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            long id = WS.RequestLong("id");
+            if (id > 0)
+            {
+                btn_Exp_Save.Enabled = true;
+            }
+            else
+            {
+                btn_Exp_Save.Enabled = false;
+            }
             if (!IsPostBack)
             {
                 BindDropItems();
                 LoadInfo();
+                LoadExps();
             }
+
         }
 
+        #region 加载简历
+        /// <summary>
+        /// 加载简历
+        /// </summary>
         protected void LoadInfo()
         {
             long id = WS.RequestLong("id");
@@ -61,6 +76,21 @@ namespace Web.e.admin.Job.Resume
             }
 
         }
+        #endregion
+
+        protected void LoadExps()
+        {
+            long id = WS.RequestLong("id");
+            if (id > 0)
+            {
+                using (DataEntities ent = new DataEntities())
+                {
+                    var q = from l in ent.JobResumeExperience where l.ResumeID == id select l;
+                    rp_listExperience.DataSource = q;
+                    rp_listExperience.DataBind();
+                }
+            }
+        }
 
         #region 绑定下拉项
         protected void BindDropItems()
@@ -86,9 +116,16 @@ namespace Web.e.admin.Job.Resume
             ddl_CardType.Bind(JobAction.CardType);
             ddl_Nation.Bind(JobAction.Nation);
             ddl_Political.Bind(JobAction.Political);
-
-
             ent.Dispose();
+
+            //绑定工作经历编辑区域
+
+            JobAction.BindIndustry(ddl_exp_Post);
+            ddl_exp_StartTime_Year.BindNumbers(1970, 2012);
+            ddl_exp_StartTime_Month.BindNumbers(1, 12);
+            ddl_exp_LeftTime_Year.BindNumbers(1970, 2012);
+            ddl_exp_LeftTime_Month.BindNumbers(1, 12);
+
         }
 
 
@@ -109,6 +146,12 @@ namespace Web.e.admin.Job.Resume
 
         #endregion
 
+        #region 搜索用户
+        /// <summary>
+        /// 搜索用户
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btn_search_Click(object sender, EventArgs e)
         {
             DataEntities ent = new DataEntities();
@@ -120,7 +163,14 @@ namespace Web.e.admin.Job.Resume
             }
             ent.Dispose();
         }
+        #endregion
 
+        #region 保存简历
+        /// <summary>
+        /// 保存简历
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btn_Save_Click(object sender, EventArgs e)
         {
             DataEntities ent = new DataEntities();
@@ -178,6 +228,78 @@ namespace Web.e.admin.Job.Resume
             Js.AlertAndChangUrl("保存成功！", "List.aspx");
 
         }
+        #endregion
+
+        #region 保存经验
+        /// <summary>
+        /// 保存经验
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btn_Exp_Save_Click(object sender, EventArgs e)
+        {
+            long id = lb_id.Text.ToInt32();
+            DataEntities ent = new DataEntities();
+            JobResumeExperience ex = new JobResumeExperience();
+            if (id > 0)
+            {
+                ex = (from l in ent.JobResumeExperience where l.ID == id select l).FirstOrDefault();
+            }
+            ex.ResumeID = WS.RequestLong("id");
+            ex.CompanyName = txt_Exp_CompanyName.Text;
+            ex.Intro = txt_Exp_Intro.Text;
+            ex.Post = ddl_exp_Post.SelectedValue.ToInt32();
+            ex.StartTime = new DateTime(ddl_exp_StartTime_Year.SelectedValue.ToInt32(), ddl_exp_StartTime_Month.SelectedValue.ToInt32(), 1);
+            ex.LeftTime = new DateTime(ddl_exp_LeftTime_Year.SelectedValue.ToInt32(), ddl_exp_LeftTime_Month.SelectedValue.ToInt32(), 1);
+            if (id < 0)
+            {
+                ent.AddToJobResumeExperience(ex);
+            }
+            ent.SaveChanges();
+
+            txt_Exp_Intro.Text = "";
+            txt_Exp_CompanyName.Text = "";
+            lb_id.Text = "";
+            ddl_exp_Post.SetValue("");
+            ddl_exp_StartTime_Year.SetValue("");
+            ddl_exp_StartTime_Month.SetValue("");
+            ddl_exp_LeftTime_Year.SetValue("");
+            ddl_exp_LeftTime_Month.SetValue("");
+
+            ent.Dispose();
+            LoadExps();
+        }
+        #endregion
+
+        protected void rp_listExperience_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            LinkButton clickedButton = ((LinkButton)e.CommandSource);
+            long id = ((Label)e.Item.FindControl("lab_typeID")).Text.ToInt64();
+
+            DataEntities ent = new DataEntities();
+            var q = (from l in ent.JobResumeExperience where l.ID == id select l).FirstOrDefault();
+            if (clickedButton.ID == "btn_Edit")
+            {
+                lb_id.Text = q.ID.ToS();
+                txt_Exp_CompanyName.Text = q.CompanyName;
+                ddl_exp_StartTime_Year.SetValue(q.StartTime.ToDateTime().Year.ToS());
+                ddl_exp_StartTime_Month.SetValue(q.StartTime.ToDateTime().Month.ToS());
+                ddl_exp_LeftTime_Year.SetValue(q.LeftTime.ToDateTime().Year.ToS());
+                ddl_exp_LeftTime_Month.SetValue(q.LeftTime.ToDateTime().Month.ToS());
+                ddl_exp_Post.SetValue(q.Post.ToS());
+                txt_Exp_Intro.Text = q.Intro;
+            }
+            if (clickedButton.ID == "btn_Del")
+            {
+                ent.DeleteObject(q);
+                ent.SaveChanges();
+                LoadExps();
+               
+            }
+            ent.Dispose();
+
+        }
+
 
 
     }
