@@ -471,7 +471,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ResumeID" Type="bigint" />
           <Property Name="SchoolName" Type="nvarchar" MaxLength="50" />
           <Property Name="StartTime" Type="datetime" />

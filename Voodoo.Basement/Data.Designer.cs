@@ -11,7 +11,7 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmSchemaAttribute()]
 
 // 原始文件名:
-// 生成日期: 2012/10/14 20:03:08
+// 生成日期: 2012/10/16 21:26:21
 namespace Voodoo.Basement
 {
     
