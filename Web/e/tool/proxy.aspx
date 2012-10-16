@@ -1,1 +1,0 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="proxy.aspx.cs" Inherits="Web.e.tool.proxy"  ValidateRequest="false"%>

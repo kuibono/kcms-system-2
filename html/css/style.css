@@ -1,0 +1,161 @@
+/* CSS Document */
+body{ padding:0px; margin:0px; font-size:12px; background:url(../img/7.jpg) repeat-x #f4f4f4; line-height:24px;}
+
+h1{ color:#53b31f; font-size:22px; font-family:"Î¢ÈíÑÅºÚ"; font-weight:bold; padding:0px; margin:0px;}
+
+h2{ color:#009bd8; font-size:14px; font-family:"Î¢ÈíÑÅºÚ";  padding:0px; margin:0px; line-height:24px;}
+h2 a{ color:#009bd8; text-decoration:none;}
+h2 a:hover{ color:#009bd8; text-decoration:underline;}
+
+img{ border:0px;}
+
+.zhuce{ background:url(../img/bj.gif) repeat-x;}
+
+.zc{ background:url(../img/5.jpg) no-repeat}
+
+.foot{ height:80px; color:#01a5c8;}
+.foot span{ color:#abacac}
+.foot a{ color:#01a5c8; text-decoration:none;}
+
+
+.top{ color:#FFFFFF;}
+.top_left a{ color:#FFFFFF; font-size:14px; font-weight:bold; text-decoration:underline; padding-left:15px;}
+
+.top_right a{ color:#FFFFFF; text-decoration:underline;}
+
+.menu{ background:url(../img/8.jpg) repeat-x; height:81px;}
+
+.search a{color:#FFFFFF; text-decoration:underline; line-height:18px;}
+
+.city{ border-top:3px solid #20a7dd; border-bottom:1px solid #dbdbde; border-left:1px solid #dbdede; border-right:1px solid #dbdede;}
+
+.city_top{ color:#019bd9;}
+.city_right{ font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#fc8f01;}
+
+.deta{ color:#3c3c3c; height:30px; border-bottom:1px solid #dad9d9;}
+.xl{ padding-left:3px; padding-right:3px; height:14px; background:#dd6700; color:#FFFFFF; font-family:Arial, Helvetica, sans-serif}
+.xl1{padding-left:3px; padding-right:3px; height:14px; background:#18a0cd; color:#FFFFFF; font-family:Arial, Helvetica, sans-serif}
+
+.hot{ color:#18a0cd; font-size:14px; line-height:30px; padding-right:15px;}
+.hot a{ color:#18a0cd; text-decoration:none; padding-left:20px;}
+
+.ming{ border-bottom:1px solid #dbdbde; border-left:1px solid #dbdede; border-right:1px solid #dbdede;}
+
+OL LI {
+	MARGIN: 8px
+}
+#con {
+	FONT-SIZE: 12px; MARGIN: 0px auto; WIDTH: 694px; border:1px solid #dcdbdb;
+}
+#tags {
+	WIDTH: 694px; HEIGHT: 40px; border-bottom:1px solid #dcdbdb;
+}
+#tags span{ COLOR:#389cc3; font-family:Arial, Helvetica, sans-serif; line-height:40px; float:right; padding-right:5px;}
+#tags LI {
+	 FLOAT: left; text-align:center; MARGIN-RIGHT: 1px; LIST-STYLE-TYPE: none; HEIGHT: 40px; border-left:0px;
+}
+#tags LI A {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; COLOR: #ff8f01; font-family:"ºÚÌå"; font-size:16px; LINE-HEIGHT: 40px; PADDING-TOP: 0px; HEIGHT: 40px; TEXT-DECORATION: none; text-align:center; width:114px; border:1px solid #dcdbdb; border-left:0px; border-bottom:0px;
+}
+#tags LI.emptyTag {
+	BACKGROUND: none transparent scroll repeat 0% 0%; WIDTH: 4px
+}
+#tags LI.selectTag {
+	BACKGROUND-POSITION: left top; MARGIN-BOTTOM: -2px; POSITION: relative; HEIGHT: 40px; background:#ffffff; 
+}
+#tags LI.selectTag A {
+	BACKGROUND-POSITION: right top; color:#507902; LINE-HEIGHT: 40px; HEIGHT: 40px; border-top:2px solid #20a7dd; width:114px; border-bottom:0px; text-align:center
+}
+#tagContent {
+ PADDING-RIGHT: 1px; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px;  PADDING-TOP: 1px;
+}
+.tagContent {
+    DISPLAY: none; PADDING-BOTTOM: 10px; WIDTH: 694px; COLOR: #474747; PADDING-TOP: 10px; HEIGHT: 410px
+}
+#tagContent DIV.selectTag {
+	DISPLAY: block
+}
+
+.dian{ background:url(../img/dian.jpg) left no-repeat; padding-left:10px; color:#019bd9; height:28px; line-height:28px;}
+.company{ color:#696969;}
+
+.job{ color:#666; width:60px;}
+.job a{ color:#666; text-decoration:none;}
+.job a:hover{ color:#666; text-decoration:none;}
+
+.buxian a{ background:#009bd8; color:#FFFFFF; width:60px; padding:3px}
+.buxian a:hover{ background:#009bd8; color:#FFFFFF; width:60px; padding:3px}
+
+.xz a{ color:#009bd8; padding:3px; text-decoration:none; line-height:30px;}
+.xz a:hover{ color:#fff; background:#009bd8; padding:3px; text-decoration:none; line-height:30px;}
+
+.chaxun{ border-top:2px solid #009bd8; background:#f1f7f7; border-bottom:1px solid #dde2e5; border-left:1px solid #dde2e5; border-right:1px solid #dde2e5; height:39px; line-height:39px;}
+
+.wCon{ padding-left:15px; border-bottom:1px solid #e4e9ec; border-right:1px solid #e4e4ec;}
+
+.wTit{ background:#f1f3f4; border-right:1px solid #e4e9ec; border-bottom:1px solid #e4e9ec}
+
+.tbPosi{ border:1px solid #e4e9ec}
+
+.job_title{ color:#009bd8; font-size:14px; line-height:30px;}
+.job_title a{ color:#009bd8; text-decoration:none;}
+.job_title a:hover{ color:#B70000; text-decoration:underline;}
+
+.job_compangy{ width:225px; color:#009bd8; line-height:30px;}
+.job_compangy a{ color:#009bd8; text-decoration:none;}
+.job_compangy a:hover{ color:#b70000; text-decoration:underline;}
+
+.job_qt{ width:240px; color:#666666;}
+
+.job_qt1{ color:#666666;}
+.job_qt1 span{ color:#b70000; font-weight:bold;}
+
+.job_con{ color:#666666; line-height:24px;}
+
+.listLeft{width:200px;float:right;overflow:hidden}
+
+.blur-bor-box{border:1px solid #96d6ef}
+
+.clearFix{*zoom:1}
+
+.mb-10{margin-bottom:10px}
+
+.wzd-dl{padding:0px 10px; padding-top:10px;}
+
+.wzd-dgree-pricent{height:16px;background:url(../img/dash-bg.gif) repeat;display:block;border:1px solid #f2f2f2; margin-top:10px;}
+
+.wanshan{float:right;padding:10px 10px 10px 0px}
+.wanshan a{ color:#009bd8; text-decoration:none;}
+.wanshan a:hover{ color:#b70000; text-decoration:underline;}
+
+wzd-dgree-pricent{height:16px;background:url(../img/dash-bg.gif) repeat;display:block;border:1px
+solid #f2f2f2}
+
+.btn_upRsu{background-image:url(../img/but1.png);display:inline-block;background-repeat:no-repeat;border:0
+none;cursor:pointer;text-align:center;color:#fff}
+
+.pageNum{text-align:center;padding:15px 0;margin:15px auto}
+.pageNum li{display:inline;height:20px;margin-left:10px;vertical-align:text-top}
+.pageNum a{display:inline-block;white-space:nowrap;padding:0 10px;height:20px;line-height:20px;color:#333;background:#08C;color:#fff}
+.pageNum a:hover{background:#72bf44;color:#fff;text-decoration:none}
+.pageNum .selected a{background:none;text-decoration:none;color:#666;font-weight:bold}.pageNum
+span{display:inline-block;padding:3px 0;margin-left:0}
+.pageNum a.next_page{background:#08c;color:#fff;width:60px}
+.load{background-image:url(/images/zui/icon/load.png);background-repeat:no-repeat;width:82px;height:82px;display:inline-block}
+.pop{background:url(/images/zui/bg/transGray.png);background:#ccc \9;padding:5px;position:absolute;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;_background-image:none;_background-color:#d5d7d9}
+
+.btn-job{ background:url(../img/btn.jpg) no-repeat; border:0px; height:29px; width:93px; color:#FFFFFF; font-size:14px;}
+
+.job_tedail{ color:#666666;}
+.job_tedail a{ color:#009bd8; text-decoration:none;}
+.job_tedail a:hover{ color:#b70000; text-decoration:underline;}
+
+.job_com_detail{ background:url(../img/20.jpg) repeat-x; border:1px solid #eeeeee;}
+
+.job_zw{ font-weight:bold; color:#000000; font-size:14px;}
+
+.job_detail_detail{ border:1px solid #eeeeee;}
+
+.job_detail_top{ background:url(../img/21.jpg) no-repeat left #eeeeee; background-position:5px; height:32px; padding-left:35px; font-size:14px; line-height:32px; padding-bottom:10px;}
+
+.job_detail_top1{ background:url(../img/22.jpg) no-repeat left #eeeeee; background-position:5px; height:32px; padding-left:35px; font-size:14px; line-height:32px;  padding-bottom:10px;}

@@ -1,1 +1,0 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GetReadHistory.aspx.cs" Inherits="Web.e.tool.GetReadHistory" %>

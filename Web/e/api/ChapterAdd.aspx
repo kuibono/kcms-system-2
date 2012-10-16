@@ -1,1 +1,0 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChapterAdd.aspx.cs" Inherits="Web.e.api.ChapterAdd" ValidateRequest="false" %>
