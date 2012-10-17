@@ -13,7 +13,7 @@ using Voodoo.Basement;
 
 namespace Web.e.admin.Job.Company
 {
-    public partial class Edit : System.Web.UI.Page
+    public partial class Edit :AdminBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
