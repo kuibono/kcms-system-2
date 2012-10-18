@@ -1,0 +1,56 @@
+/* CSS Document */
+body{ padding:0px; margin:0px; font-size:12px;}
+
+img{ border:0px;}
+
+.zhuce{ background:url(../img/bj.gif) repeat-x;}
+
+.zc{ background:url(../img/5.jpg) no-repeat}
+
+.foot{ height:80px; color:#01a5c8;}
+.foot span{ color:#abacac}
+.foot a{ color:#01a5c8; text-decoration:none;}
+
+.foot{ height:80px; color:#01a5c8;}
+.foot span{ color:#abacac}
+.foot a{ color:#01a5c8; text-decoration:none;}
+
+OL LI {
+	MARGIN: 8px
+}
+#con {
+	FONT-SIZE: 12px; MARGIN: 0px; WIDTH: 281px;
+}
+#tags {
+	WIDTH: 281px; HEIGHT: 60px; margin:0px; padding:0px;
+}
+#tags LI {
+	 FLOAT: left; text-align:center; MARGIN-RIGHT: 1px; LIST-STYLE-TYPE: none; HEIGHT:60px;
+}
+#tags LI A {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; COLOR: #898987; font-family:"ºÚÌå"; font-size:20px; LINE-HEIGHT: 60px; PADDING-TOP: 0px; HEIGHT: 60px; TEXT-DECORATION: none; text-align:center; width:100px; }
+#tags LI.emptyTag {
+	BACKGROUND: none transparent scroll repeat 0% 0%; WIDTH: 4px
+}
+#tags LI.selectTag {
+	BACKGROUND-POSITION: left top; MARGIN-BOTTOM: -2px; POSITION: relative; HEIGHT: 40px;
+}
+#tags LI.selectTag A {
+	color:#ffffff; LINE-HEIGHT: 60px; font-family:"ºÚÌå"; HEIGHT: 60px; border-bottom:0px; font-size:24px; text-align:center; filter:Dropshadow(offx=1,offy=0,color=#f17102) Dropshadow(offx=0,offy=1,color=#f17102) Dropshadow(offx=-1,offy=0,color=#f17102) Dropshadow(offx=0,offy=-1,color=#f17102); width:100px;
+}
+#tagContent {
+    WIDTH:281px;
+}
+.tagContent {
+    DISPLAY: none; WIDTH:281px; COLOR: #474747; HEIGHT: 275px
+}
+#tagContent DIV.selectTag {
+	DISPLAY: block
+}
+
+.denglu{ font-size:14px; color:#5a5b5b; height:40px; line-height:40px; text-align:right;}
+
+.input{ background:url(../img/18.jpg) no-repeat; width:178px; height:31px; line-height:31px; border:0px;}
+
+.botton{ background:url(../img/19.jpg) no-repeat; width:148px; height:36px; border:0px;}
+
