@@ -6,6 +6,8 @@
     <edmx:StorageModels>
     <Schema Namespace="DataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
         <EntityContainer Name="DataModelStoreContainer">
+          <EntitySet Name="Ad" EntityType="DataModel.Store.Ad" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AdGroup" EntityType="DataModel.Store.AdGroup" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Answer" EntityType="DataModel.Store.Answer" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Book" EntityType="DataModel.Store.Book" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="BookChapter" EntityType="DataModel.Store.BookChapter" store:Type="Tables" Schema="dbo" />
@@ -70,6 +72,23 @@
           <EntitySet Name="UserRerm" EntityType="DataModel.Store.UserRerm" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Zt" EntityType="DataModel.Store.Zt" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
+        <EntityType Name="Ad">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="int" />
+          <Property Name="Title" Type="nvarchar" MaxLength="200" />
+          <Property Name="Image" Type="nvarchar" MaxLength="255" />
+          <Property Name="Url" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="AdGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Answer">
           <Key>
             <PropertyRef Name="ID" />
@@ -166,6 +185,7 @@
           <Property Name="Rome" Type="nvarchar" MaxLength="50" />
           <Property Name="zm_code" Type="nvarchar" MaxLength="50" />
           <Property Name="ProvinceID" Type="int" />
+          <Property Name="Hot" Type="bigint" />
         </EntityType>
         <EntityType Name="Class">
           <Key>
@@ -424,6 +444,7 @@
           <Property Name="EmployeeCount" Type="int" />
           <Property Name="Intro" Type="nvarchar(max)" />
           <Property Name="UserID" Type="int" />
+          <Property Name="DayClick" Type="int" />
         </EntityType>
         <EntityType Name="JobEduSpecialty">
           <Key>
@@ -440,6 +461,8 @@
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" />
           <Property Name="ParentID" Type="int" />
+          <Property Name="IsLeaf" Type="bit" />
+          <Property Name="Hot" Type="int" />
         </EntityType>
         <EntityType Name="JobPost">
           <Key>
@@ -1129,6 +1152,8 @@
           <EntitySet Name="JobResumeFile" EntityType="DataModel.JobResumeFile" />
           <EntitySet Name="SysNavPanel" EntityType="DataModel.SysNavPanel" />
           <EntitySet Name="SysNavTree" EntityType="DataModel.SysNavTree" />
+          <EntitySet Name="Ad" EntityType="DataModel.Ad" />
+          <EntitySet Name="AdGroup" EntityType="DataModel.AdGroup" />
         </EntityContainer>
         <EntityType Name="Answer">
           <Key>
@@ -1923,6 +1948,7 @@
           <Property Type="Int32" Name="EmployeeCount" />
           <Property Type="String" Name="Intro" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="UserID" />
+          <Property Type="Int32" Name="DayClick" />
         </EntityType>
         <EntityType Name="JobPost">
           <Key>
@@ -2039,6 +2065,7 @@
           <Property Type="String" Name="Rome" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="zm_code" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="ProvinceID" />
+          <Property Type="Int64" Name="Hot" />
         </EntityType>
         <EntityType Name="JobApplicationRecord">
           <Key>
@@ -2068,6 +2095,8 @@
           <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="ParentID" />
+          <Property Type="Boolean" Name="IsLeaf" />
+          <Property Type="Int32" Name="Hot" />
         </EntityType>
         <EntityType Name="JobType">
           <Key>
@@ -2120,6 +2149,23 @@
           <Property Type="String" Name="InnerHtml" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Group" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Title" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Ad">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="GroupID" />
+          <Property Type="String" Name="Title" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Image" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Url" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AdGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2958,7 +3004,8 @@
     <EntitySetMapping Name="JobCompany">
       <EntityTypeMapping TypeName="IsTypeOf(DataModel.JobCompany)">
         <MappingFragment StoreEntitySet="JobCompany">
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="DayClick" ColumnName="DayClick" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
           <ScalarProperty Name="Industry" ColumnName="Industry" />
@@ -3082,7 +3129,8 @@
     <EntitySetMapping Name="City">
       <EntityTypeMapping TypeName="IsTypeOf(DataModel.City)">
         <MappingFragment StoreEntitySet="City">
-          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Hot" ColumnName="Hot" />
+                <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="state" ColumnName="state" />
           <ScalarProperty Name="city1" ColumnName="city1" />
           <ScalarProperty Name="sz_code" ColumnName="sz_code" />
@@ -3118,7 +3166,9 @@
     <EntitySetMapping Name="JobIndustry">
       <EntityTypeMapping TypeName="IsTypeOf(DataModel.JobIndustry)">
         <MappingFragment StoreEntitySet="JobIndustry">
-          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Hot" ColumnName="Hot" />
+                <ScalarProperty Name="IsLeaf" ColumnName="IsLeaf" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="ParentID" ColumnName="ParentID" />
         </MappingFragment>
@@ -3177,6 +3227,25 @@
                 <ScalarProperty Name="Icon" ColumnName="Icon" />
                 <ScalarProperty Name="PanelID" ColumnName="PanelID" />
                 <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ad">
+            <EntityTypeMapping TypeName="DataModel.Ad">
+              <MappingFragment StoreEntitySet="Ad">
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdGroup">
+            <EntityTypeMapping TypeName="DataModel.AdGroup">
+              <MappingFragment StoreEntitySet="AdGroup">
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -3264,6 +3333,8 @@
         <EntityTypeShape EntityType="DataModel.JobResumeFile" Width="1.5" PointX="23.375" PointY="6.75" Height="1.9700325520833246" />
         <EntityTypeShape EntityType="DataModel.SysNavPanel" Width="1.5" PointX="7.375" PointY="23.75" Height="1.9700325520833246" />
         <EntityTypeShape EntityType="DataModel.SysNavTree" Width="1.5" PointX="23.375" PointY="9.75" Height="2.5430916341145746" />
+        <EntityTypeShape EntityType="DataModel.Ad" Width="1.5" PointX="23.375" PointY="13.75" Height="1.9700325520833246" />
+        <EntityTypeShape EntityType="DataModel.AdGroup" Width="1.5" PointX="23.375" PointY="16.75" Height="1.3969734700520746" />
       </Diagram>
     </Diagrams>
   </Designer>

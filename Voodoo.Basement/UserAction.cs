@@ -195,6 +195,14 @@ namespace Voodoo.Basement
         {
             get
             {
+                //-----------------------临时使用----------------------------------------
+                using (DataEntities ent = new DataEntities())
+                {
+                    return (from l in ent.User where l.ID == 1 select l).FirstOrDefault();
+                }
+                //-----------------------------------------------------------------------
+
+
                 System.Web.HttpCookie cookie = Cookies.Cookies.GetCookie("User");
                 if (cookie == null)
                 {

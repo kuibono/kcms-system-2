@@ -82,8 +82,8 @@
                             <td>
                                 <a href="Edit.aspx?id=<%#Eval("ID") %>">修改</a> 
                                 <a href="?id=<%#Eval("ID") %>&action=del"> 删除</a>
-                                <a href="<%#Eval("ID") %>">职位</a>
-                                <a href="<%#Eval("ID") %>">新增职位</a>
+                                <a href="../Post/List.aspx?id=<%#Eval("ID") %>">职位</a>
+                                <a href="../Post/Edit.aspx?cid=<%#Eval("ID") %>">新增职位</a>
                             </td>
                         </tr>
                     </ItemTemplate>

@@ -13,26 +13,11 @@ namespace Web.e
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    var req = WS.RequestPing();
-
-            //    List<object> parms=new List<object>();
-            //    foreach(var par in req.@params)
-            //    {
-            //        parms.Add(
-            //            par.value.DeSerializeTo(Type.GetType(par.type))
-            //        );
-            //    }
-            //    var result= ExecMethod("Web.e.Test", req.methodName, parms.ToArray());
-
-               
-
-            //    Response.Clear();
-            //    Response.Write(result.SerializeToXML());
-            //}
-
-            Response.Write("\\u96C6".AsciiToNative());
+            using (DataEntities ent = new DataEntities())
+            {
+                var xx = from l in ent.JobCompany select l;
+                Response.Write(xx.GetType());
+            }
 
         }
 

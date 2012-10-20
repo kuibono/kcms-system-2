@@ -2050,8 +2050,9 @@ namespace Voodoo.Basement
         {
             using (DataEntities ent = new DataEntities())
             {
-                return //TemplateVarView.Find(string.Format("VarName='{0}'", VarName)).Content.ToS();
-                    (from l in ent.TemplateVar where l.VarName == VarName select l).FirstOrDefault().Content;
+                string html= (from l in ent.TemplateVar where l.VarName == VarName select l).FirstOrDefault().Content;
+                return ReplaceSystemSetting(html);
+                   
             }
 
         }

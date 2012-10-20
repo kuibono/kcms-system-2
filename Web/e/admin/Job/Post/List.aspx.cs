@@ -104,7 +104,7 @@ namespace Web.e.admin.Job.Post
                         l.Province == p.ID &&
                         l.CompanyID == com.ID
                     select
-                new { l.Title,l.Province,l.City,l.Salary,l.Expressions,l.Edu,l.ID,l.PostTime,l.EmployNumber, p.province1, c.city1, com.CompanyName };
+                new {l.CompanyID, l.Title,l.Province,l.City,l.Salary,l.Expressions,l.Edu,l.ID,l.PostTime,l.EmployNumber, p.province1, c.city1, com.CompanyName };
 
             if (txt_Key.Text.Length > 0)
             {
@@ -135,6 +135,12 @@ namespace Web.e.admin.Job.Post
             {
                 int ed = ddl_Edu.SelectedValue.ToInt32();
                 q = q.Where(p => p.Edu == ed);
+            }
+
+            long companyID = WS.RequestLong("id");
+            if (companyID > 0)
+            {
+                q = q.Where(p => p.CompanyID == companyID);
             }
 
             pager.RecordCount = q.Count();

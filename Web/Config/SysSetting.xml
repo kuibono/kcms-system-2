@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <SysSetting xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DefaultModel>0</DefaultModel>
+  <ShowMenuMessage>false</ShowMenuMessage>
   <SiteUrl>http://www.aizr.net/</SiteUrl>
   <SiteOpen>true</SiteOpen>
   <KeyWords>三摩地,创意设计,商业包装</KeyWords>
@@ -8,13 +10,13 @@
 形态与哲学思辨、美学研究与超视觉表现。创意产品、创
 意展示创意包装、高端商业形象设计、品牌表现力的释放、
 IMC、环保艺术与新科技的结合</Description>
-  <Copyright>&amp;copy; 三摩地 2012</Copyright>
+  <Copyright>&amp;copy; 2011－2012 all rights reserved  苏ICP备88888号 技术支持：&lt;a href="http://www.nj-gm.com"&gt;光芒科技&lt;/a&gt;</Copyright>
   <CountCode />
   <ClassFolder>/</ClassFolder>
   <FileDirString>/u/file/</FileDirString>
   <ExtName>.htm</ExtName>
   <SiteCloseMsg>系统维护中，请稍后访问</SiteCloseMsg>
-  <SiteName>三摩地</SiteName>
+  <SiteName>南京第一职</SiteName>
   <EnablePing>true</EnablePing>
   <PingAddress>http://ping.baidu.com/ping/RPC2
 http://blogsearch.google.com/ping/RPC2
@@ -43,4 +45,9 @@ http://blog.youdao.com/ping/RPC2</PingAddress>
   <EnablePostImage>false</EnablePostImage>
   <FileExtNameFilter>txt,doc,docx,xls,xlsx,ppt,pptx,rar,zip,7z,rtf,gif,jpg,jpeg,png,bmp</FileExtNameFilter>
   <MagageListSize>15</MagageListSize>
+  <ContactEmail />
+  <QQ />
+  <Msn />
+  <Weibo />
+  <Renren />
 </SysSetting>

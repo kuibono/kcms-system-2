@@ -94,6 +94,15 @@
   <ItemGroup>
     <Content Include="Config\MovieRule\含烟影院电视剧.xml" />
     <Content Include="Default.aspx" />
+    <Content Include="Dynamic\Job\App.aspx" />
+    <Content Include="Dynamic\Job\Company.aspx" />
+    <Content Include="Dynamic\Job\Default.aspx" />
+    <Content Include="Dynamic\Job\Home.aspx" />
+    <Content Include="Dynamic\Job\Job.aspx" />
+    <Content Include="Dynamic\Job\Password.aspx" />
+    <Content Include="Dynamic\Job\ResumeBasic.aspx" />
+    <Content Include="Dynamic\Job\ResumeEdu.aspx" />
+    <Content Include="Dynamic\Job\Search.aspx" />
     <Content Include="Dynamic\Movie\Default.aspx" />
     <Content Include="e\admin\Book\BookEdit.aspx" />
     <Content Include="e\admin\Default.aspx" />
@@ -101,6 +110,8 @@
     <Content Include="e\admin\Info\InfoList.aspx" />
     <Content Include="e\admin\Info\InfoTypeEdit.aspx" />
     <Content Include="e\admin\Info\InfoTypeList.aspx" />
+    <Content Include="e\admin\Job\Application\Edit.aspx" />
+    <Content Include="e\admin\Job\Application\List.aspx" />
     <Content Include="e\admin\Job\Company\Edit.aspx" />
     <Content Include="e\admin\Job\Company\List.aspx" />
     <Content Include="e\admin\Job\Config\JobEduSpecialtyManagement.aspx" />
@@ -465,6 +476,7 @@
     <Content Include="e\data\fckeditor\fcktemplates.xml" />
     <Content Include="e\data\images\pixviewer.swf" />
     <Content Include="e\file\addselect.aspx" />
+    <Content Include="e\Job\Post.aspx" />
     <Content Include="e\member\ChangeRegister.aspx" />
     <Content Include="e\member\Login.aspx" />
     <Content Include="e\member\LoginForm.aspx" />
@@ -600,6 +612,69 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Dynamic\Job\App.aspx.cs">
+      <DependentUpon>App.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Job\App.aspx.designer.cs">
+      <DependentUpon>App.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dynamic\Job\Company.aspx.cs">
+      <DependentUpon>Company.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Job\Company.aspx.designer.cs">
+      <DependentUpon>Company.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dynamic\Job\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Job\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dynamic\Job\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Job\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dynamic\Job\Job.aspx.cs">
+      <DependentUpon>Job.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Job\Job.aspx.designer.cs">
+      <DependentUpon>Job.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dynamic\Job\Password.aspx.cs">
+      <DependentUpon>Password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Job\Password.aspx.designer.cs">
+      <DependentUpon>Password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dynamic\Job\ResumeBasic.aspx.cs">
+      <DependentUpon>ResumeBasic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Job\ResumeBasic.aspx.designer.cs">
+      <DependentUpon>ResumeBasic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dynamic\Job\ResumeEdu.aspx.cs">
+      <DependentUpon>ResumeEdu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Job\ResumeEdu.aspx.designer.cs">
+      <DependentUpon>ResumeEdu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dynamic\Job\Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Job\Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Dynamic\Movie\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -690,6 +765,20 @@
     </Compile>
     <Compile Include="e\admin\Info\InfoTypeList.aspx.designer.cs">
       <DependentUpon>InfoTypeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="e\admin\Job\Application\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\admin\Job\Application\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="e\admin\Job\Application\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\admin\Job\Application\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
     </Compile>
     <Compile Include="e\admin\Job\Company\Edit.aspx.cs">
       <DependentUpon>Edit.aspx</DependentUpon>
@@ -1117,6 +1206,13 @@
     </Compile>
     <Compile Include="e\installer\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="e\Job\Post.aspx.cs">
+      <DependentUpon>Post.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\Job\Post.aspx.designer.cs">
+      <DependentUpon>Post.aspx</DependentUpon>
     </Compile>
     <Compile Include="e\member\ChangeRegister.aspx.cs">
       <DependentUpon>ChangeRegister.aspx</DependentUpon>

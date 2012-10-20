@@ -90,6 +90,7 @@
                     <td>
                        <vd:VTextBox ID="txt_EmployNumber" runat="server" EnableValidate="true" 
                             EnableNull="false" VType="integer"></vd:VTextBox>
+
                     </td>
                 </tr>
                 <tr>

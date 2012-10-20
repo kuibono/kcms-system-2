@@ -62,6 +62,13 @@ namespace Web.e.admin.Job.Post
                 ddl_Edu.Items.Add(new ListItem(edu.Value, edu.Key.ToS()));
             }
 
+            long companyID = WS.RequestLong("cid");
+            if (companyID > 0)
+            {
+                ddl_Company.SetValue(companyID.ToS());
+            }
+
+
             var p = (from l in ent.JobPost where l.ID == id select l).FirstOrDefault();
             if (p == null)
             {

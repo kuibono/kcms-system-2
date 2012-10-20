@@ -26,6 +26,10 @@ namespace Web.e.admin.template
             using (DataEntities ent = new DataEntities())
             {
                 int id = WS.RequestInt("id");
+                if (id < 0)
+                {
+                    return;
+                }
                 TemplateVar tl = (from l in ent.TemplateVar where l.ID == id select l).FirstOrDefault();
                 txt_VarName.Text = tl.VarName;
                 txt_Content.Text = tl.Content;
@@ -36,12 +40,17 @@ namespace Web.e.admin.template
         {
             DataEntities ent = new DataEntities();
             int id = WS.RequestInt("id");
-            TemplateVar tl = (from l in ent.TemplateVar where l.ID == id select l).FirstOrDefault();
+            TemplateVar tl = new TemplateVar();
+            try
+            {
+                tl = (from l in ent.TemplateVar where l.ID == id select l).First();
+            }
+            catch { }
 
             tl.VarName = txt_VarName.Text; 
             tl.Content = txt_Content.Text.Replace("'", "''");
 
-            if (tl.ID <= 0)
+            if (tl.ID==null||tl.ID <= 0)
             {
                 ent.AddToTemplateVar(tl);
             }

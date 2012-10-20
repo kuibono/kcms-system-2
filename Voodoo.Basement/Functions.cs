@@ -958,9 +958,82 @@ namespace Voodoo.Basement
 
 
 
+        #region 获取JOB系统 首页右侧的城市列表
+        /// <summary>
+        /// 获取JOB系统 首页右侧的城市列表
+        /// </summary>
+        /// <param name="linkTemp"></param>
+        /// <returns></returns>
+        public static string GetIndexCitys(string linkTemp)
+        {
+            StringBuilder sb = new StringBuilder();
+            using (DataEntities ent = new DataEntities())
+            {
+                var cts = (from l in ent.City orderby l.Hot descending select l).AsCache().Take(35);
+                int i = 0;
+                foreach (var ct in cts)
+                {
+                    if (i % 5 == 0)
+                    {
+                        sb.AppendLine("<tr><td><table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" height=\"22\"><tr>");
+                    }
+                    i++;
+                    string tmp = linkTemp.Replace("{city1}", ct.city1).Replace("市", "");
+                    tmp = tmp.Replace("{id}", ct.id.ToS());
 
+                    string item = string.Format("<td width=\"16%\" align=\"center\">{0}</td>", tmp);
+                    sb.AppendLine(item);
+                    if (i == cts.Count())
+                    {
+                        for (int j = 0; j < 5 - cts.Count() % 5; j++)
+                        {
+                            sb.AppendLine("<td width=\"16%\" align=\"center\">&nbsp;</td>");
+                        }
+                        sb.AppendLine("</tr></table></td></tr>");
+                    }
+                    if (i % 5 == 0)
+                    {
+                        sb.AppendLine("</tr></table></td></tr>");
+                    }
 
+                }
+            }
 
+            return sb.ToS();
+        }
+        #endregion
+
+        #region 获取JOB系统 首页下面的行业列表
+        /// <summary>
+        /// 获取JOB系统 首页下面的行业列表
+        /// </summary>
+        /// <returns></returns>
+        public static string GetIndexIndustrys(string nn)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            using (DataEntities ent = new DataEntities())
+            {
+                var qs = (from l in ent.JobIndustry where l.IsLeaf == false select l).AsCache();
+
+                var parents = qs.Where(p => p.ParentID == 0);
+                foreach (var p in parents)
+                {
+                    sb.Append("<li>");
+                    sb.Append(string.Format("<b>{0}</b>：", p.Name));
+                    var subs = qs.Where(o => o.ParentID == p.ID);
+                    foreach (var s in subs)
+                    {
+                        sb.AppendFormat("<a target=\"_blank\" href=\"{0}\">{1}</a>",s.ID,s.Name);
+                    }
+
+                    sb.Append("</li>");
+                }
+            }
+
+            return sb.ToS();
+        }
+        #endregion
 
 
 
@@ -1015,5 +1088,250 @@ namespace Voodoo.Basement
         }
         #endregion
 
+        #region 职位申请列表
+        /// <summary>
+        /// 职位申请列表
+        /// </summary>
+        /// <param name="top"></param>
+        /// <param name="custitle"></param>
+        /// <param name="m_where"></param>
+        /// <param name="htmlTemp"></param>
+        /// <returns></returns>
+        public static string getjobapplicationlist(string top, string custitle, string m_where, string orderby, string htmlTemp)
+        {
+            StringBuilder sb = new StringBuilder();
+            using (DataEntities ent = new DataEntities())
+            {
+                List<JobApplicationRecord> list = ent.CreateQuery<JobApplicationRecord>(string.Format("select VALUE t from JobApplicationRecord as t where {1} order by {2} limit {0}", top, m_where, orderby)).ToList();
+                var qs = from a in list
+                         from c in ent.JobCompany
+                         from u in ent.User
+                         from r in ent.JobResumeInfo
+                         from p in ent.JobPost
+                         where
+                         a.UserID == u.ID
+                         && a.ResumeID == r.ID
+                         && a.PostID == p.ID
+                         && a.CompanyID == c.ID
+                         select new
+                         {
+                             a.ID,
+                             u.UserName,
+                             c.CompanyName,
+                             p.Title,
+                             rTitle = r.Title,
+                             a.ApplicationTime,
+                             a.CompanyID,
+                             a.PostID,
+                             a.ResumeID,
+                             a.UserID
+                         };
+                var i = 0;
+                foreach (var q in qs)
+                {
+                    i++;
+                    string item = htmlTemp;
+                    item = item.Replace("{applicationtime}", q.ApplicationTime.ToDateTime().ToString("yyyy-MM-dd"));
+                    item = item.Replace("{companyid}", q.CompanyID.ToS());
+                    item = item.Replace("{companyname}", q.CompanyName);
+                    item = item.Replace("{id}", q.ID.ToS());
+                    item = item.Replace("{postid}", q.PostID.ToS());
+                    item = item.Replace("{resumeid}", q.ResumeID.ToS());
+                    item = item.Replace("{rtitle}", q.rTitle);
+                    item = item.Replace("{title}", q.Title);
+                    item = item.Replace("{userid}", q.UserID.ToS());
+                    item = item.Replace("{username}", q.UserName);
+                    item = item.Replace("{index}", (i - 1).ToS());
+                    sb.Append(item);
+                }
+                return sb.ToS();
+            }
+        }
+        #endregion
+
+        #region 获取公司列表
+        /// <summary>
+        /// 获取公司列表
+        /// </summary>
+        /// <param name="top"></param>
+        /// <param name="custitle"></param>
+        /// <param name="m_where"></param>
+        /// <param name="orderby"></param>
+        /// <param name="htmlTemp"></param>
+        /// <returns></returns>
+        public static string getcompanylist(string top, string custitle, string m_where, string orderby, string htmlTemp)
+        {
+            StringBuilder sb = new StringBuilder();
+            using (DataEntities ent = new DataEntities())
+            {
+                List<JobCompany> list = ent.CreateQuery<JobCompany>(string.Format("select VALUE t from JobCompany as t where {1} order by {2} limit {0}", top, m_where, orderby)).ToList();
+
+                var i = 0;
+                foreach (var q in list)
+                {
+                    i++;
+                    string item = htmlTemp;
+                    item = item.Replace("{companyname}", q.CompanyName);
+                    item = item.Replace("{companytype}", JobAction.GetCompanyTypeName(q.CompanyType.ToInt32()));
+                    item = item.Replace("{employeecount}", JobAction.GetEmployeeCountName(q.EmployeeCount.ToInt32()));
+                    item = item.Replace("{id}", q.ID.ToS());
+                    item = item.Replace("{Industry}", JobAction.GetIndustryName(q.Industry.ToInt32()));
+                    item = item.Replace("{intro}", q.Intro);
+                    item = item.Replace("{userid}", q.UserID.ToS());
+                    item = item.Replace("{dayclick}", q.DayClick.ToS());
+
+                    item = item.Replace("{rownum}", i.ToS());
+                    item = item.Replace("{index}", (i - 1).ToS());
+                    sb.Append(item);
+                }
+                return sb.ToS();
+            }
+        }
+        #endregion
+
+        #region 获取行业列表
+        /// <summary>
+        /// 获取行业列表
+        /// </summary>
+        /// <param name="top"></param>
+        /// <param name="custitle"></param>
+        /// <param name="m_where"></param>
+        /// <param name="orderby"></param>
+        /// <param name="htmlTemp"></param>
+        /// <returns></returns>
+        public static string getindustrylist(string top, string custitle, string m_where, string orderby, string htmlTemp)
+        {
+            StringBuilder sb = new StringBuilder();
+            using (DataEntities ent = new DataEntities())
+            {
+                List<JobIndustry> list = ent.CreateQuery<JobIndustry>(string.Format("select VALUE t from JobIndustry as t where {1} order by {2} limit {0}", top, m_where, orderby)).ToList();
+
+                var i = 0;
+                foreach (var q in list)
+                {
+                    i++;
+                    string item = htmlTemp;
+                    item = item.Replace("{id}", q.ID.ToS());
+                    item = item.Replace("{name}", q.Name);
+                    item = item.Replace("{parentid}", q.ParentID.ToS());
+                    item = item.Replace("{isleaf}", q.IsLeaf.ToS());
+
+                    item = item.Replace("{index}", (i - 1).ToS());
+                    sb.Append(item);
+                }
+                return sb.ToS();
+            }
+        }
+        #endregion
+
+        #region 获取职位列表
+        /// <summary>
+        /// 获取职位列表
+        /// </summary>
+        /// <param name="top"></param>
+        /// <param name="custitle"></param>
+        /// <param name="m_where"></param>
+        /// <param name="orderby"></param>
+        /// <param name="htmlTemp"></param>
+        /// <returns></returns>
+        public static string getpostlist(string top, string custitle, string m_where, string orderby, string htmlTemp)
+        {
+            StringBuilder sb = new StringBuilder();
+            using (DataEntities ent = new DataEntities())
+            {
+                List<JobPost> list = ent.CreateQuery<JobPost>(string.Format("select VALUE t from JobPost as t where {1} order by {2} limit {0}", top, m_where, orderby)).ToList();
+                List<JobCompany> coms = (from l in ent.JobCompany select l).AsCache();
+
+                var i = 0;
+                foreach (var q in list)
+                {
+                    i++;
+                    string item = htmlTemp;
+                    item = item.Replace("{city}", JobAction.GetCityName(q.City.ToInt32()));
+                    item = item.Replace("{companyid}", q.CompanyID.ToS());
+                    item = item.Replace("{companyname}", coms.Where(p => p.ID == q.CompanyID).FirstOrDefault().CompanyName);
+                    item = item.Replace("{edu}", JobAction.GetEduName(q.Edu.ToInt32()));
+                    item = item.Replace("{employeenumber}", q.EmployNumber == 0 ? "若干" : q.EmployNumber.ToS());
+                    item = item.Replace("{expressions}", JobAction.GetExpressionsName(q.Expressions.ToInt32()));
+                    item = item.Replace("{id}", q.ID.ToS());
+                    item = item.Replace("{intro}", q.Intro);
+                    item = item.Replace("{posttime}", q.PostTime.ToDateTime().ToString("yyyy-MM-dd"));
+                    item = item.Replace("{province}", JobAction.GetProviceName(q.Province.ToInt32()));
+                    item = item.Replace("{salary}", JobAction.GetSalaryDegreeName(q.Salary.ToInt32()));
+                    item = item.Replace("{title}", q.Title);
+
+                    item = item.Replace("{index}", (i - 1).ToS());
+                    sb.Append(item);
+                }
+                return sb.ToS();
+            }
+        }
+        #endregion
+
+        #region 获取广告列表
+        /// <summary>
+        /// 获取广告列表
+        /// </summary>
+        /// <param name="top"></param>
+        /// <param name="custitle"></param>
+        /// <param name="m_where"></param>
+        /// <param name="orderby"></param>
+        /// <param name="htmlTemp"></param>
+        /// <returns></returns>
+        public string getadlist(string top, string custitle, string m_where, string orderby, string htmlTemp)
+        {
+            StringBuilder sb = new StringBuilder();
+            using (DataEntities ent = new DataEntities())
+            {
+                var ads = ent.CreateQuery<Ad>(string.Format("select VALUE t from Ad as t where {1} order by {2} limit {0}", top, m_where, orderby)).ToList();
+                var i = 0;
+                foreach (var q in ads)
+                {
+                    i++;
+                    string item = htmlTemp;
+
+                    item = item.Replace("{id}", q.ID.ToS());
+                    item = item.Replace("{title}", q.Title);
+                    item = item.Replace("{groupid}", q.GroupID.ToS());
+                    item = item.Replace("{image}", q.Image);
+                    item = item.Replace("{url}", q.Url);
+
+                    item = item.Replace("{rownum}", i.ToS());
+                    item = item.Replace("{index}", (i - 1).ToS());
+                    sb.Append(item);
+                }
+
+            }
+
+            return sb.ToS();
+        }
+        #endregion
+
+        #region 获取单个广告
+        /// <summary>
+        /// 获取单个广告
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="htmlTemp"></param>
+        /// <returns></returns>
+        public static string getad(string id, string htmlTemp)
+        {
+            long l_id=id.ToInt64();
+
+            string item = htmlTemp;
+            using (DataEntities ent = new DataEntities())
+            {
+                var q = (from l in ent.Ad where l.ID == l_id select l).FirstOrDefault();
+                item = item.Replace("{id}", q.ID.ToS());
+                item = item.Replace("{title}", q.Title);
+                item = item.Replace("{groupid}", q.GroupID.ToS());
+                item = item.Replace("{image}", q.Image);
+                item = item.Replace("{url}", q.Url);
+            }
+
+            return item;
+
+        }
+        #endregion
     }
 }
