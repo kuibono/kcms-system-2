@@ -74,6 +74,14 @@
                             Width="300px" ></vd:VTextBox>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        热度
+                    </td>
+                    <td>
+                        <vd:VTextBox ID="txt_DayClick" runat="server" EnableValidate="true" EnableNull="false"></vd:VTextBox>
+                    </td>
+                </tr>
             </tbody>
             <tfoot>
                 <tr>

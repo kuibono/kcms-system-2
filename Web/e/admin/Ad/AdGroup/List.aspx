@@ -1,12 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="List.aspx.cs" Inherits="Web.e.admin.Job.Company.List" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="List.aspx.cs" Inherits="Web.e.admin.Ad.AdGroup.List" %>
 <%@ Import Namespace="Voodoo" %>
 <%@ Import Namespace="Voodoo.Basement" %>
 <%@ Register Assembly="Voodoo" Namespace="Voodoo.UI" TagPrefix="vd" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>公司列表</title>
+    <title>广告位列表</title>
     <link rel="stylesheet" type="text/css" href="../../../data/css/management.css" />
     <script type="text/javascript" src="../../../data/script/jquery-1.7.min.js"></script>
     <script type="text/javascript" src="../../../data/script/common.js"></script>
@@ -14,15 +15,9 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <div class="search">
+    <div class="search">
             搜索：
             <asp:textbox id="txt_Key" runat="server"></asp:textbox>
-            <asp:dropdownlist id="ddl_Type" runat="server">
-                <asp:ListItem Text="--不限类型--" Value=""></asp:ListItem>
-            </asp:dropdownlist>
-            <asp:dropdownlist id="ddl_EmployeeCount" runat="server">
-                <asp:ListItem Text="--不限规模--" Value=""></asp:ListItem>
-            </asp:dropdownlist>
             <asp:button id="btn_Search" runat="server" text="搜索" />
         </div>
          <table border="1" cellpadding="0" cellspacing="1" class="list">
@@ -35,22 +30,7 @@
                         ID
                     </th>
                     <th>
-                        公司名称
-                    </th>
-                    <th>
-                        行业
-                    </th>
-                    <th>
-                        性质
-                    </th>
-                    <th>
-                        规模
-                    </th>
-                    <th>
-                        热度
-                    </th>
-                    <th>
-                        用户
+                        名称
                     </th>
                     <th>
                         管理
@@ -68,28 +48,12 @@
                                 <%#Eval("ID") %>
                             </td>
                             <td>
-                                <%#Eval("CompanyName")%>
-                            </td>
-                            <td>
-                                <%#Eval("Industry")%>
-                            </td>
-                            <td>
-                                <%#JobAction.GetCompanyTypeName(Eval("CompanyType").ToInt32())%>
-                            </td>
-                            <td>
-                                <%#JobAction.GetEmployeeCountName(Eval("EmployeeCount").ToInt32())%>
-                            </td>
-                            <td>
-                                <%#Eval("DayClick")%>
-                            </td>
-                            <td>
-                                <%#UserAction.GetUserNameByID(Eval("UserID").ToInt32())%>
+                                <%#Eval("Name")%>
                             </td>
                             <td>
                                 <a href="Edit.aspx?id=<%#Eval("ID") %>">修改</a> 
                                 <a href="?id=<%#Eval("ID") %>&action=del"> 删除</a>
-                                <a href="../Post/List.aspx?id=<%#Eval("ID") %>">职位</a>
-                                <a href="../Post/Edit.aspx?cid=<%#Eval("ID") %>">新增职位</a>
+                                <a href="../Ad/List.aspx?id=<%#Eval("ID") %>">广告</a>
                             </td>
                         </tr>
                     </ItemTemplate>

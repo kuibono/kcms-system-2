@@ -44,6 +44,7 @@ namespace Web.Dynamic.Job
             EmployeeCount = JobAction.GetEmployeeCountName(Comapny.EmployeeCount.ToInt32());
             Intro = Comapny.Intro;
 
+           
 
 
             var db_list = from p in ent.JobPost

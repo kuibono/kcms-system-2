@@ -57,6 +57,11 @@ namespace Web.e.admin.Job.Application
                         || l.rTitle.Contains(txt_Key.Text)
                     select l;
             }
+            int id = WS.RequestInt("id");
+            if (id > 0)
+            {
+                q = from l in q where l.UserID == id select l;
+            }
 
             pager.RecordCount = q.Count();
             rp_list.DataSource = q.OrderByDescending(p => p.ID).Skip((pager.CurrentPageIndex - 1) * pager.PageSize).Take(pager.PageSize);
@@ -66,11 +71,11 @@ namespace Web.e.admin.Job.Application
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            var ids = WS.RequestString("id").Split(',').ToList();
+            var ids = WS.RequestString("id").Split(',').ToList().ToInt64();
             DataEntities ent = new DataEntities();
-            var qs = from l in ent.JobApplicationRecord where ids.IndexOf(l.ID.ToString()) > 0 select l;
-            foreach (var q in qs)
+            foreach (var id in ids)
             {
+                var q = (from l in ent.JobApplicationRecord where l.ID == id select l).FirstOrDefault();
                 ent.DeleteObject(q);
             }
             ent.SaveChanges();

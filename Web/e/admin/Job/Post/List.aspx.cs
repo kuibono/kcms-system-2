@@ -155,11 +155,11 @@ namespace Web.e.admin.Job.Post
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            var ids = WS.RequestString("id").Split(',').ToList();
+            var ids = WS.RequestString("id").Split(',').ToList().ToInt64();
             DataEntities ent = new DataEntities();
-            var qs = from l in ent.JobPost where ids.IndexOf(l.ID.ToString()) > 0 select l;
-            foreach (var q in qs)
+            foreach (var id in ids)
             {
+                var q = (from l in ent.JobPost where l.ID == id select l).FirstOrDefault();
                 ent.DeleteObject(q);
             }
             ent.SaveChanges();

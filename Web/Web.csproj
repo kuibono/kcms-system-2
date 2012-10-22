@@ -104,6 +104,10 @@
     <Content Include="Dynamic\Job\ResumeEdu.aspx" />
     <Content Include="Dynamic\Job\Search.aspx" />
     <Content Include="Dynamic\Movie\Default.aspx" />
+    <Content Include="e\admin\Ad\AdGroup\Edit.aspx" />
+    <Content Include="e\admin\Ad\AdGroup\List.aspx" />
+    <Content Include="e\admin\Ad\Ad\Edit.aspx" />
+    <Content Include="e\admin\Ad\Ad\List.aspx" />
     <Content Include="e\admin\Book\BookEdit.aspx" />
     <Content Include="e\admin\Default.aspx" />
     <Content Include="e\admin\Info\InfoEdit.aspx" />
@@ -474,6 +478,10 @@
     <Content Include="e\data\fckeditor\fckpackager.xml" />
     <Content Include="e\data\fckeditor\fckstyles.xml" />
     <Content Include="e\data\fckeditor\fcktemplates.xml" />
+    <Content Include="e\data\images\bg_login.jpg" />
+    <Content Include="e\data\images\bg_login_btn.png" />
+    <Content Include="e\data\images\bg_textbox.jpg" />
+    <Content Include="e\data\images\login_bg.png" />
     <Content Include="e\data\images\pixviewer.swf" />
     <Content Include="e\file\addselect.aspx" />
     <Content Include="e\Job\Post.aspx" />
@@ -490,6 +498,7 @@
     <Content Include="e\post\question\Requester.aspx" />
     <Content Include="e\post\upload_json.aspx" />
     <Content Include="e\Rss.aspx" />
+    <Content Include="e\Service\UserService.asmx" />
     <Content Include="e\tool\BookOperate.aspx" />
     <Content Include="e\tool\Collect\Movie\ServerCollecor.aspx" />
     <Content Include="e\tool\Collect\Novel\ServerCollect.aspx" />
@@ -499,6 +508,84 @@
     <Content Include="e\tool\MovieRules.aspx" />
     <Content Include="e\tool\proxy.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="skin\job\about.html" />
+    <Content Include="skin\job\apply.html" />
+    <Content Include="skin\job\company.html" />
+    <Content Include="skin\job\css\2013.css" />
+    <Content Include="skin\job\css\incenter.css" />
+    <Content Include="skin\job\css\job.css" />
+    <Content Include="skin\job\css\style.css" />
+    <Content Include="skin\job\css\zhuce.css" />
+    <Content Include="skin\job\dl.html" />
+    <Content Include="skin\job\education.html" />
+    <Content Include="skin\job\home.html" />
+    <Content Include="skin\job\hy1.html" />
+    <Content Include="skin\job\img\1.jpg" />
+    <Content Include="skin\job\img\10.jpg" />
+    <Content Include="skin\job\img\11.jpg" />
+    <Content Include="skin\job\img\12.jpg" />
+    <Content Include="skin\job\img\13.jpg" />
+    <Content Include="skin\job\img\14.jpg" />
+    <Content Include="skin\job\img\15.jpg" />
+    <Content Include="skin\job\img\16.jpg" />
+    <Content Include="skin\job\img\17.jpg" />
+    <Content Include="skin\job\img\18.jpg" />
+    <Content Include="skin\job\img\19.jpg" />
+    <Content Include="skin\job\img\2.jpg" />
+    <Content Include="skin\job\img\20.jpg" />
+    <Content Include="skin\job\img\21.jpg" />
+    <Content Include="skin\job\img\22.jpg" />
+    <Content Include="skin\job\img\23.jpg" />
+    <Content Include="skin\job\img\24.jpg" />
+    <Content Include="skin\job\img\25.jpg" />
+    <Content Include="skin\job\img\26.jpg" />
+    <Content Include="skin\job\img\3.jpg" />
+    <Content Include="skin\job\img\4.jpg" />
+    <Content Include="skin\job\img\5.jpg" />
+    <Content Include="skin\job\img\6.jpg" />
+    <Content Include="skin\job\img\7.jpg" />
+    <Content Include="skin\job\img\8.jpg" />
+    <Content Include="skin\job\img\9.jpg" />
+    <Content Include="skin\job\img\about_common_3px.jpg" />
+    <Content Include="skin\job\img\bg.gif" />
+    <Content Include="skin\job\img\bgtag.png" />
+    <Content Include="skin\job\img\bj.gif" />
+    <Content Include="skin\job\img\btn.jpg" />
+    <Content Include="skin\job\img\but1.png" />
+    <Content Include="skin\job\img\button.jpg" />
+    <Content Include="skin\job\img\dash-bg.gif" />
+    <Content Include="skin\job\img\dian.jpg" />
+    <Content Include="skin\job\img\face.jpg" />
+    <Content Include="skin\job\img\grey_arr.jpg" />
+    <Content Include="skin\job\img\ico-write.gif" />
+    <Content Include="skin\job\img\iconDet.png" />
+    <Content Include="skin\job\img\lnav-ico.png" />
+    <Content Include="skin\job\img\logo.jpg" />
+    <Content Include="skin\job\img\q1.jpg" />
+    <Content Include="skin\job\img\q10.jpg" />
+    <Content Include="skin\job\img\q11.jpg" />
+    <Content Include="skin\job\img\q12.jpg" />
+    <Content Include="skin\job\img\q2.jpg" />
+    <Content Include="skin\job\img\q3.jpg" />
+    <Content Include="skin\job\img\q4.jpg" />
+    <Content Include="skin\job\img\q5.jpg" />
+    <Content Include="skin\job\img\q6.jpg" />
+    <Content Include="skin\job\img\q7.jpg" />
+    <Content Include="skin\job\img\q8.jpg" />
+    <Content Include="skin\job\img\q9.jpg" />
+    <Content Include="skin\job\img\td.gif" />
+    <Content Include="skin\job\img\up-ixo.png" />
+    <Content Include="skin\job\img\zwtj.jpg" />
+    <Content Include="skin\job\index.html" />
+    <Content Include="skin\job\index1.html" />
+    <Content Include="skin\job\job.html" />
+    <Content Include="skin\job\job_detail.html" />
+    <Content Include="skin\job\js\common.js" />
+    <Content Include="skin\job\js\jquery.js" />
+    <Content Include="skin\job\js\links.js" />
+    <Content Include="skin\job\js\myjob.js" />
+    <Content Include="skin\job\password.html" />
+    <Content Include="skin\job\position.html" />
     <Content Include="skin\movie\aimiziso.gif" />
     <Content Include="skin\movie\bf.gif" />
     <Content Include="skin\movie\bg05.gif" />
@@ -681,6 +768,34 @@
     </Compile>
     <Compile Include="Dynamic\Movie\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="e\admin\Ad\AdGroup\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\admin\Ad\AdGroup\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="e\admin\Ad\AdGroup\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\admin\Ad\AdGroup\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="e\admin\Ad\Ad\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\admin\Ad\Ad\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="e\admin\Ad\Ad\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\admin\Ad\Ad\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
     </Compile>
     <Compile Include="e\admin\Book\BookEdit.aspx.cs">
       <DependentUpon>BookEdit.aspx</DependentUpon>
@@ -1319,6 +1434,10 @@
     <Compile Include="e\Rss.aspx.designer.cs">
       <DependentUpon>Rss.aspx</DependentUpon>
     </Compile>
+    <Compile Include="e\Service\UserService.asmx.cs">
+      <DependentUpon>UserService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="e\Test.aspx.cs">
       <DependentUpon>Test.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1489,27 +1608,10 @@
     <Content Include="e\BookDown.aspx" />
     <Content Include="e\data\css\loginstyle.css" />
     <Content Include="e\data\css\management.css" />
-    <Content Include="e\data\images\bbs_ico.jpg" />
-    <Content Include="e\data\images\bg.gif" />
-    <Content Include="e\data\images\btn_hover.gif" />
-    <Content Include="e\data\images\button.gif" />
     <Content Include="e\data\images\cms_bg.png" />
     <Content Include="e\data\images\cms_logo.png" />
-    <Content Include="e\data\images\contentbg.jpg" />
-    <Content Include="e\data\images\footerbg.jpg" />
-    <Content Include="e\data\images\footer_bg.png" />
-    <Content Include="e\data\images\headbg.jpg" />
-    <Content Include="e\data\images\header_bg.png" />
-    <Content Include="e\data\images\header_gray.png" />
-    <Content Include="e\data\images\header_grayblue.png" />
-    <Content Include="e\data\images\help_ico.jpg" />
     <Content Include="e\data\images\img.gif" />
-    <Content Include="e\data\images\infomation.png" />
-    <Content Include="e\data\images\inputbg.jpg" />
-    <Content Include="e\data\images\menu_spliter.png" />
-    <Content Include="e\data\images\newtitle.jpg" />
     <Content Include="e\data\images\s100094am5.swf" />
-    <Content Include="e\data\images\short_input.jpg" />
     <Content Include="e\data\images\theader.png" />
     <Content Include="e\data\script\common.js" />
     <Content Include="e\data\script\jquery-1.7.min.js" />
@@ -1769,22 +1871,6 @@
     <Content Include="skin\script\front_common.js" />
     <Content Include="skin\script\jquery-1.7.min.js" />
     <Content Include="skin\wap\style.css" />
-    <Content Include="u\file\2011-11-19\095ee674-c178-4c96-a0f6-38a2c76695be.jpg" />
-    <Content Include="u\file\2011-11-19\185a1271-2cdf-48cc-aecf-2ed1f4a4b7e0.jpg" />
-    <Content Include="u\file\2011-11-19\7b41569a-8987-4b91-9428-882d6db6a657.jpg" />
-    <Content Include="u\file\2011-11-19\a680a5cb-b51e-42a5-a263-4c6e71d6d36e.jpg" />
-    <Content Include="u\file\2011-11-19\b9e8a34f-1685-46f9-a810-4ed13ba851a7.jpg" />
-    <Content Include="u\file\2011-11-19\f23ea3d0-ee9e-4825-8b7f-e1e72142c79a.jpg" />
-    <Content Include="u\file\2011-11-19\fc30cc41-f936-4ca2-a711-34ae7122bd85.jpg" />
-    <Content Include="u\file\2011-11-19\ShortCut\095ee674-c178-4c96-a0f6-38a2c76695be.jpg" />
-    <Content Include="u\file\2011-11-19\ShortCut\185a1271-2cdf-48cc-aecf-2ed1f4a4b7e0.jpg" />
-    <Content Include="u\file\2011-11-19\ShortCut\7b41569a-8987-4b91-9428-882d6db6a657.jpg" />
-    <Content Include="u\file\2011-11-19\ShortCut\a680a5cb-b51e-42a5-a263-4c6e71d6d36e.jpg" />
-    <Content Include="u\file\2011-11-19\ShortCut\b9e8a34f-1685-46f9-a810-4ed13ba851a7.jpg" />
-    <Content Include="u\file\2011-11-19\ShortCut\f23ea3d0-ee9e-4825-8b7f-e1e72142c79a.jpg" />
-    <Content Include="u\file\2011-11-19\ShortCut\fc30cc41-f936-4ca2-a711-34ae7122bd85.jpg" />
-    <Content Include="u\file\2011-11-21\9cff414f-c049-4c45-99bd-8cb87fead883.jpg" />
-    <Content Include="u\file\2011-11-21\ShortCut\9cff414f-c049-4c45-99bd-8cb87fead883.jpg" />
     <None Include="e\data\fckeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.cfm" />
     <None Include="e\data\fckeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.php" />
     <None Include="e\data\fckeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.pl" />
@@ -1792,7 +1878,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="u\Ad\" />
     <Folder Include="u\fckup\" />
+    <Folder Include="u\file\" />
     <Folder Include="u\MoviekFace\" />
     <Folder Include="u\ResumeFile\" />
   </ItemGroup>

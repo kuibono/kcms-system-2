@@ -151,7 +151,7 @@ namespace Web.e.admin.Job.Person
             url = string.Format("List.aspx?ebable={0}&group={1}", enable.ToString(), group.ToString());
 
             //删除
-            var ids = WS.RequestString("id").Split(',').ToList(); ;
+            var ids = WS.RequestString("id").Split(',').ToList().ToInt64();
             if (WS.RequestString("id").IsNullOrEmpty())
             {
                 Js.AlertAndGoback("您没有选择任何项");
@@ -160,13 +160,13 @@ namespace Web.e.admin.Job.Person
 
             DataEntities ent = new DataEntities();
 
-            var qs = from l in ent.User where ids.IndexOf(l.ID.ToString()) > 0 select l;
-            foreach (var q in qs)
+            foreach (var id in ids)
             {
+                var q = (from l in ent.User where l.ID == id select l).FirstOrDefault();
                 ent.DeleteObject(q);
             }
+            ent.SaveChanges();
             ent.Dispose();
-            BindList();
 
             Js.AlertAndChangUrl("删除成功！", url);
         }

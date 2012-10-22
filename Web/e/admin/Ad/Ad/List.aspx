@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="List.aspx.cs" Inherits="Web.e.admin.Job.Company.List" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="List.aspx.cs" Inherits="Web.e.admin.Ad.Ad.List" %>
 
 <%@ Import Namespace="Voodoo" %>
 <%@ Import Namespace="Voodoo.Basement" %>
@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>公司列表</title>
+    <title>广告列表</title>
     <link rel="stylesheet" type="text/css" href="../../../data/css/management.css" />
     <script type="text/javascript" src="../../../data/script/jquery-1.7.min.js"></script>
     <script type="text/javascript" src="../../../data/script/common.js"></script>
@@ -17,15 +17,9 @@
         <div class="search">
             搜索：
             <asp:textbox id="txt_Key" runat="server"></asp:textbox>
-            <asp:dropdownlist id="ddl_Type" runat="server">
-                <asp:ListItem Text="--不限类型--" Value=""></asp:ListItem>
-            </asp:dropdownlist>
-            <asp:dropdownlist id="ddl_EmployeeCount" runat="server">
-                <asp:ListItem Text="--不限规模--" Value=""></asp:ListItem>
-            </asp:dropdownlist>
             <asp:button id="btn_Search" runat="server" text="搜索" />
         </div>
-         <table border="1" cellpadding="0" cellspacing="1" class="list">
+        <table border="1" cellpadding="0" cellspacing="1" class="list">
             <thead>
                 <tr>
                     <th>
@@ -35,22 +29,13 @@
                         ID
                     </th>
                     <th>
-                        公司名称
+                        名称
                     </th>
                     <th>
-                        行业
+                        广告位
                     </th>
                     <th>
-                        性质
-                    </th>
-                    <th>
-                        规模
-                    </th>
-                    <th>
-                        热度
-                    </th>
-                    <th>
-                        用户
+                        URL
                     </th>
                     <th>
                         管理
@@ -58,7 +43,7 @@
                 </tr>
             </thead>
             <tbody>
-                <asp:Repeater ID="rp_list" runat="server">
+                <asp:repeater id="rp_list" runat="server">
                     <ItemTemplate>
                         <tr>
                             <td>
@@ -68,46 +53,29 @@
                                 <%#Eval("ID") %>
                             </td>
                             <td>
-                                <%#Eval("CompanyName")%>
+                                <%#Eval("Title")%>
                             </td>
                             <td>
-                                <%#Eval("Industry")%>
+                                <%#Eval("Group")%>
                             </td>
                             <td>
-                                <%#JobAction.GetCompanyTypeName(Eval("CompanyType").ToInt32())%>
-                            </td>
-                            <td>
-                                <%#JobAction.GetEmployeeCountName(Eval("EmployeeCount").ToInt32())%>
-                            </td>
-                            <td>
-                                <%#Eval("DayClick")%>
-                            </td>
-                            <td>
-                                <%#UserAction.GetUserNameByID(Eval("UserID").ToInt32())%>
+                                <%#Eval("Url")%>
                             </td>
                             <td>
                                 <a href="Edit.aspx?id=<%#Eval("ID") %>">修改</a> 
                                 <a href="?id=<%#Eval("ID") %>&action=del"> 删除</a>
-                                <a href="../Post/List.aspx?id=<%#Eval("ID") %>">职位</a>
-                                <a href="../Post/Edit.aspx?cid=<%#Eval("ID") %>">新增职位</a>
                             </td>
                         </tr>
                     </ItemTemplate>
-                </asp:Repeater>
+                </asp:repeater>
             </tbody>
             <tfoot>
                 <tr>
                     <td colspan="9" class="ctrlPn">
-                        <asp:Button ID="Button1" Text="删除" runat="server" OnClick="Button1_Click" />
+                        <asp:button id="Button1" text="删除" runat="server" onclick="Button1_Click" />
                         &nbsp;
-                        <asp:Button ID="btn_Add" Text="新增" OnClientClick="location.href='Edit.aspx';return false;" runat="server" />
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="9">
-                        <vd:AspNetPager ID="pager" runat="server" FirstPageText="首页" LastPageText="尾页" NextPageText="后页"
-                            PrevPageText="前页" AlwaysShow="true" OnPageChanged="pager_PageChanged">
-                        </vd:AspNetPager>
+                        <asp:button id="btn_Add" text="新增" onclientclick="location.href='Edit.aspx';return false;"
+                            runat="server" />
                     </td>
                 </tr>
             </tfoot>

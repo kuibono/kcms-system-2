@@ -25,6 +25,10 @@ namespace Web.e.admin.template
 
         protected void LoadInfo(int id)
         {
+            if (id < 0)
+            {
+                return;
+            }
             DataEntities ent = new DataEntities();
             TemplatePage tp = (from l in ent.TemplatePage where l.id == id select l).FirstOrDefault();
             ent.Dispose();
@@ -39,7 +43,12 @@ namespace Web.e.admin.template
         {
             int id = WS.RequestInt("id");
             DataEntities ent = new DataEntities();
-            TemplatePage tp = (from l in ent.TemplatePage where l.id == id select l).FirstOrDefault();
+            TemplatePage tp = new TemplatePage();
+            try
+            {
+                tp = (from l in ent.TemplatePage where l.id == id select l).First();
+            }
+            catch { }
             tp.Content = txt_Content.Text.ToSqlEnCode();
             tp.CreateWith = ddl_CreateWith.SelectedValue.ToInt32();
             tp.FileName = txt_FileName.Text;

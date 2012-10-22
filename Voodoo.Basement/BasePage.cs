@@ -149,7 +149,7 @@ namespace Voodoo.Basement
         }
         #endregion
 
-       
+
 
         #region  根据ID获得部门名
         /// <summary>
@@ -1107,13 +1107,20 @@ namespace Voodoo.Basement
         /// <param name="width">保留宽度</param>
         /// <param name="height">保留高度</param>
         /// <returns></returns>
-        public static Result UpLoadImage(HttpPostedFile file,string PathWithName, int width, int height)
+        public static Result UpLoadImage(HttpPostedFile file, string PathWithName, int width, int height)
         {
             Result r = new Result();
             try
             {
                 file.SaveAs(System.Web.HttpContext.Current.Server.MapPath("~/u/tmp.jpg"), true);
-                ImageHelper.MakeThumbnail(System.Web.HttpContext.Current.Server.MapPath("~/u/tmp.jpg"), System.Web.HttpContext.Current.Server.MapPath(PathWithName), width, height, "Cut");
+                if (width > 0 && height > 0)
+                {
+                    ImageHelper.MakeThumbnail(System.Web.HttpContext.Current.Server.MapPath("~/u/tmp.jpg"), System.Web.HttpContext.Current.Server.MapPath(PathWithName), width, height, "Cut");
+                }
+                else
+                {
+                    Voodoo.IO.File.Move(System.Web.HttpContext.Current.Server.MapPath("~/u/tmp.jpg"), System.Web.HttpContext.Current.Server.MapPath(PathWithName));
+                }
                 r.Success = true;
                 r.Text = PathWithName;
             }

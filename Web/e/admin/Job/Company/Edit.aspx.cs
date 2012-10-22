@@ -65,6 +65,7 @@ namespace Web.e.admin.Job.Company
             txt_CompanyName.Text = company.CompanyName;
             txt_Industry.Text = company.Industry;
             txt_Intro.Text = company.Intro;
+            txt_DayClick.Text = company.DayClick.ToS();
 
             ddl_CompanyType.SelectedValue = company.CompanyType.ToS();
             ddl_EmployeeCount.SelectedValue = company.EmployeeCount.ToS();
@@ -88,6 +89,7 @@ namespace Web.e.admin.Job.Company
             com.Industry = txt_Industry.Text;
             com.Intro = txt_Intro.Text;
             com.UserID = ddl_User.SelectedValue.ToInt32();
+            com.DayClick = txt_DayClick.Text.ToInt32(0);
             if (id > 0 && com != null)
             {
 

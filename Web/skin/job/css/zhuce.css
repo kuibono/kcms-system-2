@@ -54,3 +54,9 @@ OL LI {
 
 .botton{ background:url(../img/19.jpg) no-repeat; width:148px; height:36px; border:0px;}
 
+.dl_left{ background:url(../img/grey_arr.jpg) no-repeat left center; border-bottom:1px solid #CDCDCD; padding-left:20px; height:38px; line-height:38px;}
+.dl_left a{ color:#696969; text-decoration:none;}
+.dl_left a:hover{ color:#EA7500; text-decoration:none; font-size:14px; font-weight:bold;}
+
+.dl_right{ font-family:"Î¢ÈíÑÅºÚ"; font-size:24px; border-bottom:1px solid #CECECE; height:60px; line-height:60px;}
+.dl_right1{ line-height:24px; color:#333; padding-top:30px; padding-bottom:60px}

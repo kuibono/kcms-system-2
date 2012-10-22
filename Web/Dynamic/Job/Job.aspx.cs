@@ -57,6 +57,8 @@ namespace Web.Dynamic.Job
             Intro = j.Intro;
             CompIntro = c.Intro;
 
+            JobAction.AddCityHot(j.City.ToInt32());
+
             RelaJobs = Functions.getpostlist("5", 
                 "0", 
                 string.Format("t.Title='{0}' and t.Id!={1}",j.Title,j.ID), 

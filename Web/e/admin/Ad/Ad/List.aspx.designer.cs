@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.e.admin.Job.Company {
+namespace Web.e.admin.Ad.Ad {
     
     
-    public partial class Edit {
+    public partial class List {
         
         /// <summary>
         /// form1 控件。
@@ -22,75 +22,48 @@ namespace Web.e.admin.Job.Company {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// ddl_User 控件。
+        /// txt_Key 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_User;
+        protected global::System.Web.UI.WebControls.TextBox txt_Key;
         
         /// <summary>
-        /// txt_CompanyName 控件。
+        /// btn_Search 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Voodoo.UI.VTextBox txt_CompanyName;
+        protected global::System.Web.UI.WebControls.Button btn_Search;
         
         /// <summary>
-        /// txt_Industry 控件。
+        /// rp_list 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Voodoo.UI.VTextBox txt_Industry;
+        protected global::System.Web.UI.WebControls.Repeater rp_list;
         
         /// <summary>
-        /// ddl_CompanyType 控件。
+        /// Button1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_CompanyType;
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// ddl_EmployeeCount 控件。
+        /// btn_Add 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_EmployeeCount;
-        
-        /// <summary>
-        /// txt_Intro 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::Voodoo.UI.VTextBox txt_Intro;
-        
-        /// <summary>
-        /// txt_DayClick 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::Voodoo.UI.VTextBox txt_DayClick;
-        
-        /// <summary>
-        /// btn_Save 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Save;
+        protected global::System.Web.UI.WebControls.Button btn_Add;
     }
 }

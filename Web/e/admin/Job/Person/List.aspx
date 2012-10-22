@@ -77,7 +77,7 @@
                                 <a href="Edit.aspx?id=<%#Eval("ID") %>">修改</a> 
                                 <a href="?id=<%#Eval("ID") %>&action=del">删除</a>
                                 <a href="../Resume/List.aspx?uid=<%#Eval("ID") %>">简历</a>
-                                <a href="<%#Eval("ID") %>">申请记录</a>
+                                <a href="../Application/List.aspx?id=<%#Eval("ID") %>">申请记录</a>
                             </td>
                         </tr>
                     </ItemTemplate>
@@ -86,8 +86,8 @@
             <tfoot>
                 <tr>
                     <td colspan="8" class="ctrlPn">
-                        <asp:button id="btn_disable" text="停用" runat="server" onclick="btn_disable_Click" />
-                        <asp:button id="btn_enable" text="启用" runat="server" onclick="btn_enable_Click" />
+<%--                        <asp:button id="btn_disable" text="停用" runat="server" onclick="btn_disable_Click" />
+                        <asp:button id="btn_enable" text="启用" runat="server" onclick="btn_enable_Click" />--%>
                         <asp:button id="btn_Add" text="新增" runat="server" onclientclick="location.href='Edit.aspx';return false" />
                         <asp:button id="Button1" text="删除" runat="server" onclick="Button1_Click" />
                     </td>

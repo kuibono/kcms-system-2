@@ -63,10 +63,11 @@ namespace Web.Dynamic.Job
                 txt_edu_Intro.Text = q.Intro;
 
             }
-            else if (WS.RequestString("action") == "del")
+            else if (WS.RequestString("action") == "del"&&q!=null)
             {
                 ent.DeleteObject(q);
                 ent.SaveChanges();
+                Response.Redirect("ResumeEdu.aspx");
             }
 
             var list = from l in ent.JobResumeEdu where l.ResumeID == r.ID select l;

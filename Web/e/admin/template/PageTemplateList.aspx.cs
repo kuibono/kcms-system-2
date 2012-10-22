@@ -10,6 +10,7 @@ using Voodoo;
 using Voodoo.Data;
 using Voodoo.Basement;
 using Voodoo.Setting;
+using Voodoo.LinqExt;
 
 namespace Web.e.admin.template
 {
@@ -41,12 +42,11 @@ namespace Web.e.admin.template
         {
             
             DataEntities ent = new DataEntities();
-            string ids = WS.RequestString("id");
+            var ids = WS.RequestString("id").Split(',').ToList().ToInt32();
 
-            var pages = //TemplatePageView.GetModelList(string.Format(, ids));
-                ent.CreateQuery<TemplatePage>(string.Format("select * from TemplatePage where id in({0})",ids)).ToList();
-            foreach (var page in pages)
+            foreach (var id in ids)
             {
+                var page = (from l in ent.TemplatePage where l.id == id select l).FirstOrDefault();
                 ent.DeleteObject(page);
                 FileInfo f = new FileInfo(Server.MapPath(page.FileName));
                 if (f.Exists)
