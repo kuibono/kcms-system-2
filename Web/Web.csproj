@@ -38,6 +38,9 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aspose.Words">
+      <HintPath>..\ref\Aspose.Words.dll</HintPath>
+    </Reference>
     <Reference Include="Ext.Net, Version=1.1.0.42036, Culture=neutral, PublicKeyToken=2e12ce3d0176cd87, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ref\Ext.Net.dll</HintPath>
@@ -485,12 +488,14 @@
     <Content Include="e\data\images\pixviewer.swf" />
     <Content Include="e\file\addselect.aspx" />
     <Content Include="e\Job\Post.aspx" />
+    <Content Include="e\Job\UploadResume.aspx" />
     <Content Include="e\member\ChangeRegister.aspx" />
     <Content Include="e\member\Login.aspx" />
     <Content Include="e\member\LoginForm.aspx" />
     <Content Include="e\member\Logout.aspx" />
     <Content Include="e\member\Register.aspx" />
     <Content Include="e\member\RegisterForm.aspx" />
+    <Content Include="e\member\user_panel_ajax.aspx" />
     <Content Include="e\OAuth\QQlogin\CallBack.aspx" />
     <Content Include="e\OAuth\QQlogin\Default.aspx" />
     <Content Include="e\post\PostList.aspx" />
@@ -552,6 +557,7 @@
     <Content Include="skin\job\img\bj.gif" />
     <Content Include="skin\job\img\btn.jpg" />
     <Content Include="skin\job\img\but1.png" />
+    <Content Include="skin\job\img\button-search.gif" />
     <Content Include="skin\job\img\button.jpg" />
     <Content Include="skin\job\img\dash-bg.gif" />
     <Content Include="skin\job\img\dian.jpg" />
@@ -560,6 +566,7 @@
     <Content Include="skin\job\img\ico-write.gif" />
     <Content Include="skin\job\img\iconDet.png" />
     <Content Include="skin\job\img\lnav-ico.png" />
+    <Content Include="skin\job\img\logo.gif" />
     <Content Include="skin\job\img\logo.jpg" />
     <Content Include="skin\job\img\q1.jpg" />
     <Content Include="skin\job\img\q10.jpg" />
@@ -1329,6 +1336,13 @@
     <Compile Include="e\Job\Post.aspx.designer.cs">
       <DependentUpon>Post.aspx</DependentUpon>
     </Compile>
+    <Compile Include="e\Job\UploadResume.aspx.cs">
+      <DependentUpon>UploadResume.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\Job\UploadResume.aspx.designer.cs">
+      <DependentUpon>UploadResume.aspx</DependentUpon>
+    </Compile>
     <Compile Include="e\member\ChangeRegister.aspx.cs">
       <DependentUpon>ChangeRegister.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1370,6 +1384,13 @@
     </Compile>
     <Compile Include="e\member\RegisterForm.aspx.designer.cs">
       <DependentUpon>RegisterForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="e\member\user_panel_ajax.aspx.cs">
+      <DependentUpon>user_panel_ajax.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\member\user_panel_ajax.aspx.designer.cs">
+      <DependentUpon>user_panel_ajax.aspx</DependentUpon>
     </Compile>
     <Compile Include="e\OAuth\QQlogin\CallBack.aspx.cs">
       <DependentUpon>CallBack.aspx</DependentUpon>
@@ -1883,6 +1904,7 @@
     <Folder Include="u\file\" />
     <Folder Include="u\MoviekFace\" />
     <Folder Include="u\ResumeFile\" />
+    <Folder Include="u\Resume\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

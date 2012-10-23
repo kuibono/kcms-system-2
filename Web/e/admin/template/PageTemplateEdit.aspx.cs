@@ -37,6 +37,7 @@ namespace Web.e.admin.template
             txt_FileName.Text = tp.FileName;
             ddl_CreateWith.SelectedValue = tp.CreateWith.ToS();
             txt_Content.Text = tp.Content;
+            FCKeditor1.Value = tp.TempVar;
         }
 
         protected void btn_Save_Click(object sender, EventArgs e)
@@ -53,6 +54,7 @@ namespace Web.e.admin.template
             tp.CreateWith = ddl_CreateWith.SelectedValue.ToInt32();
             tp.FileName = txt_FileName.Text;
             tp.PageName = txt_pageName.Text;
+            tp.TempVar = FCKeditor1.Value;
 
             if (tp.id <= 0)
             {

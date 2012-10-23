@@ -11,7 +11,7 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmSchemaAttribute()]
 
 // 原始文件名:
-// 生成日期: 2012/10/20 11:02:36
+// 生成日期: 2012/10/23 22:04:50
 namespace Voodoo.Basement
 {
     
@@ -14396,6 +14396,33 @@ namespace Voodoo.Basement
         partial void OnCreateWithChanging(global::System.Nullable<int> value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         partial void OnCreateWithChanged();
+        /// <summary>
+        /// 架构中不存在属性 TempVar 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string TempVar
+        {
+            get
+            {
+                return this._TempVar;
+            }
+            set
+            {
+                this.OnTempVarChanging(value);
+                this.ReportPropertyChanging("TempVar");
+                this._TempVar = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("TempVar");
+                this.OnTempVarChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _TempVar;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnTempVarChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnTempVarChanged();
     }
     /// <summary>
     /// 架构中不存在 DataModel.TemplatePublic 的注释。
@@ -18205,6 +18232,33 @@ namespace Voodoo.Basement
         partial void OnIntroChanging(string value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         partial void OnIntroChanged();
+        /// <summary>
+        /// 架构中不存在属性 Industry 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<int> Industry
+        {
+            get
+            {
+                return this._Industry;
+            }
+            set
+            {
+                this.OnIndustryChanging(value);
+                this.ReportPropertyChanging("Industry");
+                this._Industry = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("Industry");
+                this.OnIndustryChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<int> _Industry;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnIndustryChanging(global::System.Nullable<int> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnIndustryChanged();
     }
     /// <summary>
     /// 架构中不存在 DataModel.JobResumeCertificate 的注释。

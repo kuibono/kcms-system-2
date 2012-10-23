@@ -473,6 +473,7 @@
           <Property Name="Title" Type="nvarchar" MaxLength="200" />
           <Property Name="Province" Type="int" />
           <Property Name="City" Type="int" />
+          <Property Name="Industry" Type="int" />
           <Property Name="Salary" Type="int" />
           <Property Name="PostTime" Type="datetime" />
           <Property Name="Expressions" Type="int" />
@@ -917,6 +918,7 @@
           <Property Name="FileName" Type="nvarchar" MaxLength="255" />
           <Property Name="Content" Type="nvarchar(max)" />
           <Property Name="CreateWith" Type="int" />
+          <Property Name="TempVar" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="TemplatePublic">
           <Key>
@@ -1770,6 +1772,7 @@
           <Property Name="FileName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <Property Name="Content" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="CreateWith" Type="Int32" />
+          <Property Type="String" Name="TempVar" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="TemplatePublic">
           <Key>
@@ -1965,6 +1968,7 @@
           <Property Type="Int32" Name="Edu" />
           <Property Type="Int32" Name="EmployNumber" />
           <Property Type="String" Name="Intro" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Industry" />
         </EntityType>
         <EntityType Name="JobResumeCertificate">
           <Key>
@@ -2815,7 +2819,8 @@
     <EntitySetMapping Name="TemplatePage">
       <EntityTypeMapping TypeName="IsTypeOf(DataModel.TemplatePage)">
         <MappingFragment StoreEntitySet="TemplatePage">
-          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="TempVar" ColumnName="TempVar" />
+                <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="Enable" ColumnName="Enable" />
           <ScalarProperty Name="PageName" ColumnName="PageName" />
           <ScalarProperty Name="FileName" ColumnName="FileName" />
@@ -3018,7 +3023,8 @@
     <EntitySetMapping Name="JobPost">
       <EntityTypeMapping TypeName="IsTypeOf(DataModel.JobPost)">
         <MappingFragment StoreEntitySet="JobPost">
-          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Industry" ColumnName="Industry" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Province" ColumnName="Province" />

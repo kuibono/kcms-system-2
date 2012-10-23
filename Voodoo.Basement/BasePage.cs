@@ -1099,6 +1099,19 @@ namespace Voodoo.Basement
             return r;
         }
 
+        public static Result UpLoadFile(HttpPostedFile file, string Path)
+        {
+            FileInfo local_file = new FileInfo(System.Web.HttpContext.Current.Server.MapPath(Path));
+            if (local_file.Exists)
+            {
+                local_file.Delete();
+            }
+
+            file.SaveAs(System.Web.HttpContext.Current.Server.MapPath(Path), true);
+
+            return new Result() { Success = true, Text = Path };
+        }
+
         /// <summary>
         /// 上传并且裁剪图片
         /// </summary>

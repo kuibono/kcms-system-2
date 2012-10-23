@@ -38,9 +38,16 @@
                                 </div>
                                 <div class="resume-m">
                                     <p class="clearfix w385">
-                                        <a href="javascript:void(0);" class="up-resume ft14 fc-333 re_upload_resume" onmousedown="_gaq.push(['_trackEvent', 'user center', 're-upload', 'mybaijob']);">
+                                        <a href="javascript:$('#fileUp').show();return false;" class="up-resume ft14 fc-333 re_upload_resume">
                                             上传附件简历
-                                            <img src="/skin/job/img/up-ixo.png" width="21" height="22"></a>
+                                            <img src="/skin/job/img/up-ixo.png" width="21" height="22"></a><br />
+                                        <div id="fileUp" style="display: none;">
+                                            <form method="post" action="/e/Job/UploadResume.aspx" enctype="multipart/form-data">
+                                            <input type="file" name="fname" />
+                                            <br />
+                                            <input type="submit" value="上传" class="btn-blue114" />
+                                            </form>
+                                        </div>
                                     </p>
                                 </div>
                                 <ul class="tab-blue clearfix" id="yw0">

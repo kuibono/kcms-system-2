@@ -1,6 +1,7 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="Web.Dynamic.Job.Home" %>
-<%@ Import Namespace="Voodoo.Basement" %>
 
+<%@ Import Namespace="Voodoo.Basement" %>
+<%@ Import Namespace="Voodoo" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -10,6 +11,22 @@
     <link type="text/css" rel="stylesheet" href="/skin/job/css/2013.css" />
     <link href="/skin/job/css/incenter.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="../../skin/script/jquery-1.7.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#li1").click(function () {
+                $(this).prop("class", "here");
+                $("#li2").prop("class", "");
+                $("#tj").show();
+                $("#vis").hide();
+            })
+            $("#li2").click(function () {
+                $(this).prop("class", "here");
+                $("#li1").prop("class", "");
+                $("#tj").hdie();
+                $("#vis").show();
+            })
+        })
+    </script>
 </head>
 <body>
     <%=JobAction.TopHtml %>
@@ -28,86 +45,53 @@
                                 </div>
                                 <div class="resume-m">
                                     <p class="clearfix w385">
-                                        <a href="javascript:void(0);" class="up-resume ft14 fc-333 re_upload_resume" onmousedown="_gaq.push(['_trackEvent', 'user center', 're-upload', 'mybaijob']);">
+                                        <a href="javascript:$('#fileUp').show();return false;" class="up-resume ft14 fc-333 re_upload_resume">
                                             上传附件简历
-                                            <img src="/skin/job/img/up-ixo.png" width="21" height="22"></a>
+                                            <img src="/skin/job/img/up-ixo.png" width="21" height="22"></a><br />
+                                        <div id="fileUp" style="display: none;">
+                                            <form method="post" action="/e/Job/UploadResume.aspx" enctype="multipart/form-data">
+                                            <input type="file" name="fname" />
+                                            <br />
+                                            <input type="submit" value="上传" class="btn-blue114" />
+                                            </form>
+                                        </div>
                                     </p>
                                 </div>
                                 <ul class="tab-blue clearfix">
-                                    <li class="here"><a href="javascript:void(0);" onclick="javascript:changeMyjob(1);_gaq.push(['_trackEvent', 'user center', 'recommendation', 'recommend']);"
-                                        class="radius-tl4">我的职位推荐</a></li><li><a class="radius-tr4" href="javascript:void(0);"
-                                            onclick="javascript:changeMyjob(3);_gaq.push(['_trackEvent', 'user center', 'collection', 'position']);">
-                                            我浏览过的职位</a></li>
+                                    <li class="here" id="li1"><a href="javascript:void(0);" class="radius-tl4">我的职位推荐</a></li>
+                                    <li id="li2"><a class="radius-tr4" href="javascript:void(0);">我浏览过的职位</a></li>
                                 </ul>
-                                <ul class="jobs-list-ul">
-                                    <li class="clearfix">
-                                        <input type="button" style="float: right" class="btn-blue114" value="查看详情" id="saveinfo" />
-                                        <p>
-                                            <span class="mr-10">2012-10-10 15:47</span></p>
-                                        <p>
-                                            我申请了<strong><a href="#" target="_blank" class=" mr-40 ft14 ml-10" onmousedown="_gaq.push(['_trackEvent', 'user center', 'position', 'apply'])">软件工程师（学徒）</a></strong><a
-                                                href="#" target="_blank" onmousedown="_gaq.push(['_trackEvent', 'user center', 'position', 'apply'])">苏州凯富精密模具有限公司</a></p>
-                                    </li>
+                                <ul class="jobs-list-ul" id="tj">
+                                    <asp:repeater id="rp_lis" runat="server">
+                                       <ItemTemplate>
+                                       
+                                        <li class="clearfix">
+                                            <input type="button" onclick="location.href='Job.aspx?id=<%#Eval("Pid")%>'" style="float: right" class="btn-blue114" value="查看详情" id="Button1" />
+                                            <p>
+                                                <span class="mr-10">&nbsp;</span></p>
+                                            <p>
+                                                <strong><a href="Job.aspx?id=<%#Eval("Pid")%>" target="_blank" class=" mr-40 ft14 ml-10"><%#Eval("Title")%></a></strong><a
+                                                    href="Company.aspx?id=<%#Eval("CompanyID")%>" target="_blank"><%#Eval("CompanyName")%></a></p>
+                                        </li>
+                                        
+                                        </ItemTemplate>
+                                    </asp:repeater>
                                 </ul>
-                                <ul class="jobs-list-ul">
-                                    <li class="clearfix">
-                                        <input type="button" style="float: right" class="btn-blue114" value="查看详情" id="saveinfo" />
-                                        <p>
-                                            <span class="mr-10">2012-10-10 15:47</span></p>
-                                        <p>
-                                            我申请了<strong><a href="#" target="_blank" class=" mr-40 ft14 ml-10" onmousedown="_gaq.push(['_trackEvent', 'user center', 'position', 'apply'])">软件工程师（学徒）</a></strong><a
-                                                href="#" target="_blank" onmousedown="_gaq.push(['_trackEvent', 'user center', 'position', 'apply'])">苏州凯富精密模具有限公司</a></p>
-                                    </li>
-                                </ul>
-                                <ul class="jobs-list-ul">
-                                    <li class="clearfix">
-                                        <input type="button" style="float: right" class="btn-blue114" value="查看详情" id="saveinfo" />
-                                        <p>
-                                            <span class="mr-10">2012-10-10 15:47</span></p>
-                                        <p>
-                                            我申请了<strong><a href="#" target="_blank" class=" mr-40 ft14 ml-10" onmousedown="_gaq.push(['_trackEvent', 'user center', 'position', 'apply'])">软件工程师（学徒）</a></strong><a
-                                                href="#" target="_blank" onmousedown="_gaq.push(['_trackEvent', 'user center', 'position', 'apply'])">苏州凯富精密模具有限公司</a></p>
-                                    </li>
-                                </ul>
-                                <ul class="jobs-list-ul">
-                                    <li class="clearfix">
-                                        <input type="button" style="float: right" class="btn-blue114" value="查看详情" id="saveinfo" />
-                                        <p>
-                                            <span class="mr-10">2012-10-10 15:47</span></p>
-                                        <p>
-                                            我申请了<strong><a href="#" target="_blank" class=" mr-40 ft14 ml-10" onmousedown="_gaq.push(['_trackEvent', 'user center', 'position', 'apply'])">软件工程师（学徒）</a></strong><a
-                                                href="#" target="_blank" onmousedown="_gaq.push(['_trackEvent', 'user center', 'position', 'apply'])">苏州凯富精密模具有限公司</a></p>
-                                    </li>
-                                </ul>
-                                <ul class="jobs-list-ul">
-                                    <li class="clearfix">
-                                        <input type="button" style="float: right" class="btn-blue114" value="查看详情" id="saveinfo" />
-                                        <p>
-                                            <span class="mr-10">2012-10-10 15:47</span></p>
-                                        <p>
-                                            我申请了<strong><a href="#" target="_blank" class=" mr-40 ft14 ml-10" onmousedown="_gaq.push(['_trackEvent', 'user center', 'position', 'apply'])">软件工程师（学徒）</a></strong><a
-                                                href="#" target="_blank" onmousedown="_gaq.push(['_trackEvent', 'user center', 'position', 'apply'])">苏州凯富精密模具有限公司</a></p>
-                                    </li>
-                                </ul>
-                                <ul class="jobs-list-ul">
-                                    <li class="clearfix">
-                                        <input type="button" style="float: right" class="btn-blue114" value="查看详情" id="saveinfo" />
-                                        <p>
-                                            <span class="mr-10">2012-10-10 15:47</span></p>
-                                        <p>
-                                            我申请了<strong><a href="#" target="_blank" class=" mr-40 ft14 ml-10" onmousedown="_gaq.push(['_trackEvent', 'user center', 'position', 'apply'])">软件工程师（学徒）</a></strong><a
-                                                href="#" target="_blank" onmousedown="_gaq.push(['_trackEvent', 'user center', 'position', 'apply'])">苏州凯富精密模具有限公司</a></p>
-                                    </li>
-                                </ul>
-                                <ul class="jobs-list-ul">
-                                    <li class="clearfix">
-                                        <input type="button" style="float: right" class="btn-blue114" value="查看详情" id="saveinfo" />
-                                        <p>
-                                            <span class="mr-10">2012-10-10 15:47</span></p>
-                                        <p>
-                                            我申请了<strong><a href="#" target="_blank" class=" mr-40 ft14 ml-10" onmousedown="_gaq.push(['_trackEvent', 'user center', 'position', 'apply'])">软件工程师（学徒）</a></strong><a
-                                                href="#" target="_blank" onmousedown="_gaq.push(['_trackEvent', 'user center', 'position', 'apply'])">苏州凯富精密模具有限公司</a></p>
-                                    </li>
+                                <ul class="jobs-list-ul" id="vis" style="display: none;">
+                                    <asp:repeater id="rp_lis2" runat="server">
+                                       <ItemTemplate>
+                                       
+                                        <li class="clearfix">
+                                            <input type="button" onclick="location.href='Job.aspx?id=<%#Eval("Pid")%>'" style="float: right" class="btn-blue114" value="查看详情" id="Button2" />
+                                            <p>
+                                                <span class="mr-10"><%#Eval("ApplicationTime").ToDateTime().ToString("yyyy-MM-dd HH:mm") %></span></p>
+                                            <p>
+                                                <strong><a href="Job.aspx?id=<%#Eval("Pid")%>" target="_blank" class=" mr-40 ft14 ml-10"><%#Eval("Title")%></a></strong><a
+                                                    href="Company.aspx?id=<%#Eval("CompanyID")%>" target="_blank"><%#Eval("CompanyName")%></a></p>
+                                        </li>
+                                        
+                                        </ItemTemplate>
+                                    </asp:repeater>
                                 </ul>
                             </div>
                             <!-- #content -->
@@ -125,7 +109,6 @@
                                 <li><a href="Password.aspx" class="my-manage" id="zhanghaoguanli">帐号管理</a></li>
                             </ul>
                         </div>
-                       
                     </div>
                 </div>
             </td>

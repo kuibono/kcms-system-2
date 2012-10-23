@@ -103,8 +103,12 @@
                         <td>
                             &nbsp;
                         </td>
-                        <td width="160" class="top_right">
-                            <a href="/index.html">注册</a> 或 <a href="#">登录</a>&nbsp;&nbsp;&nbsp;<a href="#">企业用户</a>
+                        <td width="260" class="top_right" id="pnLogin" align="right">
+                            <script type="text/javascript">
+                                $(function () {
+                                    $("#pnLogin").load("/e/member/user_panel_ajax.aspx");
+                                });
+                            </script>
                         </td>
                     </tr>
                 </tbody></table>

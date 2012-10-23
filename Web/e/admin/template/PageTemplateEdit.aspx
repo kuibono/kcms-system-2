@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PageTemplateEdit.aspx.cs" Inherits="Web.e.admin.template.PageTemplateEdit" ValidateRequest="false" %>
 
 <%@ Register Assembly="Voodoo" Namespace="Voodoo.UI" TagPrefix="vd" %>
+<%@ Register assembly="FredCK.FCKeditorV2" namespace="FredCK.FCKeditorV2" tagprefix="FCKeditorV2" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
@@ -69,7 +70,18 @@
                     模版内容
                 </td>
                 <td>
-                    <vd:VTextBox ID="txt_Content" runat="server" EnableValidate="true" EnableNull="false" TextMode="MultiLine" Height="500px" Width="99%"></vd:VTextBox>
+                    <vd:VTextBox ID="txt_Content" runat="server" EnableValidate="true" EnableNull="false" TextMode="MultiLine" Height="200px" Width="99%"></vd:VTextBox>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    正文
+                </td>
+                <td>
+                    
+                    <FCKeditorV2:FCKeditor ID="FCKeditor1" runat="server" Height="300px">
+                    </FCKeditorV2:FCKeditor>
+                    
                 </td>
             </tr>
 

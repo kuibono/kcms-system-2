@@ -43,6 +43,8 @@ namespace Web.Dynamic.Job
                 r.IsResumeOpen = true;
                 r.Image = "/u/ResumeFace/0.jpg";
                 r.Title = u.UserName + "的简历";
+
+                ent.AddToJobResumeInfo(r);
                 ent.SaveChanges();
             }
 

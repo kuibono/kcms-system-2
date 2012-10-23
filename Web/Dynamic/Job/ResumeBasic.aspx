@@ -23,15 +23,22 @@
                             <div id="content">
                                 <div class="tit-my-resume">
                                     <span class="fr fc-999"><span id="resumetime" style="color: #999999;">更新于：<%=DateTime.Now.ToString("yyyy-MM-dd") %>
-                                        </span>&nbsp;&nbsp;|&nbsp;&nbsp;<%=ResumeOpen %></span><span class="yahei ft18 "><img
-                                            src="/skin/job/img/ico-write.gif" width="23" height="20">我的简历</span></div>
+                                    </span>&nbsp;&nbsp;|&nbsp;&nbsp;<%=ResumeOpen %></span><span class="yahei ft18 "><img
+                                        src="/skin/job/img/ico-write.gif" width="23" height="20">我的简历</span></div>
                                 <div class="resume-top-eara-wrap mt-10 ">
                                 </div>
                                 <div class="resume-m">
                                     <p class="clearfix w385">
-                                        <a href="javascript:void(0);" class="up-resume ft14 fc-333 re_upload_resume" onmousedown="_gaq.push(['_trackEvent', 'user center', 're-upload', 'mybaijob']);">
+                                        <a href="javascript:$('#fileUp').show();return false;" class="up-resume ft14 fc-333 re_upload_resume">
                                             上传附件简历
-                                            <img src="/skin/job/img/up-ixo.png" width="21" height="22"></a>
+                                            <img src="/skin/job/img/up-ixo.png" width="21" height="22"></a><br />
+                                        <div id="fileUp" style="display: none;">
+                                            <form method="post" action="/e/Job/UploadResume.aspx" enctype="multipart/form-data">
+                                            <input type="file" name="fname" />
+                                            <br />
+                                            <input type="submit" value="上传" class="btn-blue114" />
+                                            </form>
+                                        </div>
                                     </p>
                                 </div>
                                 <ul class="tab-blue clearfix" id="yw0">
@@ -106,7 +113,7 @@
                                                 <strong>手机号码</strong>
                                             </td>
                                             <td>
-                                                <vd:vtextbox id="txt_Mobile" CssClass="inp-154 bor-d7d7d7 radius-4" runat="server"></vd:vtextbox>
+                                                <vd:vtextbox id="txt_Mobile" cssclass="inp-154 bor-d7d7d7 radius-4" runat="server"></vd:vtextbox>
                                             </td>
                                         </tr>
                                         <tr>
@@ -117,7 +124,7 @@
                                                 <strong>邮箱地址</strong>
                                             </td>
                                             <td>
-                                                <vd:vtextbox id="txt_Email" runat="server" CssClass="inp-154 bor-d7d7d7 radius-4"></vd:vtextbox>
+                                                <vd:vtextbox id="txt_Email" runat="server" cssclass="inp-154 bor-d7d7d7 radius-4"></vd:vtextbox>
                                             </td>
                                         </tr>
                                         <tr>
@@ -130,7 +137,6 @@
                                                 <asp:fileupload id="file_Face" runat="server" />
                                             </td>
                                         </tr>
-                                        
                                         <tr>
                                             <td width="45" align="right">
                                                 <i class="star-fill">*</i>
@@ -152,14 +158,14 @@
                                                 <strong style="line-height: 32px">求职状态</strong>
                                             </td>
                                             <td>
-                                                <asp:radiobuttonlist id="ckl_Enable" runat="server" repeatdirection="Horizontal" repeatlayout="Flow">
+                                                <asp:radiobuttonlist id="ckl_Enable" runat="server" repeatdirection="Horizontal"
+                                                    repeatlayout="Flow">
                                                     <asp:ListItem Value="1">目前我正在找工作</asp:ListItem>
                                                     <asp:ListItem Value="0">我暂时不想找工作</asp:ListItem>
                                                 </asp:radiobuttonlist>
                                             </td>
                                         </tr>
                                     </table>
-                                    
                                     <table width="752" border="0" cellspacing="0" cellpadding="0" class="tb-fillin">
                                         <tr>
                                             <td width="45" align="right">
@@ -169,7 +175,7 @@
                                                 &nbsp;
                                             </td>
                                             <td>
-                                                <asp:button id="btn_Save" text="保存" CssClass="btn-blue114" runat="server" onclick="btn_Save_Click" />
+                                                <asp:button id="btn_Save" text="保存" cssclass="btn-blue114" runat="server" onclick="btn_Save_Click" />
                                                 <a id="jxtxgzjy" style="padding-left: 15px;" href="/mybaijob/resume/experience">
                                                 </a>
                                             </td>

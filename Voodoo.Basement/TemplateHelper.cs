@@ -488,6 +488,9 @@ namespace Voodoo.Basement
                 Content = ReplaceSystemSetting(Content);
 
                 Content = ReplaceTagContent(Content);
+
+                Content = Content.Replace("<!--tempvar-->", tp.TempVar);
+
                 return Content;
             }
         }

@@ -97,6 +97,7 @@ namespace Voodoo.Basement
                         return r;
                     }
                 }
+                user.LoginCount = 0;
                 user.RegTime = DateTime.Now;
                 user.Cent = setting.RegCent;
                 user.LastLoginIP = WS.GetIP();

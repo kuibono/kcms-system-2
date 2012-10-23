@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UploadResume.aspx.cs" Inherits="Web.e.Job.UploadResume" %>
