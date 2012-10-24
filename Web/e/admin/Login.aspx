@@ -71,11 +71,11 @@
                                                 </td>
                                             </tr>
                                             <tr valign="bottom">
-                                                <td colspan="2">
+                                                <td colspan="2" valign="bottom" style="height:30px; vertical-align:bottom; padding:0;">
                                                     ÑéÖ¤Âë£º
                                                     <cc1:vtextbox id="txt_VCode" runat="server" enablevalidate="true" enablenull="false"
-                                                        cssclass="input" width="80px"></cc1:vtextbox>
-                                                    <img src="/e/admin/tool/safecode.ashx" width="45" height="18">
+                                                        cssclass="input" width="80px" height="30px"></cc1:vtextbox>
+                                                    <img src="/e/admin/tool/safecode.ashx" width="65" height="30">
                                                 </td>
                                             </tr>
                                             <tr>

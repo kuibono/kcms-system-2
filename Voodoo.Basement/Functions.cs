@@ -1225,6 +1225,12 @@ namespace Voodoo.Basement
         #endregion
 
         #region 获取职位列表
+
+        public static string getpostlist(string top, string custitle, string m_where, string orderby, string htmlTemp)
+        {
+            return getpostlistkip("0", top, custitle, m_where, orderby, htmlTemp);
+        }
+
         /// <summary>
         /// 获取职位列表
         /// </summary>
@@ -1234,12 +1240,12 @@ namespace Voodoo.Basement
         /// <param name="orderby"></param>
         /// <param name="htmlTemp"></param>
         /// <returns></returns>
-        public static string getpostlist(string top, string custitle, string m_where, string orderby, string htmlTemp)
+        public static string getpostlistkip(string skip, string top, string custitle, string m_where, string orderby, string htmlTemp)
         {
             StringBuilder sb = new StringBuilder();
             using (DataEntities ent = new DataEntities())
             {
-                List<JobPost> list = ent.CreateQuery<JobPost>(string.Format("select VALUE t from JobPost as t where {1} order by {2} limit {0}", top, m_where, orderby)).ToList();
+                List<JobPost> list = ent.CreateQuery<JobPost>(string.Format("select VALUE t from JobPost as t where {0} order by {1} skip {2} limit {3}", m_where, orderby,skip, top)).ToList();
                 List<JobCompany> coms = (from l in ent.JobCompany select l).AsCache();
 
                 var i = 0;

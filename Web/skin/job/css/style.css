@@ -77,8 +77,8 @@ OL LI {
 	DISPLAY: block
 }
 
-.dian{ background:url(../img/dian.jpg) left no-repeat; padding-left:10px; color:#019bd9; height:28px; line-height:28px;}
-.company{ color:#696969;}
+.dian a{ background:url(../img/dian.jpg) left no-repeat; padding-left:10px; color:#019bd9; height:28px; line-height:28px;}
+.company a{ color:#696969;}
 
 .job{ color:#666; width:60px;}
 .job a{ color:#666; text-decoration:none;}

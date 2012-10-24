@@ -93,11 +93,11 @@
                             <input onclick="post(<%=id %>);" type="button" class="btn-job" value="一键投递" />
                         </td>
                     </tr>
-                    <tr>
+<%--                    <tr>
                         <td height="30" class="job_tedail">
                             您简历完整度小于80%，提高投递效率请 <a href="#">完善简历</a>
                         </td>
-                    </tr>
+                    </tr>--%>
                     <tr>
                         <td height="20">
                         </td>
