@@ -160,6 +160,8 @@ namespace Web.e.admin.Job.Post
             foreach (var id in ids)
             {
                 var q = (from l in ent.JobPost where l.ID == id select l).FirstOrDefault();
+                var apps = from l in ent.JobApplicationRecord where l.PostID == q.ID select l;
+                ent.DeleteObjects(apps);
                 ent.DeleteObject(q);
             }
             ent.SaveChanges();

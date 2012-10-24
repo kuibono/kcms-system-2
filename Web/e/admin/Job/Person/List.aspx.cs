@@ -163,6 +163,11 @@ namespace Web.e.admin.Job.Person
             foreach (var id in ids)
             {
                 var q = (from l in ent.User where l.ID == id select l).FirstOrDefault();
+                var resumes = from l in ent.JobResumeInfo where l.UserID == q.ID select l;
+                var apps = from l in ent.JobApplicationRecord where l.UserID == q.ID select l;
+
+                ent.DeleteObjects(resumes);
+                ent.DeleteObjects(apps);
                 ent.DeleteObject(q);
             }
             ent.SaveChanges();

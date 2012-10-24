@@ -132,8 +132,23 @@ namespace Web.e.admin.Job.Resume
             DataEntities ent = new DataEntities();
             foreach (var id in ids)
             {
-                var q = (from l in ent.JobPost where l.ID == id select l).FirstOrDefault();
+                var q = (from l in ent.JobResumeInfo where l.ID == id select l).FirstOrDefault();
+                var resumeCer=from l in ent.JobResumeCertificate where l.ResumeID==q.ID select l;
+                var resumeEdu = from l in ent.JobResumeEdu where l.ResumeID == q.ID select l;
+                var resumeExp = from l in ent.JobResumeExperience where l.ResumeID == q.ID select l;
+                var resumeFile = from l in ent.JobResumeFile where l.ResumeID == q.ID select l;
+                var resumeLan = from l in ent.JobResumeLanguage where l.ResumeID == q.ID select l;
+                var resumeTrain = from l in ent.JobResumeTrain where l.ResumeID == q.ID select l;
+
+                ent.DeleteObjects(resumeCer);
+                ent.DeleteObjects(resumeEdu);
+                ent.DeleteObjects(resumeExp);
+                ent.DeleteObjects(resumeFile);
+                ent.DeleteObjects(resumeLan);
+                ent.DeleteObjects(resumeTrain);
+
                 ent.DeleteObject(q);
+
             }
             ent.SaveChanges();
             ent.Dispose();

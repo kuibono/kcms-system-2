@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>南京第一职网</title>
+<link type="text/css" rel="stylesheet" href="css/zhuce.css" />
+<script type="text/javascript" src="../../e/data/script/jquery-1.7.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#btnLogin").click(function () {
+            var name = $("#txtUserName").val();
+            var pass = $("#txtPass").val();
+            if (name == "") {
+                alert("用户名不能为空！");
+                return false;
+            }
+            if (pass == "") {
+                alert("密码不能为空！");
+                return false;
+            }
+            $.post("/e/service/UserService.asmx/UserLogin", { "UserName": name, "Password": pass }, function (r) {
+                if ($(r).find("Success").text() == "true") {
+                    location.href = "/Dynamic/Job/";
+                }
+                else {
+                    alert($(r).find("Text").text());
+                    return false;
+                }
+            }, "xml");
+        });
+    })
+</script>
+</head>
+
+<body class="zhuce" topmargin="0">
+<table width="1000" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td><table width="100" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="img/1.jpg" /></td>
+    <td><img src="img/2.jpg" /></td>
+  </tr>
+</table>
+</td>
+  </tr>
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="163"><img src="img/25.jpg" width="163" border="0" usemap="#Map" /></td>
+    <td class="zc" style="background:url(img/26.jpg) no-repeat" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:30px;">
+	<tr>
+	  <td height="60" colspan="2" style="padding-left:60px;"><img src="img/23.jpg" height="32" /></td>
+	</tr>
+  <tr>
+    <td width="100" align="right" class="denglu1"><span style="color:#FF0000">*</span>用户名：</td>
+	<td><input type="text" class="input" id="txtUserName" /></td>
+  </tr>
+  <tr>
+    <td width="100" align="right" class="denglu1" id="txtPass"><span style="color:#FF0000">*</span>密码：</td>
+	<td><input type="text" class="input" id="txtPass" /></td>
+  </tr>
+  <tr>
+    <td width="100" align="right" class="denglu1"><span style="color:#FF0000">*</span>选择类型：</td>
+	<td><select class="denglu" style="width:178px; height:30px; line-height:30px; border:1px solid #c2c2c2"><option>应届毕业生</option><option>实习生</option></select></td>
+  </tr>
+  <tr>
+    <td height="50" colspan="2" align="center" style="padding-left:30px;"><input name="button" id="btnLogin" type="button" style="background:url(img/24.jpg) no-repeat; border:0px; height:32px; width:107px;"value="" /></td>
+  </tr>
+</table></td>
+    <td width="268"><img src="img/4.jpg" width="268"/></td>
+	<td width="288"><img src="img/6.jpg" width="288"/></td>
+  </tr>
+</table>
+</td>
+  </tr>
+  <tr>
+    <td align="center" class="foot"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="25" valign="bottom" align="center">&copy; 2011-2012 第一职&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;<a href="#">关于我们</a>&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;<a href="#">用户协议</a>&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;<a href="#">网站合作</a>&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;<a href="#">联系我们</a>&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;<a href="#">加入我们</a>&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;<a href="#">意见反馈</a> </td>
+  </tr>
+  <tr>
+    <td height="40" align="center" style="color:#7a7a7a">&copy; 2011－2012 all rights reserved  苏ICP备********号 技术支持：<a href="http://www.nj-gm.com">光芒科技</a></td>
+  </tr>
+</table>
+</td>
+  </tr>
+</table>
+
+</body>
+</html>

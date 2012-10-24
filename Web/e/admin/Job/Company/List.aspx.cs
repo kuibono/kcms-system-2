@@ -66,6 +66,11 @@ namespace Web.e.admin.Job.Company
             foreach (var id in ids)
             {
                 var q = (from l in ent.JobCompany where l.ID == id select l).FirstOrDefault();
+                var posts = from l in ent.JobPost where l.CompanyID == q.ID select l;
+                var apps = from l in ent.JobApplicationRecord where l.CompanyID == q.ID select l;
+
+                ent.DeleteObjects(apps);
+                ent.DeleteObjects(posts);
                 ent.DeleteObject(q);
             }
             ent.SaveChanges();
