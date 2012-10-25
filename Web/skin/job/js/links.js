@@ -10,20 +10,20 @@ scrollDoor0.prototype = {
         }                 
         for(var z = 0 ; z < menu.length ; z++) 
         {     
-            _thir.$(menu[z]).value = z;                 
-            _thir.$(menu[z]).onmouseover = function(){ 
+            _thir.selector(menu[z]).value = z;                 
+            _thir.selector(menu[z]).onmouseover = function(){ 
                      
                 for(var x = 0 ; x < menu.length ; x++) 
                 {                         
-                    _thir.$(menu[x]).className = closeClas; 
-                    _thir.$(div[x]).style.display = "none"; 
+                    _thir.selector(menu[x]).className = closeClas; 
+                    _thir.selector(div[x]).style.display = "none"; 
                 } 
-                _thir.$(menu[this.value]).className = openClas;     
-                _thir.$(div[this.value]).style.display = "block";                 
+                _thir.selector(menu[this.value]).className = openClas;     
+                _thir.selector(div[this.value]).style.display = "block";                 
             } 
         } 
         }, 
-    $ : function(old){ 
+    selector : function(old){ 
         if(typeof(old) == "string") 
         return document.getElementById(old); 
         return old; 
@@ -60,20 +60,20 @@ scrollDoor1.prototype = {
         }                 
         for(var z = 0 ; z < menu.length ; z++) 
         {     
-            _thir.$(menu[z]).value = z;                 
-            _thir.$(menu[z]).onmousemove = function(){ 
+            _thir.selector(menu[z]).value = z;                 
+            _thir.selector(menu[z]).onmousemove = function(){ 
                      
                 for(var x = 0 ; x < menu.length ; x++) 
                 {                         
-                    _thir.$(menu[x]).className = closeClas; 
-                    _thir.$(div[x]).style.display = "none"; 
+                    _thir.selector(menu[x]).className = closeClas; 
+                    _thir.selector(div[x]).style.display = "none"; 
                 } 
-                _thir.$(menu[this.value]).className = openClas;     
-                _thir.$(div[this.value]).style.display = "block";                 
+                _thir.selector(menu[this.value]).className = openClas;     
+                _thir.selector(div[this.value]).style.display = "block";                 
             } 
         } 
         }, 
-    $ : function(old){ 
+    selector : function(old){ 
         if(typeof(old) == "string") 
         return document.getElementById(old); 
         return old; 
@@ -112,20 +112,20 @@ scrollDoor8.prototype = {
         }                 
         for(var z = 0 ; z < menu.length ; z++) 
         {     
-            _thir.$(menu[z]).value = z;                 
-            _thir.$(menu[z]).onmouseover = function(){ 
+            _thir.selector(menu[z]).value = z;                 
+            _thir.selector(menu[z]).onmouseover = function(){ 
                      
                 for(var x = 0 ; x < menu.length ; x++) 
                 {                         
-                    _thir.$(menu[x]).className = closeClas; 
-                    _thir.$(div[x]).style.display = "none"; 
+                    _thir.selector(menu[x]).className = closeClas; 
+                    _thir.selector(div[x]).style.display = "none"; 
                 } 
-                _thir.$(menu[this.value]).className = openClas;     
-                _thir.$(div[this.value]).style.display = "block";                 
+                _thir.selector(menu[this.value]).className = openClas;     
+                _thir.selector(div[this.value]).style.display = "block";                 
             } 
         } 
         }, 
-    $ : function(old){ 
+    selector : function(old){ 
         if(typeof(old) == "string") 
         return document.getElementById(old); 
         return old; 

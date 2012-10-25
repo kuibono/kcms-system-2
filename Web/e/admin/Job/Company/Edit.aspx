@@ -82,6 +82,14 @@
                         <vd:VTextBox ID="txt_DayClick" runat="server" EnableValidate="true" EnableNull="false"></vd:VTextBox>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        显示在首页
+                    </td>
+                    <td>
+                        <asp:CheckBox ID="chk_Settop" runat="server" Text="显示" />
+                    </td>
+                </tr>
             </tbody>
             <tfoot>
                 <tr>

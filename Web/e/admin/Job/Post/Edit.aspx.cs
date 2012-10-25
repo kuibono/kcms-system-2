@@ -85,6 +85,7 @@ namespace Web.e.admin.Job.Post
             ddl_Edu.SelectedValue = p.Edu.ToS();
             txt_EmployNumber.Text = p.EmployNumber.ToS();
             txt_Intro.Text = p.Intro;
+            chk_Settop.Checked = p.IsSetTop.ToBoolean();
 
             ent.Dispose();
         }
@@ -159,9 +160,19 @@ namespace Web.e.admin.Job.Post
             p.EmployNumber = txt_EmployNumber.Text.ToInt32();
             p.Intro = txt_Intro.Text;
             p.PostTime = DateTime.Now;
+            p.IsSetTop = chk_Settop.Checked;
+            p.SetTopTime = DateTime.Now;
 
             if (p.ID <= 0)
             {
+                //处理城市热度
+                try
+                {
+                    var ct = (from l in ent.City where l.id == p.City select l).FirstOrDefault();
+                    ct.Hot += 1;
+                }
+                catch { }
+
                 ent.AddToJobPost(p);
             }
             ent.SaveChanges();

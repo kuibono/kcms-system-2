@@ -81,6 +81,8 @@
           <Property Name="Title" Type="nvarchar" MaxLength="200" />
           <Property Name="Image" Type="nvarchar" MaxLength="255" />
           <Property Name="Url" Type="nvarchar" MaxLength="255" />
+          <Property Name="height" Type="int" />
+          <Property Name="width" Type="int" />
         </EntityType>
         <EntityType Name="AdGroup">
           <Key>
@@ -445,6 +447,8 @@
           <Property Name="Intro" Type="nvarchar(max)" />
           <Property Name="UserID" Type="int" />
           <Property Name="DayClick" Type="int" />
+          <Property Name="IsSetTop" Type="bit" />
+          <Property Name="SetTopTime" Type="datetime" />
         </EntityType>
         <EntityType Name="JobEduSpecialty">
           <Key>
@@ -480,6 +484,8 @@
           <Property Name="Edu" Type="int" />
           <Property Name="EmployNumber" Type="int" />
           <Property Name="Intro" Type="nvarchar(max)" />
+          <Property Name="IsSetTop" Type="bit" />
+          <Property Name="SetTopTime" Type="datetime" />
         </EntityType>
         <EntityType Name="JobResumeCertificate">
           <Key>
@@ -1952,6 +1958,8 @@
           <Property Type="String" Name="Intro" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="UserID" />
           <Property Type="Int32" Name="DayClick" />
+          <Property Type="Boolean" Name="IsSetTop" />
+          <Property Type="DateTime" Name="SetTopTime" />
         </EntityType>
         <EntityType Name="JobPost">
           <Key>
@@ -1969,6 +1977,8 @@
           <Property Type="Int32" Name="EmployNumber" />
           <Property Type="String" Name="Intro" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="Industry" />
+          <Property Type="Boolean" Name="IsSetTop" />
+          <Property Type="DateTime" Name="SetTopTime" />
         </EntityType>
         <EntityType Name="JobResumeCertificate">
           <Key>
@@ -2163,6 +2173,8 @@
           <Property Type="String" Name="Title" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Image" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Url" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="height" />
+          <Property Type="Int32" Name="width" />
         </EntityType>
         <EntityType Name="AdGroup">
           <Key>
@@ -3009,7 +3021,9 @@
     <EntitySetMapping Name="JobCompany">
       <EntityTypeMapping TypeName="IsTypeOf(DataModel.JobCompany)">
         <MappingFragment StoreEntitySet="JobCompany">
-          <ScalarProperty Name="DayClick" ColumnName="DayClick" />
+          <ScalarProperty Name="SetTopTime" ColumnName="SetTopTime" />
+                <ScalarProperty Name="IsSetTop" ColumnName="IsSetTop" />
+                <ScalarProperty Name="DayClick" ColumnName="DayClick" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
@@ -3023,7 +3037,9 @@
     <EntitySetMapping Name="JobPost">
       <EntityTypeMapping TypeName="IsTypeOf(DataModel.JobPost)">
         <MappingFragment StoreEntitySet="JobPost">
-          <ScalarProperty Name="Industry" ColumnName="Industry" />
+          <ScalarProperty Name="SetTopTime" ColumnName="SetTopTime" />
+                <ScalarProperty Name="IsSetTop" ColumnName="IsSetTop" />
+                <ScalarProperty Name="Industry" ColumnName="Industry" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
           <ScalarProperty Name="Title" ColumnName="Title" />
@@ -3240,6 +3256,8 @@
           <EntitySetMapping Name="Ad">
             <EntityTypeMapping TypeName="DataModel.Ad">
               <MappingFragment StoreEntitySet="Ad">
+                <ScalarProperty Name="width" ColumnName="width" />
+                <ScalarProperty Name="height" ColumnName="height" />
                 <ScalarProperty Name="Url" ColumnName="Url" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Title" ColumnName="Title" />

@@ -66,6 +66,7 @@ namespace Web.e.admin.Job.Company
             txt_Industry.Text = company.Industry;
             txt_Intro.Text = company.Intro;
             txt_DayClick.Text = company.DayClick.ToS();
+            chk_Settop.Checked = company.IsSetTop.ToBoolean();
 
             ddl_CompanyType.SelectedValue = company.CompanyType.ToS();
             ddl_EmployeeCount.SelectedValue = company.EmployeeCount.ToS();
@@ -90,13 +91,15 @@ namespace Web.e.admin.Job.Company
             com.Intro = txt_Intro.Text;
             com.UserID = ddl_User.SelectedValue.ToInt32();
             com.DayClick = txt_DayClick.Text.ToInt32(0);
+            com.IsSetTop = chk_Settop.Checked;
+            com.SetTopTime = DateTime.Now;
             if (id > 0 && com != null)
             {
 
             }
             else
             {
-                //com.UserID = userid;
+                
                 ent.AddToJobCompany(com);
             }
             ent.SaveChanges();

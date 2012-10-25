@@ -969,7 +969,7 @@ namespace Voodoo.Basement
             StringBuilder sb = new StringBuilder();
             using (DataEntities ent = new DataEntities())
             {
-                var cts = (from l in ent.City orderby l.Hot descending select l).AsCache().Take(35);
+                var cts = (from l in ent.City orderby l.Hot descending select l).AsCache().Take(5);
                 int i = 0;
                 foreach (var ct in cts)
                 {
@@ -985,7 +985,7 @@ namespace Voodoo.Basement
                     sb.AppendLine(item);
                     if (i == cts.Count())
                     {
-                        for (int j = 0; j < 5 - cts.Count() % 5; j++)
+                        for (int j = 0; j < cts.Count() % 5; j++)
                         {
                             sb.AppendLine("<td width=\"16%\" align=\"center\">&nbsp;</td>");
                         }
@@ -1024,7 +1024,7 @@ namespace Voodoo.Basement
                     var subs = qs.Where(o => o.ParentID == p.ID);
                     foreach (var s in subs)
                     {
-                        sb.AppendFormat("<a target=\"_blank\" href=\"{0}\">{1}</a>",s.ID,s.Name);
+                        sb.AppendFormat("<a target=\"_blank\" href=\"{0}\">{1}</a>", s.ID, s.Name);
                     }
 
                     sb.Append("</li>");
@@ -1035,6 +1035,72 @@ namespace Voodoo.Basement
         }
         #endregion
 
+        public static string getindexSpelist(string s)
+        {
+            StringBuilder sb = new StringBuilder();
+            DataEntities ent = new DataEntities();
+            var list = (from l in ent.JobEduSpecialty select l).AsCache();
+
+            var parents = from l in list
+                          from t in list
+                          where l.ParentID == t.ID
+                          && t.ParentID == 0
+                          select l;
+            foreach (var p in parents)
+            {
+                sb.AppendFormat("<li><b>{0}</b>：", p.Name);
+                var subs=from l in list where l.ParentID==p.ID select l ;
+                foreach (var sub in subs)
+                {
+                    sb.AppendFormat("<a target=\"_blank\" href=\"Search.aspx?sp={0}\">{1}</a>", sub.ID, sub.Name);
+                }
+
+                sb.Append("</li>");
+            }
+
+
+            return sb.ToS();
+
+
+            ent.Dispose();
+        }
+
+        #region 获取城市列表
+        /// <summary>
+        /// 获取城市列表
+        /// </summary>
+        /// <param name="top"></param>
+        /// <param name="custitle"></param>
+        /// <param name="m_where"></param>
+        /// <param name="orderby"></param>
+        /// <param name="htmlTemp"></param>
+        /// <returns></returns>
+        public static string getcitylist(string top, string custitle, string m_where, string orderby, string htmlTemp)
+        {
+            StringBuilder sb = new StringBuilder();
+            using (DataEntities ent = new DataEntities())
+            {
+                var ads = ent.CreateQuery<City>(string.Format("select VALUE t from City as t where {1} order by {2} limit {0}", top, m_where, orderby)).ToList();
+                var i = 0;
+                foreach (var q in ads)
+                {
+                    i++;
+                    string item = htmlTemp;
+
+                    item = item.Replace("{id}", q.id.ToS());
+                    item = item.Replace("{hot}", q.Hot.ToS());
+                    item = item.Replace("{city1}", q.city1);
+
+                    item = item.Replace("{rownum}", i.ToS());
+                    item = item.Replace("{index}", (i - 1).ToS());
+                    sb.Append(item);
+                }
+
+            }
+
+            return sb.ToS();
+        }
+        #endregion
 
 
         #region 获取电影列表
@@ -1245,7 +1311,7 @@ namespace Voodoo.Basement
             StringBuilder sb = new StringBuilder();
             using (DataEntities ent = new DataEntities())
             {
-                List<JobPost> list = ent.CreateQuery<JobPost>(string.Format("select VALUE t from JobPost as t where {0} order by {1} skip {2} limit {3}", m_where, orderby,skip, top)).ToList();
+                List<JobPost> list = ent.CreateQuery<JobPost>(string.Format("select VALUE t from JobPost as t where {0} order by {1} skip {2} limit {3}", m_where, orderby, skip, top)).ToList();
                 List<JobCompany> coms = (from l in ent.JobCompany select l).AsCache();
 
                 var i = 0;
@@ -1322,7 +1388,7 @@ namespace Voodoo.Basement
         /// <returns></returns>
         public static string getad(string id, string htmlTemp)
         {
-            long l_id=id.ToInt64();
+            long l_id = id.ToInt64();
 
             string item = htmlTemp;
             using (DataEntities ent = new DataEntities())

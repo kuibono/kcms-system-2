@@ -39,6 +39,8 @@ namespace Web.e.admin.Ad.Ad
                     txt_Title.Text = ad.Title;
                     txt_Url.Text = ad.Url;
                     Image1.ImageUrl = ad.Image;
+                    txt_Height.Text = ad.height.ToS();
+                    txt_Width.Text = ad.width.ToS();
 
                 }
             }
@@ -59,6 +61,8 @@ namespace Web.e.admin.Ad.Ad
                 ad.GroupID = ddl_Group.SelectedValue.ToInt32();
                 ad.Title = txt_Title.Text;
                 ad.Url = txt_Url.Text;
+                ad.height = txt_Height.Text.ToInt32();
+                ad.width = txt_Width.Text.ToInt32();
 
                 if(ad.ID<=0)
                 {
@@ -69,7 +73,7 @@ namespace Web.e.admin.Ad.Ad
                 if (FileUpload1.HasFile)
                 {
                     string fileName = string.Format("/Ad/{0}.jpg",ad.ID.ToS());
-                    BasePage.UpLoadImage(FileUpload1.PostedFile, fileName, 0, 0);
+                    BasePage.UpLoadImage(FileUpload1.PostedFile, fileName, ad.width.ToInt32(), ad.height.ToInt32());
                     ad.Image = fileName;
                     ent.SaveChanges();
                 }

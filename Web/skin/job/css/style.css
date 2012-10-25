@@ -39,9 +39,12 @@ img{ border:0px;}
 .hot,.h0,.h1,.h2{ color:#18a0cd; font-size:14px; line-height:30px; padding-right:15px;}
 .hot a{ color:#18a0cd; text-decoration:none; padding-left:20px;}
 
-.ming{ border-bottom:1px solid #dbdbde; border-left:1px solid #dbdede; border-right:1px solid #dbdede;}
+.ming{ border-bottom:1px solid #dbdbde; border-left:1px solid #dbdede; border-right:1px solid #dbdede; padding:4px 0px 6px 0;}
 .ming ul{ float:left}
-.ming ul li{ float:left;margin: 4px;}
+.ming ul li{ float:left;margin: 4px 2px 0px 2px;}
+
+#ctul{ float:left}
+#ctul li{ float:left;width:25%; text-align:center;}
 OL LI {
 	MARGIN: 8px
 }
@@ -122,11 +125,11 @@ OL LI {
 
 .mb-10{margin-bottom:10px}
 
-.wzd-dl{padding:0px 10px; padding-top:10px;}
+.wzd-dl{padding:0px 10px; padding-top:0px;}
 
 .wzd-dgree-pricent{height:16px;background:url(../img/dash-bg.gif) repeat;display:block;border:1px solid #f2f2f2; margin-top:10px;}
 
-.wanshan{float:right;padding:10px 10px 10px 0px}
+.wanshan{float:right;padding:0px 10px 10px 0px}
 .wanshan a{ color:#009bd8; text-decoration:none;}
 .wanshan a:hover{ color:#b70000; text-decoration:underline;}
 
