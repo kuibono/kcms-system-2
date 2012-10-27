@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.e.admin.Ad.AdGroup {
+namespace Web.e.admin.Job.Config {
     
     
-    public partial class Edit {
+    public partial class IndexProvinceCitys {
         
         /// <summary>
         /// form1 控件。
@@ -22,31 +22,13 @@ namespace Web.e.admin.Ad.AdGroup {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// txt_Name 控件。
+        /// TreeView1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Voodoo.UI.VTextBox txt_Name;
-        
-        /// <summary>
-        /// txt_Width 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::Voodoo.UI.VTextBox txt_Width;
-        
-        /// <summary>
-        /// txt_Height 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::Voodoo.UI.VTextBox txt_Height;
+        protected global::System.Web.UI.WebControls.TreeView TreeView1;
         
         /// <summary>
         /// btn_Save 控件。

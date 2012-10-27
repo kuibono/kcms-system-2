@@ -33,6 +33,8 @@ namespace Web.e.admin.Ad.AdGroup
                 return;
             }
             txt_Name.Text = q.Name;
+            txt_Height.Text = q.height.ToS();
+            txt_Width.Text = q.width.ToS();
         }
 
         protected void btn_Save_Click(object sender, EventArgs e)
@@ -46,6 +48,8 @@ namespace Web.e.admin.Ad.AdGroup
                 q = (from l in ent.AdGroup where l.ID == id select l).FirstOrDefault();
             }
             q.Name = txt_Name.Text;
+            q.height = txt_Height.Text.ToInt32();
+            q.width = txt_Width.Text.ToInt32();
             
             if (id > 0 && q != null)
             {

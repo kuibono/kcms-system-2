@@ -11,7 +11,7 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmSchemaAttribute()]
 
 // 原始文件名:
-// 生成日期: 2012/10/25 23:01:46
+// 生成日期: 2012/10/26 23:19:32
 namespace Voodoo.Basement
 {
     
@@ -1151,6 +1151,23 @@ namespace Voodoo.Basement
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         private global::System.Data.Objects.ObjectQuery<AdGroup> _AdGroup;
         /// <summary>
+        /// 架构中不存在 Area 的注释。
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Data.Objects.ObjectQuery<Area> Area
+        {
+            get
+            {
+                if ((this._Area == null))
+                {
+                    this._Area = base.CreateQuery<Area>("[Area]");
+                }
+                return this._Area;
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Data.Objects.ObjectQuery<Area> _Area;
+        /// <summary>
         /// 架构中不存在 Answer 的注释。
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
@@ -1669,6 +1686,14 @@ namespace Voodoo.Basement
         public void AddToAdGroup(AdGroup adGroup)
         {
             base.AddObject("AdGroup", adGroup);
+        }
+        /// <summary>
+        /// 架构中不存在 Area 的注释。
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public void AddToArea(Area area)
+        {
+            base.AddObject("Area", area);
         }
     }
     /// <summary>
@@ -20316,6 +20341,33 @@ namespace Voodoo.Basement
         partial void OnHotChanging(global::System.Nullable<long> value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         partial void OnHotChanged();
+        /// <summary>
+        /// 架构中不存在属性 ShowInIndex 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<bool> ShowInIndex
+        {
+            get
+            {
+                return this._ShowInIndex;
+            }
+            set
+            {
+                this.OnShowInIndexChanging(value);
+                this.ReportPropertyChanging("ShowInIndex");
+                this._ShowInIndex = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("ShowInIndex");
+                this.OnShowInIndexChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<bool> _ShowInIndex;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnShowInIndexChanging(global::System.Nullable<bool> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnShowInIndexChanged();
     }
     /// <summary>
     /// 架构中不存在 DataModel.JobApplicationRecord 的注释。
@@ -21083,6 +21135,60 @@ namespace Voodoo.Basement
         partial void Onzm_codeChanging(string value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         partial void Onzm_codeChanged();
+        /// <summary>
+        /// 架构中不存在属性 AreaID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<int> AreaID
+        {
+            get
+            {
+                return this._AreaID;
+            }
+            set
+            {
+                this.OnAreaIDChanging(value);
+                this.ReportPropertyChanging("AreaID");
+                this._AreaID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("AreaID");
+                this.OnAreaIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<int> _AreaID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnAreaIDChanging(global::System.Nullable<int> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnAreaIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 ShowInIndex 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<bool> ShowInIndex
+        {
+            get
+            {
+                return this._ShowInIndex;
+            }
+            set
+            {
+                this.OnShowInIndexChanging(value);
+                this.ReportPropertyChanging("ShowInIndex");
+                this._ShowInIndex = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("ShowInIndex");
+                this.OnShowInIndexChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<bool> _ShowInIndex;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnShowInIndexChanging(global::System.Nullable<bool> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnShowInIndexChanged();
     }
     /// <summary>
     /// 架构中不存在 DataModel.JobResumeFile 的注释。
@@ -21954,5 +22060,163 @@ namespace Voodoo.Basement
         partial void OnNameChanging(string value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         partial void OnNameChanged();
+        /// <summary>
+        /// 架构中不存在属性 width 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<int> width
+        {
+            get
+            {
+                return this._width;
+            }
+            set
+            {
+                this.OnwidthChanging(value);
+                this.ReportPropertyChanging("width");
+                this._width = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("width");
+                this.OnwidthChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<int> _width;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnwidthChanging(global::System.Nullable<int> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnwidthChanged();
+        /// <summary>
+        /// 架构中不存在属性 height 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<int> height
+        {
+            get
+            {
+                return this._height;
+            }
+            set
+            {
+                this.OnheightChanging(value);
+                this.ReportPropertyChanging("height");
+                this._height = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("height");
+                this.OnheightChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<int> _height;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnheightChanging(global::System.Nullable<int> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnheightChanged();
+    }
+    /// <summary>
+    /// 架构中不存在 DataModel.Area 的注释。
+    /// </summary>
+    /// <KeyProperties>
+    /// ID
+    /// </KeyProperties>
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="DataModel", Name="Area")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Serializable()]
+    public partial class Area : global::System.Data.Objects.DataClasses.EntityObject
+    {
+        /// <summary>
+        /// 创建新的 Area 对象。
+        /// </summary>
+        /// <param name="id">ID 的初始值。</param>
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public static Area CreateArea(int id)
+        {
+            Area area = new Area();
+            area.ID = id;
+            return area;
+        }
+        /// <summary>
+        /// 架构中不存在属性 ID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public int ID
+        {
+            get
+            {
+                return this._ID;
+            }
+            set
+            {
+                this.OnIDChanging(value);
+                this.ReportPropertyChanging("ID");
+                this._ID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("ID");
+                this.OnIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private int _ID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnIDChanging(int value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 Name 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string Name
+        {
+            get
+            {
+                return this._Name;
+            }
+            set
+            {
+                this.OnNameChanging(value);
+                this.ReportPropertyChanging("Name");
+                this._Name = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("Name");
+                this.OnNameChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _Name;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnNameChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnNameChanged();
+        /// <summary>
+        /// 架构中不存在属性 ShowInIndex 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<bool> ShowInIndex
+        {
+            get
+            {
+                return this._ShowInIndex;
+            }
+            set
+            {
+                this.OnShowInIndexChanging(value);
+                this.ReportPropertyChanging("ShowInIndex");
+                this._ShowInIndex = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("ShowInIndex");
+                this.OnShowInIndexChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<bool> _ShowInIndex;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnShowInIndexChanging(global::System.Nullable<bool> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnShowInIndexChanged();
     }
 }

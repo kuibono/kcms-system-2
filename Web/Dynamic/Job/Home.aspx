@@ -99,7 +99,7 @@
                         <!-- #primary -->
                         <div class="widget-area">
                             <div class="face-eara">
-                                <a id="xiugaijibenxinxi" href="/mybaijob/resume/information">
+                                <a id="xiugaijibenxinxi" href="ResumeBasic.aspx">
                                     <img src="<%=Image %>" width="96" height="96" id="user_face" />
                                     <span>修改基本信息</span></a></div>
                             <ul class="l-nav">

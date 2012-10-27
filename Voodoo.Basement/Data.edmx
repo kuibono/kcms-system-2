@@ -9,6 +9,7 @@
           <EntitySet Name="Ad" EntityType="DataModel.Store.Ad" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="AdGroup" EntityType="DataModel.Store.AdGroup" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Answer" EntityType="DataModel.Store.Answer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Area" EntityType="DataModel.Store.Area" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Book" EntityType="DataModel.Store.Book" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="BookChapter" EntityType="DataModel.Store.BookChapter" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="BookRole" EntityType="DataModel.Store.BookRole" store:Type="Tables" Schema="dbo" />
@@ -90,6 +91,8 @@
           </Key>
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="width" Type="int" />
+          <Property Name="height" Type="int" />
         </EntityType>
         <EntityType Name="Answer">
           <Key>
@@ -102,6 +105,14 @@
           <Property Name="UserName" Type="nvarchar" MaxLength="50" />
           <Property Name="AnswerTime" Type="datetime" />
           <Property Name="Agree" Type="int" />
+        </EntityType>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShowInIndex" Type="bit" />
         </EntityType>
         <EntityType Name="Book">
           <Key>
@@ -188,6 +199,7 @@
           <Property Name="zm_code" Type="nvarchar" MaxLength="50" />
           <Property Name="ProvinceID" Type="int" />
           <Property Name="Hot" Type="bigint" />
+          <Property Name="ShowInIndex" Type="bit" />
         </EntityType>
         <EntityType Name="Class">
           <Key>
@@ -757,6 +769,8 @@
           <Property Name="sz_code" Type="nvarchar" Nullable="false" MaxLength="6" />
           <Property Name="Rome" Type="nvarchar" MaxLength="50" />
           <Property Name="zm_code" Type="nvarchar" MaxLength="50" />
+          <Property Name="AreaID" Type="int" />
+          <Property Name="ShowInIndex" Type="bit" />
         </EntityType>
         <EntityType Name="Question">
           <Key>
@@ -1162,6 +1176,7 @@
           <EntitySet Name="SysNavTree" EntityType="DataModel.SysNavTree" />
           <EntitySet Name="Ad" EntityType="DataModel.Ad" />
           <EntitySet Name="AdGroup" EntityType="DataModel.AdGroup" />
+          <EntitySet Name="Area" EntityType="DataModel.Area" />
         </EntityContainer>
         <EntityType Name="Answer">
           <Key>
@@ -2080,6 +2095,7 @@
           <Property Type="String" Name="zm_code" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="ProvinceID" />
           <Property Type="Int64" Name="Hot" />
+          <Property Type="Boolean" Name="ShowInIndex" />
         </EntityType>
         <EntityType Name="JobApplicationRecord">
           <Key>
@@ -2129,6 +2145,8 @@
           <Property Type="String" Name="sz_code" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Rome" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="zm_code" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="AreaID" />
+          <Property Type="Boolean" Name="ShowInIndex" />
         </EntityType>
         <EntityType Name="JobResumeFile">
           <Key>
@@ -2182,6 +2200,16 @@
           </Key>
           <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="width" />
+          <Property Type="Int32" Name="height" />
+        </EntityType>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="ShowInIndex" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3151,7 +3179,8 @@
     <EntitySetMapping Name="City">
       <EntityTypeMapping TypeName="IsTypeOf(DataModel.City)">
         <MappingFragment StoreEntitySet="City">
-          <ScalarProperty Name="Hot" ColumnName="Hot" />
+          <ScalarProperty Name="ShowInIndex" ColumnName="ShowInIndex" />
+                <ScalarProperty Name="Hot" ColumnName="Hot" />
                 <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="state" ColumnName="state" />
           <ScalarProperty Name="city1" ColumnName="city1" />
@@ -3208,7 +3237,9 @@
     <EntitySetMapping Name="Province">
       <EntityTypeMapping TypeName="IsTypeOf(DataModel.Province)">
         <MappingFragment StoreEntitySet="Province">
-          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ShowInIndex" ColumnName="ShowInIndex" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="province1" ColumnName="province1" />
           <ScalarProperty Name="sz_code" ColumnName="sz_code" />
           <ScalarProperty Name="Rome" ColumnName="Rome" />
@@ -3269,6 +3300,17 @@
           <EntitySetMapping Name="AdGroup">
             <EntityTypeMapping TypeName="DataModel.AdGroup">
               <MappingFragment StoreEntitySet="AdGroup">
+                <ScalarProperty Name="height" ColumnName="height" />
+                <ScalarProperty Name="width" ColumnName="width" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Area">
+            <EntityTypeMapping TypeName="DataModel.Area">
+              <MappingFragment StoreEntitySet="Area">
+                <ScalarProperty Name="ShowInIndex" ColumnName="ShowInIndex" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
@@ -3359,6 +3401,7 @@
         <EntityTypeShape EntityType="DataModel.SysNavTree" Width="1.5" PointX="23.375" PointY="9.75" Height="2.5430916341145746" />
         <EntityTypeShape EntityType="DataModel.Ad" Width="1.5" PointX="23.375" PointY="13.75" Height="1.9700325520833246" />
         <EntityTypeShape EntityType="DataModel.AdGroup" Width="1.5" PointX="23.375" PointY="16.75" Height="1.3969734700520746" />
+        <EntityTypeShape EntityType="DataModel.Area" Width="1.5" PointX="23.375" PointY="19.75" Height="1.5879931640624818" />
       </Diagram>
     </Diagrams>
   </Designer>

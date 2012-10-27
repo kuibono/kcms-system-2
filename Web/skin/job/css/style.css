@@ -169,3 +169,13 @@ span{display:inline-block;padding:3px 0;margin-left:0}
 {
 	color:Gray;
 }
+
+/* slides */
+.slidebox-01 a,img{border:0;}
+.slidebox-01{width:694px;height:151px;overflow:hidden;position:relative;border:solid 0px #ddd;margin:0px auto;}
+.slidepic-01{position:absolute;width:9999em;}/* ±ØÒªÔªËØ */
+.slidepic-01 li{height:340px;overflow:hidden;float:left;}
+.slidebtn-01{position:absolute;bottom:2px;right:10px;float:right;}
+.slidebtn-01 li{background:#555;border:1px solid #555;cursor:pointer;float:left;font-family:arial;height:18px;line-height:18px;width:18px;margin:1px;text-align:center;color:#FFF; list-style:none;}
+.slidebtn-01 li.current{background:#FFF;border:1px solid #555;line-height:18px;width:18px;margin:1px;color:#000;}
+/* slides */

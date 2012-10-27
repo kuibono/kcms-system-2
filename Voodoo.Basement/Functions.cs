@@ -1049,7 +1049,7 @@ namespace Voodoo.Basement
             foreach (var p in parents)
             {
                 sb.AppendFormat("<li><b>{0}</b>：", p.Name);
-                var subs=from l in list where l.ParentID==p.ID select l ;
+                var subs = from l in list where l.ParentID == p.ID select l;
                 foreach (var sub in subs)
                 {
                     sb.AppendFormat("<a target=\"_blank\" href=\"Search.aspx?sp={0}\">{1}</a>", sub.ID, sub.Name);
@@ -1312,7 +1312,7 @@ namespace Voodoo.Basement
             using (DataEntities ent = new DataEntities())
             {
                 List<JobPost> list = ent.CreateQuery<JobPost>(string.Format("select VALUE t from JobPost as t where {0} order by {1} skip {2} limit {3}", m_where, orderby, skip, top)).ToList();
-                List<JobCompany> coms = (from l in ent.JobCompany select l).AsCache();
+                List<JobCompany> coms = (from l in ent.JobCompany select l).ToList();
 
                 var i = 0;
                 foreach (var q in list)
@@ -1405,5 +1405,45 @@ namespace Voodoo.Basement
 
         }
         #endregion
+
+        public static string getindexbottomareas(string ss)
+        {
+            StringBuilder sb = new StringBuilder();
+            DataEntities ent = new DataEntities();
+            var areas = (from l in ent.Area where l.ShowInIndex==true select l).ToList();
+            var ps = (from l in ent.Province where l.ShowInIndex == true select l).ToList();
+            var cs = (from l in ent.City where l.ShowInIndex == true select l).ToList();
+
+            ent.Dispose();
+
+            foreach (var area in areas)
+            {
+                sb.AppendLine("<li>");
+                sb.AppendFormat("<span class=\"fl\"><b>{0}：</b></span>", area.Name);
+
+                var subps = from l in ps where l.AreaID == area.ID select l;
+                foreach (var subp in subps)
+                {
+                    sb.AppendFormat("<a href=\"Search.aspx?l={0}\" target=\"_blank\">{0}</a>", subp.province1);
+
+                    var subcs = from l in cs where l.ProvinceID == subp.ID select l;
+                    if (subcs.Count() > 0)
+                    {
+                        sb.Append("(");
+                    }
+                    foreach (var subc in subcs)
+                    {
+                        sb.AppendFormat("<a href=\"Search.aspx?l={0}\" target=\"_blank\">{0}</a>", subc.city1);
+                    }
+                    if (subcs.Count() > 0)
+                    {
+                        sb.Append(")");
+                    }
+                }
+
+                sb.AppendLine("</li>");
+            }
+            return sb.ToS();
+        }
     }
 }

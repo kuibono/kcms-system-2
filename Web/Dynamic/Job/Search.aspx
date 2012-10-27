@@ -310,7 +310,7 @@
                                         <td>
                                         </td>
                                         <td class="job_con">
-                                            &nbsp;&nbsp;<%#Eval("Intro")%>
+                                            &nbsp;&nbsp;<%#Eval("Intro").ToS().TrimHTML().CutString(200)%>
                                         </td>
                                     </tr>
                                 </table>
@@ -361,7 +361,7 @@
                                                 <td>
                                                 </td>
                                                 <td class="job_con">
-                                                    &nbsp;&nbsp;<%#Eval("Intro")%>
+                                                    &nbsp;&nbsp;<%#Eval("Intro").ToS().TrimHTML().CutString(200)%>
                                                 </td>
                                             </tr>
                                         </table>

@@ -33,6 +33,22 @@
                             enablenull="false"></vd:vtextbox>
                     </td>
                 </tr>
+                <tr>
+                    <td width="163">
+                        宽度
+                    </td>
+                    <td>
+                        <vd:vtextbox id="txt_Width" runat="server" Text="0" enablevalidate="true" enablenull="false"  VType="integer"></vd:vtextbox>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="163">
+                        高度
+                    </td>
+                    <td>
+                        <vd:vtextbox id="txt_Height" runat="server" Text="0" enablevalidate="true" enablenull="false"  VType="integer"></vd:vtextbox>
+                    </td>
+                </tr>
             </tbody>
             <tfoot>
                 <tr>

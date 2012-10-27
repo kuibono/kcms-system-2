@@ -121,6 +121,7 @@
     <Content Include="e\admin\Job\Application\List.aspx" />
     <Content Include="e\admin\Job\Company\Edit.aspx" />
     <Content Include="e\admin\Job\Company\List.aspx" />
+    <Content Include="e\admin\Job\Config\IndexProvinceCitys.aspx" />
     <Content Include="e\admin\Job\Config\JobEduSpecialtyManagement.aspx" />
     <Content Include="e\admin\Job\Config\JobIndustryManagement.aspx" />
     <Content Include="e\admin\Job\Default.aspx" />
@@ -585,6 +586,8 @@
     <Content Include="skin\job\img\td.gif" />
     <Content Include="skin\job\img\up-ixo.png" />
     <Content Include="skin\job\img\zwtj.jpg" />
+    <Content Include="skin\job\img\_15.jpg" />
+    <Content Include="skin\job\img\_16.jpg" />
     <Content Include="skin\job\index.html" />
     <Content Include="skin\job\index1.html" />
     <Content Include="skin\job\job.html" />
@@ -917,6 +920,13 @@
     </Compile>
     <Compile Include="e\admin\Job\Company\List.aspx.designer.cs">
       <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="e\admin\Job\Config\IndexProvinceCitys.aspx.cs">
+      <DependentUpon>IndexProvinceCitys.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\admin\Job\Config\IndexProvinceCitys.aspx.designer.cs">
+      <DependentUpon>IndexProvinceCitys.aspx</DependentUpon>
     </Compile>
     <Compile Include="e\admin\Job\Config\JobEduSpecialtyManagement.aspx.cs">
       <DependentUpon>JobEduSpecialtyManagement.aspx</DependentUpon>

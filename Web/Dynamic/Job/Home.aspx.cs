@@ -64,7 +64,7 @@ namespace Web.Dynamic.Job
 
                        };
 
-            rp_lis.DataSource = list.OrderByDescending(p => p.ApplicationTime).Take(10);
+            rp_lis.DataSource = list.OrderByDescending(p => p.Pid).Take(10);
             rp_lis.DataBind();
 
             var list2 = from l in ent.JobApplicationRecord
@@ -84,7 +84,7 @@ namespace Web.Dynamic.Job
                            l.ApplicationTime
 
                        };
-            rp_lis2.DataSource = list2.OrderBy(p => p.ApplicationTime).Take(10);
+            rp_lis2.DataSource = list2.OrderBy(p => p.Pid).Take(10);
             rp_lis2.DataBind();
         }
     }

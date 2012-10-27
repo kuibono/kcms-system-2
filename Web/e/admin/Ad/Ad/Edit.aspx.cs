@@ -27,10 +27,11 @@ namespace Web.e.admin.Ad.Ad
             using (DataEntities ent = new DataEntities())
             {
                 var gs = from l in ent.AdGroup select l;
-                ddl_Group.DataSource = gs;
-                ddl_Group.DataTextField = "Name";
-                ddl_Group.DataValueField = "Id";
-                ddl_Group.DataBind();
+                ddl_Group.Items.Clear();
+                foreach (var g in gs)
+                {
+                    ddl_Group.Items.Add(new ListItem(string.Format("{0}({1}*{2})",g.Name,g.width,g.height), g.ID.ToS()));
+                }
 
                 if (id > 0)
                 {
@@ -39,8 +40,6 @@ namespace Web.e.admin.Ad.Ad
                     txt_Title.Text = ad.Title;
                     txt_Url.Text = ad.Url;
                     Image1.ImageUrl = ad.Image;
-                    txt_Height.Text = ad.height.ToS();
-                    txt_Width.Text = ad.width.ToS();
 
                 }
             }
@@ -54,17 +53,19 @@ namespace Web.e.admin.Ad.Ad
                 Voodoo.Basement.Ad ad = new Voodoo.Basement.Ad();
                 try
                 {
-                    ad = (from l in ent.Ad where l.ID == id select l).FirstOrDefault();
+                    ad = (from l in ent.Ad where l.ID == id select l).First();
                 }
                 catch { }
 
                 ad.GroupID = ddl_Group.SelectedValue.ToInt32();
                 ad.Title = txt_Title.Text;
                 ad.Url = txt_Url.Text;
-                ad.height = txt_Height.Text.ToInt32();
-                ad.width = txt_Width.Text.ToInt32();
 
-                if(ad.ID<=0)
+                var adgroup = (from l in ent.AdGroup where l.ID == ad.GroupID select l).FirstOrDefault();
+                ad.width = adgroup.width;
+                ad.height = adgroup.height;
+
+                if (ad.ID <= 0)
                 {
                     ent.AddToAd(ad);
                 }
@@ -72,7 +73,7 @@ namespace Web.e.admin.Ad.Ad
 
                 if (FileUpload1.HasFile)
                 {
-                    string fileName = string.Format("/Ad/{0}.jpg",ad.ID.ToS());
+                    string fileName = string.Format("/u/Ad/{0}.jpg", ad.ID.ToS());
                     BasePage.UpLoadImage(FileUpload1.PostedFile, fileName, ad.width.ToInt32(), ad.height.ToInt32());
                     ad.Image = fileName;
                     ent.SaveChanges();
@@ -80,7 +81,7 @@ namespace Web.e.admin.Ad.Ad
 
             }
 
-            Js.AlertAndChangUrl("保存成功！","List.aspx");
+            Js.AlertAndChangUrl("保存成功！", "List.aspx");
         }
     }
 }
