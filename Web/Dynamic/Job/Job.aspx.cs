@@ -28,6 +28,8 @@ namespace Web.Dynamic.Job
         public string CompIntro = "";
         public string RelaJobs = "";
 
+        public User u = UserAction.opuser;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             LoadInfo();
@@ -42,6 +44,30 @@ namespace Web.Dynamic.Job
             }
 
             DataEntities ent = new DataEntities();
+
+            if (u.ID > 0)
+            {
+                ViewHistory his = new ViewHistory();
+                try
+                {
+                    his = (from l in ent.ViewHistory where l.ItemID == id && l.UserID == u.ID && l.ModelID==5 select l).First();
+                }
+                catch
+                { }
+
+                his.ViewTime = DateTime.Now;
+                his.ModelID = 5;
+                his.ItemID = id;
+                his.UserID = u.ID;
+
+                if (his.ID <= 0)
+                {
+                    ent.AddToViewHistory(his);
+                }
+                ent.SaveChanges();
+            }
+
+            
             var j = (from l in ent.JobPost where l.ID == id select l).FirstOrDefault();
             var c = (from l in ent.JobCompany where l.ID == j.CompanyID select l).FirstOrDefault();
             Title=j.Title;

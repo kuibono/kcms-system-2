@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="resume-m">
                                     <p class="clearfix w385">
-                                        <a href="javascript:$('#fileUp').show();return false;" class="up-resume ft14 fc-333 re_upload_resume">
+                                        <a href="javascript:$('#fileUp').show();void(0);" class="up-resume ft14 fc-333 re_upload_resume">
                                             上传附件简历
                                             <img src="/skin/job/img/up-ixo.png" width="21" height="22"></a><br />
                                         <div id="fileUp" style="display: none;">

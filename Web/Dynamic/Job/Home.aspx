@@ -12,17 +12,18 @@
     <link href="/skin/job/css/incenter.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="../../skin/script/jquery-1.7.min.js"></script>
     <script type="text/javascript">
+        //window.onerror = function () { return true; } 
         $(function () {
             $("#li1").click(function () {
-                $(this).prop("class", "here");
-                $("#li2").prop("class", "");
+                $(this).addClass("here");
+                $("#li2").removeClass("here");
                 $("#tj").show();
                 $("#vis").hide();
             })
             $("#li2").click(function () {
-                $(this).prop("class", "here");
-                $("#li1").prop("class", "");
-                $("#tj").hdie();
+                $(this).addClass("here");
+                $("#li1").removeClass("here");
+                $("#tj").hide();
                 $("#vis").show();
             })
         })
@@ -45,7 +46,7 @@
                                 </div>
                                 <div class="resume-m">
                                     <p class="clearfix w385">
-                                        <a href="javascript:$('#fileUp').show();return false;" class="up-resume ft14 fc-333 re_upload_resume">
+                                        <a href="javascript:$('#fileUp').show();void(0);" class="up-resume ft14 fc-333 re_upload_resume">
                                             上传附件简历
                                             <img src="/skin/job/img/up-ixo.png" width="21" height="22"></a><br />
                                         <div id="fileUp" style="display: none;">
@@ -84,7 +85,7 @@
                                         <li class="clearfix">
                                             <input type="button" onclick="location.href='Job.aspx?id=<%#Eval("Pid")%>'" style="float: right" class="btn-blue114" value="查看详情" id="Button2" />
                                             <p>
-                                                <span class="mr-10"><%#Eval("ApplicationTime").ToDateTime().ToString("yyyy-MM-dd HH:mm") %></span></p>
+                                                <span class="mr-10"><%#Eval("ViewTime").ToDateTime().ToString("yyyy-MM-dd HH:mm") %></span></p>
                                             <p>
                                                 <strong><a href="Job.aspx?id=<%#Eval("Pid")%>" target="_blank" class=" mr-40 ft14 ml-10"><%#Eval("Title")%></a></strong><a
                                                     href="Company.aspx?id=<%#Eval("CompanyID")%>" target="_blank"><%#Eval("CompanyName")%></a></p>

@@ -141,6 +141,7 @@
     <Content Include="e\admin\news\ClassList.aspx" />
     <Content Include="e\admin\news\NewsEdit.aspx" />
     <Content Include="e\admin\news\NewsList.aspx" />
+    <Content Include="e\admin\system\Basement\AreaManagement.aspx" />
     <Content Include="e\admin\system\Basement\CityManagement.aspx" />
     <Content Include="e\admin\system\Basement\FileManagement.aspx" />
     <Content Include="e\admin\system\Basement\ProvinceManagement.aspx" />
@@ -150,6 +151,7 @@
     <Content Include="e\admin\system\SystemParameter\basic.aspx" />
     <Content Include="e\admin\system\SystemParameter\user.aspx" />
     <Content Include="e\admin\system\Update\Createpages.aspx" />
+    <Content Include="e\admin\sysuser\PassWordEdit.aspx" />
     <Content Include="e\admin\sysuser\SysUserEdit.aspx" />
     <Content Include="e\admin\sysuser\SysUserList.aspx" />
     <Content Include="e\admin\template\ContentTemplateEdit.aspx" />
@@ -489,6 +491,114 @@
     <Content Include="e\data\images\bg_textbox.jpg" />
     <Content Include="e\data\images\login_bg.png" />
     <Content Include="e\data\images\pixviewer.swf" />
+    <Content Include="e\data\jquery-1.8.0.min.js" />
+    <Content Include="e\data\jquery.easyui.min.js" />
+    <Content Include="e\data\themes\default\accordion.css" />
+    <Content Include="e\data\themes\default\calendar.css" />
+    <Content Include="e\data\themes\default\combo.css" />
+    <Content Include="e\data\themes\default\combobox.css" />
+    <Content Include="e\data\themes\default\datagrid.css" />
+    <Content Include="e\data\themes\default\datebox.css" />
+    <Content Include="e\data\themes\default\dialog.css" />
+    <Content Include="e\data\themes\default\easyui.css" />
+    <Content Include="e\data\themes\default\images\accordion_collapse.png" />
+    <Content Include="e\data\themes\default\images\accordion_expand.png" />
+    <Content Include="e\data\themes\default\images\blank.gif" />
+    <Content Include="e\data\themes\default\images\button_a_bg.gif" />
+    <Content Include="e\data\themes\default\images\button_plain_hover.png" />
+    <Content Include="e\data\themes\default\images\button_span_bg.gif" />
+    <Content Include="e\data\themes\default\images\calendar_nextmonth.gif" />
+    <Content Include="e\data\themes\default\images\calendar_nextyear.gif" />
+    <Content Include="e\data\themes\default\images\calendar_prevmonth.gif" />
+    <Content Include="e\data\themes\default\images\calendar_prevyear.gif" />
+    <Content Include="e\data\themes\default\images\combo_arrow.gif" />
+    <Content Include="e\data\themes\default\images\datagrid_header_bg.gif" />
+    <Content Include="e\data\themes\default\images\datagrid_row_collapse.gif" />
+    <Content Include="e\data\themes\default\images\datagrid_row_expand.gif" />
+    <Content Include="e\data\themes\default\images\datagrid_sort_asc.gif" />
+    <Content Include="e\data\themes\default\images\datagrid_sort_desc.gif" />
+    <Content Include="e\data\themes\default\images\datagrid_title_bg.png" />
+    <Content Include="e\data\themes\default\images\datebox_arrow.png" />
+    <Content Include="e\data\themes\default\images\layout_arrows.png" />
+    <Content Include="e\data\themes\default\images\menu.gif" />
+    <Content Include="e\data\themes\default\images\menu_downarrow.png" />
+    <Content Include="e\data\themes\default\images\menu_rightarrow.png" />
+    <Content Include="e\data\themes\default\images\menu_sep.png" />
+    <Content Include="e\data\themes\default\images\menu_split_downarrow.png" />
+    <Content Include="e\data\themes\default\images\messager_error.gif" />
+    <Content Include="e\data\themes\default\images\messager_info.gif" />
+    <Content Include="e\data\themes\default\images\messager_question.gif" />
+    <Content Include="e\data\themes\default\images\messager_warning.gif" />
+    <Content Include="e\data\themes\default\images\pagination_first.gif" />
+    <Content Include="e\data\themes\default\images\pagination_last.gif" />
+    <Content Include="e\data\themes\default\images\pagination_load.png" />
+    <Content Include="e\data\themes\default\images\pagination_loading.gif" />
+    <Content Include="e\data\themes\default\images\pagination_next.gif" />
+    <Content Include="e\data\themes\default\images\pagination_prev.gif" />
+    <Content Include="e\data\themes\default\images\panel_loading.gif" />
+    <Content Include="e\data\themes\default\images\panel_title.png" />
+    <Content Include="e\data\themes\default\images\panel_tools.gif" />
+    <Content Include="e\data\themes\default\images\searchbox_button.png" />
+    <Content Include="e\data\themes\default\images\slider_handle.png" />
+    <Content Include="e\data\themes\default\images\spinner_arrow_down.gif" />
+    <Content Include="e\data\themes\default\images\spinner_arrow_up.gif" />
+    <Content Include="e\data\themes\default\images\tabs_active.png" />
+    <Content Include="e\data\themes\default\images\tabs_close.gif" />
+    <Content Include="e\data\themes\default\images\tabs_enabled.png" />
+    <Content Include="e\data\themes\default\images\tabs_leftarrow.png" />
+    <Content Include="e\data\themes\default\images\tabs_rightarrow.png" />
+    <Content Include="e\data\themes\default\images\tree_arrows.gif" />
+    <Content Include="e\data\themes\default\images\tree_checkbox_0.gif" />
+    <Content Include="e\data\themes\default\images\tree_checkbox_1.gif" />
+    <Content Include="e\data\themes\default\images\tree_checkbox_2.gif" />
+    <Content Include="e\data\themes\default\images\tree_dnd_no.png" />
+    <Content Include="e\data\themes\default\images\tree_dnd_yes.png" />
+    <Content Include="e\data\themes\default\images\tree_elbow.png" />
+    <Content Include="e\data\themes\default\images\tree_file.gif" />
+    <Content Include="e\data\themes\default\images\tree_folder.gif" />
+    <Content Include="e\data\themes\default\images\tree_folder_open.gif" />
+    <Content Include="e\data\themes\default\images\tree_loading.gif" />
+    <Content Include="e\data\themes\default\images\validatebox_pointer.gif" />
+    <Content Include="e\data\themes\default\images\validatebox_warning.png" />
+    <Content Include="e\data\themes\default\layout.css" />
+    <Content Include="e\data\themes\default\linkbutton.css" />
+    <Content Include="e\data\themes\default\menu.css" />
+    <Content Include="e\data\themes\default\menubutton.css" />
+    <Content Include="e\data\themes\default\messager.css" />
+    <Content Include="e\data\themes\default\pagination.css" />
+    <Content Include="e\data\themes\default\panel.css" />
+    <Content Include="e\data\themes\default\progressbar.css" />
+    <Content Include="e\data\themes\default\propertygrid.css" />
+    <Content Include="e\data\themes\default\searchbox.css" />
+    <Content Include="e\data\themes\default\slider.css" />
+    <Content Include="e\data\themes\default\spinner.css" />
+    <Content Include="e\data\themes\default\splitbutton.css" />
+    <Content Include="e\data\themes\default\tabs.css" />
+    <Content Include="e\data\themes\default\tree.css" />
+    <Content Include="e\data\themes\default\validatebox.css" />
+    <Content Include="e\data\themes\default\window.css" />
+    <Content Include="e\data\themes\icon.css" />
+    <Content Include="e\data\themes\icons\back.png" />
+    <Content Include="e\data\themes\icons\blank.gif" />
+    <Content Include="e\data\themes\icons\cancel.png" />
+    <Content Include="e\data\themes\icons\cut.png" />
+    <Content Include="e\data\themes\icons\edit_add.png" />
+    <Content Include="e\data\themes\icons\edit_remove.png" />
+    <Content Include="e\data\themes\icons\filesave.png" />
+    <Content Include="e\data\themes\icons\help.png" />
+    <Content Include="e\data\themes\icons\mini_add.png" />
+    <Content Include="e\data\themes\icons\mini_edit.png" />
+    <Content Include="e\data\themes\icons\mini_refresh.png" />
+    <Content Include="e\data\themes\icons\no.png" />
+    <Content Include="e\data\themes\icons\ok.png" />
+    <Content Include="e\data\themes\icons\pencil.png" />
+    <Content Include="e\data\themes\icons\print.png" />
+    <Content Include="e\data\themes\icons\redo.png" />
+    <Content Include="e\data\themes\icons\reload.png" />
+    <Content Include="e\data\themes\icons\search.png" />
+    <Content Include="e\data\themes\icons\sum.png" />
+    <Content Include="e\data\themes\icons\tip.png" />
+    <Content Include="e\data\themes\icons\undo.png" />
     <Content Include="e\file\addselect.aspx" />
     <Content Include="e\Job\Post.aspx" />
     <Content Include="e\Job\UploadResume.aspx" />
@@ -1082,6 +1192,13 @@
     <Compile Include="e\admin\question\QuestionList.aspx.designer.cs">
       <DependentUpon>QuestionList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="e\admin\system\Basement\AreaManagement.aspx.cs">
+      <DependentUpon>AreaManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\admin\system\Basement\AreaManagement.aspx.designer.cs">
+      <DependentUpon>AreaManagement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="e\admin\system\Basement\CityManagement.aspx.cs">
       <DependentUpon>CityManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1144,6 +1261,13 @@
     </Compile>
     <Compile Include="e\admin\system\Update\Createpages.aspx.designer.cs">
       <DependentUpon>Createpages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="e\admin\sysuser\PassWordEdit.aspx.cs">
+      <DependentUpon>PassWordEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\admin\sysuser\PassWordEdit.aspx.designer.cs">
+      <DependentUpon>PassWordEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="e\admin\sysuser\SysUserEdit.aspx.cs">
       <DependentUpon>SysUserEdit.aspx</DependentUpon>
@@ -1921,6 +2045,7 @@
     <None Include="e\data\fckeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.cfm" />
     <None Include="e\data\fckeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.php" />
     <None Include="e\data\fckeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.pl" />
+    <None Include="e\data\themes\default\images\Thumbs.db" />
     <None Include="e\installer\2000.sql" />
   </ItemGroup>
   <ItemGroup>

@@ -46,13 +46,33 @@ namespace Web.Dynamic.Job
             ResumeOpen = r.IsResumeOpen == true ? "简历完全开放" : "简历关闭";
             Image = r.Image;
 
+
+            //var list = from l in ent.ViewHistory
+            //           from com in ent.JobCompany
+            //           from p in ent.JobPost
+            //           where
+            //           l.ItemID == p.ID
+            //           && p.CompanyID == com.ID
+            //           && l.ModelID == 5
+            //           && l.UserID == u.ID
+            //           orderby l.ViewTime descending
+            //           select new
+            //           {
+            //               p.ID,
+            //               CompanyID = com.ID,
+            //               com.CompanyName,
+            //               Pid = p.ID,
+            //               p.Title,
+            //               l.ViewTime
+            //           };
+
             var list = from l in ent.JobApplicationRecord
                        from com in ent.JobCompany
                        from p in ent.JobPost
                        where
                           l.UserID == u.ID
                           && l.CompanyID == com.ID
-                          && p.CompanyID==com.ID
+                          && p.CompanyID == com.ID
                        select new
                        {
                            l.ID,
@@ -67,22 +87,23 @@ namespace Web.Dynamic.Job
             rp_lis.DataSource = list.OrderByDescending(p => p.Pid).Take(10);
             rp_lis.DataBind();
 
-            var list2 = from l in ent.JobApplicationRecord
+            var list2 = from l in ent.ViewHistory
                        from com in ent.JobCompany
                        from p in ent.JobPost
                        where
-                          l.UserID == u.ID
-                          && l.CompanyID == com.ID
-                          && l.PostID == p.ID
+                       l.ItemID == p.ID
+                       && p.CompanyID == com.ID
+                       && l.ModelID == 5
+                       && l.UserID == u.ID
+                       orderby l.ViewTime descending
                        select new
                        {
-                           l.ID,
-                           l.CompanyID,
+                           p.ID,
+                           CompanyID = com.ID,
                            com.CompanyName,
                            Pid = p.ID,
                            p.Title,
-                           l.ApplicationTime
-
+                           l.ViewTime
                        };
             rp_lis2.DataSource = list2.OrderBy(p => p.Pid).Take(10);
             rp_lis2.DataBind();

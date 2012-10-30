@@ -12,6 +12,11 @@ table tr td
 {
     text-align:center;
 }
+table.edit  tbody tr td
+{
+    text-align:left;
+    margin-left:5px;
+}
 thead
 {
 	background-image:url("../images/theader.png");
@@ -96,15 +101,15 @@ input[type='button'],input[type='submit'],input[type='reset']
 {
 	color:Gray;
 }
-.evenrow
+tr.evenrow
 {
 	background-color:#fff
 }
-.oddrow
+tr.oddrow
 {
 	background-color:#eee
 }
-.mouseover
+tr.mouseover
 {
 	background:#ddd;
 	color:Blue;
@@ -140,4 +145,9 @@ div.search
     color:White;
     background-color:gray;
    
+}
+ifame
+{
+    border-width:0px;
+    border-bottom-style:solid;
 }

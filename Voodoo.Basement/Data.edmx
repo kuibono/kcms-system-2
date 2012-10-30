@@ -71,6 +71,7 @@
           <EntitySet Name="UserForm" EntityType="DataModel.Store.UserForm" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="UserGroup" EntityType="DataModel.Store.UserGroup" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="UserRerm" EntityType="DataModel.Store.UserRerm" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ViewHistory" EntityType="DataModel.Store.ViewHistory" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Zt" EntityType="DataModel.Store.Zt" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
         <EntityType Name="Ad">
@@ -200,6 +201,7 @@
           <Property Name="ProvinceID" Type="int" />
           <Property Name="Hot" Type="bigint" />
           <Property Name="ShowInIndex" Type="bit" />
+          <Property Name="ShowInNav" Type="bit" />
         </EntityType>
         <EntityType Name="Class">
           <Key>
@@ -1087,6 +1089,16 @@
           <Property Name="FormContent" Type="nvarchar(max)" />
           <Property Name="Remark" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="ViewHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ModelID" Type="int" />
+          <Property Name="ItemID" Type="bigint" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="ViewTime" Type="datetime" />
+        </EntityType>
         <EntityType Name="Zt">
           <Key>
             <PropertyRef Name="ID" />
@@ -1177,6 +1189,7 @@
           <EntitySet Name="Ad" EntityType="DataModel.Ad" />
           <EntitySet Name="AdGroup" EntityType="DataModel.AdGroup" />
           <EntitySet Name="Area" EntityType="DataModel.Area" />
+          <EntitySet Name="ViewHistory" EntityType="DataModel.ViewHistory" />
         </EntityContainer>
         <EntityType Name="Answer">
           <Key>
@@ -2096,6 +2109,7 @@
           <Property Type="Int32" Name="ProvinceID" />
           <Property Type="Int64" Name="Hot" />
           <Property Type="Boolean" Name="ShowInIndex" />
+          <Property Type="Boolean" Name="ShowInNav" />
         </EntityType>
         <EntityType Name="JobApplicationRecord">
           <Key>
@@ -2210,6 +2224,16 @@
           <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="ShowInIndex" />
+        </EntityType>
+        <EntityType Name="ViewHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ModelID" />
+          <Property Type="Int64" Name="ItemID" />
+          <Property Type="Int32" Name="UserID" />
+          <Property Type="DateTime" Name="ViewTime" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3179,7 +3203,8 @@
     <EntitySetMapping Name="City">
       <EntityTypeMapping TypeName="IsTypeOf(DataModel.City)">
         <MappingFragment StoreEntitySet="City">
-          <ScalarProperty Name="ShowInIndex" ColumnName="ShowInIndex" />
+          <ScalarProperty Name="ShowInNav" ColumnName="ShowInNav" />
+                <ScalarProperty Name="ShowInIndex" ColumnName="ShowInIndex" />
                 <ScalarProperty Name="Hot" ColumnName="Hot" />
                 <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="state" ColumnName="state" />
@@ -3316,6 +3341,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ViewHistory">
+            <EntityTypeMapping TypeName="DataModel.ViewHistory">
+              <MappingFragment StoreEntitySet="ViewHistory">
+                <ScalarProperty Name="ViewTime" ColumnName="ViewTime" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
@@ -3402,6 +3438,7 @@
         <EntityTypeShape EntityType="DataModel.Ad" Width="1.5" PointX="23.375" PointY="13.75" Height="1.9700325520833246" />
         <EntityTypeShape EntityType="DataModel.AdGroup" Width="1.5" PointX="23.375" PointY="16.75" Height="1.3969734700520746" />
         <EntityTypeShape EntityType="DataModel.Area" Width="1.5" PointX="23.375" PointY="19.75" Height="1.5879931640624818" />
+        <EntityTypeShape EntityType="DataModel.ViewHistory" Width="1.5" PointX="23.375" PointY="22.75" Height="1.9700325520833246" />
       </Diagram>
     </Diagrams>
   </Designer>

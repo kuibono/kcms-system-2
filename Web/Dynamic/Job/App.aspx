@@ -23,7 +23,7 @@
                         <div id="primary">
                             <div id="content">
                                 <ul class="tab-blue clearfix">
-                                    <li class="here"><a href="App.aspx">我申请的职位</a></li><li><a href="App.aspx">我浏览过的职位</a></li>
+                                    <li class="here"><a href="App.aspx">我申请的职位</a></li><%--<li><a href="App.aspx">我浏览过的职位</a></li>--%>
                                 </ul>
                                 <ul class="jobs-list-ul">
                                     <li class="clearfix">
