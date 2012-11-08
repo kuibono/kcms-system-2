@@ -104,7 +104,7 @@ namespace Web.e.admin.Job.Post
                         l.Province == p.ID &&
                         l.CompanyID == com.ID
                     select
-                new {l.CompanyID, l.Title,l.Province,l.City,l.Salary,l.Expressions,l.Edu,l.ID,l.PostTime,l.EmployNumber, p.province1, c.city1, com.CompanyName };
+                new {l.CompanyID, l.Title,l.Province,l.City,l.Salary,l.Expressions,l.Edu,l.ID,l.PostTime,l.EmployNumber, p.province1, c.city1, com.CompanyName,index=0 };
 
             if (txt_Key.Text.Length > 0)
             {
@@ -143,9 +143,17 @@ namespace Web.e.admin.Job.Post
                 q = q.Where(p => p.CompanyID == companyID);
             }
 
+
+
             pager.RecordCount = q.Count();
-            rp_list.DataSource = q.OrderByDescending(p => p.ID)
-                .Skip((pager.CurrentPageIndex - 1) * pager.PageSize).Take(pager.PageSize);
+
+            var xx=q.OrderByDescending(p => p.ID)
+                .Skip((pager.CurrentPageIndex - 1) * pager.PageSize).Take(pager.PageSize).ToList().ToDataTable();
+            for (int i=0;i<xx.Rows.Count;i++)
+            {
+                xx.Rows[i]["index"] = (pager.CurrentPageIndex - 1) * pager.PageSize + i + 1;
+            }
+            rp_list.DataSource = xx;
             rp_list.DataBind();
 
             ent.Dispose();
@@ -171,7 +179,7 @@ namespace Web.e.admin.Job.Post
 
         protected void pager_PageChanged(object sender, EventArgs e)
         {
-
+            BindList();
         }
     }
 }

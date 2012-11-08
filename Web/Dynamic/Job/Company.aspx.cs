@@ -44,6 +44,9 @@ namespace Web.Dynamic.Job
             EmployeeCount = JobAction.GetEmployeeCountName(Comapny.EmployeeCount.ToInt32());
             Intro = Comapny.Intro;
 
+            Comapny.DayClick += 1;
+
+            ent.SaveChanges();
            
 
 

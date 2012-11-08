@@ -151,21 +151,24 @@ namespace Voodoo.Basement
             get
             {
                 Dictionary<int, string> result = new Dictionary<int, string>();
-                result.Add(0, "在读");
-                result.Add(1, "应届");
-                result.Add(2, "一年");
-                result.Add(3, "二年");
-                result.Add(4, "三年");
-                result.Add(5, "五年");
-                result.Add(6, "八年");
-                result.Add(7, "十年");
+                result.Add(0, "应届");
+                result.Add(1, "大一");
+                result.Add(2, "大二");
+                result.Add(3, "大三");
                 return result;
             }
         }
 
         public static string GetExpressionsName(int key)
         {
-            return Expressions[key];
+            try
+            {
+                return Expressions[key];
+            }
+            catch
+            {
+                return "应届";
+            }
         }
         #endregion
 

@@ -1318,10 +1318,14 @@ namespace Voodoo.Basement
                 foreach (var q in list)
                 {
                     i++;
+
+                    var com = coms.Where(p => p.ID == q.CompanyID).FirstOrDefault();
+
                     string item = htmlTemp;
                     item = item.Replace("{city}", JobAction.GetCityName(q.City.ToInt32()));
                     item = item.Replace("{companyid}", q.CompanyID.ToS());
-                    item = item.Replace("{companyname}", coms.Where(p => p.ID == q.CompanyID).FirstOrDefault().CompanyName);
+                    item = item.Replace("{companyname}", com.CompanyName);
+                    item = item.Replace("{employeecount}", JobAction.GetEmployeeCountName(com.EmployeeCount.ToInt32()));
                     item = item.Replace("{edu}", JobAction.GetEduName(q.Edu.ToInt32()));
                     item = item.Replace("{employeenumber}", q.EmployNumber == 0 ? "若干" : q.EmployNumber.ToS());
                     item = item.Replace("{expressions}", JobAction.GetExpressionsName(q.Expressions.ToInt32()));
@@ -1331,6 +1335,7 @@ namespace Voodoo.Basement
                     item = item.Replace("{province}", JobAction.GetProviceName(q.Province.ToInt32()));
                     item = item.Replace("{salary}", JobAction.GetSalaryDegreeName(q.Salary.ToInt32()));
                     item = item.Replace("{title}", q.Title);
+                    item = item.Replace("{ftitle}", custitle.ToInt32() > 0 ? q.Title.CutString(custitle.ToInt32()) : q.Title);
 
                     item = item.Replace("{index}", (i - 1).ToS());
                     sb.Append(item);
@@ -1410,7 +1415,7 @@ namespace Voodoo.Basement
         {
             StringBuilder sb = new StringBuilder();
             DataEntities ent = new DataEntities();
-            var areas = (from l in ent.Area where l.ShowInIndex==true select l).ToList();
+            var areas = (from l in ent.Area where l.ShowInIndex == true select l).ToList();
             var ps = (from l in ent.Province where l.ShowInIndex == true select l).ToList();
             var cs = (from l in ent.City where l.ShowInIndex == true select l).ToList();
 
