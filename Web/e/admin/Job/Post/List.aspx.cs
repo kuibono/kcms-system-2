@@ -12,8 +12,11 @@ namespace Web.e.admin.Job.Post
 {
     public partial class List : AdminBase
     {
+        public int CurrentPage = 1;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!IsPostBack)
             {
                 LoadDropItems();
@@ -143,7 +146,9 @@ namespace Web.e.admin.Job.Post
                 q = q.Where(p => p.CompanyID == companyID);
             }
 
+            pager.PageSize = SystemSetting.MagageListSize;
 
+            CurrentPage = pager.CurrentPageIndex;
 
             pager.RecordCount = q.Count();
 

@@ -153,7 +153,7 @@
                     <th colspan="2">
                         <asp:button id="btn_Save" text="保存" runat="server" onclick="btn_Save_Click" />
                         &nbsp;
-                        <input type="button" value="取消" onclick="location.href='List.aspx'" />
+                        <input type="button" value="取消" onclick="location.href='<%=refer %>'" />
                     </th>
                 </tr>
             </tfoot>

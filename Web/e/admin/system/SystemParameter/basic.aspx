@@ -167,6 +167,14 @@
                         <vd:VTextBox ID="txt_Renren" runat="server"></vd:VTextBox>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        列表每页条数
+                    </td>
+                    <td>
+                        <vd:VTextBox ID="txt_MagageListSize" runat="server"></vd:VTextBox>
+                    </td>
+                </tr>
             </tbody>
             <tfoot>
                 <tr>

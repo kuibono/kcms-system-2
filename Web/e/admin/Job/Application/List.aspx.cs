@@ -62,6 +62,7 @@ namespace Web.e.admin.Job.Application
             {
                 q = from l in q where l.UserID == id select l;
             }
+            pager.PageSize = SystemSetting.MagageListSize;
 
             pager.RecordCount = q.Count();
             rp_list.DataSource = q.OrderByDescending(p => p.ID).Skip((pager.CurrentPageIndex - 1) * pager.PageSize).Take(pager.PageSize);

@@ -52,7 +52,7 @@ namespace Web.e.admin.Job.Company
                 int tp = ddl_Type.SelectedValue.ToInt32();
                 q = q.Where(p => p.CompanyType == tp);
             }
-
+            pager.PageSize = SystemSetting.MagageListSize;
             pager.RecordCount = q.Count();
             rp_list.DataSource = q.OrderByDescending(p => p.ID).Skip((pager.CurrentPageIndex - 1) * pager.PageSize).Take(pager.PageSize);
             rp_list.DataBind();

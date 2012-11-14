@@ -83,18 +83,21 @@ namespace Voodoo.Basement
                 user.Enable = g.RegAutoAudit;
 
                 //注册时间间隔
-                user.RegIP = WS.GetIP();
-                var ipusers = //UserView.GetModelList(string.Format("RegIP='{0}'", user.RegIP)).OrderByDescending(p => p.RegTime);
-                    (from l in ent.User where l.RegIP == user.RegIP orderby l.RegTime descending select l).ToList();
-                if (ipusers.Count() > 0)
+                if (setting.EnableRegTimeCheck)
                 {
-                    User _lastUser = ipusers.First();
-
-                    if (_lastUser != null && (DateTime.Now - _lastUser.RegTime.ToDateTime()).TotalMinutes < Convert.ToDouble(setting.RegTimeSpan.ToDecimal()))
+                    user.RegIP = WS.GetIP();
+                    var ipusers = //UserView.GetModelList(string.Format("RegIP='{0}'", user.RegIP)).OrderByDescending(p => p.RegTime);
+                        (from l in ent.User where l.RegIP == user.RegIP orderby l.RegTime descending select l).ToList();
+                    if (ipusers.Count() > 0)
                     {
-                        r.Success = false;
-                        r.Text = "您的注册动作过于频繁，请稍后重试！";
-                        return r;
+                        User _lastUser = ipusers.First();
+
+                        if (_lastUser != null && (DateTime.Now - _lastUser.RegTime.ToDateTime()).TotalMinutes < Convert.ToDouble(setting.RegTimeSpan.ToDecimal()))
+                        {
+                            r.Success = false;
+                            r.Text = "您的注册动作过于频繁，请稍后重试！";
+                            return r;
+                        }
                     }
                 }
                 user.LoginCount = 0;

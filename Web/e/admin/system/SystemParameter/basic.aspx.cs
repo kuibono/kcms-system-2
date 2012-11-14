@@ -48,6 +48,8 @@ namespace Web.e.admin.system.SystemParameter
             txt_Msn.Text = st.Msn;
             txt_Weibo.Text = st.Weibo;
             txt_Renren.Text = st.Renren;
+
+            txt_MagageListSize.Text = st.MagageListSize.ToS();
         }
 
         /// <summary>
@@ -76,6 +78,8 @@ namespace Web.e.admin.system.SystemParameter
             st.Msn = txt_Msn.Text;
             st.Weibo = txt_Weibo.Text;
             st.Renren = txt_Renren.Text;
+
+            st.MagageListSize = txt_MagageListSize.Text.ToInt32(20);
 
             Voodoo.Basement.Setting.SysSettingDAL.SetSetting(st);
             Js.Alert("保存成功！");

@@ -13,10 +13,12 @@ namespace Web.e.admin.Job.Post
 {
     public partial class Edit : AdminBase
     {
+        public static string refer = "List.aspx";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                refer = Request.UrlReferrer.ToS();
                 LoadInfo();
             }
         }
@@ -212,7 +214,7 @@ namespace Web.e.admin.Job.Post
             ent.SaveChanges();
             ent.Dispose();
 
-            Js.AlertAndChangUrl("保存成功！", "List.aspx");
+            Js.AlertAndChangUrl("保存成功！", refer);
         }
 
     }

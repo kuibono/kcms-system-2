@@ -40,6 +40,8 @@ namespace Web.e.admin.system.SystemParameter
             txt_MinPassword.Text = ss.MinPassword.ToString();
             txt_MaxPassword.Text = ss.MaxPassword.ToString();
             chk_EmailCheck.Checked = ss.EmailCheck;
+
+            chk_EnableRegTimeCheck.Checked = ss.EnableRegTimeCheck;
             txt_RegTimeSpan.Text = ss.RegTimeSpan.ToString();
             txt_UserNameFilter.Text = ss.UserNameFilter;
 
@@ -68,6 +70,8 @@ namespace Web.e.admin.system.SystemParameter
             ss.BackLoginErrorSize = txt_BackLoginErrorSize.Text.ToInt32();
             ss.BackLoginErrorTimeSpan = txt_BackLoginErrorTimeSpan.Text.ToInt32();
             ss.BackCookieTimeOut = txt_BackCookieTimeOut.Text.ToInt32();
+
+            ss.EnableRegTimeCheck = chk_EnableRegTimeCheck.Checked;
 
             ss.FileExtNameFilter = "gif,jpg,jpeg,png,bmp";
             ss.MaxPostFileSize = 1024 * 1024;

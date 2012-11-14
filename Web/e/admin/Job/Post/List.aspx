@@ -114,7 +114,7 @@
                                  <%#Eval("EmployNumber")%>
                             </td>
                             <td>
-                                <a href="Edit.aspx?id=<%#Eval("ID") %>">修改</a> 
+                                <a href="Edit.aspx?id=<%#Eval("ID") %>&page=<%=CurrentPage %>">修改</a> 
                                 <a href="?id=<%#Eval("ID") %>&action=del"> 删除</a>
                             </td>
                         </tr>
@@ -132,7 +132,8 @@
                 <tr>
                     <td colspan="12">
                         <vd:AspNetPager ID="pager" runat="server" FirstPageText="首页" LastPageText="尾页" NextPageText="后页"
-                            PrevPageText="前页" AlwaysShow="true" OnPageChanged="pager_PageChanged">
+                            PrevPageText="前页" AlwaysShow="true" OnPageChanged="pager_PageChanged" 
+                            UrlPaging="True" >
                         </vd:AspNetPager>
                     </td>
                 </tr>

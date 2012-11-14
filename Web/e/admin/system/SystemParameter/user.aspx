@@ -80,6 +80,14 @@
             </tr>
             <tr>
                 <td>
+                    允许注册间隔检查
+                </td>
+                <td>
+                     <vd:VCheckBox ID="chk_EnableRegTimeCheck" runat="server" Text="允许" />
+                </td>
+            </tr>
+            <tr>
+                <td>
                     注册时间间隔
                 </td>
                 <td>

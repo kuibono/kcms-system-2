@@ -115,7 +115,7 @@ namespace Web.e.admin.Job.Resume
                 q = q.Where(p => p.UserID == uid);
             }
 
-
+            pager.PageSize = SystemSetting.MagageListSize;
             pager.RecordCount = q.Count();
             rp_list.DataSource = q.OrderByDescending(p => p.ID)
                 .Skip((pager.CurrentPageIndex - 1) * pager.PageSize).Take(pager.PageSize);

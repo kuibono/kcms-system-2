@@ -74,7 +74,7 @@ namespace Web.e.admin.Job.Person
 
 
             pager.RecordCount = q.Count();
-
+            pager.PageSize = SystemSetting.MagageListSize;
             rp_list.DataSource = q.OrderByDescending(p => p.ID).Skip((pager.CurrentPageIndex - 1) * pager.PageSize).Take(pager.PageSize);
             rp_list.DataBind();
             ent.Dispose();
