@@ -132,6 +132,7 @@
     <Content Include="e\admin\Job\Resume\Edit.aspx" />
     <Content Include="e\admin\Job\Resume\List.aspx" />
     <Content Include="e\admin\Login.aspx" />
+    <Content Include="e\admin\Login2.aspx" />
     <Content Include="e\admin\Movie\MovieEdit.aspx" />
     <Content Include="e\admin\Movie\MovieList.aspx" />
     <Content Include="e\admin\Movie\MultiAdd.aspx" />

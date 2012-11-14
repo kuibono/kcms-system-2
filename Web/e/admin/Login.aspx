@@ -75,7 +75,7 @@
                                                     验证码：
                                                     <cc1:vtextbox id="txt_VCode" runat="server" enablevalidate="true" enablenull="false"
                                                         cssclass="input" width="80px" height="30px"></cc1:vtextbox>
-                                                    <img src="/e/admin/tool/safecode.ashx" width="65" height="30" title="看不清？点击更换" alt="看不清？点击更换" onClick="this.src=this.src+'?'">
+                                                    <img src="/e/admin/tool/safecode.ashx" title="看不清？点击更换" alt="看不清？点击更换" onClick="this.src=this.src+'?'">
                                                 </td>
                                             </tr>
                                             <tr>
