@@ -1336,6 +1336,8 @@ namespace Voodoo.Basement
                     item = item.Replace("{salary}", JobAction.GetSalaryDegreeName(q.Salary.ToInt32()));
                     item = item.Replace("{title}", q.Title);
                     item = item.Replace("{ftitle}", custitle.ToInt32() > 0 ? q.Title.CutString(custitle.ToInt32()) : q.Title);
+                    item = item.Replace("{ext1}", q.GetPostEduAndNumber());
+                    item = item.Replace("{postedu}", q.GetPostEdu());
 
                     item = item.Replace("{index}", (i - 1).ToS());
                     sb.Append(item);

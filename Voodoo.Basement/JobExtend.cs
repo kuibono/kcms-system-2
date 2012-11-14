@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Voodoo.Basement.Model;
 
 namespace Voodoo.Basement
 {
@@ -30,6 +31,44 @@ namespace Voodoo.Basement
             {
                 ent.DeleteObject(item);
             }
+        }
+
+        public static string GetPostEduAndNumber(this JobPost post)
+        {
+            StringBuilder sb = new StringBuilder();
+            try
+            {
+                var list = (List<JobPostEduAndEmployeeCount>)Voodoo.IO.XML.DeSerialize(typeof(List<JobPostEduAndEmployeeCount>), post.Ext1);
+                foreach (var j in list.Where(p=>p.Checked==true))
+                {
+                    sb.AppendFormat("{0}:{1}/", j.Text, j.Number);
+                }
+                sb = sb.TrimEnd('/');
+            }
+            catch
+            {
+                sb.Append("未知");
+            }
+            return sb.ToS();
+        }
+
+        public static string GetPostEdu(this JobPost post)
+        {
+            StringBuilder sb = new StringBuilder();
+            try
+            {
+                var list = (List<JobPostEduAndEmployeeCount>)Voodoo.IO.XML.DeSerialize(typeof(List<JobPostEduAndEmployeeCount>), post.Ext1);
+                foreach (var j in list.Where(p => p.Checked == true))
+                {
+                    sb.AppendFormat("{0}/", j.Text);
+                }
+                sb = sb.TrimEnd('/');
+            }
+            catch
+            {
+                sb.Append("未知");
+            }
+            return sb.ToS();
         }
     }
 }

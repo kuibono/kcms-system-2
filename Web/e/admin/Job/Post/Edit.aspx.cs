@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 
 using Voodoo;
 using Voodoo.Basement;
+using Voodoo.Basement.Model;
 
 namespace Web.e.admin.Job.Post
 {
@@ -68,12 +69,29 @@ namespace Web.e.admin.Job.Post
                 ddl_Company.SetValue(companyID.ToS());
             }
 
+            //绑定教育
+            List<JobPostEduAndEmployeeCount> edus = new List<JobPostEduAndEmployeeCount>();
+            foreach (var ed in JobAction.Edu)
+            {
+                edus.Add(new JobPostEduAndEmployeeCount() { Checked = false, key = ed.Key, Number = 0, Text = ed.Value });
+            }
+
+            rp_edu.DataSource = edus;
+            rp_edu.DataBind();
 
             var p = (from l in ent.JobPost where l.ID == id select l).FirstOrDefault();
             if (p == null)
             {
                 return;
             }
+
+            try
+            {
+                List<JobPostEduAndEmployeeCount> existEdus = (List<JobPostEduAndEmployeeCount>)Voodoo.IO.XML.DeSerialize(typeof(List<JobPostEduAndEmployeeCount>), p.Ext1);
+                rp_edu.DataSource = existEdus;
+                rp_edu.DataBind();
+            }
+            catch { }
 
             //ddl_User.SelectedValue=p.u
             ddl_Company.SelectedValue = p.CompanyID.ToS();
@@ -162,6 +180,22 @@ namespace Web.e.admin.Job.Post
             p.PostTime = DateTime.Now;
             p.IsSetTop = chk_Settop.Checked;
             p.SetTopTime = DateTime.Now;
+
+            //绑定教育
+            List<JobPostEduAndEmployeeCount> edus = new List<JobPostEduAndEmployeeCount>();
+            foreach (var ed in JobAction.Edu)
+            {
+                edus.Add(new JobPostEduAndEmployeeCount() { Checked = false, key = ed.Key, Number = 0, Text = ed.Value });
+            }
+            string[] chk = WS.RequestString("chk").Split(',');
+            string[] nums = WS.RequestString("number").Split(',');
+            for (int i = 0; i < chk.Length; i++)
+            {
+                edus[i].Checked = chk[i].ToBoolean();
+                edus[i].Number = nums[i].ToInt32();
+            }
+
+            p.Ext1 = Voodoo.IO.XML.Serialize(edus);
 
             if (p.ID <= 0)
             {

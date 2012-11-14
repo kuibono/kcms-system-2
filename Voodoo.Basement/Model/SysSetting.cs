@@ -149,7 +149,12 @@ namespace Voodoo.Basement
 		/// 
 		/// </summary>
 		public bool EmailCheck{get ; set; }
-		
+
+        /// <summary>
+        /// 允许注册时间间隔检查
+        /// </summary>
+        public bool EnableRegTimeCheck { get; set; }
+
 		/// <summary>
 		/// 
 		/// </summary>

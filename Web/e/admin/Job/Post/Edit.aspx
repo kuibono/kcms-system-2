@@ -1,14 +1,22 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Edit.aspx.cs" Inherits="Web.e.admin.Job.Post.Edit" %>
+
 <%@ Import Namespace="Voodoo" %>
 <%@ Register Assembly="Voodoo" Namespace="Voodoo.UI" TagPrefix="vd" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>职位编辑</title>
     <link rel="stylesheet" type="text/css" href="../../../data/css/management.css" />
     <script type="text/javascript" src="../../../data/script/jquery-1.7.min.js"></script>
     <script type="text/javascript" src="../../../data/script/common.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(":checkbox.c_edu").click(function () {
+                var vl = $(this).prop("checked") == true ? "True" : "False";
+                $(this).parent("td").find(":hidden").val(vl);
+            });
+        })
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -24,13 +32,12 @@
                 </tr>
             </thead>
             <tbody>
-            <tr>
+                <tr>
                     <td width="163">
                         用户
                     </td>
                     <td>
-                        <asp:dropdownlist ID="ddl_User" runat="server" AutoPostBack="True" 
-                            onselectedindexchanged="ddl_User_SelectedIndexChanged"></asp:dropdownlist>
+                        <asp:dropdownlist id="ddl_User" runat="server" autopostback="True" onselectedindexchanged="ddl_User_SelectedIndexChanged"></asp:dropdownlist>
                     </td>
                 </tr>
                 <tr>
@@ -38,7 +45,7 @@
                         公司
                     </td>
                     <td>
-                        <asp:dropdownlist ID="ddl_Company" runat="server"></asp:dropdownlist>
+                        <asp:dropdownlist id="ddl_Company" runat="server"></asp:dropdownlist>
                     </td>
                 </tr>
                 <tr>
@@ -46,7 +53,7 @@
                         标题
                     </td>
                     <td>
-                        <vd:VTextBox ID="txt_Title" runat="server" EnableValidate="true" EnableNull="false"></vd:VTextBox>
+                        <vd:vtextbox id="txt_Title" runat="server" enablevalidate="true" enablenull="false"></vd:vtextbox>
                     </td>
                 </tr>
                 <tr>
@@ -54,9 +61,9 @@
                         地区
                     </td>
                     <td>
-                        <asp:dropdownlist ID="ddl_Province" runat="server" AutoPostBack="True" 
-                            onselectedindexchanged="ddl_Province_SelectedIndexChanged"></asp:dropdownlist>-
-                        <asp:dropdownlist ID="ddl_City" runat="server"></asp:dropdownlist>
+                        <asp:dropdownlist id="ddl_Province" runat="server" autopostback="True" onselectedindexchanged="ddl_Province_SelectedIndexChanged"></asp:dropdownlist>
+                        -
+                        <asp:dropdownlist id="ddl_City" runat="server"></asp:dropdownlist>
                     </td>
                 </tr>
                 <tr>
@@ -64,7 +71,7 @@
                         工资范围
                     </td>
                     <td>
-                        <asp:dropdownlist ID="ddl_Salary" runat="server"></asp:dropdownlist>
+                        <asp:dropdownlist id="ddl_Salary" runat="server"></asp:dropdownlist>
                     </td>
                 </tr>
                 <tr>
@@ -72,25 +79,56 @@
                         经验要求
                     </td>
                     <td>
-                        <asp:dropdownlist ID="ddl_Expressions" runat="server"></asp:dropdownlist>
+                        <asp:dropdownlist id="ddl_Expressions" runat="server"></asp:dropdownlist>
                     </td>
                 </tr>
-                <tr>
+                <tr style="display:none">
                     <td>
                         学历要求
                     </td>
                     <td>
-                        <asp:dropdownlist ID="ddl_Edu" runat="server"></asp:dropdownlist>
+                        <asp:dropdownlist id="ddl_Edu" runat="server"></asp:dropdownlist>
                     </td>
                 </tr>
                 <tr>
                     <td>
+                        学历设置
+                    </td>
+                    <td>
+                        <table class="style1">
+                            <tr>
+                                <td>
+                                    学历
+                                </td>
+                                <td>
+                                    招聘人数
+                                </td>
+                            </tr>
+                            <asp:repeater id="rp_edu" runat="server">
+                            <ItemTemplate>
+                                <tr>
+                                    <td width="50">
+                                        <input class="c_edu" id="c_<%#Eval("key") %>" type="checkbox"  <%#Eval("Checked").ToString().ToLower()=="true"?"checked":"" %> value="<%#Eval("key") %>" />
+                                        <label for="c_<%#Eval("key") %>"><%#Eval("text") %></label>
+
+                                        <input name="chk" type="hidden" value="<%#Eval("Checked")%>" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="number" value="<%#Eval("Number") %>" />
+                                    </td>
+                                </tr>
+                            </ItemTemplate>
+                        </asp:repeater>
+                        </table>
+                    </td>
+                </tr>
+                <tr style="display:none">
+                    <td>
                         招聘人数
                     </td>
                     <td>
-                       <vd:VTextBox ID="txt_EmployNumber" runat="server" EnableValidate="true" 
-                            EnableNull="false" VType="integer"></vd:VTextBox>
-
+                        <vd:vtextbox id="txt_EmployNumber" runat="server" enablevalidate="true" enablenull="false"
+                            vtype="integer"></vd:vtextbox>
                     </td>
                 </tr>
                 <tr>
@@ -98,8 +136,7 @@
                         简介
                     </td>
                     <td>
-                        <vd:VTextBox ID="txt_Intro" runat="server" Height="50px" TextMode="MultiLine" 
-                            Width="300px" ></vd:VTextBox>
+                        <vd:vtextbox id="txt_Intro" runat="server" height="50px" textmode="MultiLine" width="300px"></vd:vtextbox>
                     </td>
                 </tr>
                 <tr>
@@ -107,7 +144,7 @@
                         显示在首页
                     </td>
                     <td>
-                        <asp:CheckBox ID="chk_Settop" runat="server" Text="显示" />
+                        <asp:checkbox id="chk_Settop" runat="server" text="显示" />
                     </td>
                 </tr>
             </tbody>

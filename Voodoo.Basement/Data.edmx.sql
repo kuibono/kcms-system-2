@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 10/11/2012 20:58:00
+-- Date Created: 11/11/2012 20:34:37
 -- Generated from EDMX file: E:\代码\KCMS2\trunk\Voodoo.Basement\Data.edmx
 -- --------------------------------------------------
 
@@ -22,6 +22,30 @@ GO
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[Ad]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Ad];
+GO
+IF OBJECT_ID(N'[dbo].[AdGroup]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AdGroup];
+GO
+IF OBJECT_ID(N'[dbo].[Answer]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Answer];
+GO
+IF OBJECT_ID(N'[dbo].[Area]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Area];
+GO
+IF OBJECT_ID(N'[dbo].[Book]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Book];
+GO
+IF OBJECT_ID(N'[dbo].[BookChapter]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BookChapter];
+GO
+IF OBJECT_ID(N'[dbo].[BookRole]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BookRole];
+GO
+IF OBJECT_ID(N'[dbo].[BookVolume]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BookVolume];
+GO
 IF OBJECT_ID(N'[dbo].[City]', 'U') IS NOT NULL
     DROP TABLE [dbo].[City];
 GO
@@ -33,6 +57,21 @@ IF OBJECT_ID(N'[dbo].[File]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[GroupRole]', 'U') IS NOT NULL
     DROP TABLE [dbo].[GroupRole];
+GO
+IF OBJECT_ID(N'[dbo].[ImageAlbum]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ImageAlbum];
+GO
+IF OBJECT_ID(N'[dbo].[Images]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Images];
+GO
+IF OBJECT_ID(N'[dbo].[Info]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Info];
+GO
+IF OBJECT_ID(N'[dbo].[InfoImage]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[InfoImage];
+GO
+IF OBJECT_ID(N'[dbo].[InfoType]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[InfoType];
 GO
 IF OBJECT_ID(N'[dbo].[JobApplicationRecord]', 'U') IS NOT NULL
     DROP TABLE [dbo].[JobApplicationRecord];
@@ -58,6 +97,9 @@ GO
 IF OBJECT_ID(N'[dbo].[JobResumeExperience]', 'U') IS NOT NULL
     DROP TABLE [dbo].[JobResumeExperience];
 GO
+IF OBJECT_ID(N'[dbo].[JobResumeFile]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[JobResumeFile];
+GO
 IF OBJECT_ID(N'[dbo].[JobResumeInfo]', 'U') IS NOT NULL
     DROP TABLE [dbo].[JobResumeInfo];
 GO
@@ -70,17 +112,59 @@ GO
 IF OBJECT_ID(N'[dbo].[JobType]', 'U') IS NOT NULL
     DROP TABLE [dbo].[JobType];
 GO
+IF OBJECT_ID(N'[dbo].[Link]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Link];
+GO
+IF OBJECT_ID(N'[dbo].[MovieDrama]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[MovieDrama];
+GO
+IF OBJECT_ID(N'[dbo].[MovieDramaUrl]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[MovieDramaUrl];
+GO
+IF OBJECT_ID(N'[dbo].[MovieInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[MovieInfo];
+GO
+IF OBJECT_ID(N'[dbo].[MovieUrl]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[MovieUrl];
+GO
+IF OBJECT_ID(N'[dbo].[MovieUrlBaidu]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[MovieUrlBaidu];
+GO
+IF OBJECT_ID(N'[dbo].[MovieUrlKuaib]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[MovieUrlKuaib];
+GO
+IF OBJECT_ID(N'[dbo].[MovieUrlMag]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[MovieUrlMag];
+GO
 IF OBJECT_ID(N'[dbo].[News]', 'U') IS NOT NULL
     DROP TABLE [dbo].[News];
 GO
 IF OBJECT_ID(N'[dbo].[Province]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Province];
 GO
+IF OBJECT_ID(N'[dbo].[Question]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Question];
+GO
+IF OBJECT_ID(N'[dbo].[Relpy]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Relpy];
+GO
 IF OBJECT_ID(N'[dbo].[SysDepartment]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SysDepartment];
 GO
 IF OBJECT_ID(N'[dbo].[SysGroup]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SysGroup];
+GO
+IF OBJECT_ID(N'[dbo].[SysKeyword]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SysKeyword];
+GO
+IF OBJECT_ID(N'[dbo].[SysModel]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SysModel];
+GO
+IF OBJECT_ID(N'[dbo].[SysNavPanel]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SysNavPanel];
+GO
+IF OBJECT_ID(N'[dbo].[SysNavTree]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SysNavTree];
 GO
 IF OBJECT_ID(N'[dbo].[SysRole]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SysRole];
@@ -99,6 +183,9 @@ IF OBJECT_ID(N'[dbo].[TemplateGroup]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[TemplateList]', 'U') IS NOT NULL
     DROP TABLE [dbo].[TemplateList];
+GO
+IF OBJECT_ID(N'[dbo].[TemplatePage]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[TemplatePage];
 GO
 IF OBJECT_ID(N'[dbo].[TemplatePublic]', 'U') IS NOT NULL
     DROP TABLE [dbo].[TemplatePublic];
@@ -121,8 +208,17 @@ GO
 IF OBJECT_ID(N'[dbo].[UserClassRelation]', 'U') IS NOT NULL
     DROP TABLE [dbo].[UserClassRelation];
 GO
+IF OBJECT_ID(N'[dbo].[UserForm]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[UserForm];
+GO
 IF OBJECT_ID(N'[dbo].[UserGroup]', 'U') IS NOT NULL
     DROP TABLE [dbo].[UserGroup];
+GO
+IF OBJECT_ID(N'[dbo].[UserRerm]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[UserRerm];
+GO
+IF OBJECT_ID(N'[dbo].[ViewHistory]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ViewHistory];
 GO
 IF OBJECT_ID(N'[dbo].[Zt]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Zt];
@@ -600,7 +696,8 @@ CREATE TABLE [dbo].[News] (
     [ClassID] int  NULL,
     [ReplyCount] int  NULL,
     [Source] nvarchar(50)  NULL,
-    [EnableReply] bit  NULL
+    [EnableReply] bit  NULL,
+    [ContentEn] nvarchar(max)  NULL
 );
 GO
 
@@ -743,7 +840,8 @@ CREATE TABLE [dbo].[TemplatePage] (
     [PageName] nvarchar(500)  NULL,
     [FileName] nvarchar(255)  NULL,
     [Content] nvarchar(max)  NULL,
-    [CreateWith] int  NULL
+    [CreateWith] int  NULL,
+    [TempVar] nvarchar(max)  NULL
 );
 GO
 
@@ -804,7 +902,8 @@ CREATE TABLE [dbo].[TemplateVar] (
     [ID] int IDENTITY(1,1) NOT NULL,
     [GroupID] int  NULL,
     [VarName] nvarchar(50)  NULL,
-    [Content] nvarchar(max)  NULL
+    [Content] nvarchar(max)  NULL,
+    [IsPublic] bit  NULL
 );
 GO
 
@@ -919,7 +1018,11 @@ CREATE TABLE [dbo].[JobCompany] (
     [Industry] nvarchar(500)  NULL,
     [CompanyType] int  NULL,
     [EmployeeCount] int  NULL,
-    [Intro] nvarchar(max)  NULL
+    [Intro] nvarchar(max)  NULL,
+    [UserID] int  NULL,
+    [DayClick] int  NULL,
+    [IsSetTop] bit  NULL,
+    [SetTopTime] datetime  NULL
 );
 GO
 
@@ -935,7 +1038,10 @@ CREATE TABLE [dbo].[JobPost] (
     [Expressions] int  NULL,
     [Edu] int  NULL,
     [EmployNumber] int  NULL,
-    [Intro] nvarchar(max)  NULL
+    [Intro] nvarchar(max)  NULL,
+    [Industry] int  NULL,
+    [IsSetTop] bit  NULL,
+    [SetTopTime] datetime  NULL
 );
 GO
 
@@ -999,7 +1105,8 @@ CREATE TABLE [dbo].[JobResumeInfo] (
     [Political] int  NULL,
     [QQ] nvarchar(50)  NULL,
     [MSN] nvarchar(255)  NULL,
-    [Intro] nvarchar(max)  NULL
+    [Intro] nvarchar(max)  NULL,
+    [ChineseName] nvarchar(50)  NULL
 );
 GO
 
@@ -1034,7 +1141,10 @@ CREATE TABLE [dbo].[City] (
     [sz_code] nvarchar(6)  NOT NULL,
     [Rome] nvarchar(50)  NULL,
     [zm_code] nvarchar(50)  NULL,
-    [ProvinceID] int  NULL
+    [ProvinceID] int  NULL,
+    [Hot] bigint  NULL,
+    [ShowInIndex] bit  NULL,
+    [ShowInNav] bit  NULL
 );
 GO
 
@@ -1063,7 +1173,9 @@ GO
 CREATE TABLE [dbo].[JobIndustry] (
     [ID] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(100)  NULL,
-    [ParentID] int  NULL
+    [ParentID] int  NULL,
+    [IsLeaf] bit  NULL,
+    [Hot] int  NULL
 );
 GO
 
@@ -1081,7 +1193,82 @@ CREATE TABLE [dbo].[Province] (
     [province1] nvarchar(30)  NOT NULL,
     [sz_code] nvarchar(6)  NOT NULL,
     [Rome] nvarchar(50)  NULL,
-    [zm_code] nvarchar(50)  NULL
+    [zm_code] nvarchar(50)  NULL,
+    [AreaID] int  NULL,
+    [ShowInIndex] bit  NULL
+);
+GO
+
+-- Creating table 'JobResumeFile'
+CREATE TABLE [dbo].[JobResumeFile] (
+    [ID] bigint IDENTITY(1,1) NOT NULL,
+    [UserID] int  NULL,
+    [ResumeID] bigint  NULL,
+    [FileName] nvarchar(50)  NULL,
+    [FilePath] nvarchar(255)  NULL
+);
+GO
+
+-- Creating table 'SysNavPanel'
+CREATE TABLE [dbo].[SysNavPanel] (
+    [ID] int IDENTITY(1,1) NOT NULL,
+    [Title] nvarchar(50)  NULL,
+    [Icon] nvarchar(255)  NULL,
+    [OrderIndex] int  NULL,
+    [Group] nvarchar(500)  NULL
+);
+GO
+
+-- Creating table 'SysNavTree'
+CREATE TABLE [dbo].[SysNavTree] (
+    [ID] int IDENTITY(1,1) NOT NULL,
+    [ParentID] int  NULL,
+    [PanelID] int  NULL,
+    [Icon] nvarchar(255)  NULL,
+    [OrderIndex] int  NULL,
+    [Url] nvarchar(255)  NULL,
+    [InnerHtml] nvarchar(255)  NULL,
+    [Group] nvarchar(500)  NULL,
+    [Title] nvarchar(50)  NULL
+);
+GO
+
+-- Creating table 'Ad'
+CREATE TABLE [dbo].[Ad] (
+    [ID] bigint IDENTITY(1,1) NOT NULL,
+    [GroupID] int  NULL,
+    [Title] nvarchar(200)  NULL,
+    [Image] nvarchar(255)  NULL,
+    [Url] nvarchar(255)  NULL,
+    [height] int  NULL,
+    [width] int  NULL
+);
+GO
+
+-- Creating table 'AdGroup'
+CREATE TABLE [dbo].[AdGroup] (
+    [ID] int IDENTITY(1,1) NOT NULL,
+    [Name] nvarchar(50)  NULL,
+    [width] int  NULL,
+    [height] int  NULL
+);
+GO
+
+-- Creating table 'Area'
+CREATE TABLE [dbo].[Area] (
+    [ID] int IDENTITY(1,1) NOT NULL,
+    [Name] nvarchar(50)  NULL,
+    [ShowInIndex] bit  NULL
+);
+GO
+
+-- Creating table 'ViewHistory'
+CREATE TABLE [dbo].[ViewHistory] (
+    [ID] bigint IDENTITY(1,1) NOT NULL,
+    [ModelID] int  NULL,
+    [ItemID] bigint  NULL,
+    [UserID] int  NULL,
+    [ViewTime] datetime  NULL
 );
 GO
 
@@ -1446,6 +1633,48 @@ GO
 -- Creating primary key on [ID] in table 'Province'
 ALTER TABLE [dbo].[Province]
 ADD CONSTRAINT [PK_Province]
+    PRIMARY KEY CLUSTERED ([ID] ASC);
+GO
+
+-- Creating primary key on [ID] in table 'JobResumeFile'
+ALTER TABLE [dbo].[JobResumeFile]
+ADD CONSTRAINT [PK_JobResumeFile]
+    PRIMARY KEY CLUSTERED ([ID] ASC);
+GO
+
+-- Creating primary key on [ID] in table 'SysNavPanel'
+ALTER TABLE [dbo].[SysNavPanel]
+ADD CONSTRAINT [PK_SysNavPanel]
+    PRIMARY KEY CLUSTERED ([ID] ASC);
+GO
+
+-- Creating primary key on [ID] in table 'SysNavTree'
+ALTER TABLE [dbo].[SysNavTree]
+ADD CONSTRAINT [PK_SysNavTree]
+    PRIMARY KEY CLUSTERED ([ID] ASC);
+GO
+
+-- Creating primary key on [ID] in table 'Ad'
+ALTER TABLE [dbo].[Ad]
+ADD CONSTRAINT [PK_Ad]
+    PRIMARY KEY CLUSTERED ([ID] ASC);
+GO
+
+-- Creating primary key on [ID] in table 'AdGroup'
+ALTER TABLE [dbo].[AdGroup]
+ADD CONSTRAINT [PK_AdGroup]
+    PRIMARY KEY CLUSTERED ([ID] ASC);
+GO
+
+-- Creating primary key on [ID] in table 'Area'
+ALTER TABLE [dbo].[Area]
+ADD CONSTRAINT [PK_Area]
+    PRIMARY KEY CLUSTERED ([ID] ASC);
+GO
+
+-- Creating primary key on [ID] in table 'ViewHistory'
+ALTER TABLE [dbo].[ViewHistory]
+ADD CONSTRAINT [PK_ViewHistory]
     PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 

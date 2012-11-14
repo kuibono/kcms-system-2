@@ -78,8 +78,8 @@ namespace Web.Dynamic.Job
             City = JobAction.GetCityName(j.City.ToInt32());
             Exp = JobAction.GetExpressionsName(j.Expressions.ToInt32());
             Salary = JobAction.GetSalaryDegreeName(j.Salary.ToInt32());
-            Edu = JobAction.GetEduName(j.Edu.ToInt32());
-            EmpCount = j.EmployNumber == 0 ? "若干" : j.EmployNumber.ToS();
+            Edu = j.GetPostEdu(); //JobAction.GetEduName(j.Edu.ToInt32());
+            EmpCount = j.GetPostEduAndNumber(); //j.EmployNumber == 0 ? "若干" : j.EmployNumber.ToS();
             Intro = j.Intro;
             CompIntro = c.Intro;
 
