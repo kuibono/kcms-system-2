@@ -31,6 +31,7 @@ http://blog.youdao.com/ping/RPC2</PingAddress>
   <MaxPassword>20</MaxPassword>
   <MinPassword>6</MinPassword>
   <EmailCheck>true</EmailCheck>
+  <EnableRegTimeCheck>false</EnableRegTimeCheck>
   <RegTimeSpan>60</RegTimeSpan>
   <UserNameFilter>管理员,admin</UserNameFilter>
   <BackLoginUseVCode>false</BackLoginUseVCode>
@@ -44,7 +45,7 @@ http://blog.youdao.com/ping/RPC2</PingAddress>
   <PostImageSize>0</PostImageSize>
   <EnablePostImage>false</EnablePostImage>
   <FileExtNameFilter>txt,doc,docx,xls,xlsx,ppt,pptx,rar,zip,7z,rtf,gif,jpg,jpeg,png,bmp</FileExtNameFilter>
-  <MagageListSize>15</MagageListSize>
+  <MagageListSize>20</MagageListSize>
   <ContactEmail />
   <QQ />
   <Msn />
