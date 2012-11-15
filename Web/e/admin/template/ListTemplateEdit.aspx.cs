@@ -33,22 +33,34 @@ namespace Web.e.admin.template
             DataEntities ent = new DataEntities();
             TemplateList tl = (from l in ent.TemplateList where l.ID == id select l).FirstOrDefault();
             ent.Dispose();
+            try
+            {
 
-            txt_TempName.Text = tl.TempName;
-            txt_CutKeywords.Text = tl.CutKeywords.ToS();
-            txt_CutTitle.Text = tl.CutTitle.ToS();
-            txt_ShowRecordCount.Text = tl.ShowRecordCount.ToS();
-            txt_TimeFormat.Text = tl.TimeFormat;
-            txt_Content.Text = tl.Content;
-            txt_Listvar.Text = tl.ListVar;
-            ddl_SysModel.SelectedValue = tl.SysModel.ToS();
+                txt_TempName.Text = tl.TempName;
+                txt_CutKeywords.Text = tl.CutKeywords.ToS();
+                txt_CutTitle.Text = tl.CutTitle.ToS();
+                txt_ShowRecordCount.Text = tl.ShowRecordCount.ToS();
+                txt_TimeFormat.Text = tl.TimeFormat;
+                txt_Content.Text = tl.Content;
+                txt_Listvar.Text = tl.ListVar;
+                ddl_SysModel.SelectedValue = tl.SysModel.ToS();
+            }
+            catch { }
         }
 
         protected void btn_Save_Click(object sender, EventArgs e)
         {
             int id = WS.RequestInt("id");
             DataEntities ent = new DataEntities();
-            TemplateList tl = (from l in ent.TemplateList where l.ID == id select l).FirstOrDefault();
+            TemplateList tl ;
+            try
+            {
+                tl = (from l in ent.TemplateList where l.ID == id select l).First();
+            }
+            catch
+            {
+                tl = new TemplateList();
+            }
 
 
             tl.TempName = txt_TempName.Text;

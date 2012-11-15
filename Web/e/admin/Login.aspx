@@ -1,118 +1,187 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Web.e.admin.Login" %>
-
-<%@ Register Assembly="Voodoo" Namespace="Voodoo.UI" TagPrefix="cc1" %>
-<html>
+锘�<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Web.e.admin.Login" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>网站管理系统</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <title>绠＄悊鐧诲綍</title>
+    <link type="text/css" rel="Stylesheet" href="../data/css/reset.css" />
+    <link type="text/css" rel="Stylesheet" href="../data/css/controls.css" />
+    <script type="text/javascript" src="../data/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="../data/script/basic.js"></script>
     <style type="text/css">
-        .text
+        #login
         {
+            width: 300px;
+            position: absolute;
+            top: 0;
+            left: 536px;
+        }
+        #float
+        {
+            top: 50%;
+            height: 196px;
+            width: 838px;
+            margin: -154px 0 0 -418px;
+            position: absolute;
+            left: 50%;
+        }
+        #text
+        {
+            padding: 0;
+            position: absolute;
+            left: 0;
+            width: 470px;
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 22px;
+            color: #EEE;
+            text-align: left;
+            text-shadow: gray 0 1px 2px;
+            filter: Shadow(Color='black', Direction='135', Strength='2')
+        }
+        #text h1
+        {
+            margin-bottom: 3px;
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+        }
+        #bg
+        {
+            position: fixed;
+            width: 200%;
+            height: 200%;
+            left: -50%;
+            background-color: #000;
+        }
+        #bg img
+        {
+            display: block;
+            margin: auto;
+            min-width: 50%;
+            min-height: 50%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        #footer
+        {
+            color: rgba(255, 255, 255, .25);
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
             font-size: 12px;
-            line-height: 18px;
+            color: white;
+            text-align: center;
         }
-        .input
+        #footer ul
         {
-            border-right: #999999 1px solid;
-            border-top: #999999 1px solid;
-            border-left: #999999 1px solid;
-            border-bottom: #999999 1px solid;
-            height: 18px;
-            background-color: #efefef;
+            list-style-type: none;
+            list-style: none;
+            width: 838px;
+            text-align: center;
+            margin: 0 auto;
+            display: inline-block;
         }
-        .style1
+        #footer ul li
         {
-            font-weight: bold;
-            font-size: 12px;
-            color: #666666;
+            list-style: none;
+            margin: 0 6px 0 0;
+            display: inline;
+            float: left;
+            text-shadow: gray 0 1px 2px;
+            filter: Shadow(Color='black', Direction='135', Strength='1',alpha='.25')
         }
-        #btn_Login
+        #footer ul li a
         {
-            background-image:url(/skin/job/img/button-search.gif);
-            border-width:0;
-            width:28px;
-            height:16px;
+            color: #FFF;
+        }
+        #footer ul li a:hover
+        {
+            color: #057ED0;
+        }
+        #sub
+        {
+            color: white;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
+            filter: Shadow(Color='black', Direction='135', Strength='1')
+            background-color: #019AD2;
+            background-repeat: repeat-x;
+            background-image: -khtml-gradient(linear,left top,left bottom,from(#33BCEF),to(#019AD2));
+            background-image: -moz-linear-gradient(#33BCEF,#019AD2);
+            background-image: -ms-linear-gradient(#33BCEF,#019AD2);
+            background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#33BCEF),color-stop(100%,#019AD2));
+            background-image: -webkit-linear-gradient(#33BCEF,#019AD2);
+            background-image: -o-linear-gradient(#33BCEF,#019AD2);
+            background-image: linear-gradient(#33BCEF,#019AD2);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#33bcef',endColorstr='#019ad2',GradientType=0);
+            border-color: #057ED0;
+            -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1);
+            -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1);
         }
     </style>
-    <meta content="MSHTML 6.00.2800.1106" name="GENERATOR">
 </head>
-<body text="#000000" leftmargin="0" topmargin="0" onload="javascript:document.all.code.focus();">
-    <form id="Form1" name="form1" runat="server">
-    <table cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
-        <tbody>
-            <tr>
-                <td align="center" height="470">
-                    <table cellspacing="0" cellpadding="0" width="500" border="0">
-                        <tbody>
-                            <tr>
-                                <td width="230" align="center" valign="middle">
-                                    <img src="/skin/job/img/logo.gif" width="132" height="65"><br>
-                                </td>
-                                <td align="center">
-                                    <table class="text" cellspacing="0" cellpadding="0" width="350" border="0">
-                                        <tbody>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <font class="style1" size="4">第一职网站后台管理系统</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    管理员：
-                                                    <cc1:vtextbox id="txt_UserName" runat="server" enablevalidate="true" enablenull="false"
-                                                        cssclass="input"></cc1:vtextbox>
-                                                </td>
-                                            </tr>
-                                            <tr valign="bottom">
-                                                <td colspan="2">
-                                                    密&nbsp;&nbsp;码：
-                                                    <cc1:vtextbox id="txt_Userpass" runat="server" enablevalidate="true" enablenull="false"
-                                                        textmode="Password" cssclass="input"></cc1:vtextbox>
-                                                </td>
-                                            </tr>
-                                            <tr valign="bottom">
-                                                <td colspan="2" valign="bottom" style="height:30px; vertical-align:bottom; padding:0;">
-                                                    验证码：
-                                                    <cc1:vtextbox id="txt_VCode" runat="server" enablevalidate="true" enablenull="false"
-                                                        cssclass="input" width="80px" height="30px"></cc1:vtextbox>
-                                                    <img src="/e/admin/tool/safecode.ashx" title="看不清？点击更换" alt="看不清？点击更换" onClick="this.src=this.src+'?'">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td width="345" height="3">
-                                                </td>
-                                                <td width="102" rowspan="2">
-                                                    &nbsp;
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td width="345">
-                                                    <asp:Button ID="btn_Login" runat="server" class="login_btn" Text="" OnClick="btn_Login_Click" CssClass="submit" />
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-                                    <hr size="1" noshade>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" align="right" class="text">
-                                    <font color="#666666"><b>技术支持</b>：南京光芒科技有限公司 nj-gm.com, All rights reserveds.<br>
-                                        <b>公司地址</b>：南京市白下路7－11号新万里广场601室(210001)
-                                        <br>
-                                        <b>总机</b>：025-84653096 84653090 传真：025-84518060转18 免费热线：4000251180<br>
-                                    </font>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<body>
+    <div id="bg">
+        <img src="?action=img" />
+    </div>
+    <div id="float">
+        <div id="text">
+            <h1>
+                Welcome to our System</h1>
+            <p>
+                People always say technology change life.<br />
+                But who changes technologies?<br />
+                Absolutely, it is me ;)
+            </p>
+        </div>
+        <form method="post">
+        <div class="panel" id="login">
+            <h2>
+                Administrator Login</h2>
+            <div class="textrow">
+                <input type="text" name="txt_UserName" class="textbox" id="t1" />
+                <label class="placeholder" for="t1">
+                    Enter your username/email</label>
+            </div>
+            <div class="textrow">
+                <input type="password" name="txt_Userpass" class="textbox" id="Text1" />
+                <label class="placeholder" for="Text1">
+                    Enter your password</label>
+            </div>
+            <div class="textrow">
+                <table>
+                    <tr>
+                        <td style="width: 220px;">
+                            <input type="text" name="txt_VCode" class="textbox" id="Text2" />
+                            <label class="placeholder" for="Text2">
+                                Enter Characters on the right</label>
+                        </td>
+                        <td>
+                            <img title="鐐瑰嚮鍒锋柊楠岃瘉鐮�" alt="鐐瑰嚮鍒锋柊楠岃瘉鐮�" src="/e/admin/tool/safecode.ashx" onclick="this.src=this.src+'?'+Math.random()" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="textrow">
+                <button type="submit" class="btn" id="sub" onclick="loading('姝ｅ湪楠岃瘉锛岃绋嶅��...')">
+                    Login</button>
+            </div>
+        </div>
+        </form>
+    </div>
+    <div id="footer">
+        <ul>
+            <li><a href="/">Index</a></li>
+            <li><a href="/">Website</a></li>
+            <li><a href="/">Blogs</a></li>
+            <li><a href="/">Twitter</a></li>
+            <li><a href="/">FaceBook</a></li>
+            <li>Copyright &copy; kuibono 2012</li>
+        </ul>
+    </div>
+    
 </body>
-</form></html>
+</html>

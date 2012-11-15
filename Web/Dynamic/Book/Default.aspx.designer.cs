@@ -7,9 +7,9 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.e.admin {
+namespace Web.Dynamic.Book {
     
     
-    public partial class Login {
+    public partial class Default {
     }
 }

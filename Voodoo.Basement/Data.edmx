@@ -972,6 +972,12 @@
           <Property Name="KuaiboPage" Type="nvarchar(max)" />
           <Property Name="BaiduPage" Type="nvarchar(max)" />
           <Property Name="SingleDrama" Type="nvarchar(max)" />
+          <Property Name="BookIndex" Type="nvarchar(max)" />
+          <Property Name="NewIndex" Type="nvarchar(max)" />
+          <Property Name="ImageIndex" Type="nvarchar(max)" />
+          <Property Name="QuestionIndex" Type="nvarchar(max)" />
+          <Property Name="JobIndex" Type="nvarchar(max)" />
+          <Property Name="MovieIndex" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="TemplateReply">
           <Key>
@@ -2100,6 +2106,12 @@
           <Property Type="String" Name="KuaiboPage" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="BaiduPage" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="SingleDrama" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BookIndex" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NewIndex" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ImageIndex" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="QuestionIndex" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="JobIndex" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MovieIndex" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="TemplateReply">
           <Key>
@@ -3190,6 +3202,12 @@
           <EntitySetMapping Name="TemplatePublic">
             <EntityTypeMapping TypeName="DataModel.TemplatePublic">
               <MappingFragment StoreEntitySet="TemplatePublic">
+                <ScalarProperty Name="MovieIndex" ColumnName="MovieIndex" />
+                <ScalarProperty Name="JobIndex" ColumnName="JobIndex" />
+                <ScalarProperty Name="QuestionIndex" ColumnName="QuestionIndex" />
+                <ScalarProperty Name="ImageIndex" ColumnName="ImageIndex" />
+                <ScalarProperty Name="NewIndex" ColumnName="NewIndex" />
+                <ScalarProperty Name="BookIndex" ColumnName="BookIndex" />
                 <ScalarProperty Name="SingleDrama" ColumnName="SingleDrama" />
                 <ScalarProperty Name="BaiduPage" ColumnName="BaiduPage" />
                 <ScalarProperty Name="KuaiboPage" ColumnName="KuaiboPage" />

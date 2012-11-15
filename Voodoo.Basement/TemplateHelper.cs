@@ -246,15 +246,21 @@ namespace Voodoo.Basement
 
 
         #region 首页
+
+        public string GetIndex()
+        {
+            return GetIndex(TempType.首页);
+        }
+
         /// <summary>
         /// 首页
         /// </summary>
         /// <returns></returns>
-        public string GetIndex()
+        public string GetIndex(TempType type)
         {
             SysSetting setting = BasePage.SystemSetting;
             string Content = "";
-            Content = GetTempateString(1, TempType.首页);
+            Content = GetTempateString(1, type);
 
             //替换三层公共模版变量
             Content = ReplacePublicTemplate(Content);
@@ -1674,7 +1680,13 @@ namespace Voodoo.Basement
             小说章节,
             快播页面,
             百度影音页面,
-            单集列表页面
+            单集列表页面,
+            小说首页,
+            新闻首页,
+            图片首页,
+            问答首页,
+            人才首页,
+            影视首页
         }
         #endregion
 
@@ -1794,6 +1806,24 @@ namespace Voodoo.Basement
                         break;
                     case TempType.单集列表页面:
                         return tp.SingleDrama;
+                        break;
+                    case TempType.小说首页:
+                        return tp.BookIndex;
+                        break;
+                    case TempType.新闻首页:
+                        return tp.NewIndex;
+                        break;
+                    case TempType.图片首页:
+                        return tp.ImageIndex;
+                        break;
+                    case TempType.问答首页:
+                        return tp.QuestionIndex;
+                        break;
+                    case TempType.人才首页:
+                        return tp.JobIndex;
+                        break;
+                    case TempType.影视首页:
+                        return tp.MovieIndex;
                         break;
                     default:
                         return "";

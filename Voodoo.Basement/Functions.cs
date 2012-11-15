@@ -298,7 +298,7 @@ namespace Voodoo.Basement
             DataEntities ent = new DataEntities();
 
             List<Class> cls = //ClassView.GetModelList(m_where);
-                ent.CreateQuery<Class>(string.Format("select * from Class where {0}", m_where)).ToList();
+                ent.CreateQuery<Class>(string.Format("select VALUE t from Class as t where {0}", m_where)).ToList();
             StringBuilder sb = new StringBuilder();
             foreach (Class c in cls)
             {
@@ -323,7 +323,7 @@ namespace Voodoo.Basement
         {
             DataEntities ent = new DataEntities();
 
-            List<Class> cls = ent.CreateQuery<Class>(string.Format("select * from Class where {0}", m_where)).ToList();
+            List<Class> cls = ent.CreateQuery<Class>(string.Format("select VALUE t from Class as t where {0}", m_where)).ToList();
             StringBuilder sb = new StringBuilder();
             foreach (Class c in cls)
             {

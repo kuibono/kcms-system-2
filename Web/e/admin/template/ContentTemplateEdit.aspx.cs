@@ -33,18 +33,30 @@ namespace Web.e.admin.template
 
             int id = WS.RequestInt("id");
             TemplateContent tl = (from l in ent.TemplateContent where l.ID == id select l).FirstOrDefault();
-            txt_TempName.Text = tl.TempName;
-            txt_TimeFormat.Text = tl.TimeFormat;
-            txt_Content.Text = tl.Content;
-            ddl_SysModel.SelectedValue = tl.SysModel.ToS();
-            ent.Dispose();
+            try
+            {
+                txt_TempName.Text = tl.TempName;
+                txt_TimeFormat.Text = tl.TimeFormat;
+                txt_Content.Text = tl.Content;
+                ddl_SysModel.SelectedValue = tl.SysModel.ToS();
+                ent.Dispose();
+            }
+            catch { }
         }
 
         protected void btn_Save_Click(object sender, EventArgs e)
         {
             DataEntities ent = new DataEntities();
             int id = WS.RequestInt("id");
-            TemplateContent tl = (from l in ent.TemplateContent where l.ID == id select l).FirstOrDefault();
+            TemplateContent tl;
+            try
+            {
+                tl = (from l in ent.TemplateContent where l.ID == id select l).First();
+            }
+            catch
+            {
+                tl = new TemplateContent();
+            }
 
             tl.TempName = txt_TempName.Text; ;
             tl.TimeFormat = txt_TimeFormat.Text;

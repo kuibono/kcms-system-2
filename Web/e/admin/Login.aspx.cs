@@ -12,28 +12,43 @@ namespace Web.e.admin
 {
     public partial class Login : System.Web.UI.Page
     {
+        private static string refer = "/e/admin/";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (System.Web.HttpContext.Current.Session["sys_user"] != null)
             {
                 Response.Redirect("~/e/admin/");
             }
+
+            string username = WS.RequestString("txt_UserName");
+            string password = WS.RequestString("txt_Userpass");
+            string vcode = WS.RequestString("txt_VCode");
+            if (username.IsNullOrEmpty() == false)
+            {
+                ClientLogin(username, password, vcode);
+            }
+            else
+            {
+                refer = Request.UrlReferrer.ToS();
+            }
+
+            if (WS.RequestString("action") == "img")
+            {
+                RandomSlide();
+            }
+
         }
 
-
-        protected void btn_Login_Click(object sender, EventArgs e)
+        protected void ClientLogin(string userName, string userPass, string vCode)
         {
-            string userName = txt_UserName.Text.TrimDbDangerousChar();
-            string userPass = txt_Userpass.Text.TrimDbDangerousChar();
-            string vCode = txt_VCode.Text.TrimDbDangerousChar();
-
             if (vCode.ToLower() != Session["SafeCode"].ToS())
             {
                 Js.AlertAndGoback("验证码错误！");
                 return;
             }
 
-            Result r=SysUserAction.UserLogin(userName, userPass, "", "");
+            Result r = SysUserAction.UserLogin(userName, userPass, "", "");
             if (r.Success)
             {
                 Response.Redirect("~/e/admin/");
@@ -44,5 +59,14 @@ namespace Web.e.admin
                 Js.AlertAndGoback(r.Text);
             }
         }
+
+        protected void RandomSlide()
+        {
+            int index = @int.GetRandomNumber(1, 7);
+            string src = string.Format("../data/bgimage/{0}.jpg", index);
+            Response.Redirect(src);
+        }
+
+        
     }
 }
