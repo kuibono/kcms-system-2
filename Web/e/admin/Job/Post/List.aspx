@@ -63,13 +63,10 @@
                         发布时间
                     </th>
                     <th>
-                        经验
+                        类型
                     </th>
                     <th>
                         学历
-                    </th>
-                    <th>
-                        招聘数量
                     </th>
                     <th>
                         管理
@@ -105,13 +102,10 @@
                                  <%#Eval("PostTime")%>
                             </td>
                             <td>
-                                 <%#JobAction.GetExpressionsName(Eval("Expressions").ToInt32())%>
+                                <%#JobAction.GetExpressionsName(Eval("Expressions").ToInt32())%>
                             </td>
                             <td>
-                                 <%#JobAction.GetEduName(Eval("Edu").ToInt32())%>
-                            </td>
-                            <td>
-                                 <%#Eval("EmployNumber")%>
+                                <%#JobExtend.GetPostEduString(Eval("Ext1").ToString())%>
                             </td>
                             <td>
                                 <a href="Edit.aspx?id=<%#Eval("ID") %>&page=<%=CurrentPage %>">修改</a> 

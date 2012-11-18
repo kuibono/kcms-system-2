@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.IO;
 using System.Linq;
 using System.Text;
-using Voodoo.Data;
-using System.Web;
-using System.Web.UI.WebControls;
 using System.Text.RegularExpressions;
-
-using Voodoo.IO;
-using System.IO;
-using CookComputing.XmlRpc;
-using System.Web.Routing;
+using System.Web;
 using System.Web.Compilation;
+using System.Web.Routing;
+using System.Web.UI.WebControls;
+using CookComputing.XmlRpc;
+using Voodoo.Basement.UrlConverter;
+using Voodoo.Data;
+using Voodoo.IO;
 
 namespace Voodoo.Basement
 {
@@ -59,6 +59,25 @@ namespace Voodoo.Basement
 
     public class BasePage : System.Web.UI.Page, IRoutablePage
     {
+        #region 获取Url转换器
+        /// <summary>
+        /// 获取Url转换器
+        /// </summary>
+        /// <returns></returns>
+        private static IConverter GetConverter()
+        {
+            if (SystemSetting.EnableStatic)
+            {
+                return new StaticConvertor();
+            }
+            else
+            {
+                return new DynamicConverter();
+            }
+        }
+        #endregion
+
+
         #region 路由功能
         public RequestContext RequestContext { get; set; }
 
@@ -255,48 +274,7 @@ namespace Voodoo.Basement
         /// <returns></returns>
         public static string GetNewsUrl(News news, Class cls)
         {
-
-            string result = "";
-            if (news.NavUrl.Length > 0) //如果是外部链接
-            {
-                result = news.NavUrl;
-            }
-            else
-            {
-                //网站地址 栏目父目录 栏目目录 文件目录 文件名 扩展名
-
-                string fileName = news.FileName;
-                if (news.FileName.IsNullOrEmpty())
-                {
-                    fileName = news.ID.ToString();//此处需要修改
-                }
-
-                string sitrurl = "/";
-
-                string parentForder = cls.ClassForder;
-                if (!parentForder.IsNullOrEmpty())
-                {
-                    parentForder += "/";
-                }
-                string newsFolder = news.FileForder;
-                if (!newsFolder.IsNullOrEmpty())
-                {
-                    newsFolder += "/";
-                }
-
-                result = string.Format("{0}{1}{2}/{3}{4}{5}",
-                    sitrurl,
-                    cls.ParentClassForder.IsNullOrEmpty() ? "" : cls.ParentClassForder + "/",
-                    cls.ClassForder,
-                    newsFolder,
-                    fileName,
-                    BasePage.SystemSetting.ExtName
-                    );
-                result = Regex.Replace(result, "[/]{2,}", "/");
-            }
-
-
-            return result;
+            return GetConverter().GetNewsUrl(news, cls);
         }
         #endregion
 
@@ -309,33 +287,7 @@ namespace Voodoo.Basement
         /// <returns></returns>
         public static string GetImageUrl(ImageAlbum img, Class cls)
         {
-            string result = "";
-            string fileName = img.ID.ToString();
-
-
-            string sitrurl = "/";
-
-            string parentForder = cls.ClassForder;
-            if (!parentForder.IsNullOrEmpty())
-            {
-                parentForder += "/";
-            }
-            string newsFolder = img.Folder;
-            if (newsFolder.IsNullOrEmpty())
-            {
-                newsFolder = "/";
-            }
-
-            result = string.Format("{0}{1}{2}/{3}/{4}{5}",
-                sitrurl,
-                cls.ParentClassForder.IsNullOrEmpty() ? "" : cls.ParentClassForder + "/",
-                cls.ClassForder,
-                newsFolder,
-                fileName,
-                BasePage.SystemSetting.ExtName
-                );
-            result = Regex.Replace(result, "[/]{2,}", "/");
-            return result;
+            return GetConverter().GetImageUrl(img, cls);
         }
         #endregion
 
@@ -348,28 +300,7 @@ namespace Voodoo.Basement
         /// <returns></returns>
         public static string GetQuestionUrl(Question qs, Class cls)
         {
-            string result = "";
-            string fileName = qs.ID.ToString();
-
-
-            string sitrurl = "/";
-
-            string parentForder = cls.ClassForder;
-            if (!parentForder.IsNullOrEmpty())
-            {
-                parentForder += "/";
-            }
-
-
-            result = string.Format("{0}{1}{2}/{3}{4}",
-                sitrurl,
-                cls.ParentClassForder.IsNullOrEmpty() ? "" : cls.ParentClassForder + "/",
-                cls.ClassForder,
-                fileName,
-                BasePage.SystemSetting.ExtName
-                );
-            result = Regex.Replace(result, "[/]{2,}", "/");
-            return result;
+            return GetConverter().GetQuestionUrl(qs, cls);
         }
         #endregion
 
@@ -382,28 +313,7 @@ namespace Voodoo.Basement
         /// <returns></returns>
         public static string GetBookUrl(Book b, Class cls)
         {
-            string result = "";
-            string fileName = b.Title + "-" + b.Author;//书名+作者
-
-
-            string sitrurl = "/Book/";
-
-            //string parentForder = cls.ClassForder;
-            //if (!parentForder.IsNullOrEmpty())
-            //{
-            //    parentForder += "/";
-            //}
-
-
-            result = string.Format("{0}{1}/{2}/index{3}",
-                sitrurl,
-                //cls.ParentClassForder.IsNullOrEmpty() ? "" : cls.ParentClassForder + "/",
-                cls.ClassForder,
-                fileName,
-                BasePage.SystemSetting.ExtName
-                );
-            result = Regex.Replace(result, "[/]{2,}", "/");
-            return result;
+            return GetConverter().GetBookUrl(b, cls);
         }
         #endregion
 
@@ -416,25 +326,7 @@ namespace Voodoo.Basement
         /// <returns></returns>
         public static string GetBookChapterUrl(BookChapter cp, Class cls)
         {
-            DataEntities ent = new DataEntities();
-
-            string result = "";
-            string fileName = cp.ID.ToString();
-
-            Book b = (from l in ent.Book where l.ID == cp.BookID select l).FirstOrDefault();
-
-
-            string sitrurl = "/Book/";
-
-            result = string.Format("{0}{1}/{2}/{3}{4}",
-                sitrurl,
-                cls.ClassForder,
-                 b.Title + "-" + b.Author,
-                cp.ID,
-                BasePage.SystemSetting.ExtName
-                );
-            result = Regex.Replace(result, "[/]{2,}", "/");
-            return result;
+            return GetConverter().GetBookChapterUrl(cp, cls);
         }
 
         /// <summary>
@@ -445,25 +337,7 @@ namespace Voodoo.Basement
         /// <returns></returns>
         public static string GetBookChapterTxtUrl(BookChapter cp, Class cls)
         {
-            using (DataEntities ent = new DataEntities())
-            {
-                string result = "";
-                string fileName = cp.ID.ToString();
-
-                Book b = (from l in ent.Book where l.ID == cp.BookID select l).FirstOrDefault();
-                string sitrurl = "/Txt/";
-
-                result = string.Format("{0}{1}{2}/{3}/{4}{5}",
-                    sitrurl,
-                    cls.ParentClassForder.IsNullOrEmpty() ? "" : cls.ParentClassForder + "/",
-                    cls.ClassForder,
-                     b.Title + "-" + b.Author,
-                    cp.ID,
-                    ".txt"
-                    );
-                result = Regex.Replace(result, "[/]{2,}", "/");
-                return result;
-            }
+            return GetConverter().GetBookChapterTxtUrl(cp, cls);
         }
         #endregion
 
@@ -476,28 +350,7 @@ namespace Voodoo.Basement
         /// <returns></returns>
         public static string GetMovieUrl(MovieInfo b, Class cls)
         {
-            string result = "";
-            string fileName = TitleFilter(b.Title);
-
-
-            string sitrurl = "/Movie/";
-
-
-            result = string.Format("{0}{1}/{2}/index{3}",
-                sitrurl,
-                cls.ClassForder,
-                fileName,
-                BasePage.SystemSetting.ExtName
-                );
-
-            result = Regex.Replace(result, "[/]{2,}", "/");
-            result = result.Replace(":", "_");
-            result = result.Replace(">", "");
-            result = result.Replace("<", "");
-            result = result.Replace("*", "");
-            result = result.Replace("?", "");
-            result = result.Replace("|", "_");
-            return result;
+            return GetConverter().GetMovieUrl(b, cls);
         }
         #endregion
 
@@ -521,94 +374,17 @@ namespace Voodoo.Basement
         /// <returns></returns>
         public static string GetMovieDramaUrl(MovieUrlBaidu b, Class cls)
         {
-            if (b == null)
-            {
-                return "";
-            }
-            string result = "";
-
-
-            string sitrurl = "/Movie/";
-
-
-            result = string.Format("{0}{1}/{2}/Baidu/{3}{4}",
-                sitrurl,
-                cls.ClassForder,
-                TitleFilter(b.MovieTitle),
-                b.id,
-                BasePage.SystemSetting.ExtName
-                );
-            result = Regex.Replace(result, "[/]{2,}", "/");
-            result = result.Replace(":", "_");
-            result = result.Replace(">", "");
-            result = result.Replace("<", "");
-            result = result.Replace("*", "");
-            result = result.Replace("?", "");
-            result = result.Replace("|", "_");
-            return result;
+            return GetConverter().GetMovieDramaUrl(b, cls);
         }
 
         public static string GetMovieDramaUrl(MovieUrlKuaib b, Class cls)
         {
-            if (b == null)
-            {
-                return "";
-            }
-            using (DataEntities ent = new DataEntities())
-            {
-                MovieInfo movie = (from l in ent.MovieInfo where l.id == b.MovieID select l).FirstOrDefault();
-
-                string result = "";
-
-
-                string sitrurl = "/Movie/";
-
-
-                result = string.Format("{0}{1}/{2}/Kuaib/{3}{4}",
-                    sitrurl,
-                    cls.ClassForder,
-                    TitleFilter(movie.Title.Replace("/", "_")),
-                    b.id,
-                    BasePage.SystemSetting.ExtName
-                    );
-                result = Regex.Replace(result, "[/]{2,}", "/");
-                result = result.Replace(":", "_");
-                result = result.Replace(">", "");
-                result = result.Replace("<", "");
-                result = result.Replace("*", "");
-                result = result.Replace("?", "");
-                result = result.Replace("|", "_");
-                return result;
-            }
+            return GetConverter().GetMovieDramaUrl(b, cls);
         }
 
         public static string GetMovieDramaUrl(MovieDrama b, Class cls)
         {
-            if (b == null)
-            {
-                return "";
-            }
-            string result = "";
-
-
-            string sitrurl = "/Movie/";
-
-
-            result = string.Format("{0}{1}/{2}/urls/{3}{4}",
-                sitrurl,
-                cls.ClassForder,
-                TitleFilter(b.MovieTitle),
-                b.id,
-                BasePage.SystemSetting.ExtName
-                );
-            result = Regex.Replace(result, "[/]{2,}", "/");
-            result = result.Replace(":", "_");
-            result = result.Replace(">", "");
-            result = result.Replace("<", "");
-            result = result.Replace("*", "");
-            result = result.Replace("?", "");
-            result = result.Replace("|", "_");
-            return result;
+            return GetConverter().GetMovieDramaUrl(b, cls);
         }
 
         #endregion
@@ -623,19 +399,7 @@ namespace Voodoo.Basement
         public static string GetClassUrl(Class cls)
         {
 
-            string sitrurl = BasePage.SystemSetting.ClassFolder;
-            if (sitrurl.IsNullOrEmpty())
-            {
-                sitrurl = "/Book";
-            }
-            string result = string.Format("{0}/{1}/index{2}",
-                sitrurl,
-                cls.ClassForder,
-                SystemSetting.ExtName
-                );
-
-            result = Regex.Replace(result, "[/]{2,}", "/");
-            return result;
+            return GetConverter().GetClassUrl(cls);
         }
 
         /// <summary>
@@ -646,17 +410,7 @@ namespace Voodoo.Basement
         /// <returns></returns>
         public static string GetClassUrl(Class cls, int page)
         {
-
-            string sitrurl = BasePage.SystemSetting.ClassFolder;
-            if (sitrurl.IsNullOrEmpty())
-            {
-                sitrurl = "/Book";
-            }
-            return string.Format("{0}/{1}/index{2}",
-                sitrurl,
-                cls.ClassForder,
-                page > 1 ? "_" + page.ToS() + SystemSetting.ExtName : SystemSetting.ExtName
-                );
+            return GetConverter().GetClassUrl(cls,page);
         }
         #endregion
 
@@ -1175,6 +929,7 @@ namespace Voodoo.Basement
                     k.ClickCount++;
 
                 }
+                ks.FirstOrDefault().ClearListCache();
                 ent.SaveChanges();
             }
         }

@@ -152,9 +152,7 @@ namespace Voodoo.Basement
             {
                 Dictionary<int, string> result = new Dictionary<int, string>();
                 result.Add(0, "应届");
-                result.Add(1, "大一");
-                result.Add(2, "大二");
-                result.Add(3, "大三");
+                result.Add(1, "实习");
                 return result;
             }
         }
@@ -542,6 +540,32 @@ namespace Voodoo.Basement
             }
         }
         #endregion
+
+        /// <summary>
+        /// 根据名称获取专业
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public static long GetEduSpecialtyByName(string name)
+        {
+            using (DataEntities ent = new DataEntities())
+            {
+                var q = from l in ent.JobEduSpecialty where l.Name == name select l;
+                if (q.Count() > 0)
+                {
+                    return q.First().ID;
+                }
+                else
+                {
+                    JobEduSpecialty j = new JobEduSpecialty();
+                    j.Name = name;
+                    j.ParentID = 0;
+                    ent.AddToJobEduSpecialty(j);
+                    ent.SaveChanges();
+                    return j.ID;
+                }
+            }
+        }
 
         public static string TopHtml
         {

@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Reflection;
 using Voodoo;
 using Voodoo.Basement;
+using System.Data;
 namespace Web.e
 {
     public partial class Test : BasePage
@@ -15,8 +16,13 @@ namespace Web.e
         {
             using (DataEntities ent = new DataEntities())
             {
-                var xx = from l in ent.JobCompany select l;
-                Response.Write(xx.GetType());
+                string key="";
+               var xx=from l in ent.Book
+                where 
+                    (l.Title.Contains(key) || l.Author.Contains(key) || l.Intro.Contains(key))
+                orderby l.ID descending
+                select l;
+
             }
 
         }
@@ -45,6 +51,9 @@ namespace Web.e
             //Voodoo.Html.Class.ClassPage cp = new Voodoo.Html.Class.ClassPage();
             //string path = cp.GetHtml(cls);
             //Response.Write(path);
+            DataTable dt = new DataTable();
+            
+            
 
         }
     }

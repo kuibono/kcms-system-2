@@ -42,7 +42,7 @@ namespace Web.e.admin
 
         protected void ClientLogin(string userName, string userPass, string vCode)
         {
-            if (vCode.ToLower() != Session["SafeCode"].ToS())
+            if (vCode.ToLower() != Session["SafeCode"].ToS().ToLower())
             {
                 Js.AlertAndGoback("验证码错误！");
                 return;

@@ -84,6 +84,7 @@ namespace Web.e.admin.Job.Post
             var p = (from l in ent.JobPost where l.ID == id select l).FirstOrDefault();
             if (p == null)
             {
+                txt_ExpireTime.Text = DateTime.Now.AddMonths(1).ToString("yyyy-MM-dd HH:mm:ss");
                 return;
             }
 
@@ -106,6 +107,7 @@ namespace Web.e.admin.Job.Post
             txt_EmployNumber.Text = p.EmployNumber.ToS();
             txt_Intro.Text = p.Intro;
             chk_Settop.Checked = p.IsSetTop.ToBoolean();
+            txt_ExpireTime.Text = p.ExpireTime.ToDateTime(DateTime.Now.AddMonths(1)).ToString("yyyy-MM-dd HH:mm:ss");
 
             ent.Dispose();
         }
@@ -182,6 +184,7 @@ namespace Web.e.admin.Job.Post
             p.PostTime = DateTime.Now;
             p.IsSetTop = chk_Settop.Checked;
             p.SetTopTime = DateTime.Now;
+            p.ExpireTime = txt_ExpireTime.Text.ToDateTime();
 
             //绑定教育
             List<JobPostEduAndEmployeeCount> edus = new List<JobPostEduAndEmployeeCount>();

@@ -52,6 +52,29 @@ namespace Voodoo.Basement
             return sb.ToS();
         }
 
+        public static string GetPostEduString(this string Ext1)
+        {
+            StringBuilder sb = new StringBuilder();
+            try
+            {
+                var list = (List<JobPostEduAndEmployeeCount>)Voodoo.IO.XML.DeSerialize(typeof(List<JobPostEduAndEmployeeCount>), Ext1);
+                foreach (var j in list.Where(p => p.Checked == true))
+                {
+                    sb.AppendFormat("{0}/", j.Text);
+                }
+                sb = sb.TrimEnd('/');
+                if (sb.Length == 0)
+                {
+                    sb.Append("未知");
+                }
+            }
+            catch
+            {
+                sb.Append("未知");
+            }
+            return sb.ToS();
+        }
+
         public static string GetPostEdu(this JobPost post)
         {
             StringBuilder sb = new StringBuilder();

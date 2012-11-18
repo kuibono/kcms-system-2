@@ -107,7 +107,7 @@ namespace Web.e.admin.Job.Post
                         l.Province == p.ID &&
                         l.CompanyID == com.ID
                     select
-                new {l.CompanyID, l.Title,l.Province,l.City,l.Salary,l.Expressions,l.Edu,l.ID,l.PostTime,l.EmployNumber, p.province1, c.city1, com.CompanyName,index=0 };
+                new {l.CompanyID, l.Title,l.Province,l.City,l.Salary,l.Expressions,l.Edu,l.ID,l.PostTime,l.EmployNumber, p.province1, c.city1, com.CompanyName,l.Ext1,index=0 };
 
             if (txt_Key.Text.Length > 0)
             {

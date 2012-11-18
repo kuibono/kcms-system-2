@@ -121,6 +121,15 @@ namespace Web.e.admin.Job.Post {
         protected global::Voodoo.UI.VTextBox txt_Intro;
         
         /// <summary>
+        /// txt_ExpireTime 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::Voodoo.UI.VTextBox txt_ExpireTime;
+        
+        /// <summary>
         /// chk_Settop 控件。
         /// </summary>
         /// <remarks>

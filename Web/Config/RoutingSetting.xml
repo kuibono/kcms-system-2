@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StorageSetting xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <NewsClass>null</NewsClass>
+  <NewsPage>null</NewsPage>
+  <ImageClass>null</ImageClass>
+  <ImagePage>null</ImagePage>
+  <QuestionClass>null</QuestionClass>
+  <QuestionPage>null</QuestionPage>
+  <BookClass>/Book/{classname}</BookClass>
+  <BookInfo>/Book/{classname}/{title}-{author}/index.htm</BookInfo>
+  <BookChapter>/Book/{classname}/{booktitle}-{author}/{id}.htm</BookChapter>
+  <BookChapterTxt>/Txt/{classname}/{booktitle}-{author}/{id}.txt</BookChapterTxt>
+  <JobClass>null</JobClass>
+  <JobPost>null</JobPost>
+  <JobCompany>null</JobCompany>
+  <MovieClass>null</MovieClass>
+  <MovieInfo>null</MovieInfo>
+  <MovieBaiduPlay>null</MovieBaiduPlay>
+  <MovieKuaibPlay>null</MovieKuaibPlay>
+  <MovieDramaPlay>null</MovieDramaPlay>
+</StorageSetting>

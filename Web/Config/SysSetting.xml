@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <SysSetting xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <DefaultModel>0</DefaultModel>
-  <ShowMenuMessage>false</ShowMenuMessage>
+  <DefaultModel>4</DefaultModel>
+  <EnableStatic>false</EnableStatic>
+  <ShowMenuMessage>true</ShowMenuMessage>
   <SiteUrl>http://www.aizr.net/</SiteUrl>
   <SiteOpen>true</SiteOpen>
   <KeyWords>三摩地,创意设计,商业包装</KeyWords>
@@ -16,7 +17,7 @@ IMC、环保艺术与新科技的结合</Description>
   <FileDirString>/u/file/</FileDirString>
   <ExtName>.htm</ExtName>
   <SiteCloseMsg>系统维护中，请稍后访问</SiteCloseMsg>
-  <SiteName>南京第一职</SiteName>
+  <SiteName>测试小说站</SiteName>
   <EnablePing>true</EnablePing>
   <PingAddress>http://ping.baidu.com/ping/RPC2
 http://blogsearch.google.com/ping/RPC2

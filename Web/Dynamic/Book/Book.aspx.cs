@@ -15,7 +15,10 @@ namespace Web.Dynamic.Book
         {
             DataEntities ent=new DataEntities();
             int id=WS.RequestInt("id");
-            var b=(from l in ent.Book where l.ID==id select l).FirstOrDefault();
+            string title = WS.RequestString("title");
+            string author = WS.RequestString("author");
+
+            var b=(from l in ent.Book where l.ID==id || (l.Title==title && l.Author==author) select l).FirstOrDefault();
             
             Response.Clear();
             TemplateHelper th = new TemplateHelper();

@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../../../data/css/management.css" />
     <script type="text/javascript" src="../../../data/script/jquery-1.7.min.js"></script>
     <script type="text/javascript" src="../../../data/script/common.js"></script>
+    <script type="text/javascript" src="../../../data/My97DatePicker/WdatePicker.js"></script>
     <script type="text/javascript">
         $(function () {
             $(":checkbox.c_edu").click(function () {
@@ -76,7 +77,7 @@
                 </tr>
                 <tr>
                     <td>
-                        经验要求
+                        职位类型
                     </td>
                     <td>
                         <asp:dropdownlist id="ddl_Expressions" runat="server"></asp:dropdownlist>
@@ -133,10 +134,18 @@
                 </tr>
                 <tr>
                     <td>
-                        简介
+                        职位要求
                     </td>
                     <td>
                         <vd:vtextbox id="txt_Intro" runat="server" height="50px" textmode="MultiLine" width="300px"></vd:vtextbox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        过期时间
+                    </td>
+                    <td>
+                         <vd:vtextbox id="txt_ExpireTime" runat="server" CssClass="Wdate" Width="140px" onfocus="WdatePicker({minDate:'%y-%M-%d',dateFmt:'yyyy-MM-dd HH:mm:ss'})"></vd:vtextbox>
                     </td>
                 </tr>
                 <tr>

@@ -37,7 +37,17 @@ namespace Web.e.admin.Job.Company
         protected void LoadInfo()
         {
             DataEntities ent = new DataEntities();
-            var q = from l in ent.JobCompany select l;
+            var q = from l in ent.JobCompany select new { l.CompanyName,
+            l.CompanyType,
+            l.DayClick,
+            l.EmployeeCount,
+            l.ID,
+            l.Industry,
+            l.Intro,
+            l.IsSetTop,
+            l.SetTopTime,
+            l.UserID,
+            index=0};
             if (txt_Key.Text.Length > 0)
             {
                 q = q.Where(p => p.CompanyName.Contains(txt_Key.Text));
@@ -54,7 +64,14 @@ namespace Web.e.admin.Job.Company
             }
             pager.PageSize = SystemSetting.MagageListSize;
             pager.RecordCount = q.Count();
-            rp_list.DataSource = q.OrderByDescending(p => p.ID).Skip((pager.CurrentPageIndex - 1) * pager.PageSize).Take(pager.PageSize);
+
+
+            var xx=q.OrderByDescending(p => p.ID).Skip((pager.CurrentPageIndex - 1) * pager.PageSize).Take(pager.PageSize).ToDataTable();
+            for (int i = 0; i < xx.Rows.Count; i++)
+            {
+                xx.Rows[i]["index"] = (pager.CurrentPageIndex - 1) * pager.PageSize + i + 1;
+            }
+            rp_list.DataSource = xx;
             rp_list.DataBind();
             ent.Dispose();
         }

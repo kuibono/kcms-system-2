@@ -47,14 +47,10 @@ namespace Voodoo.Basement
         {
             get
             {
-                if (Voodoo.Cache.Cache.GetCache("_NewClassList") == null)
+                using (DataEntities ent = new DataEntities())
                 {
-                    using (DataEntities ent = new DataEntities())
-                    {
-                        Cache.Cache.SetCache("_NewClassList", (from l in ent.Class select l).ToList(), 10);
-                    }
+                    return (from l in ent.Class select l).ToList();
                 }
-                return (List<Class>)Voodoo.Cache.Cache.GetCache("_NewClassList");
             }
         }
     }

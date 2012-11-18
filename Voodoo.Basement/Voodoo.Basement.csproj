@@ -104,12 +104,18 @@
     <Compile Include="ph.cs" />
     <Compile Include="Model\SysSetting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Routing\ExpAndTarget.cs" />
+    <Compile Include="Routing\StorageSetting.cs" />
     <Compile Include="Setting\SysSettingDAL.cs" />
     <Compile Include="SysUserAction.cs" />
     <Compile Include="TemplateAction.cs" />
     <Compile Include="TemplateHelper.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="UrlConverter\DynamicConverter.cs" />
+    <Compile Include="UrlConverter\IConverter.cs" />
+    <Compile Include="UrlConverter\StaticConvertor.cs" />
+    <Compile Include="Routing\RewriteRule.cs" />
     <Compile Include="UserAction.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +167,7 @@
   <ItemGroup>
     <Content Include="Data.edmx.sql" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

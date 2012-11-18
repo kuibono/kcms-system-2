@@ -11,7 +11,7 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmSchemaAttribute()]
 
 // 原始文件名:
-// 生成日期: 2012/11/15 21:23:03
+// 生成日期: 2012/11/17 20:41:51
 namespace Voodoo.Basement
 {
     
@@ -3677,6 +3677,33 @@ namespace Voodoo.Basement
         partial void OnClickCountChanging(global::System.Nullable<int> value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         partial void OnClickCountChanged();
+        /// <summary>
+        /// 架构中不存在属性 TxtPath 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string TxtPath
+        {
+            get
+            {
+                return this._TxtPath;
+            }
+            set
+            {
+                this.OnTxtPathChanging(value);
+                this.ReportPropertyChanging("TxtPath");
+                this._TxtPath = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("TxtPath");
+                this.OnTxtPathChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _TxtPath;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnTxtPathChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnTxtPathChanged();
     }
     /// <summary>
     /// 架构中不存在 DataModel.BookRole 的注释。
@@ -10857,6 +10884,33 @@ namespace Voodoo.Basement
         partial void OnExt1Changing(string value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         partial void OnExt1Changed();
+        /// <summary>
+        /// 架构中不存在属性 ExpireTime 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<global::System.DateTime> ExpireTime
+        {
+            get
+            {
+                return this._ExpireTime;
+            }
+            set
+            {
+                this.OnExpireTimeChanging(value);
+                this.ReportPropertyChanging("ExpireTime");
+                this._ExpireTime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("ExpireTime");
+                this.OnExpireTimeChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<global::System.DateTime> _ExpireTime;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnExpireTimeChanging(global::System.Nullable<global::System.DateTime> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnExpireTimeChanged();
     }
     /// <summary>
     /// 架构中不存在 DataModel.JobResumeCertificate 的注释。

@@ -17,6 +17,11 @@ namespace Voodoo.Basement
         public int DefaultModel { get; set; }
 
         /// <summary>
+        /// 是否启用静态
+        /// </summary>
+        public bool EnableStatic { get; set; }
+
+        /// <summary>
         /// 是否显示信息管理菜单
         /// </summary>
         public bool ShowMenuMessage { get; set; }

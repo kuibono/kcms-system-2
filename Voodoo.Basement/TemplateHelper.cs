@@ -167,6 +167,11 @@ namespace Voodoo.Basement
         public string ReplaceContent(TemplateList temp, string TempString, Book b, Class c)
         {
             string str_lst = TempString;
+
+            str_lst = str_lst.Replace("[!--class.name--]", c.ClassName);
+            str_lst = str_lst.Replace("[!--class.id--]", c.ID.ToS());
+            str_lst = str_lst.Replace("[!--class.url--]", BasePage.GetClassUrl(c));
+
             str_lst = str_lst.Replace("[!--book.url--]", BasePage.GetBookUrl(b, b.GetClass()));//书籍
             str_lst = str_lst.Replace("[!--book.lastchapterurl--]", BasePage.GetBookChapterUrl(ObjectExtents.Chapter(b.LastChapterID), b.GetClass()));//书籍
             str_lst = str_lst.Replace("[!--book.id--]", b.ID.ToString());
@@ -177,7 +182,7 @@ namespace Voodoo.Basement
             str_lst = str_lst.Replace("[!--book.title--]", temp.CutTitle > 0 ? b.Title.CutString(temp.CutTitle.ToInt32()) : b.Title);
             str_lst = str_lst.Replace("[!--book.oldtitle--]", b.Title);
             str_lst = str_lst.Replace("[!--book.author--]", b.Author);
-            str_lst = str_lst.Replace("[!--book.intro--]", b.Intro);
+            str_lst = str_lst.Replace("[!--book.intro--]", b.Intro.HtmlDeCode());
             str_lst = str_lst.Replace("[!--book.length--]", b.Length.ToS());
             str_lst = str_lst.Replace("[!--book.replycount--]", b.ReplyCount.ToS());
             str_lst = str_lst.Replace("[!--book.addtime--]", b.Addtime.ToDateTime().ToString(temp.TimeFormat));
@@ -300,16 +305,16 @@ namespace Voodoo.Basement
             Content = ReplaceSystemSetting(Content);
 
             //分类属性
-            Content = Content.Replace("[!--class.alter]", c.Alter);
-            Content = Content.Replace("[!--class.classdescription]", c.ClassDescription);
-            Content = Content.Replace("[!--class.classfolder]", c.ClassForder);
-            Content = Content.Replace("[!--class.classicon]", c.ClassICON);
-            Content = Content.Replace("[!--class.classkeywords]", c.ClassKeywords);
-            Content = Content.Replace("[!--class.classname]", c.ClassName);
-            Content = Content.Replace("[!--class.classpageextname]", c.ClassPageExtName);
-            Content = Content.Replace("[!--class.contentpagefolder]", c.ContentPageForder);
-            Content = Content.Replace("[!--class.id]", c.ID.ToS());
-            Content = Content.Replace("[!--class.listpagesize]", c.ListPageSize.ToS());
+            Content = Content.Replace("[!--class.alter--]", c.Alter);
+            Content = Content.Replace("[!--class.classdescription--]", c.ClassDescription);
+            Content = Content.Replace("[!--class.classfolder--]", c.ClassForder);
+            Content = Content.Replace("[!--class.classicon--]", c.ClassICON);
+            Content = Content.Replace("[!--class.classkeywords--]", c.ClassKeywords);
+            Content = Content.Replace("[!--class.classname--]", c.ClassName);
+            Content = Content.Replace("[!--class.classpageextname--]", c.ClassPageExtName);
+            Content = Content.Replace("[!--class.contentpagefolder--]", c.ContentPageForder);
+            Content = Content.Replace("[!--class.id--]", c.ID.ToS());
+            Content = Content.Replace("[!--class.listpagesize--]", c.ListPageSize.ToS());
 
             Content = Content.Replace("[!--class.description--]", c.ClassDescription);
             Content = Content.Replace("[!--class.url--]", BasePage.GetClassUrl(c));
@@ -391,9 +396,11 @@ namespace Voodoo.Basement
                 StringBuilder sb_list = new StringBuilder();
                 List<Book> qs =
                     (from l in ent.Book
-                     from cp in ent.Class
-                     from cl in ent.Class
-                     where cp.ID == c.ID && cl.ParentID == cp.ID && (l.ClassID == cp.ID || l.ClassID == cl.ID)
+                     from cp in ent.Class//sub class
+                     where 
+                        (l.ClassID==c.ID && cp.ID==c.ID)||
+                        (l.ClassID==cp.ID && cp.ParentID==c.ID )
+
                      select l
                 ).ToList();
                 pagecount = (Convert.ToDouble(qs.Count) / Convert.ToDouble(temp.ShowRecordCount)).YueShu();
@@ -1194,6 +1201,7 @@ namespace Voodoo.Basement
         /// <param name="cls"></param>
         public string CreateBookChapterPage(BookChapter cp, Book b, Class cls)
         {
+            string bookurl = BasePage.GetBookUrl(b, cls);
             string Content = GetTempateString(1, TempType.小说章节);
 
             Content = ReplacePublicTemplate(Content);
@@ -1236,6 +1244,8 @@ namespace Voodoo.Basement
             Content = Content.Replace("[!--class.name--]", cls.ClassName);
             Content = Content.Replace("[!--class.url--]", BasePage.GetClassUrl(cls));
 
+            Content = Content.Replace("[!--book.url--]", bookurl);
+
             //替换书籍信息
             Content = ReplaceContent(Content, b, cls);
 
@@ -1268,8 +1278,8 @@ namespace Voodoo.Basement
             BookChapter news_pre = BasePage.GetPreChapter(cp, b);
             BookChapter news_next = BasePage.GetNextChapter(cp, b);
 
-            string preurl = news_pre == null ? "index" + BasePage.SystemSetting.ExtName : BasePage.GetBookChapterUrl(news_pre, cls);
-            string nexturl = news_next == null ? "index" + BasePage.SystemSetting.ExtName : BasePage.GetBookChapterUrl(news_next, cls);
+            string preurl = news_pre == null ? bookurl : BasePage.GetBookChapterUrl(news_pre, cls);
+            string nexturl = news_next == null ? bookurl : BasePage.GetBookChapterUrl(news_next, cls);
 
             Content = Content.Replace("[!--chapter.preurl--]", preurl);
             Content = Content.Replace("[!--chapter.nexturl--]", nexturl);
@@ -1329,6 +1339,10 @@ namespace Voodoo.Basement
 
             Content = ReplaceSystemSetting(Content);
 
+            if (key.IsNullOrEmpty() && SysModel == 4)
+            {
+                Content = Content.Replace("[!--search.key--]", "全部书籍");
+            }
             Content = Content.Replace("[!--search.key--]", key);
 
             //此处要区分系统模型
@@ -1362,12 +1376,17 @@ namespace Voodoo.Basement
             if (SysModel == 4)
             {
                 StringBuilder sb_list = new StringBuilder();
-                List<Book> qs = //BookView.GetModelList(string.Format("Enable=1 and (Title like N'%{0}%' or Author like N'%{0}%' or Intro like N'%{0}%') order by id desc", key));
-               (from l in ent.Book
-                where l.Enable == true &&
-                    (l.Title.Contains(key) || l.Author.Contains(key) || l.Intro.Contains(key))
-                orderby l.ID descending
-                select l).ToList();
+                var xx = from l in ent.Book
+                         where l.Enable == true
+                         orderby l.ID descending
+                         select l;
+
+                List<Book> qs ;
+                if (!key.IsNullOrEmpty())
+                {
+                    xx = from l in xx where l.Title.Contains(key) || l.Author.Contains(key) || l.Intro.Contains(key) orderby l.ID descending select l;
+                }
+                qs= xx.ToList();
 
                 pagecount = (Convert.ToDouble(qs.Count) / Convert.ToDouble(20)).YueShu();
                 recordCount = qs.Count;
@@ -2129,11 +2148,33 @@ namespace Voodoo.Basement
                 case "sitename":
                     return ss.SiteName;
                     break;
+                case "bookindexurl":
+                    return GetBookIndexUrl();
+                    break;
                 default:
                     return "";
             }
         }
         #endregion
+
+        private string GetBookIndexUrl()
+        {
+            if (BasePage.SystemSetting.EnableStatic)
+            {
+                return "/";
+            }
+            else
+            {
+                if (BasePage.SystemSetting.DefaultModel == 4)
+                {
+                    return "/";
+                }
+                else
+                {
+                    return "/Book";
+                }
+            }
+        }
 
         #region 替换标签内容
         /// <summary>

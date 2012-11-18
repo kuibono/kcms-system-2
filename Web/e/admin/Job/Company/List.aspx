@@ -32,7 +32,7 @@
                         <input type="checkbox" id="checkall" />
                     </th>
                     <th>
-                        ID
+                        序号
                     </th>
                     <th>
                         公司名称
@@ -65,7 +65,7 @@
                                 <input name="id" type="checkbox" value="<%#Eval("ID") %>" />
                             </td>
                             <td>
-                                <%#Eval("ID") %>
+                                <%#Eval("index") %>
                             </td>
                             <td>
                                 <%#Eval("CompanyName")%>

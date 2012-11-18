@@ -89,6 +89,9 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.Mobile" />
+    <Reference Include="URLRewriter">
+      <HintPath>..\ref\URLRewriter.dll</HintPath>
+    </Reference>
     <Reference Include="Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ref\Web.dll</HintPath>
@@ -96,9 +99,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config\MovieRule\含烟影院电视剧.xml" />
+    <Content Include="Config\RewriteRule.xml" />
+    <Content Include="Config\RoutingSetting.xml" />
     <Content Include="Default.aspx" />
     <Content Include="Dynamic\Book\Book.aspx" />
+    <Content Include="Dynamic\Book\Chapter.aspx" />
+    <Content Include="Dynamic\Book\Class.aspx" />
     <Content Include="Dynamic\Book\Default.aspx" />
+    <Content Include="Dynamic\Book\Search.aspx" />
     <Content Include="Dynamic\Job\App.aspx" />
     <Content Include="Dynamic\Job\Company.aspx" />
     <Content Include="Dynamic\Job\Default.aspx" />
@@ -152,6 +160,8 @@
     <Content Include="e\admin\system\friendlink\LinkEdit.aspx" />
     <Content Include="e\admin\system\friendlink\LinkList.aspx" />
     <Content Include="e\admin\system\SystemParameter\basic.aspx" />
+    <Content Include="e\admin\system\SystemParameter\RewriteSetting.aspx" />
+    <Content Include="e\admin\system\SystemParameter\StaticStorageSetting.aspx" />
     <Content Include="e\admin\system\SystemParameter\user.aspx" />
     <Content Include="e\admin\system\Update\Createpages.aspx" />
     <Content Include="e\admin\sysuser\PassWordEdit.aspx" />
@@ -505,6 +515,15 @@
     <Content Include="e\data\images\pixviewer.swf" />
     <Content Include="e\data\jquery-1.8.0.min.js" />
     <Content Include="e\data\jquery.easyui.min.js" />
+    <Content Include="e\data\My97DatePicker\calendar.js" />
+    <Content Include="e\data\My97DatePicker\lang\en.js" />
+    <Content Include="e\data\My97DatePicker\lang\zh-cn.js" />
+    <Content Include="e\data\My97DatePicker\lang\zh-tw.js" />
+    <Content Include="e\data\My97DatePicker\skin\datePicker.gif" />
+    <Content Include="e\data\My97DatePicker\skin\default\datepicker.css" />
+    <Content Include="e\data\My97DatePicker\skin\default\img.gif" />
+    <Content Include="e\data\My97DatePicker\skin\WdatePicker.css" />
+    <Content Include="e\data\My97DatePicker\WdatePicker.js" />
     <Content Include="e\data\script\basic.js" />
     <Content Include="e\data\themes\default\accordion.css" />
     <Content Include="e\data\themes\default\calendar.css" />
@@ -759,16 +778,23 @@
     <Content Include="skin\novel\index.css" />
     <Content Include="skin\novel\isover.png" />
     <Content Include="skin\novel\logo.png" />
+    <Content Include="skin\novel\logo_small.png" />
     <Content Include="skin\novel\main_btn.png" />
     <Content Include="skin\novel\nclassbg.png" />
+    <Content Include="skin\novel\pic.png" />
     <Content Include="skin\novel\search.css" />
+    <Content Include="skin\novel\view.css" />
     <Content Include="skin\novel\vipmain.png" />
     <Content Include="skin\novel\x.png" />
     <Content Include="skin\script\ChapterCommon.js" />
+    <Content Include="skin\script\contentpage.js" />
     <Content Include="skin\script\infocommon.js" />
+    <Content Include="skin\script\jquery.cookie.js" />
     <Content Include="skin\script\public.js" />
     <Content Include="skin\script\swfObject.js" />
     <Content Include="skin\script\TextFilter.js" />
+    <Content Include="skin\script\toolbar.js" />
+    <Content Include="skin\script\tools.js" />
     <Content Include="skin\smd\about.css" />
     <Content Include="skin\smd\about.html" />
     <Content Include="skin\smd\contact.css" />
@@ -841,12 +867,33 @@
     <Compile Include="Dynamic\Book\Book.aspx.designer.cs">
       <DependentUpon>Book.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Dynamic\Book\Chapter.aspx.cs">
+      <DependentUpon>Chapter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Book\Chapter.aspx.designer.cs">
+      <DependentUpon>Chapter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dynamic\Book\Class.aspx.cs">
+      <DependentUpon>Class.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Book\Class.aspx.designer.cs">
+      <DependentUpon>Class.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Dynamic\Book\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Dynamic\Book\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dynamic\Book\Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Book\Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dynamic\Job\App.aspx.cs">
       <DependentUpon>App.aspx</DependentUpon>
@@ -1274,6 +1321,20 @@
     </Compile>
     <Compile Include="e\admin\system\SystemParameter\basic.aspx.designer.cs">
       <DependentUpon>basic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="e\admin\system\SystemParameter\RewriteSetting.aspx.cs">
+      <DependentUpon>RewriteSetting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\admin\system\SystemParameter\RewriteSetting.aspx.designer.cs">
+      <DependentUpon>RewriteSetting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="e\admin\system\SystemParameter\StaticStorageSetting.aspx.cs">
+      <DependentUpon>StaticStorageSetting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\admin\system\SystemParameter\StaticStorageSetting.aspx.designer.cs">
+      <DependentUpon>StaticStorageSetting.aspx</DependentUpon>
     </Compile>
     <Compile Include="e\admin\system\SystemParameter\user.aspx.cs">
       <DependentUpon>user.aspx</DependentUpon>

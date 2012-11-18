@@ -31,7 +31,7 @@ namespace Voodoo.Basement
             if (cls.ModelID == 1)
             {
 
-                string str_sql = string.Format("classID in ({0})", GetAllSubClass(ClassID.ToInt32()));
+                string str_sql = string.Format("t.classID in ({0})", GetAllSubClass(ClassID.ToInt32()));
                 if (ExtSql.Length > 1)
                 {
                     str_sql += " and " + ExtSql;
@@ -39,7 +39,7 @@ namespace Voodoo.Basement
                 str_sql += Order;
 
 
-                List<News> nlist = ent.CreateQuery<News>(string.Format("select top {0} * from News where {1}", count, str_sql)).ToList();
+                List<News> nlist = ent.CreateQuery<News>(string.Format("select Value t from News as t where {1} Order by t.id desc take {0}", count, str_sql)).ToList();
                 StringBuilder sb = new StringBuilder();
                 foreach (News n in nlist)
                 {
@@ -64,13 +64,13 @@ namespace Voodoo.Basement
             }
             else if (cls.ModelID == 3)//问答
             {
-                string str_sql = string.Format("classID in ({0})", GetAllSubClass(ClassID.ToInt32()));
+                string str_sql = string.Format("t.classID in ({0})", GetAllSubClass(ClassID.ToInt32()));
                 if (ExtSql.Length > 1)
                 {
                     str_sql += " and " + ExtSql;
                 }
                 str_sql += Order;
-                List<Question> qlist = ent.CreateQuery<Question>(string.Format("select top {0} * from Question where {1}", count, str_sql)).ToList();
+                List<Question> qlist = ent.CreateQuery<Question>(string.Format("select VALUE t from Question as t where {1} orderby t.id desc take {0}", count, str_sql)).ToList();
                 StringBuilder sb = new StringBuilder();
                 foreach (Question q in qlist)
                 {
@@ -132,13 +132,13 @@ namespace Voodoo.Basement
             string[] keys = Regex.Replace(key, "\\s+", ",").Split(',');
             foreach (string k in keys)
             {
-                str_sql += " keywords like '%" + k + "%' or ";
+                str_sql += " t.keywords like '%" + k + "%' or ";
             }
             str_sql += " 1=2)";
 
 
 
-            List<News> nlist = ent.CreateQuery<News>(string.Format("select top {0} * from News where {1} {2}", count, str_sql, Order)).ToList();
+            List<News> nlist = ent.CreateQuery<News>(string.Format("select VALUE t from News as t where {1} {2} order by t.id desc take {0}", count, str_sql, Order)).ToList();
             StringBuilder sb = new StringBuilder();
             foreach (News n in nlist)
             {
@@ -563,7 +563,7 @@ namespace Voodoo.Basement
             StringBuilder sb = new StringBuilder();
 
             var NovelList = //BookView.GetModelList(m_where, Top.ToInt32());
-                ent.CreateQuery<Book>(string.Format("select top {0} * from Book where {1}", Top, m_where)).ToList();
+                ent.CreateQuery<Book>(string.Format("select VALUE t from Book as t where {1} order by t.id desc take {0}", Top, m_where)).ToList();
             ent.Dispose();
 
             foreach (var b in NovelList)
@@ -590,7 +590,7 @@ namespace Voodoo.Basement
         {
             StringBuilder sb = new StringBuilder();
             DataEntities ent = new DataEntities();
-            var NovelList = ent.CreateQuery<Book>(string.Format("select top {0} * from Book where {1}", Top, m_where)).ToList();
+            var NovelList = ent.CreateQuery<Book>(string.Format("select VALUE t from Book as t where {1} order by t.id desc take {0}", Top, m_where)).ToList();
             ent.Dispose();
 
             foreach (var b in NovelList)
@@ -626,12 +626,12 @@ namespace Voodoo.Basement
             DataEntities ent = new DataEntities();
 
             var list = //SysKeywordView.GetModelList(string.Format("ModelID={0} order by ClickCount desc", ModelID), Top.ToInt32(10));
-                ent.CreateQuery<SysKeyword>(string.Format("select top {0} * from SysKeyword where ModelID={1} order by ClickCount desc", Top, ModelID)).ToList();
+                ent.CreateQuery<SysKeyword>(string.Format("select VALUE t from SysKeyword as t where t.ModelID={1} order by t.ClickCount desc limit  {0}", Top, ModelID)).AsCache();
             ent.Dispose();
 
             foreach (var item in list)
             {
-                sb.Append(string.Format("<a href=\"/Search.aspx?m={1}&key={0}\">{0}</a>&nbsp;", item.Keyword, ModelID));
+                sb.Append(string.Format("<a href=\"/Book/Search/?key={0}\">{0}</a>&nbsp;", item.Keyword, ModelID));
             }
             return sb.ToS();
         }
@@ -640,7 +640,7 @@ namespace Voodoo.Basement
         {
             StringBuilder sb = new StringBuilder();
             DataEntities ent = new DataEntities();
-            var list = ent.CreateQuery<SysKeyword>(string.Format("select top {0} * from SysKeyword where {1}", Top, m_where)).ToList();
+            var list = ent.CreateQuery<SysKeyword>(string.Format("select VALUE t from SysKeyword as t where {1} order by l.id desc limit  {0}", Top, m_where)).ToList();
             ent.Dispose();
 
             foreach (var item in list)
@@ -683,7 +683,7 @@ namespace Voodoo.Basement
                     sb.AppendLine(string.Format("<ul class=\"picList\"><li><a href=\"{0}\" title=\"{1}\" class=\"ablum\"><img src=\"{3}\" alt=\"{1}\" width=\"120\" height=\"160\" /></a><div class=\"text\"><h2 class=\"h22\"><a href=\"{0}\" title=\"{1}\" target=\"_blank\">《{1}》</a></h2><p>{2}</p></div></li>",
                         BasePage.GetBookUrl(qs[i], qs[i].GetClass()),
                         qs[i].Title,
-                        qs[i].Intro.CutString(150),
+                        qs[i].Intro.TrimHTML().CutString(150),
                         qs[i].FaceImage.IsNull("/Book/Bookface/0.jpg")
                         ));
                 }
@@ -692,7 +692,7 @@ namespace Voodoo.Basement
                     sb.AppendLine(string.Format("<li><a href=\"{0}\" title=\"{1}\" class=\"ablum\"><img src=\"{3}\" alt=\"{1}\" width=\"120\" height=\"160\" /></a><div class=\"text\"><h2 class=\"h22\"><a href=\"{0}\" title=\"{1}\" target=\"_blank\">《{1}》</a></h2><p>{2}</p></div></li></ul>",
                         BasePage.GetBookUrl(qs[i], qs[i].GetClass()),
                         qs[i].Title,
-                        qs[i].Intro.CutString(150),
+                        qs[i].Intro.TrimHTML().CutString(150),
                         qs[i].FaceImage.IsNull("/Book/Bookface/0.jpg")
                         ));
                 }
@@ -701,7 +701,7 @@ namespace Voodoo.Basement
                     sb.AppendLine(string.Format("<ul class=\"newsList\"><li><a target=\"_blank\" title=\"{1}\" href=\"{0}\">{1}：{2}</a></li>",
                         BasePage.GetBookUrl(qs[i], qs[i].GetClass()),
                         qs[i].Title,
-                        qs[i].Intro.CutString(25)
+                        qs[i].Intro.TrimHTML().CutString(25)
                         ));
                 }
                 else
@@ -709,7 +709,7 @@ namespace Voodoo.Basement
                     sb.AppendLine(string.Format("<li><a target=\"_blank\" title=\"{1}\" href=\"{0}\">{1}：{2}</a></li>",
                         BasePage.GetBookUrl(qs[i], qs[i].GetClass()),
                         qs[i].Title,
-                        qs[i].Intro.CutString(25)
+                        qs[i].Intro.TrimHTML().CutString(25)
                         ));
                 }
 
@@ -719,6 +719,77 @@ namespace Voodoo.Basement
         }
         #endregion
 
+        #region 根据类别获取书籍排行
+        /// <summary>
+        /// 根据类别获取书籍排行
+        /// </summary>
+        /// <param name="top"></param>
+        /// <param name="custitle"></param>
+        /// <param name="cls"></param>
+        /// <param name="htmlTemp"></param>
+        /// <returns></returns>
+        public static string gettopbookbyclass(string top,string custitle, string cls, string htmlTemp)
+        {
+            int i_top = top.ToInt32();
+            int cid = cls.ToInt32();
+
+             StringBuilder sb = new StringBuilder();
+             using (DataEntities ent = new DataEntities())
+             {
+                 var list = (from l in ent.Book
+                            from c in ent.Class
+                            where
+                            (l.ClassID == cid && c.ID == cid) ||
+                            (l.ClassID == c.ID && c.ParentID == cid)
+                            orderby l.ClickCount descending
+                            select l).Take(i_top);
+                 if (cid < 0)
+                 {
+                     list = (from l in ent.Book orderby l.ClickCount descending select l).Take(i_top);
+                 }
+                 var i = 0;
+                 foreach (var q in list)
+                 {
+                     i++;
+                     string item = htmlTemp;
+                     item = item.Replace("{addtime}", q.Addtime.ToDateTime().ToString("yyyy-MM-dd"));
+                     item = item.Replace("{author}", q.Author);
+                     item = item.Replace("{classid}", q.ClassID.ToS());
+                     item = item.Replace("{classname}", q.ClassName);
+                     item = item.Replace("{clickcount}", q.ClickCount.ToS());
+                     item = item.Replace("{corpusid}", q.CorpusID.ToS());
+                     item = item.Replace("{corpustitle}", q.CorpusTitle);
+                     item = item.Replace("{enable}", q.Enable.ToBoolean().ToChinese());
+                     item = item.Replace("{faceimage}", q.FaceImage);
+                     item = item.Replace("{id}", q.ID.ToS());
+                     item = item.Replace("{intro}", q.Intro);
+                     item = item.Replace("{isfirstpost}", q.IsFirstPost.ToBoolean().ToChinese());
+                     item = item.Replace("{isvip}", q.IsVip.ToBoolean().ToChinese());
+                     item = item.Replace("{lastchapterid}", q.LastChapterID.ToS());
+                     item = item.Replace("{lastchaptertitle}", q.LastChapterTitle);
+                     item = item.Replace("{lastvipchapterid}", q.LastVipChapterID.ToS());
+                     item = item.Replace("{lastvipchaptertitle}", q.LastVipChapterTitle);
+                     item = item.Replace("{length}", q.Length.ToS());
+                     item = item.Replace("{replycount}", q.ReplyCount.ToS());
+                     item = item.Replace("{savecount}", q.SaveCount.ToS());
+                     item = item.Replace("{status}", q.Status == 0 ? "连载中" : "已完结");
+                     item = item.Replace("{title}", q.Title);
+                     item = item.Replace("{tjcount}", q.TjCount.ToS());
+                     item = item.Replace("{updatetime}", q.UpdateTime.ToDateTime().ToString("yyyy-MM-dd"));
+                     item = item.Replace("{vipupdatetime}", q.VipUpdateTime.ToDateTime().ToString("yyyy-MM-dd"));
+                     item = item.Replace("{ztid}", q.ZtID.ToS());
+                     item = item.Replace("{ztname}", q.ZtName);
+                     item = item.Replace("{title}", q.Title);
+                     item = item.Replace("{url}", BasePage.GetBookUrl(q, q.GetClass()));
+                     item = item.Replace("{ftitle}", custitle.ToInt32() > 0 ? q.Title.CutString(custitle.ToInt32()) : q.Title);
+                     item = item.Replace("{index}", (i - 1).ToS());
+                     item = item.Replace("{rownum}", (i).ToS());
+                     sb.Append(item);
+                 }
+                 return sb.ToS();
+             }
+        }
+        #endregion 
 
 
         #region 获取类别列表
@@ -1035,6 +1106,12 @@ namespace Voodoo.Basement
         }
         #endregion
 
+        #region 获取首页专业树
+        /// <summary>
+        /// 获取首页专业树
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
         public static string getindexSpelist(string s)
         {
             StringBuilder sb = new StringBuilder();
@@ -1064,6 +1141,7 @@ namespace Voodoo.Basement
 
             ent.Dispose();
         }
+        #endregion
 
         #region 获取城市列表
         /// <summary>
@@ -1413,6 +1491,73 @@ namespace Voodoo.Basement
         }
         #endregion
 
+        #region 书籍列表
+        /// <summary>
+        /// 书籍列表
+        /// </summary>
+        /// <param name="top"></param>
+        /// <param name="custitle"></param>
+        /// <param name="m_where"></param>
+        /// <param name="orderby"></param>
+        /// <param name="htmlTemp"></param>
+        /// <returns></returns>
+        public static string booklist(string top, string custitle, string m_where, string orderby, string htmlTemp)
+        {
+             StringBuilder sb = new StringBuilder();
+             using (DataEntities ent = new DataEntities())
+             {
+                 
+                 var list = ent.CreateQuery<Book>(string.Format("select VALUE t from Book as t where {0} order by {1} limit {2}",m_where,orderby,top));
+                 var i = 0;
+                 foreach (var q in list)
+                 {
+                     i++;
+                     string item = htmlTemp;
+                     item = item.Replace("{addtime}", q.Addtime.ToDateTime().ToString("yyyy-MM-dd"));
+                     item=item.Replace("{author}",q.Author);
+                     item=item.Replace("{classid}",q.ClassID.ToS());
+                     item=item.Replace("{classname}",q.ClassName);
+                     item=item.Replace("{clickcount}",q.ClickCount.ToS());
+                     item=item.Replace("{corpusid}",q.CorpusID.ToS());
+                     item=item.Replace("{corpustitle}",q.CorpusTitle);
+                     item=item.Replace("{enable}",q.Enable.ToBoolean().ToChinese());
+                     item=item.Replace("{faceimage}",q.FaceImage);
+                     item=item.Replace("{id}",q.ID.ToS());
+                     item=item.Replace("{intro}",q.Intro);
+                     item=item.Replace("{isfirstpost}",q.IsFirstPost.ToBoolean().ToChinese());
+                     item=item.Replace("{isvip}",q.IsVip.ToBoolean().ToChinese());
+                     item=item.Replace("{lastchapterid}",q.LastChapterID.ToS());
+                     item=item.Replace("{lastchaptertitle}",q.LastChapterTitle);
+                     item=item.Replace("{lastvipchapterid}",q.LastVipChapterID.ToS());
+                     item=item.Replace("{lastvipchaptertitle}",q.LastVipChapterTitle);
+                     item=item.Replace("{length}",q.Length.ToS());
+                     item=item.Replace("{replycount}",q.ReplyCount.ToS());
+                     item=item.Replace("{savecount}",q.SaveCount.ToS());
+                     item=item.Replace("{status}",q.Status==0?"连载中":"已完结");
+                     item=item.Replace("{title}",q.Title);
+                     item=item.Replace("{tjcount}",q.TjCount.ToS());
+                     item=item.Replace("{updatetime}",q.UpdateTime.ToDateTime().ToString("yyyy-MM-dd"));
+                     item=item.Replace("{vipupdatetime}",q.VipUpdateTime.ToDateTime().ToString("yyyy-MM-dd"));
+                     item=item.Replace("{ztid}",q.ZtID.ToS());
+                     item=item.Replace("{ztname}",q.ZtName);
+                     item=item.Replace("{title}",q.Title);
+                     item=item.Replace("{url}",BasePage.GetBookUrl(q,q.GetClass()));
+                     item = item.Replace("{ftitle}", custitle.ToInt32() > 0 ? q.Title.CutString(custitle.ToInt32()) : q.Title);
+                     item = item.Replace("{index}", (i - 1).ToS());
+                     item = item.Replace("{rownum}", (i).ToS());
+                     sb.Append(item);
+                 }
+             }
+             return sb.ToS();
+        }
+        #endregion 
+
+        #region 首页底部地区树
+        /// <summary>
+        /// 首页底部地区树
+        /// </summary>
+        /// <param name="ss"></param>
+        /// <returns></returns>
         public static string getindexbottomareas(string ss)
         {
             StringBuilder sb = new StringBuilder();
@@ -1452,5 +1597,6 @@ namespace Voodoo.Basement
             }
             return sb.ToS();
         }
+        #endregion
     }
 }

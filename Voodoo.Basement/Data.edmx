@@ -170,6 +170,7 @@
           <Property Name="IsImageChapter" Type="bit" />
           <Property Name="Content" Type="nvarchar(max)" />
           <Property Name="ClickCount" Type="int" />
+          <Property Name="TxtPath" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="BookRole">
           <Key>
@@ -502,6 +503,7 @@
           <Property Name="IsSetTop" Type="bit" />
           <Property Name="SetTopTime" Type="datetime" />
           <Property Name="Ext1" Type="nvarchar(max)" />
+          <Property Name="ExpireTime" Type="datetime" />
         </EntityType>
         <EntityType Name="JobResumeCertificate">
           <Key>
@@ -1304,6 +1306,7 @@
           <Property Type="Boolean" Name="IsImageChapter" />
           <Property Type="String" Name="Content" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="ClickCount" />
+          <Property Type="String" Name="TxtPath" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="BookRole">
           <Key>
@@ -1636,6 +1639,7 @@
           <Property Type="Boolean" Name="IsSetTop" />
           <Property Type="DateTime" Name="SetTopTime" />
           <Property Type="String" Name="Ext1" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="ExpireTime" />
         </EntityType>
         <EntityType Name="JobResumeCertificate">
           <Key>
@@ -2356,6 +2360,7 @@
           <EntitySetMapping Name="BookChapter">
             <EntityTypeMapping TypeName="DataModel.BookChapter">
               <MappingFragment StoreEntitySet="BookChapter">
+                <ScalarProperty Name="TxtPath" ColumnName="TxtPath" />
                 <ScalarProperty Name="ClickCount" ColumnName="ClickCount" />
                 <ScalarProperty Name="Content" ColumnName="Content" />
                 <ScalarProperty Name="IsImageChapter" ColumnName="IsImageChapter" />
@@ -2707,6 +2712,7 @@
           <EntitySetMapping Name="JobPost">
             <EntityTypeMapping TypeName="DataModel.JobPost">
               <MappingFragment StoreEntitySet="JobPost">
+                <ScalarProperty Name="ExpireTime" ColumnName="ExpireTime" />
                 <ScalarProperty Name="Ext1" ColumnName="Ext1" />
                 <ScalarProperty Name="SetTopTime" ColumnName="SetTopTime" />
                 <ScalarProperty Name="IsSetTop" ColumnName="IsSetTop" />
