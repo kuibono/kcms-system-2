@@ -519,7 +519,7 @@ namespace Voodoo.Basement
         {
             DataEntities ent = new DataEntities();
             int i_top = top.ToInt32();
-            List<Book> bs = (from l in ent.Book where l.Enable == true orderby l.UpdateTime descending select l).Take(i_top).ToList();
+            List<Book> bs = (from l in ent.Book where l.Enable == true && l.LastChapterID>0 orderby l.UpdateTime descending select l).Take(i_top).ToList();
             StringBuilder sb = new StringBuilder();
 
             //foreach (Book b in bs)

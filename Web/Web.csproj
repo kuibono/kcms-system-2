@@ -788,8 +788,12 @@
     <Content Include="skin\novel\x.png" />
     <Content Include="skin\script\ChapterCommon.js" />
     <Content Include="skin\script\contentpage.js" />
+    <Content Include="skin\script\indexpage.js" />
     <Content Include="skin\script\infocommon.js" />
+    <Content Include="skin\script\jquery-1.3.2.min.js" />
     <Content Include="skin\script\jquery.cookie.js" />
+    <Content Include="skin\script\jquery.hotkeys.min.js" />
+    <Content Include="skin\script\jquery.qvod.js" />
     <Content Include="skin\script\public.js" />
     <Content Include="skin\script\swfObject.js" />
     <Content Include="skin\script\TextFilter.js" />
