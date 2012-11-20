@@ -11,6 +11,60 @@
     <link rel="stylesheet" type="text/css" href="../../../data/css/management.css" />
     <script type="text/javascript" src="../../../data/script/jquery-1.7.min.js"></script>
     <script type="text/javascript" src="../../../data/script/common.js"></script>
+    <script type="text/javascript" src="../../../data/swfupload/swfupload.js"></script>
+    <script type="text/javascript" src="../../../data/swfupload/fileprogress.js"></script>
+    <script type="text/javascript" src="../../../data/swfupload/handlers.js"></script>
+    <script type="text/javascript" src="../../../data/swfupload/swfupload.queue.js"></script>
+    <style type="text/css">
+    .ctrlPn input,ctrlPn object
+    {
+        float:left;
+        margin-left:10px;
+    }
+    </style>
+    <script type="text/javascript">
+        var swfu;
+        $(function () {
+            var settings = {
+                flash_url: "../../../data/swfupload/swfupload.swf",
+                upload_url: "../../../job/multiupload.aspx",
+                //post_params: { "id": "<%=WS.RequestString("ID") %>" },
+                file_size_limit: "100 MB",
+                file_types: "*.doc;*.docx;",
+                file_types_description: "word文档",
+                file_upload_limit: 300,
+                file_queue_limit: 0,
+                custom_settings: {
+                    progressTarget: "fsUploadProgress",
+                    cancelButtonId: "btnCancel"
+                },
+                debug: false,
+
+                // Button settings
+                button_image_url: "../../../data/swfupload/TestImageNoText_65x29.png",
+                button_width: "64",
+                button_height: "21",
+                button_placeholder_id: "multiupdate",
+                button_text: '<span class="theFont">批量上传</span>',
+                button_text_style: ".theFont { font-size: 12; }",
+                button_text_left_padding: 12,
+                button_text_top_padding: 3,
+
+                // The event handler functions are defined in handlers.js
+                file_queued_handler: fileQueued,
+                file_queue_error_handler: fileQueueError,
+                file_dialog_complete_handler: fileDialogComplete,
+                upload_start_handler: uploadStart,
+                upload_progress_handler: uploadProgress,
+                upload_error_handler: uploadError,
+                upload_success_handler: function () { alert("上传成功！"); location.href = location.href; },
+                upload_complete_handler: uploadComplete,
+                queue_complete_handler: queueComplete	// Queue plugin event
+            };
+
+            swfu = new SWFUpload(settings);
+        })
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -109,6 +163,8 @@
                         <asp:Button ID="Button1" Text="删除" runat="server" OnClick="Button1_Click" />
                         &nbsp;
                         <asp:Button ID="btn_Add" Text="新增" OnClientClick="location.href='Edit.aspx';return false;" runat="server" />
+                        &nbsp;
+                        <span id="multiupdate">批量上传</span>
                     </td>
                 </tr>
                 <tr>

@@ -13,11 +13,8 @@
     <script type="text/javascript" src="../../data/script/common.js"></script>
 
     <script type="text/javascript" src="../../data/swfupload/swfupload.js"></script>
-
     <script type="text/javascript" src="../../data/swfupload/fileprogress.js"></script>
-
     <script type="text/javascript" src="../../data/swfupload/handlers.js"></script>
-
     <script type="text/javascript" src="../../data/swfupload/swfupload.queue.js"></script>
 
     <script type="text/javascript">

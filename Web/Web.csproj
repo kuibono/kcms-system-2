@@ -632,6 +632,7 @@
     <Content Include="e\data\themes\icons\tip.png" />
     <Content Include="e\data\themes\icons\undo.png" />
     <Content Include="e\file\addselect.aspx" />
+    <Content Include="e\Job\multiupload.aspx" />
     <Content Include="e\Job\Post.aspx" />
     <Content Include="e\Job\UploadResume.aspx" />
     <Content Include="e\member\ChangeRegister.aspx" />
@@ -1570,6 +1571,13 @@
     </Compile>
     <Compile Include="e\installer\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="e\Job\multiupload.aspx.cs">
+      <DependentUpon>multiupload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\Job\multiupload.aspx.designer.cs">
+      <DependentUpon>multiupload.aspx</DependentUpon>
     </Compile>
     <Compile Include="e\Job\Post.aspx.cs">
       <DependentUpon>Post.aspx</DependentUpon>
