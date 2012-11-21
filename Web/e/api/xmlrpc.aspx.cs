@@ -538,10 +538,11 @@ namespace Web.e.api
                 chapter.Title = Title.IsNull(chapter.Title);
                 chapter.IsImageChapter = IsImageChapter;
                 chapter.IsTemp = IsTemp;
+                chapter.TxtPath = BasePage.GetChapterTxtStorePath(chapter, chapter.GetBook());
                 ent.SaveChanges();
                 if (!Content.IsNullOrEmpty())
                 {
-                    Voodoo.IO.File.Write(Server.MapPath(BasePage.GetBookChapterTxtUrl(chapter, cls)), Content);
+                    Voodoo.IO.File.Write(Server.MapPath(chapter.TxtPath), Content);
                 }
 
                 Response.Clear();

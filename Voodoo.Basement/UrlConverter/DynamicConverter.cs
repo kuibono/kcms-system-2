@@ -96,25 +96,7 @@ namespace Voodoo.Basement.UrlConverter
         /// <returns></returns>
         public string GetBookChapterTxtUrl(BookChapter cp, Class cls)
         {
-            using (DataEntities ent = new DataEntities())
-            {
-                string result = "";
-                string fileName = cp.ID.ToString();
-
-                Book b = (from l in ent.Book where l.ID == cp.BookID select l).FirstOrDefault();
-                string sitrurl = "/Txt/";
-
-                result = string.Format("{0}{1}{2}/{3}/{4}{5}",
-                    sitrurl,
-                    cls.ParentClassForder.IsNullOrEmpty() ? "" : cls.ParentClassForder + "/",
-                    cls.ClassForder,
-                     b.Title + "-" + b.Author,
-                    cp.ID,
-                    ".txt"
-                    );
-                result = Regex.Replace(result, "[/]{2,}", "/");
-                return result;
-            }
+            return cp.TxtPath;
         }
         #endregion
 

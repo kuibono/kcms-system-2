@@ -84,23 +84,38 @@ namespace Web.e.admin.Book
                 chapter.ClassID = book.ClassID;
                 chapter.ClassName = book.ClassName;
                 chapter.UpdateTime = DateTime.UtcNow.AddHours(8);
+                
 
                 ent.AddToBookChapter(chapter);
                 ent.SaveChanges();
 
+               
+
                 book.LastChapterID = chapter.ID;
                 book.LastChapterTitle = chapter.Title;
                 book.UpdateTime = chapter.UpdateTime;
-                CreatePage.CreateContentPage(book, book.GetClass());
+                if (SystemSetting.EnableStatic)
+                {
+                    CreatePage.CreateContentPage(book, book.GetClass());
+                }
             }
+
+            if (chapter.TxtPath.IsNullOrEmpty())
+            {
+                chapter.TxtPath = BasePage.GetChapterTxtStorePath(chapter, chapter.GetBook());
+            }
+
             ent.SaveChanges();
             ent.Dispose();
 
             Voodoo.IO.File.Write(
-                Server.MapPath(GetBookChapterTxtUrl(chapter, chapter.GetClass())),
+                Server.MapPath(chapter.TxtPath),
                 txt_Content.Text);
             //生成章节页面
-            CreatePage.CreateBookChapterPage(chapter, chapter.GetBook(), chapter.GetClass());
+            if (SystemSetting.EnableStatic)
+            {
+                CreatePage.CreateBookChapterPage(chapter, chapter.GetBook(), chapter.GetClass());
+            }
 
             Response.Redirect(string.Format("ChapterList.aspx?bookid={0}",chapter.BookID));
         }

@@ -365,6 +365,29 @@ namespace Voodoo.Basement
 
         }
 
+        #region 获取章节txt文件存储地址
+        /// <summary>
+        /// 获取章节txt文件存储地址
+        /// </summary>
+        /// <param name="bc"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        public static string GetChapterTxtStorePath(BookChapter bc,Book b)
+        {
+            string txtPath = Routing.StorageSetting.Get().BookChapterTxt;
+            txtPath=txtPath.Replace("{classname}",b.ClassName);
+            txtPath=txtPath.Replace("{classid}",b.ClassID.ToS());
+            txtPath=txtPath.Replace("{title}",b.Title);
+            txtPath=txtPath.Replace("{bookid}",b.ID.ToS());
+            txtPath=txtPath.Replace("{author}",b.Author);
+            txtPath = txtPath.Replace("{id}", bc.ID.ToS());
+
+            return txtPath;
+        }
+
+
+        #endregion
+
         #region 获取影视播放页面地址
         /// <summary>
         /// 获取影视地址
