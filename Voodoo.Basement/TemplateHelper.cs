@@ -61,10 +61,10 @@ namespace Voodoo.Basement
             string r = TempString;
             r = r.Replace("[!--news.author--]", n.Author);
             r = r.Replace("[!--news.authorid--]", n.AutorID.ToS());
-            //r = r.Replace("[!--news.classname--]", n.);
+            r = r.Replace("[!--news.classname--]", c.ClassName);
             r = r.Replace("[!--news.classid--]", n.ClassID.ToS());
             r = r.Replace("[!--news.content--]", n.Content);
-            //r = r.Replace("[!--news.contenten--]", n.ContentEn);
+            r = r.Replace("[!--news.contenten--]", n.ContentEn);
             r = r.Replace("[!--news.description--]", n.Description);
             r = r.Replace("[!--news.downcount--]", n.DownCount.ToS());
             r = r.Replace("[!--news.filefolder--]", n.FileForder);
@@ -76,6 +76,7 @@ namespace Voodoo.Basement
             r = r.Replace("[!--news.newstime--]", n.NewsTime.ToString());
             r = r.Replace("[!--news.source--]", n.Source);
             r = r.Replace("[!--news.title--]", n.Title);
+            r = r.Replace("[!--news.oldtitle--]", n.Title);
             r = r.Replace("[!--news.ftitle--]", _title);
             r = r.Replace("[!--news.titlecolor--]", n.TitleColor);
             r = r.Replace("[!--news.titleimage--]", n.TitleImage);

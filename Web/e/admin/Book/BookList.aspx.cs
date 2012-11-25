@@ -118,7 +118,7 @@ namespace Web.e.admin.Book
             }
 
 
-            rp_list.DataSource = q.Skip(pager.CurrentPageIndex-1).Take(pager.PageSize);
+            rp_list.DataSource = q.OrderByDescending(p=>p.ID).Skip(pager.CurrentPageIndex-1).Take(pager.PageSize);
             pager.RecordCount = q.Count();
             rp_list.DataBind();
 

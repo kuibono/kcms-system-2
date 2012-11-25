@@ -67,7 +67,7 @@
                         <asp:Label ID="lb_Time" runat="server" Text=""></asp:Label>
                     </td>
                 </tr>
-                <tr>
+                <tr style="display:none;">
                     <td>
                        消息
                     </td>

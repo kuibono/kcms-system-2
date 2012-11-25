@@ -117,6 +117,9 @@
     <Content Include="Dynamic\Job\ResumeEdu.aspx" />
     <Content Include="Dynamic\Job\Search.aspx" />
     <Content Include="Dynamic\Movie\Default.aspx" />
+    <Content Include="Dynamic\News\Class.aspx" />
+    <Content Include="Dynamic\News\Default.aspx" />
+    <Content Include="Dynamic\News\News.aspx" />
     <Content Include="e\admin\Ad\AdGroup\Edit.aspx" />
     <Content Include="e\admin\Ad\AdGroup\List.aspx" />
     <Content Include="e\admin\Ad\Ad\Edit.aspx" />
@@ -969,6 +972,27 @@
     </Compile>
     <Compile Include="Dynamic\Movie\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dynamic\News\Class.aspx.cs">
+      <DependentUpon>Class.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dynamic\News\Class.aspx.designer.cs">
+      <DependentUpon>Class.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dynamic\News\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dynamic\News\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dynamic\News\News.aspx.cs">
+      <DependentUpon>News.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dynamic\News\News.aspx.designer.cs">
+      <DependentUpon>News.aspx</DependentUpon>
     </Compile>
     <Compile Include="e\admin\Ad\AdGroup\Edit.aspx.cs">
       <DependentUpon>Edit.aspx</DependentUpon>

@@ -24,7 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-            <tr>
+            <tr style="display:none;">
                     <td width="163">
                         用户
                     </td>

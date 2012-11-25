@@ -88,7 +88,7 @@ namespace Web.e.admin.Job.Resume
                         l.City == c.id &&
                         l.Province == p.ID
                     select
-                new { l.UserID,l.ID,l.Title,l.ChineseName,l.Mobile,l.Email,l.IsMale,l.Province,l.City, p.province1, c.city1};
+                new { l.UserID,l.ID,l.Title,l.ChineseName,l.Mobile,l.Email,l.IsMale,l.Province,l.City, p.province1, c.city1,index=0};
 
             if (txt_Key.Text.Length > 0)
             {
@@ -117,8 +117,16 @@ namespace Web.e.admin.Job.Resume
 
             pager.PageSize = SystemSetting.MagageListSize;
             pager.RecordCount = q.Count();
-            rp_list.DataSource = q.OrderByDescending(p => p.ID)
-                .Skip((pager.CurrentPageIndex - 1) * pager.PageSize).Take(pager.PageSize);
+
+
+            var xx = q.OrderByDescending(p => p.ID)
+                .Skip((pager.CurrentPageIndex - 1) * pager.PageSize).Take(pager.PageSize).ToList().ToDataTable();
+            for (int i = 0; i < xx.Rows.Count; i++)
+            {
+                xx.Rows[i]["index"] = (pager.CurrentPageIndex - 1) * pager.PageSize + i + 1;
+            }
+
+            rp_list.DataSource =xx;
             rp_list.DataBind();
 
             ent.Dispose();

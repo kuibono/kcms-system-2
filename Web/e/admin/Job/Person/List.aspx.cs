@@ -59,7 +59,30 @@ namespace Web.e.admin.Job.Person
             pager.PageSize = SystemSetting.MagageListSize;
 
 
-            var q = from l in ent.User where l.Group==1|| l.Group==3 select l;
+            var q = from l in ent.User where l.Group == 1 || l.Group == 3 select new { 
+                l.Address,
+                l.Cent,
+                l.Email,
+                l.Enable,
+                l.Group,
+                l.ID,
+                l.Image,
+                l.Intro,
+                l.LastLoginIP,
+                l.LastLoginTime,
+                l.LoginCount,
+                l.Mobile,
+                l.MSN,
+                l.PostCount,
+                l.RegIP,
+                l.RegTime,
+                l.StudentNo,
+                l.Tel,
+                l.UserName,
+                l.UserPass,
+                l.ZipCode,
+                index=0
+            };
 
             if (!ddl_Group.SelectedValue.IsNullOrEmpty())
             {
@@ -75,7 +98,15 @@ namespace Web.e.admin.Job.Person
 
             pager.RecordCount = q.Count();
             pager.PageSize = SystemSetting.MagageListSize;
-            rp_list.DataSource = q.OrderByDescending(p => p.ID).Skip((pager.CurrentPageIndex - 1) * pager.PageSize).Take(pager.PageSize);
+
+            var xx = q.OrderByDescending(p => p.ID)
+               .Skip((pager.CurrentPageIndex - 1) * pager.PageSize).Take(pager.PageSize).ToList().ToDataTable();
+            for (int i = 0; i < xx.Rows.Count; i++)
+            {
+                xx.Rows[i]["index"] = (pager.CurrentPageIndex - 1) * pager.PageSize + i + 1;
+            }
+
+            rp_list.DataSource = xx;
             rp_list.DataBind();
             ent.Dispose();
 

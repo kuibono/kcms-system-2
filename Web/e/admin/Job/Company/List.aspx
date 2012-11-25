@@ -49,9 +49,9 @@
                     <th>
                         热度
                     </th>
-                    <th>
+                    <%--<th>
                         用户
-                    </th>
+                    </th>--%>
                     <th>
                         管理
                     </th>
@@ -82,9 +82,9 @@
                             <td>
                                 <%#Eval("DayClick")%>
                             </td>
-                            <td>
+                           <%-- <td>
                                 <%#UserAction.GetUserNameByID(Eval("UserID").ToInt32())%>
-                            </td>
+                            </td>--%>
                             <td>
                                 <a href="Edit.aspx?id=<%#Eval("ID") %>">修改</a> 
                                 <a href="?id=<%#Eval("ID") %>&action=del"> 删除</a>

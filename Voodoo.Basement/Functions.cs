@@ -1315,7 +1315,8 @@ namespace Voodoo.Basement
                 {
                     i++;
                     string item = htmlTemp;
-                    item = item.Replace("{companyname}", q.CompanyName);
+                    item = item.Replace("{companyname}", custitle.ToInt32() > 0 ? q.CompanyName.CutString(custitle.ToInt32()) : q.CompanyName);
+                    item = item.Replace("{fcompanyname}", q.CompanyName);
                     item = item.Replace("{companytype}", JobAction.GetCompanyTypeName(q.CompanyType.ToInt32()));
                     item = item.Replace("{employeecount}", JobAction.GetEmployeeCountName(q.EmployeeCount.ToInt32()));
                     item = item.Replace("{id}", q.ID.ToS());
