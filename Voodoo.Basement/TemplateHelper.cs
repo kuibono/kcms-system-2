@@ -158,6 +158,16 @@ namespace Voodoo.Basement
             return ReplaceContent(new TemplateList() { TimeFormat = "yyyy-MM-dd HH:mm:ss", CutTitle = 0 }, TempString, n, c);
         }
 
+        public string ReplaceContent(TemplateList temp, string TempString, Product q, Class c)
+        {
+            return "";
+        }
+
+        public string ReplaceContent(string TempString, Product n, Class c)
+        {
+            return "";
+        }
+
         /// <summary>
         /// 替换小说
         /// </summary>
@@ -445,7 +455,26 @@ namespace Voodoo.Basement
                 Content = Content.Replace("<!--list.var-->", sb_list.ToString());
             }
             #endregion
+            #region 产品系统
+            else if (c.ModelID == 7)
+            {
+                StringBuilder sb_list = new StringBuilder();
+                var qs = from l in ent.Product
+                         from cp in ent.Class
+                         from cl in ent.Class
+                         where cp.ID == c.ID && cl.ParentID == cp.ID && (l.ClassID == cp.ID || l.ClassID == cl.ID)
+                         select l;
+                pagecount = (Convert.ToDouble(qs.Count()) / Convert.ToDouble(temp.ShowRecordCount)).YueShu();
+                recordCount = qs.Count();
 
+                var results = qs.OrderByDescending(p => p.ID).Skip((page - 1) * temp.ShowRecordCount.ToInt32()).Take(temp.ShowRecordCount.ToInt32()).ToList();
+                foreach (var item in results)
+                {
+                    sb_list.AppendLine(ReplaceContent(temp, temp.ListVar, item, c));
+                }
+                Content = Content.Replace("<!--list.var-->", sb_list.ToString());
+            }
+            #endregion
             #endregion
 
 

@@ -45,6 +45,7 @@
           <EntitySet Name="MovieUrlKuaib" EntityType="DataModel.Store.MovieUrlKuaib" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="MovieUrlMag" EntityType="DataModel.Store.MovieUrlMag" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="News" EntityType="DataModel.Store.News" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Product" EntityType="DataModel.Store.Product" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Province" EntityType="DataModel.Store.Province" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Question" EntityType="DataModel.Store.Question" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Relpy" EntityType="DataModel.Store.Relpy" store:Type="Tables" Schema="dbo" />
@@ -766,6 +767,28 @@
           <Property Name="Source" Type="nvarchar" MaxLength="50" />
           <Property Name="EnableReply" Type="bit" />
         </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ClassID" Type="int" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Specification" Type="nvarchar" MaxLength="255" />
+          <Property Name="Units" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="decimal" Scale="2" />
+          <Property Name="ProduceLocation" Type="nvarchar" MaxLength="255" />
+          <Property Name="FaceImage" Type="nvarchar" MaxLength="500" />
+          <Property Name="Contact" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="500" />
+          <Property Name="Intro" Type="nvarchar(max)" />
+          <Property Name="AddTime" Type="datetime" />
+          <Property Name="Enable" Type="bit" />
+          <Property Name="SetTop" Type="bit" />
+          <Property Name="ClickCount" Type="int" />
+          <Property Name="OrderIndex" Type="int" />
+        </EntityType>
         <EntityType Name="Province">
           <Key>
             <PropertyRef Name="ID" />
@@ -1210,6 +1233,7 @@
           <EntitySet Name="UserRerm" EntityType="DataModel.UserRerm" />
           <EntitySet Name="ViewHistory" EntityType="DataModel.ViewHistory" />
           <EntitySet Name="Zt" EntityType="DataModel.Zt" />
+          <EntitySet Name="Product" EntityType="DataModel.Product" />
         </EntityContainer>
         <EntityType Name="Ad">
           <Key>
@@ -2272,6 +2296,28 @@
           <Property Type="Int32" Name="ListModel" />
           <Property Type="Int32" Name="ListOrder" />
           <Property Type="Int32" Name="ListPageSize" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ClassID" />
+          <Property Type="String" Name="ClassName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Name" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Specification" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Units" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="Price" Precision="18" Scale="2" />
+          <Property Type="String" Name="ProduceLocation" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FaceImage" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Contact" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Tel" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Intro" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="AddTime" />
+          <Property Type="Boolean" Name="Enable" />
+          <Property Type="Boolean" Name="SetTop" />
+          <Property Type="Int32" Name="ClickCount" />
+          <Property Type="Int32" Name="OrderIndex" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -3409,6 +3455,29 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="DataModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="OrderIndex" ColumnName="OrderIndex" />
+                <ScalarProperty Name="ClickCount" ColumnName="ClickCount" />
+                <ScalarProperty Name="SetTop" ColumnName="SetTop" />
+                <ScalarProperty Name="Enable" ColumnName="Enable" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="Intro" ColumnName="Intro" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="FaceImage" ColumnName="FaceImage" />
+                <ScalarProperty Name="ProduceLocation" ColumnName="ProduceLocation" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Units" ColumnName="Units" />
+                <ScalarProperty Name="Specification" ColumnName="Specification" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
@@ -3497,6 +3566,7 @@
         <EntityTypeShape EntityType="DataModel.UserRerm" Width="1.5" PointX="24.75" PointY="18.75" Height="1.7790128580729174" />
         <EntityTypeShape EntityType="DataModel.ViewHistory" Width="1.5" PointX="18.75" PointY="24.75" Height="1.970032552083353" />
         <EntityTypeShape EntityType="DataModel.Zt" Width="1.5" PointX="24.75" PointY="21.75" Height="3.689209798177103" />
+        <EntityTypeShape EntityType="DataModel.Product" Width="1.5" PointX="5.375" PointY="25.75" Height="4.2622688802083246" />
       </Diagram>
     </Diagrams>
   </Designer>
