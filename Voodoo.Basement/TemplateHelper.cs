@@ -25,14 +25,30 @@ namespace Voodoo.Basement
         {
             using (DataEntities ent = new DataEntities())
             {
-                return (from l in ent.TemplateList where l.SysModel == cls.ModelID select l).FirstOrDefault();
+                var temp = from l in ent.TemplateList where l.ID == cls.ListTemplateID select l;
+                if (temp.Count() == 0)
+                {
+                    return (from l in ent.TemplateList where l.SysModel == cls.ModelID select l).FirstOrDefault();
+                }
+                else
+                {
+                    return temp.First();
+                }
             }
         }
         public TemplateContent GetContentTemplate(Class cls)
         {
             using (DataEntities ent = new DataEntities())
             {
-                return (from l in ent.TemplateContent where l.SysModel == cls.ModelID select l).FirstOrDefault();
+                var temp = from l in ent.TemplateContent where l.ID == cls.ContentTemplateID select l;
+                if (temp.Count() == 0)
+                {
+                    return (from l in ent.TemplateContent where l.SysModel == cls.ModelID select l).FirstOrDefault();
+                }
+                else
+                {
+                    return temp.First();
+                }
             }
         }
 
@@ -163,24 +179,24 @@ namespace Voodoo.Basement
             using (DataEntities ent = new DataEntities())
             {
                 string str_lst = TempString;
-                str_lst=str_lst.Replace("[!--productaddtime.--]",p.AddTime.ToDateTime().ToString(temp.TimeFormat));
-                str_lst=str_lst.Replace("[!--product.classid--]",p.ClassID.ToS());
-                str_lst=str_lst.Replace("[!--product.classname--]",p.ClassName);
-                str_lst=str_lst.Replace("[!--product.clickcount--]",p.ClickCount.ToS());
-                str_lst=str_lst.Replace("[!--product.contact--]",p.Contact);
-                str_lst=str_lst.Replace("[!--product.enable--]",p.Enable.ToBoolean().ToChinese());
-                str_lst=str_lst.Replace("[!--product.faceimage--]",p.FaceImage);
-                str_lst=str_lst.Replace("[!--product.id--]",p.ID.ToS());
-                str_lst=str_lst.Replace("[!--product.intro--]",p.Intro);
-                str_lst=str_lst.Replace("[!--product.name--]",p.Name);
-                str_lst=str_lst.Replace("[!--product.orderindex--]",p.OrderIndex.ToS());
-                str_lst=str_lst.Replace("[!--product.price-]",p.Price.ToDecimal().ToString("#.##"));
-                str_lst=str_lst.Replace("[!--product.producelocation--]",p.ProduceLocation);
-                str_lst=str_lst.Replace("[!--product.settop--]",p.SetTop.ToBoolean().ToChinese());
-                str_lst=str_lst.Replace("[!--product.specification--]",p.Specification);
-                str_lst=str_lst.Replace("[!--product.tel--]",p.Tel);
-                str_lst=str_lst.Replace("[!--product.units--]",p.Units);
-                str_lst = str_lst.Replace("[!--product.url--]", BasePage.GetProductUrl(p,c));
+                str_lst = str_lst.Replace("[!--productaddtime.--]", p.AddTime.ToDateTime().ToString(temp.TimeFormat));
+                str_lst = str_lst.Replace("[!--product.classid--]", p.ClassID.ToS());
+                str_lst = str_lst.Replace("[!--product.classname--]", p.ClassName);
+                str_lst = str_lst.Replace("[!--product.clickcount--]", p.ClickCount.ToS());
+                str_lst = str_lst.Replace("[!--product.contact--]", p.Contact);
+                str_lst = str_lst.Replace("[!--product.enable--]", p.Enable.ToBoolean().ToChinese());
+                str_lst = str_lst.Replace("[!--product.faceimage--]", p.FaceImage);
+                str_lst = str_lst.Replace("[!--product.id--]", p.ID.ToS());
+                str_lst = str_lst.Replace("[!--product.intro--]", p.Intro);
+                str_lst = str_lst.Replace("[!--product.name--]", p.Name);
+                str_lst = str_lst.Replace("[!--product.orderindex--]", p.OrderIndex.ToS());
+                str_lst = str_lst.Replace("[!--product.price-]", p.Price.ToDecimal().ToString("#.##"));
+                str_lst = str_lst.Replace("[!--product.producelocation--]", p.ProduceLocation);
+                str_lst = str_lst.Replace("[!--product.settop--]", p.SetTop.ToBoolean().ToChinese());
+                str_lst = str_lst.Replace("[!--product.specification--]", p.Specification);
+                str_lst = str_lst.Replace("[!--product.tel--]", p.Tel);
+                str_lst = str_lst.Replace("[!--product.units--]", p.Units);
+                str_lst = str_lst.Replace("[!--product.url--]", BasePage.GetProductUrl(p, c));
 
                 return str_lst;
             }
@@ -339,6 +355,7 @@ namespace Voodoo.Basement
             Content = ReplaceSystemSetting(Content);
 
             //分类属性
+            Content = Content.Replace("[!--class.page--]", page.ToS());
             Content = Content.Replace("[!--class.alter--]", c.Alter);
             Content = Content.Replace("[!--class.classdescription--]", c.ClassDescription);
             Content = Content.Replace("[!--class.classfolder--]", c.ClassForder);
@@ -431,9 +448,9 @@ namespace Voodoo.Basement
                 List<Book> qs =
                     (from l in ent.Book
                      from cp in ent.Class//sub class
-                     where 
-                        (l.ClassID==c.ID && cp.ID==c.ID)||
-                        (l.ClassID==cp.ID && cp.ParentID==c.ID )
+                     where
+                        (l.ClassID == c.ID && cp.ID == c.ID) ||
+                        (l.ClassID == cp.ID && cp.ParentID == c.ID)
 
                      select l
                 ).ToList();
@@ -478,14 +495,18 @@ namespace Voodoo.Basement
                 Content = Content.Replace("<!--list.var-->", sb_list.ToString());
             }
             #endregion
+
             #region 产品系统
             else if (c.ModelID == 7)
             {
                 StringBuilder sb_list = new StringBuilder();
                 var qs = from l in ent.Product
-                         from cp in ent.Class
-                         from cl in ent.Class
-                         where cp.ID == c.ID && cl.ParentID == cp.ID && (l.ClassID == cp.ID || l.ClassID == cl.ID)
+                         //from cp in ent.Class
+                         //from cl in ent.Class
+                         where 
+                         l.ClassID==c.ID
+                         //(l.ClassID == c.ID && cp.ID == c.ID) ||
+                         //(l.ClassID == cp.ID && cp.ParentID == c.ID)
                          select l;
                 pagecount = (Convert.ToDouble(qs.Count()) / Convert.ToDouble(temp.ShowRecordCount)).YueShu();
                 recordCount = qs.Count();
@@ -1275,7 +1296,7 @@ namespace Voodoo.Basement
 
             Content = ReplaceTagContent(Content);
 
-            
+
 
             //替换导航条
             Content = Content.Replace("[!--newsnav--]", BuildClassNavString(cls));
@@ -1475,12 +1496,12 @@ namespace Voodoo.Basement
                          orderby l.ID descending
                          select l;
 
-                List<Book> qs ;
+                List<Book> qs;
                 if (!key.IsNullOrEmpty())
                 {
                     xx = from l in xx where l.Title.Contains(key) || l.Author.Contains(key) || l.Intro.Contains(key) orderby l.ID descending select l;
                 }
-                qs= xx.ToList();
+                qs = xx.ToList();
 
                 pagecount = (Convert.ToDouble(qs.Count) / Convert.ToDouble(20)).YueShu();
                 recordCount = qs.Count;
@@ -1961,10 +1982,10 @@ namespace Voodoo.Basement
 
             int pagecount = @int.GetPageCount(recordCount, temp.ShowRecordCount.ToInt32()); //(Convert.ToDouble(recordCount) / Convert.ToDouble(temp.ShowRecordCount)).YueShu();
 
-            string str_first = string.Format("<a href=\"{0}\">首页</a>", page > 1 ? "index" + BasePage.SystemSetting.ExtName : "javascript:void(0)");
-            string str_pre = string.Format("<a href=\"{0}\">上页</a>", page > 1 ? "index" + (page == 2 ? "" : "_" + (page - 1).ToS()) + BasePage.SystemSetting.ExtName : "javascript:void(0)");
-            string str_next = string.Format("<a href=\"{0}\">下页</a>", page < pagecount ? "index_" + (page + 1).ToS() + BasePage.SystemSetting.ExtName : "javascript:void(0)");
-            string str_end = string.Format("<a href=\"{0}\">尾页</a>", page != pagecount ? "index_" + pagecount.ToS() + BasePage.SystemSetting.ExtName : "javascript:void(0)");
+            string str_first = string.Format("<a href=\"{0}\">首页</a>", page > 1 ? BasePage.GetClassUrl(c,1) : "javascript:void(0)");
+            string str_pre = string.Format("<a href=\"{0}\">上页</a>", page > 1 ? BasePage.GetClassUrl(c, page-1) : "javascript:void(0)");
+            string str_next = string.Format("<a href=\"{0}\">下页</a>", page < pagecount ? BasePage.GetClassUrl(c, page+1) : "javascript:void(0)");
+            string str_end = string.Format("<a href=\"{0}\">尾页</a>", page != pagecount ? BasePage.GetClassUrl(c, pagecount) : "javascript:void(0)");
             return string.Format("{0} {1} {2} {3}", str_first, str_pre, str_next, str_end);
         }
 
@@ -2019,11 +2040,11 @@ namespace Voodoo.Basement
             {
                 if (page == i)
                 {
-                    sb.AppendLine(string.Format("<option value='index{0}' selected>{1}</option>", (i > 1 ? "_" + i.ToS() : "") + BasePage.SystemSetting.ExtName, i.ToS()));
+                    sb.AppendLine(string.Format("<option value='{0}' selected>{1}</option>", BasePage.GetClassUrl(c,i) , i.ToS()));
                 }
                 else
                 {
-                    sb.AppendLine(string.Format("<option value='index{0}'>{1}</option>", (i > 1 ? "_" + i.ToS() : "") + BasePage.SystemSetting.ExtName, i.ToS()));
+                    sb.AppendLine(string.Format("<option value='{0}'>{1}</option>",  BasePage.GetClassUrl(c, i) , i.ToS()));
                 }
             }
             sb.AppendLine("</select>");
@@ -2196,9 +2217,9 @@ namespace Voodoo.Basement
         {
             using (DataEntities ent = new DataEntities())
             {
-                string html= (from l in ent.TemplateVar where l.VarName == VarName select l).FirstOrDefault().Content;
+                string html = (from l in ent.TemplateVar where l.VarName == VarName select l).FirstOrDefault().Content;
                 return ReplaceSystemSetting(html);
-                   
+
             }
 
         }

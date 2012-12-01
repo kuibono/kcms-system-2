@@ -16,6 +16,17 @@ namespace Web.e.admin.Product
 {
     public partial class List : AdminBase
     {
+        protected void SetDefault()
+        {
+            AddTime.Value = DateTime.Now;
+            Enable.Checked = true;
+            ClickCount.Value = 0;
+            OrderIndex.Value = 9999;
+            Specification.Value = 0;
+            Price.Value = 0;
+
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             using (DataEntities ent = new DataEntities())
@@ -27,11 +38,8 @@ namespace Web.e.admin.Product
             }
             if (!X.IsAjaxRequest)
             {
-                AddTime.Value = DateTime.Now;
-                Enable.Checked = true;
-                ClickCount.Value = 0;
-                OrderIndex.Value = 9999;
-               
+                SetDefault();
+
 
                 this.BindData();
 
@@ -134,12 +142,12 @@ namespace Web.e.admin.Product
             if (s_Enable.Text.IsNullOrEmpty() == false)
             {
                 bool enable = s_Enable.SelectedItem.Value.ToBoolean();
-                s = s.Where(p => p.Enable==enable);
+                s = s.Where(p => p.Enable == enable);
             }
             if (s_SetTop.Text.IsNullOrEmpty() == false)
             {
                 bool settop = s_SetTop.SelectedItem.Value.ToBoolean();
-                s = s.Where(p => p.SetTop==settop);
+                s = s.Where(p => p.SetTop == settop);
             }
 
             if (s_Key.Text.Length > 0)
@@ -164,7 +172,7 @@ namespace Web.e.admin.Product
 
         protected void Form_Reset(object sender, DirectEventArgs e)
         {
-            FormPanel1.SetValues(new Voodoo.Basement.Product());
+            SetDefault();
             FormPanel1.Title = "新增";
         }
 
@@ -188,7 +196,7 @@ namespace Web.e.admin.Product
                 n.Enable = Enable.Checked;
                 //n.FaceImage = "";
 
-                
+
 
                 n.Intro = Intro.Text;
                 n.Name = Name.Text;
@@ -207,8 +215,10 @@ namespace Web.e.admin.Product
 
                 if (FaceImage.HasFile)
                 {
+                    Class cls = (from l in ent.Class where l.ID == n.ClassID select l).First();
                     string fileName = string.Format("/u/products/{0}.jpg", n.ID);
-                    Voodoo.Basement.BasePage.UpLoadImage(FaceImage.PostedFile, fileName, 194, 204);
+                    Voodoo.Basement.BasePage.UpLoadImage(FaceImage.PostedFile, fileName, cls.ImageWidth.ToInt32(), cls.ImageHeight.ToInt32());//194, 204
+                    n.FaceImage = fileName;
                     ent.SaveChanges();
                 }
 
@@ -224,7 +234,7 @@ namespace Web.e.admin.Product
 
         protected void Add_Click(object sender, DirectEventArgs e)
         {
-            FormPanel1.SetValues(new Voodoo.Basement.Product());
+            SetDefault();
             FormPanel1.Title = "新增";
             TabPanel1.SetActiveTab(1);
         }
@@ -273,7 +283,7 @@ namespace Web.e.admin.Product
 
         protected void Cancel_Click(object sender, DirectEventArgs e)
         {
-            FormPanel1.SetValues(new Voodoo.Basement.Product());
+            SetDefault();
             FormPanel1.Title = "新增";
             TabPanel1.SetActiveTab(0);
         }

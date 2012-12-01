@@ -165,9 +165,9 @@
                             <ext:Toolbar ID="Toolbar1" runat="server">
                                 <Items>
                                     <ext:Button ID="Button1" runat="server" Text="新增" Icon="Add">
-										<Listeners>
-											<Click Handler="#{GridPanel1}.insertRecord();#{GridPanel1}.getRowEditor().startEditing(0);" />
-										</Listeners>
+										<DirectEvents>
+											<Click OnEvent="Add_Click" />
+										</DirectEvents>
 									</ext:Button>
 									<ext:Button ID="Button2" runat="server" Text="删除选中" Icon="Exclamation">
 										<DirectEvents>
@@ -223,7 +223,7 @@
                                 ID="ClassID"
                                 runat="server" 
                                 DisplayField="ClassName"
-                                FieldLabel="类名"
+                                FieldLabel="所在栏目"
                                 ValueField="ID"
                                 EmptyText="请选择所在分类...">
                                 <Store>
@@ -240,15 +240,15 @@
                                 </Store>    
                             </ext:SelectBox>
 
-							<ext:TextField ID="Name" DataIndex="Name" runat="server" FieldLabel="产品名称" />
+							<ext:TextField ID="Name" DataIndex="Name" runat="server" FieldLabel="名称" />
 
-							<ext:TextField ID="Specification" DataIndex="Specification" runat="server" FieldLabel="产品规格" />
+							<ext:TextField ID="Specification" DataIndex="Specification" runat="server" FieldLabel="产品规格" Visible="false" />
 
-							<ext:TextField ID="Units" DataIndex="Units" runat="server" FieldLabel="单位" />
+							<ext:TextField ID="Units" DataIndex="Units" runat="server" FieldLabel="单位" Visible="false" />
 
-							<ext:NumberField ID="Price" DataIndex="Price" runat="server" FieldLabel="单价" />
+							<ext:NumberField ID="Price" DataIndex="Price" runat="server" FieldLabel="单价" Visible="false" />
 
-							<ext:TextField ID="ProduceLocation" DataIndex="ProduceLocation" runat="server" FieldLabel="产地" />
+							<ext:TextField ID="ProduceLocation" DataIndex="ProduceLocation" runat="server" FieldLabel="产地" Visible="false" />
 
 							<%--<ext:TextField ID="FaceImage" DataIndex="FaceImage" runat="server" FieldLabel="图片" />--%>
                             <ext:FileUploadField 
@@ -260,15 +260,15 @@
                                 AnchorHorizontal="95%"
                                 />
 
-							<ext:TextField ID="Contact" DataIndex="Contact" runat="server" FieldLabel="联系人" />
+							<ext:TextField ID="Contact" DataIndex="Contact" runat="server" FieldLabel="联系人" Visible="false" />
 
-							<ext:TextField ID="Tel" DataIndex="Tel" runat="server" FieldLabel="电话" />
+							<ext:TextField ID="Tel" DataIndex="Tel" runat="server" FieldLabel="电话" Visible="false" />
 
 							<ext:HtmlEditor ID="Intro" DataIndex="Intro" runat="server" FieldLabel="简介" />
 
 							<ext:DateField ID="AddTime" DataIndex="AddTime" runat="server" FieldLabel="添加时间" />
 
-							<ext:Checkbox ID="Enable" DataIndex="Enable" runat="server" FieldLabel="可用" />
+							<ext:Checkbox ID="Enable" DataIndex="Enable" runat="server" FieldLabel="可用" Visible="false" />
 
 							<ext:Checkbox ID="SetTop" DataIndex="SetTop" runat="server" FieldLabel="是否置顶" />
 

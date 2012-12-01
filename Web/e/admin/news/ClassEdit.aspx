@@ -103,11 +103,53 @@
                     </td>
                 </tr>
                 <tr>
+                    <td width="163">
+                        列表模版
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="ddl_Template" runat="server">
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="163">
+                        列内容模版
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="ddl_TemplateContent" runat="server">
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
                     <td>
                         栏目缩略图
                     </td>
                     <td>
                         <vd:VTextBox ID="txt_ClassICON" runat="server"></vd:VTextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        管理地址
+                    </td>
+                    <td>
+                        <vd:VTextBox ID="txt_ManagementUrl" runat="server"></vd:VTextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        图片宽度
+                    </td>
+                    <td>
+                        <vd:VTextBox ID="txt_ImageWidth" runat="server" Text="100"></vd:VTextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        图片高度
+                    </td>
+                    <td>
+                        <vd:VTextBox ID="txt_ImageHeight" runat="server" Text="100"></vd:VTextBox>
                     </td>
                 </tr>
                 <tr>

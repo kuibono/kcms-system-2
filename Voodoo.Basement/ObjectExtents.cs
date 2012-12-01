@@ -29,6 +29,9 @@ namespace Voodoo.Basement
                     case 6: //电影
                         return (from l in ent.MovieInfo select l).Count();
                         break;
+                    case 7:
+                        return (from l in ent.Product where l.ClassID == cls.ID select l).Count();
+                        break;
                     default:
                         return 0;
                 }

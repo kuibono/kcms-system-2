@@ -804,6 +804,7 @@
     <Content Include="skin\product\css\960_24_col_rtl.css" />
     <Content Include="skin\product\css\960_rtl.css" />
     <Content Include="skin\product\css\company.css" />
+    <Content Include="skin\product\css\demo.css" />
     <Content Include="skin\product\css\reset.css" />
     <Content Include="skin\product\css\reset_rtl.css" />
     <Content Include="skin\product\css\text.css" />

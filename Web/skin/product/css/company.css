@@ -93,6 +93,7 @@ h1, p
     position: relative;
     text-align: center;
     border: solid 1px rgb(96,151,163);
+    overflow:hidden;
 }
 .corp ul li a
 {
@@ -102,6 +103,11 @@ h1, p
     height:80px;
     line-height:80px;
     vertical-align:middle;
+    
+}
+.prolist ul
+{
+    width:100%;
 }
 .prolist ul li a p
 {

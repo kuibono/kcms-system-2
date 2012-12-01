@@ -250,6 +250,11 @@
           <Property Name="ContentPageExtName" Type="nvarchar" MaxLength="50" />
           <Property Name="ContentPageNameMode" Type="int" />
           <Property Name="ContentPageDirMode" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImageWidth" Type="int" />
+          <Property Name="ImageHeight" Type="int" />
+          <Property Name="ManagementUrl" Type="nvarchar" MaxLength="255" />
+          <Property Name="ListTemplateID" Type="int" />
+          <Property Name="ContentTemplateID" Type="int" />
         </EntityType>
         <EntityType Name="File">
           <Key>
@@ -1409,6 +1414,11 @@
           <Property Type="String" Name="ContentPageExtName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="ContentPageNameMode" />
           <Property Type="String" Name="ContentPageDirMode" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ImageWidth" />
+          <Property Type="Int32" Name="ImageHeight" />
+          <Property Type="String" Name="ManagementUrl" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ListTemplateID" />
+          <Property Type="Int32" Name="ContentTemplateID" />
         </EntityType>
         <EntityType Name="File">
           <Key>
@@ -2467,6 +2477,11 @@
           <EntitySetMapping Name="Class">
             <EntityTypeMapping TypeName="DataModel.Class">
               <MappingFragment StoreEntitySet="Class">
+                <ScalarProperty Name="ContentTemplateID" ColumnName="ContentTemplateID" />
+                <ScalarProperty Name="ListTemplateID" ColumnName="ListTemplateID" />
+                <ScalarProperty Name="ManagementUrl" ColumnName="ManagementUrl" />
+                <ScalarProperty Name="ImageHeight" ColumnName="ImageHeight" />
+                <ScalarProperty Name="ImageWidth" ColumnName="ImageWidth" />
                 <ScalarProperty Name="ContentPageDirMode" ColumnName="ContentPageDirMode" />
                 <ScalarProperty Name="ContentPageNameMode" ColumnName="ContentPageNameMode" />
                 <ScalarProperty Name="ContentPageExtName" ColumnName="ContentPageExtName" />

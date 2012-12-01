@@ -114,7 +114,11 @@ namespace Web.e.admin
                 node.Text = pcls.ClassName;
                 if (pcls.IsLeafClass == true)
                 {
-                    if (pcls.ModelID == 1)
+                    if (pcls.ManagementUrl.IsNullOrEmpty() == false)
+                    {
+                        node.Listeners.Click.Handler = string.Format("openpage('{0}','{1}')", pcls.ManagementUrl, node.Text);
+                    }
+                    else if (pcls.ModelID == 1)
                     {
                         node.Listeners.Click.Handler = string.Format("openpage('news/NewsList.aspx?class={0}','{1}')", pcls.ID, node.Text);
                     }

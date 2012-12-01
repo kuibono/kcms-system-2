@@ -21,7 +21,8 @@ namespace Web.Dynamic.Product
 
                 TemplateHelper Helper = new TemplateHelper();
                 Response.Clear();
-                Helper.CreateContentPage(p, p.GetClass());
+                Response.Write(
+                Helper.CreateContentPage(p, p.GetClass()));
             }
 
 

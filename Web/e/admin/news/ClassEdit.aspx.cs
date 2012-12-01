@@ -31,7 +31,17 @@ namespace Web.e.admin.news
             ddl_ModelID.DataTextField = "ModelName";
             ddl_ModelID.DataValueField = "ID";
             ddl_ModelID.DataBind();
+            DataEntities ent = new DataEntities();
 
+            var templates = (from l in ent.TemplateList select l).ToList().ToDataTable();
+            ddl_Template.Bind(templates, "TempName", "ID");
+            ddl_Template.Items.Add(new ListItem("--默认--", "0"));
+            ddl_Template.SelectedValue = "0";
+
+            var templatecontents = (from l in ent.TemplateContent select l).ToList().ToDataTable();
+            ddl_TemplateContent.Bind(templatecontents, "TempName", "ID");
+            ddl_TemplateContent.Items.Add(new ListItem("--默认--", "0"));
+            ddl_TemplateContent.SelectedValue = "0";
 
             lbox_ParentID.Bind(NewsAction.NewsClass.ToDataTable(), "ClassName", "ID");
             lbox_ParentID.Items.Add(new ListItem("--根栏目--", "0"));
@@ -87,7 +97,14 @@ namespace Web.e.admin.news
 
             ddl_ModelID.SelectedValue = cls.ModelID.ToS();
 
+            txt_ImageHeight.Text = cls.ImageHeight.ToS();
+            txt_ImageWidth.Text = cls.ImageHeight.ToS();
 
+            txt_ManagementUrl.Text = cls.ManagementUrl;
+
+            ddl_Template.SelectedValue = cls.ListTemplateID.ToS();
+
+            ddl_TemplateContent.SelectedValue = cls.ContentTemplateID.ToS();
         }
 
         protected void btn_Save_Click(object sender, EventArgs e)
@@ -141,6 +158,15 @@ namespace Web.e.admin.news
             cls.ReplyNeedAudit = chk_ReplyNeedAudit.Checked;
 
             cls.ModelID = ddl_ModelID.SelectedValue.ToInt32();
+
+            cls.ImageHeight = txt_ImageHeight.Text.ToInt32();
+            cls.ImageWidth = txt_ImageWidth.Text.ToInt32();
+
+            cls.ManagementUrl = txt_ManagementUrl.Text;
+
+            cls.ListTemplateID = ddl_Template.SelectedValue.ToInt32();
+
+            cls.ContentTemplateID = ddl_TemplateContent.Text.ToInt32();
 
             if (cls.ID <= 0)
             {
