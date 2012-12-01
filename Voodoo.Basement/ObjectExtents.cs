@@ -107,7 +107,17 @@ namespace Voodoo.Basement
                 return (from l in ent.MovieInfo where l.id == drama.MovieID select l).FirstOrDefault().GetClass();
             }
         }
+
+        public static Class GetClass(this Product pro)
+        {
+            using (DataEntities ent = new DataEntities())
+            {
+                return ClassAction.Classes.Where(p => p.ID ==pro.ClassID ).FirstOrDefault();
+            }
+        }
         #endregion
+
+
 
         #region GetSubClass
         public static List<Class> GetSubClass(this Class cls)

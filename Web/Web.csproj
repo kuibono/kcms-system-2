@@ -120,6 +120,7 @@
     <Content Include="Dynamic\News\Class.aspx" />
     <Content Include="Dynamic\News\Default.aspx" />
     <Content Include="Dynamic\News\News.aspx" />
+    <Content Include="Dynamic\Product\Default.aspx" />
     <Content Include="e\admin\Ad\AdGroup\Edit.aspx" />
     <Content Include="e\admin\Ad\AdGroup\List.aspx" />
     <Content Include="e\admin\Ad\Ad\Edit.aspx" />
@@ -155,6 +156,7 @@
     <Content Include="e\admin\news\ClassList.aspx" />
     <Content Include="e\admin\news\NewsEdit.aspx" />
     <Content Include="e\admin\news\NewsList.aspx" />
+    <Content Include="e\admin\Product\List.aspx" />
     <Content Include="e\admin\system\Basement\AreaManagement.aspx" />
     <Content Include="e\admin\system\Basement\CityManagement.aspx" />
     <Content Include="e\admin\system\Basement\FileManagement.aspx" />
@@ -528,6 +530,7 @@
     <Content Include="e\data\My97DatePicker\skin\WdatePicker.css" />
     <Content Include="e\data\My97DatePicker\WdatePicker.js" />
     <Content Include="e\data\script\basic.js" />
+    <Content Include="e\data\script\management.js" />
     <Content Include="e\data\themes\default\accordion.css" />
     <Content Include="e\data\themes\default\calendar.css" />
     <Content Include="e\data\themes\default\combo.css" />
@@ -790,6 +793,53 @@
     <Content Include="skin\novel\view.css" />
     <Content Include="skin\novel\vipmain.png" />
     <Content Include="skin\novel\x.png" />
+    <Content Include="skin\product\contact.htm" />
+    <Content Include="skin\product\corperate.htm" />
+    <Content Include="skin\product\css\960.css" />
+    <Content Include="skin\product\css\960_12_col.css" />
+    <Content Include="skin\product\css\960_12_col_rtl.css" />
+    <Content Include="skin\product\css\960_16_col.css" />
+    <Content Include="skin\product\css\960_16_col_rtl.css" />
+    <Content Include="skin\product\css\960_24_col.css" />
+    <Content Include="skin\product\css\960_24_col_rtl.css" />
+    <Content Include="skin\product\css\960_rtl.css" />
+    <Content Include="skin\product\css\company.css" />
+    <Content Include="skin\product\css\reset.css" />
+    <Content Include="skin\product\css\reset_rtl.css" />
+    <Content Include="skin\product\css\text.css" />
+    <Content Include="skin\product\css\text_rtl.css" />
+    <Content Include="skin\product\image\banner.png" />
+    <Content Include="skin\product\image\bg_contact.png" />
+    <Content Include="skin\product\image\bg_corperate.png" />
+    <Content Include="skin\product\image\bg_productlist.png" />
+    <Content Include="skin\product\image\bottom_jianbian.png" />
+    <Content Include="skin\product\image\btn_message.png" />
+    <Content Include="skin\product\image\btn_product.png" />
+    <Content Include="skin\product\image\c %281%29.png" />
+    <Content Include="skin\product\image\c %2810%29.png" />
+    <Content Include="skin\product\image\c %282%29.png" />
+    <Content Include="skin\product\image\c %283%29.png" />
+    <Content Include="skin\product\image\c %284%29.png" />
+    <Content Include="skin\product\image\c %285%29.png" />
+    <Content Include="skin\product\image\c %286%29.png" />
+    <Content Include="skin\product\image\c %287%29.png" />
+    <Content Include="skin\product\image\c %288%29.png" />
+    <Content Include="skin\product\image\c %289%29.png" />
+    <Content Include="skin\product\image\header_contact.png" />
+    <Content Include="skin\product\image\header_corp.png" />
+    <Content Include="skin\product\image\header_product.png" />
+    <Content Include="skin\product\image\head_contact.png" />
+    <Content Include="skin\product\image\jianbian_banner.png" />
+    <Content Include="skin\product\image\jianbian_fav.png" />
+    <Content Include="skin\product\image\logo.png" />
+    <Content Include="skin\product\image\map.png" />
+    <Content Include="skin\product\image\nav.png" />
+    <Content Include="skin\product\image\p1.png" />
+    <Content Include="skin\product\image\p2.png" />
+    <Content Include="skin\product\image\p3.png" />
+    <Content Include="skin\product\image\p4.png" />
+    <Content Include="skin\product\image\plus.png" />
+    <Content Include="skin\product\product.htm" />
     <Content Include="skin\script\ChapterCommon.js" />
     <Content Include="skin\script\contentpage.js" />
     <Content Include="skin\script\indexpage.js" />
@@ -993,6 +1043,13 @@
     </Compile>
     <Compile Include="Dynamic\News\News.aspx.designer.cs">
       <DependentUpon>News.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dynamic\Product\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Product\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="e\admin\Ad\AdGroup\Edit.aspx.cs">
       <DependentUpon>Edit.aspx</DependentUpon>
@@ -1280,6 +1337,13 @@
     </Compile>
     <Compile Include="e\admin\news\NewsList.aspx.designer.cs">
       <DependentUpon>NewsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="e\admin\Product\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\admin\Product\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
     </Compile>
     <Compile Include="e\admin\question\QuestionEdit.aspx.cs">
       <DependentUpon>QuestionEdit.aspx</DependentUpon>

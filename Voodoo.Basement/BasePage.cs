@@ -804,6 +804,13 @@ namespace Voodoo.Basement
 
         #endregion
 
+        #region 获取产品地址
+        public static string GetProductUrl(Product p, Class cls)
+        {
+            return GetConverter().GetProductUrl(p, cls);
+        }
+        #endregion
+
         #region 上传文件
         /// <summary>
         /// 上传文件

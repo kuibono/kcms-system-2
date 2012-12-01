@@ -138,6 +138,10 @@ namespace Web.e.admin
                     {
                         node.Listeners.Click.Handler = string.Format("openpage('Movie/MovieList.aspx?class={0}','{1}')", pcls.ID, node.Text);
                     }
+                    else if (pcls.ModelID == 7)
+                    {
+                        node.Listeners.Click.Handler = string.Format("openpage('Product/List.aspx?class={0}','{1}')", pcls.ID, node.Text);
+                    }
 
                 }
             }

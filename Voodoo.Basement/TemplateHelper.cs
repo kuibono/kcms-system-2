@@ -158,14 +158,37 @@ namespace Voodoo.Basement
             return ReplaceContent(new TemplateList() { TimeFormat = "yyyy-MM-dd HH:mm:ss", CutTitle = 0 }, TempString, n, c);
         }
 
-        public string ReplaceContent(TemplateList temp, string TempString, Product q, Class c)
+        public string ReplaceContent(TemplateList temp, string TempString, Product p, Class c)
         {
-            return "";
+            using (DataEntities ent = new DataEntities())
+            {
+                string str_lst = TempString;
+                str_lst=str_lst.Replace("[!--productaddtime.--]",p.AddTime.ToDateTime().ToString(temp.TimeFormat));
+                str_lst=str_lst.Replace("[!--product.classid--]",p.ClassID.ToS());
+                str_lst=str_lst.Replace("[!--product.classname--]",p.ClassName);
+                str_lst=str_lst.Replace("[!--product.clickcount--]",p.ClickCount.ToS());
+                str_lst=str_lst.Replace("[!--product.contact--]",p.Contact);
+                str_lst=str_lst.Replace("[!--product.enable--]",p.Enable.ToBoolean().ToChinese());
+                str_lst=str_lst.Replace("[!--product.faceimage--]",p.FaceImage);
+                str_lst=str_lst.Replace("[!--product.id--]",p.ID.ToS());
+                str_lst=str_lst.Replace("[!--product.intro--]",p.Intro);
+                str_lst=str_lst.Replace("[!--product.name--]",p.Name);
+                str_lst=str_lst.Replace("[!--product.orderindex--]",p.OrderIndex.ToS());
+                str_lst=str_lst.Replace("[!--product.price-]",p.Price.ToDecimal().ToString("#.##"));
+                str_lst=str_lst.Replace("[!--product.producelocation--]",p.ProduceLocation);
+                str_lst=str_lst.Replace("[!--product.settop--]",p.SetTop.ToBoolean().ToChinese());
+                str_lst=str_lst.Replace("[!--product.specification--]",p.Specification);
+                str_lst=str_lst.Replace("[!--product.tel--]",p.Tel);
+                str_lst=str_lst.Replace("[!--product.units--]",p.Units);
+                str_lst = str_lst.Replace("[!--product.url--]", BasePage.GetProductUrl(p,c));
+
+                return str_lst;
+            }
         }
 
-        public string ReplaceContent(string TempString, Product n, Class c)
+        public string ReplaceContent(string TempString, Product p, Class c)
         {
-            return "";
+            return ReplaceContent(new TemplateList() { TimeFormat = "yyyy-MM-dd HH:mm:ss", CutTitle = 0 }, TempString, p, c);
         }
 
         /// <summary>
@@ -1221,6 +1244,47 @@ namespace Voodoo.Basement
             return Content;
         }
         #endregion
+
+        #region  生成内容页--产品
+        /// <summary>
+        /// 生成内容页--图片
+        /// </summary>
+        /// <param name="album"></param>
+        /// <param name="cls"></param>
+        public string CreateContentPage(Product p, Class cls)
+        {
+            DataEntities ent = new DataEntities();
+
+            TemplateContent temp = GetContentTemplate(cls);
+            string Content = temp.Content;
+
+            Content = ReplacePublicTemplate(Content);
+            Content = ReplacePublicTemplate(Content);
+            Content = ReplacePublicTemplate(Content);
+
+            Content = ReplaceSystemSetting(Content);
+
+
+
+
+            #region 替换内容
+
+            Content = ReplaceContent(Content, p, cls);
+
+            #endregion
+
+            Content = ReplaceTagContent(Content);
+
+            
+
+            //替换导航条
+            Content = Content.Replace("[!--newsnav--]", BuildClassNavString(cls));
+
+            return Content;
+        }
+        #endregion
+
+
 
         #region  创建章节页面
         /// <summary>

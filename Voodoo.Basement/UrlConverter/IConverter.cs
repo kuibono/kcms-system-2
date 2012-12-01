@@ -27,6 +27,8 @@ namespace Voodoo.Basement.UrlConverter
 
         string GetMovieDramaUrl(MovieDrama b, Class cls);
 
+        string GetProductUrl(Product p, Class cls);
+
         string GetClassUrl(Class cls);
 
         string GetClassUrl(Class cls, int page);

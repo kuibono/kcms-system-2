@@ -367,6 +367,13 @@ namespace Voodoo.Basement.UrlConverter
 
         #endregion
 
+        #region 获取产品地址
+        public string GetProductUrl(Product p, Class cls)
+        {
+            return string.Format("/Product/{0}{1}", p.ID, BasePage.SystemSetting.ExtName);
+        }
+        #endregion
+
 
         #region 获取栏目地址
         /// <summary>

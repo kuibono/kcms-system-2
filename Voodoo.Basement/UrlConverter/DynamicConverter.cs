@@ -137,6 +137,12 @@ namespace Voodoo.Basement.UrlConverter
 
         #endregion
 
+        #region 获取产品地址
+        public string GetProductUrl(Product p, Class cls)
+        {
+            return string.Format("/Dynamic/Product/?id={0}", p.ID); 
+        }
+        #endregion
 
         #region 获取栏目地址
         /// <summary>

@@ -94,8 +94,14 @@ namespace Web.e.admin.news
         {
             DataEntities ent = new DataEntities();
 
-            int id = WS.RequestInt("id");
-            Class cls = (from l in ent.Class where l.ID == id select l).FirstOrDefault();
+            Class cls = new Class();
+
+            try
+            {
+                int id = WS.RequestInt("id");
+                cls = (from l in ent.Class where l.ID == id select l).First();
+            }
+            catch { }
 
             cls.ClassName = txt_ClassName.Text;
             cls.Alter = txt_Alter.Text;

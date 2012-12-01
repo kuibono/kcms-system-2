@@ -1,0 +1,173 @@
+*
+{
+    color: rgb(107,107,107);
+}
+.shadow
+{
+    height: 7px;
+    width: 950px;
+    background-image: url(../image/jianbian_banner.png);
+    background-repeat:no-repeat;
+}
+a
+{
+    text-decoration: none;
+}
+h1, p
+{
+    margin-bottom: 10px;
+}
+.clear
+{
+    clear: both;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+.grid610, .grid330, .grid950
+{
+    display: inline;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.grid610
+{
+    width: 610px;
+    float: right;
+}
+.grid330
+{
+    width: 330px;
+    float: left;
+}
+.grid950
+{
+    width: 950px;
+    float: left;
+}
+.favpanel ul, .favpanel ul li
+{
+    float: right;
+    list-style: none;
+}
+.favpanel ul li
+{
+    background-image: url(../image/jianbian_fav.png);
+    background-repeat: no-repeat;
+    height: 46px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: 0;
+}
+.favpanel a
+{
+    color: rgb(132,132,132);
+    padding: 0 0 0 5px;
+    background-image: url(../image/plus.png);
+    background-position: left;
+    background-repeat: no-repeat;
+    height: 46px;
+    line-height: 46px;
+    vertical-align: middle;
+}
+.prolist
+{
+    background-image: url(../image/bg_productlist.png);
+    background-position: right bottom;
+    background-repeat: no-repeat;
+}
+.corp
+{
+}
+        
+.prolist ul, .prolist ul li, .corp ul, .corp li
+{
+    float: left;
+    list-style: none;
+}
+.prolist ul li a
+{
+    display: block;
+    position: relative;
+    text-align: center;
+    border: solid 1px rgb(96,151,163);
+}
+.corp ul li a
+{
+    display: block;
+    position: relative;
+    text-align: center;
+    height:80px;
+    line-height:80px;
+    vertical-align:middle;
+}
+.prolist ul li a p
+{
+    display: block;
+    text-align: center;
+    line-height: 33px;
+    position: absolute;
+    bottom: 0;
+    height: 33px;
+    vertical-align: middle;
+    background-color: rgb(96,151,163);
+    font-weight: bold;
+    color: #FFF;
+    margin: 0;
+    width: 100%;
+}
+.prolist ul li a p:hover
+{
+    color: rgb(239,122,44);
+    text-decoration: underline;
+}
+.prolist ul li, .corp ul li
+{
+    width: 32%;
+    margin: 0;
+    padding: 5px 3px 5px 0;
+}
+        
+p.nor
+{
+    border: 0px solid #666;
+    overflow: hidden;
+    padding: 0 0 0 70px;
+    text-align: left;
+}
+.contact
+{
+    margin-top: 30px;
+}
+.jianbian
+{
+    height: 20px;
+    width: 950px;
+    background-image: url(../image/bottom_jianbian.png);
+}
+.copy
+{
+    color: rgb(177,177,177);
+    padding: 10px;
+}
+.con p
+{
+    margin:0;
+}
+.con p strong
+{
+    font-size:24px;
+    font-weight:bold;
+    font-family:Î¢ÈíÑÅºÚ;
+}
+.con .address
+{
+    background-image: url(../image/bg_contact.png);
+    background-position:bottom right;
+    background-repeat:no-repeat;
+    height:239px;
+    width:100%;
+    margin:10px 0 0 0 ;
+}
