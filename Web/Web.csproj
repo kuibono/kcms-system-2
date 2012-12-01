@@ -164,6 +164,7 @@
     <Content Include="e\admin\system\Basement\SysmenuManagement.aspx" />
     <Content Include="e\admin\system\friendlink\LinkEdit.aspx" />
     <Content Include="e\admin\system\friendlink\LinkList.aspx" />
+    <Content Include="e\admin\system\Message\List.aspx" />
     <Content Include="e\admin\system\SystemParameter\basic.aspx" />
     <Content Include="e\admin\system\SystemParameter\RewriteSetting.aspx" />
     <Content Include="e\admin\system\SystemParameter\StaticStorageSetting.aspx" />
@@ -840,6 +841,7 @@
     <Content Include="skin\product\image\p3.png" />
     <Content Include="skin\product\image\p4.png" />
     <Content Include="skin\product\image\plus.png" />
+    <Content Include="skin\product\news.htm" />
     <Content Include="skin\product\product.htm" />
     <Content Include="skin\script\ChapterCommon.js" />
     <Content Include="skin\script\contentpage.js" />
@@ -1408,6 +1410,13 @@
     </Compile>
     <Compile Include="e\admin\system\friendlink\LinkList.aspx.designer.cs">
       <DependentUpon>LinkList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="e\admin\system\Message\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\admin\system\Message\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
     </Compile>
     <Compile Include="e\admin\system\SystemParameter\basic.aspx.cs">
       <DependentUpon>basic.aspx</DependentUpon>

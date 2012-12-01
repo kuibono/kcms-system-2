@@ -89,7 +89,7 @@ namespace Voodoo.Basement
             r = r.Replace("[!--news.id--]", n.ID.ToS());
             r = r.Replace("[!--news.keywords--]", n.KeyWords);
             r = r.Replace("[!--news.navurl--]", n.NavUrl);
-            r = r.Replace("[!--news.newstime--]", n.NewsTime.ToString());
+            r = r.Replace("[!--news.newstime--]", n.NewsTime.ToDateTime().ToString(temp.TimeFormat));
             r = r.Replace("[!--news.source--]", n.Source);
             r = r.Replace("[!--news.title--]", n.Title);
             r = r.Replace("[!--news.oldtitle--]", n.Title);
@@ -367,6 +367,7 @@ namespace Voodoo.Basement
             Content = Content.Replace("[!--class.id--]", c.ID.ToS());
             Content = Content.Replace("[!--class.listpagesize--]", c.ListPageSize.ToS());
 
+
             Content = Content.Replace("[!--class.description--]", c.ClassDescription);
             Content = Content.Replace("[!--class.url--]", BasePage.GetClassUrl(c));
 
@@ -379,17 +380,25 @@ namespace Voodoo.Basement
             {
                 StringBuilder sb_list = new StringBuilder();
                 List<News> ns = (from l in ent.News
-                                 from cp in ent.Class
-                                 from cl in ent.Class
-                                 where cp.ID == cl.ID && cl.ParentID == cp.ID && (l.ClassID == cl.ID || l.ClassID == cp.ID)
+                                 //from cp in ent.Class
+                                 //from cl in ent.Class
+                                 //where cp.ID == cl.ID && cl.ParentID == cp.ID && (l.ClassID == cl.ID || l.ClassID == cp.ID)
+                                 where l.ClassID==c.ID
                                  select l).ToList();
                 pagecount = (Convert.ToDouble(ns.Count) / Convert.ToDouble(temp.ShowRecordCount)).YueShu();
                 recordCount = ns.Count;
 
                 ns = ns.Skip((page - 1) * temp.ShowRecordCount.ToInt32()).Take(temp.ShowRecordCount.ToInt32()).ToList();
+                int i = 0;
                 foreach (News n in ns)
                 {
-                    sb_list.AppendLine(ReplaceContent(temp, temp.ListVar, n, c));
+                    i++;
+                    string str_odd = "";
+                    if (i % 2 == 0)
+                    {
+                        str_odd = "odd";
+                    }
+                    sb_list.AppendLine(ReplaceContent(temp, temp.ListVar, n, c).Replace("{odd}", str_odd));
                 }
 
                 Content = Content.Replace("<!--list.var-->", sb_list.ToString());
@@ -409,9 +418,16 @@ namespace Voodoo.Basement
                 recordCount = ns.Count;
 
                 ns = ns.Skip((page - 1) * temp.ShowRecordCount.ToInt32()).Take(temp.ShowRecordCount.ToInt32()).ToList();
+                int i = 0;
                 foreach (ImageAlbum n in ns)
                 {
-                    sb_list.AppendLine(ReplaceContent(temp, temp.ListVar, n, c));
+                    i++;
+                    string str_odd = "";
+                    if (i % 2 == 0)
+                    {
+                        str_odd = "odd";
+                    }
+                    sb_list.AppendLine(ReplaceContent(temp, temp.ListVar, n, c).Replace("{odd}",str_odd));
                 }
 
                 Content = Content.Replace("<!--list.var-->", sb_list.ToString());

@@ -37,6 +37,7 @@
           <EntitySet Name="JobResumeTrain" EntityType="DataModel.Store.JobResumeTrain" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="JobType" EntityType="DataModel.Store.JobType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Link" EntityType="DataModel.Store.Link" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Message" EntityType="DataModel.Store.Message" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="MovieDrama" EntityType="DataModel.Store.MovieDrama" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="MovieDramaUrl" EntityType="DataModel.Store.MovieDramaUrl" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="MovieInfo" EntityType="DataModel.Store.MovieInfo" store:Type="Tables" Schema="dbo" />
@@ -625,6 +626,19 @@
           <Property Name="LinkTitle" Type="nvarchar" MaxLength="100" />
           <Property Name="Url" Type="nvarchar" MaxLength="255" />
           <Property Name="Index" Type="int" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MessageTime" Type="datetime" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Chat" Type="nvarchar" MaxLength="50" />
+          <Property Name="Content" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="MovieDrama">
           <Key>
@@ -1239,6 +1253,7 @@
           <EntitySet Name="ViewHistory" EntityType="DataModel.ViewHistory" />
           <EntitySet Name="Zt" EntityType="DataModel.Zt" />
           <EntitySet Name="Product" EntityType="DataModel.Product" />
+          <EntitySet Name="Message" EntityType="DataModel.Message" />
         </EntityContainer>
         <EntityType Name="Ad">
           <Key>
@@ -2328,6 +2343,19 @@
           <Property Type="Boolean" Name="SetTop" />
           <Property Type="Int32" Name="ClickCount" />
           <Property Type="Int32" Name="OrderIndex" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="MessageTime" />
+          <Property Type="String" Name="UserName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Tel" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Chat" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Content" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -3493,6 +3521,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Message">
+            <EntityTypeMapping TypeName="DataModel.Message">
+              <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Chat" ColumnName="Chat" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="MessageTime" ColumnName="MessageTime" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
@@ -3508,6 +3550,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="DDLGenerationTemplate" Value="$(VSEFTools)\DBGen\SSDLToSQL10.tt" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
@@ -3582,6 +3625,7 @@
         <EntityTypeShape EntityType="DataModel.ViewHistory" Width="1.5" PointX="18.75" PointY="24.75" Height="1.970032552083353" />
         <EntityTypeShape EntityType="DataModel.Zt" Width="1.5" PointX="24.75" PointY="21.75" Height="3.689209798177103" />
         <EntityTypeShape EntityType="DataModel.Product" Width="1.5" PointX="5.375" PointY="25.75" Height="4.2622688802083246" />
+        <EntityTypeShape EntityType="DataModel.Message" Width="1.5" PointX="13.375" PointY="25.75" Height="2.5430916341145746" />
       </Diagram>
     </Diagrams>
   </Designer>

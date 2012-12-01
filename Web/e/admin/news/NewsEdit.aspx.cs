@@ -183,39 +183,41 @@ namespace Web.e.admin.news
 
             ent.SaveChanges();
             ent.Dispose();
-            
 
-            CreatePage.CreateContentPage(n, c);
-
-            News news_pre = GetPreNews(n,c);
-
-            if (news_pre != null)
+            if (SystemSetting.EnableStatic)
             {
-                CreatePage.CreateContentPage(news_pre, c);
+
+                CreatePage.CreateContentPage(n, c);
+
+                News news_pre = GetPreNews(n, c);
+
+                if (news_pre != null)
+                {
+                    CreatePage.CreateContentPage(news_pre, c);
+                }
+                switch (c.EditcreateList)
+                {
+                    case 0:
+                        break;
+                    case 1:
+                        CreatePage.CreateListPage(c, 1);
+                        break;
+                    case 2:
+                        CreatePage.GreateIndexPage();
+                        break;
+                    case 3:
+                    case 4:
+                        CreatePage.CreateListPage(c, 1);
+                        break;
+                    case 5:
+                        CreatePage.GreateIndexPage();
+                        break;
+                    case 6:
+                        CreatePage.CreateListPage(c, 1);
+                        CreatePage.GreateIndexPage();
+                        break;
+                }
             }
-            switch (c.EditcreateList)
-            {
-                case 0:
-                    break;
-                case 1:
-                    CreatePage.CreateListPage(c, 1);
-                    break;
-                case 2:
-                    CreatePage.GreateIndexPage();
-                    break;
-                case 3:
-                case 4:
-                    CreatePage.CreateListPage(c, 1);
-                    break;
-                case 5:
-                    CreatePage.GreateIndexPage();
-                    break;
-                case 6:
-                    CreatePage.CreateListPage(c, 1);
-                    CreatePage.GreateIndexPage();
-                    break;
-            }
-            
 
 
             Js.AlertAndChangUrl("保存成功！",url);

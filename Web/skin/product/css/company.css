@@ -162,12 +162,7 @@ p.nor
 {
     margin:0;
 }
-.con p strong
-{
-    font-size:24px;
-    font-weight:bold;
-    font-family:Î¢ÈíÑÅºÚ;
-}
+
 .con .address
 {
     background-image: url(../image/bg_contact.png);
@@ -176,4 +171,35 @@ p.nor
     height:239px;
     width:100%;
     margin:10px 0 0 0 ;
+    font-size:12px;
+}
+.news ul,.news li
+{
+    float: left;
+    list-style: none;
+    width:100%;
+}
+.news li
+{
+    height:30px;
+    line-height:30px;
+    vertical-align:middle;
+}
+.news a:hover
+{
+    color:Red;
+}
+.odd
+{
+    background-color:#eee;
+}
+.title
+{
+    float:left;
+    width:300px;
+}
+.time
+{
+    float:right;
+    width:100px;
 }
