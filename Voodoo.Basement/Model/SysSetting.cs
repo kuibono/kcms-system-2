@@ -21,6 +21,8 @@ namespace Voodoo.Basement
         /// </summary>
         public bool EnableStatic { get; set; }
 
+        public bool EnableReWrite { get; set; }
+
         /// <summary>
         /// 是否显示信息管理菜单
         /// </summary>

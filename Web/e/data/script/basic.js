@@ -16,7 +16,7 @@
 
 
     //pre load a shadow div and a loaing img div at the top of the BODY of document
-    $(document.body).prepend('<div class="shadow"></div> <div class="cover"><p id="loading_msg">Loading...</p><p>&nbsp;</p><img src="/e/data/images/ajax-loader.gif" /></div>');
+    $(document.body).prepend('<div class="shadow"></div> <div class="cover"><p id="loading_msg">正在处理...</p><p>&nbsp;</p><img src="/e/data/images/ajax-loader.gif" /></div>');
 })
 function loading(msg) {
     if (msg) {

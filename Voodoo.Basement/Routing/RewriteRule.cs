@@ -46,6 +46,10 @@ namespace Voodoo.Basement.Routing
 
         public ExpAndTarget MovieDramaPlay { get; set; }
 
+        public ExpAndTarget ProductList { get; set; }
+
+        public ExpAndTarget Product { get; set; }
+
 
         /// <summary>
         /// 系统参数配置文件路径

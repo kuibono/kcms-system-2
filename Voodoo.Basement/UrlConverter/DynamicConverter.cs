@@ -19,7 +19,16 @@ namespace Voodoo.Basement.UrlConverter
         /// <returns></returns>
         public string GetNewsUrl(News news, Class cls)
         {
-            return string.Format("/Dynamic/News/News.aspx?id={0}", news.ID);
+            if (BasePage.SystemSetting.EnableReWrite)
+            {
+                string url = RewriteRule.Get().NewsPage.Exp;
+                url = url.Replace("{newsid}", news.ID.ToS());
+                return url;
+            }
+            else
+            {
+                return string.Format("/Dynamic/News/News.aspx?id={0}", news.ID);
+            }
         }
         #endregion
 
@@ -61,10 +70,10 @@ namespace Voodoo.Basement.UrlConverter
         public string GetBookUrl(Book b, Class cls)
         {
             string url = RewriteRule.Get().BookInfo.Exp;
-            url=url.Replace("{id}",b.ID.ToS());
-            url=url.Replace("{classname}",b.ClassName);
-            url=url.Replace("{title}",b.Title);
-            url=url.Replace("{author}",b.Author);
+            url = url.Replace("{id}", b.ID.ToS());
+            url = url.Replace("{classname}", b.ClassName);
+            url = url.Replace("{title}", b.Title);
+            url = url.Replace("{author}", b.Author);
 
             return url;
         }
@@ -140,7 +149,7 @@ namespace Voodoo.Basement.UrlConverter
         #region 获取产品地址
         public string GetProductUrl(Product p, Class cls)
         {
-            return string.Format("/Dynamic/Product/?id={0}", p.ID); 
+            return string.Format("/Dynamic/Product/?id={0}", p.ID);
         }
         #endregion
 
@@ -153,16 +162,30 @@ namespace Voodoo.Basement.UrlConverter
         public string GetClassUrl(Class cls)
         {
             string url = "";
-            switch (cls.ModelID)
+            if (BasePage.SystemSetting.EnableReWrite)
             {
-                case 4:
-                    url = RewriteRule.Get().BookClass.Exp;
-                    url = url.Replace("{id}", cls.ID.ToS());
-                    url = url.Replace("{classname}", cls.ClassName);
-                    break;
-                default:
-                    url = string.Format("/Dynamic/Book/Class.aspx?id={0}", cls.ID);
-                    break;
+                switch (cls.ModelID)
+                {
+                    case 1:
+                        url = RewriteRule.Get().NewsClass.Exp;
+                        break;
+                    case 4:
+                        url = RewriteRule.Get().BookClass.Exp;
+                        break;
+                    case 7:
+                        url = RewriteRule.Get().ProductList.Exp;
+                        break;
+                    default:
+                        url = string.Format("/Dynamic/Book/Class.aspx?id={0}", cls.ID);
+                        break;
+                }
+                url = url.Replace("{id}", cls.ID.ToS());
+                url = url.Replace("{classname}", cls.ClassName);
+                url = url.Replace("{page}", "1");
+            }
+            else
+            {
+                url = string.Format("/Dynamic/Book/Class.aspx?id={0}", cls.ID);
             }
             return url;
         }
@@ -175,7 +198,33 @@ namespace Voodoo.Basement.UrlConverter
         /// <returns></returns>
         public string GetClassUrl(Class cls, int page)
         {
-            return string.Format("/Dynamic/Book/Class.aspx?id={0}&page={1}", cls.ID,page);
+            string url = "";
+            if (BasePage.SystemSetting.EnableReWrite)
+            {
+                switch (cls.ModelID)
+                {
+                    case 1:
+                        url = RewriteRule.Get().NewsClass.Exp;
+                        break;
+                    case 4:
+                        url = RewriteRule.Get().BookClass.Exp;
+                        break;
+                    case 7:
+                        url = RewriteRule.Get().ProductList.Exp;
+                        break;
+                    default:
+                        url = string.Format("/Dynamic/Book/Class.aspx?id={0}&page={1}", cls.ID, page);
+                        break;
+                }
+                url = url.Replace("{id}", cls.ID.ToS());
+                url = url.Replace("{classname}", cls.ClassName);
+                url = url.Replace("{page}", page.ToS());
+            }
+            else
+            {
+                url= string.Format("/Dynamic/Book/Class.aspx?id={0}&page={1}", cls.ID, page);
+            }
+            return url;
         }
         #endregion
     }

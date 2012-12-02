@@ -173,6 +173,12 @@ p.nor
     margin:10px 0 0 0 ;
     font-size:12px;
 }
+.con .content
+{
+    width:100%;
+    margin:10px 0 0 0 ;
+    font-size:12px;
+}
 .news ul,.news li
 {
     float: left;
