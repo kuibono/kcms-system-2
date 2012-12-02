@@ -2,15 +2,12 @@
 <SysSetting xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <DefaultModel>4</DefaultModel>
   <EnableStatic>false</EnableStatic>
+  <EnableReWrite>false</EnableReWrite>
   <ShowMenuMessage>true</ShowMenuMessage>
-  <SiteUrl>http://www.aizr.net/</SiteUrl>
+  <SiteUrl>http://www.soliner.com/</SiteUrl>
   <SiteOpen>true</SiteOpen>
-  <KeyWords>三摩地,创意设计,商业包装</KeyWords>
-  <Description>创意产品、创意展示、创意包装、高端商业形象设计、品
-牌表现力的释放、IMC、环保艺术与新科技的结合、意识
-形态与哲学思辨、美学研究与超视觉表现。创意产品、创
-意展示创意包装、高端商业形象设计、品牌表现力的释放、
-IMC、环保艺术与新科技的结合</Description>
+  <KeyWords> </KeyWords>
+  <Description />
   <Copyright> &lt;p&gt;Copyright &amp;copy; 2009 ,sonywell.com  All right reserved.&lt;/p&gt;
             &lt;p&gt;
                 讯联液压 版权所有 苏ICP备 08885527 南京三摩的科技 提供技术支持
@@ -20,7 +17,7 @@ IMC、环保艺术与新科技的结合</Description>
   <FileDirString>/u/file/</FileDirString>
   <ExtName>.htm</ExtName>
   <SiteCloseMsg>系统维护中，请稍后访问</SiteCloseMsg>
-  <SiteName>测试小说站</SiteName>
+  <SiteName>讯联液压</SiteName>
   <EnablePing>true</EnablePing>
   <PingAddress>http://ping.baidu.com/ping/RPC2
 http://blogsearch.google.com/ping/RPC2

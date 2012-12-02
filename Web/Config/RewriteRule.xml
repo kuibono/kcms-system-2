@@ -1,15 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RewriteRule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <BookClass>
+  <NewsClass>
     <id>0</id>
-    <Exp>/Book/Class/{classname}/</Exp>
+    <Exp>/Class/{classid}/</Exp>
+  </NewsClass>
+  <NewsPage>
+    <id>0</id>
+    <Exp>/News/{newsid}/</Exp>
+  </NewsPage>
+  <BookClass>
+    <id>1</id>
+    <Exp>/Book/{classname}/index.htm</Exp>
   </BookClass>
   <BookInfo>
-    <id>rbl_BookInfo</id>
-    <Exp>/Book/{title}-{author}/</Exp>
+    <id>2</id>
+    <Exp>/Book/{classname}/{title}-{author}/</Exp>
   </BookInfo>
   <BookChapter>
-    <id>rbl_Chapter</id>
-    <Exp>/Book/{title}-{author}/{id}/</Exp>
+    <id>0</id>
+    <Exp>/Book/{classname}/{title}-{author}/{id}.htm</Exp>
   </BookChapter>
+  <ProductList>
+    <id>0</id>
+    <Exp>/Class/{classid}/</Exp>
+  </ProductList>
+  <Product>
+    <id>0</id>
+    <Exp>/p/{productid}/</Exp>
+  </Product>
 </RewriteRule>

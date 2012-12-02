@@ -667,6 +667,7 @@
     <Content Include="e\tool\MovieRules.aspx" />
     <Content Include="e\tool\proxy.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Installer.aspx" />
     <Content Include="skin\job\about.html" />
     <Content Include="skin\job\apply.html" />
     <Content Include="skin\job\company.html" />
@@ -1899,6 +1900,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Installer.aspx.cs">
+      <DependentUpon>Installer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Installer.aspx.designer.cs">
+      <DependentUpon>Installer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Search.aspx.cs">
