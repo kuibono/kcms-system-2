@@ -187,6 +187,7 @@
     <Content Include="e\admin\user\UserFormList.aspx" />
     <Content Include="e\admin\user\UserList.aspx" />
     <Content Include="e\api\ClientService.svc" />
+    <Content Include="e\api\MessageService.asmx" />
     <Content Include="e\api\xmlrpcV2.aspx" />
     <Content Include="e\data\bgimage\1.jpg" />
     <Content Include="e\data\bgimage\2.jpg" />
@@ -841,6 +842,7 @@
     <Content Include="skin\product\image\p3.png" />
     <Content Include="skin\product\image\p4.png" />
     <Content Include="skin\product\image\plus.png" />
+    <Content Include="skin\product\message.htm" />
     <Content Include="skin\product\news.htm" />
     <Content Include="skin\product\product.htm" />
     <Content Include="skin\script\ChapterCommon.js" />
@@ -1635,6 +1637,10 @@
       <DependentUpon>getClass.aspx</DependentUpon>
     </Compile>
     <Compile Include="e\api\IClientService.cs" />
+    <Compile Include="e\api\MessageService.asmx.cs">
+      <DependentUpon>MessageService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="e\api\xmlrpc.aspx.cs">
       <DependentUpon>xmlrpc.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

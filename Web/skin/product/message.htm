@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Untitled Page</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/text_rtl.css" />
+    <link rel="stylesheet" href="css/960_24_col_rtl.css" />
+    <link rel="stylesheet" href="css/company.css" />
+    <link rel="Stylesheet" href="/e/data/css/controls.css" />
+    <script type="text/javascript" src="/skin/script/jquery-1.7.min.js"></script>
+    <script type="text/javascript" src="/e/data/script/basic.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#form1").submit(function () {
+                var username = $("#txt_UserName").val();
+                var title = $("#txt_Title").val();
+                var email = $("#txt_Email").val();
+                var tel = $("#txt_Tel").val();
+                var chat = $("#txt_Chat").val();
+                var content = $("#txt_Content").text();
+                if (username.length == 0) {
+                    alert("请输入姓名！");
+                    endloading();
+                    $("#txt_UserName").focus();
+                    return false;
+                }
+                if (title.length == 0) {
+                    alert("请输入标题！");
+                    endloading();
+                    $("#txt_Title").focus();
+                    return false;
+                }
+                if (email.length == 0) {
+                    alert("请输入Email！");
+                    endloading();
+                    $("#txt_Email").focus();
+                    return false;
+                }
+                if (tel.length == 0) {
+                    alert("请输入电话号码！");
+                    endloading();
+                    $("#txt_Tel").focus();
+                    return false;
+                }
+                if (chat.length == 0) {
+                    alert("请输入QQ/MSN/ICQ");
+                    endloading();
+                    $("#txt_Chat").focus();
+                    return false;
+                }
+                if (content.length == 0) {
+                    alert("请输入留言内容！");
+                    endloading();
+                    $("#txt_Content").focus();
+                    return false;
+                }
+
+                $.post("/e/api/MessageService.asmx/SaveMessage", {
+                    "chat": chat,
+                    "content": content,
+                    "email": email,
+                    "tel": tel,
+                    "title": title,
+                    "username": username
+                }, function (r) {
+                    var suc = $(r).find("Success").first().text();
+                    if (suc == "true") {
+                        alert("留言成功，感谢您对我们支持！")
+                        location.href = "?"
+                    }
+                    else {
+                        alert("留言出错，请重试！")
+                        endloading();
+                        return false;
+                    }
+                }, "xml");
+                return false;
+            });
+        })
+    </script>
+    <style type="text/css">
+    input, textarea, select {
+    display: inline-block;
+    padding: 4px;
+    margin: 0;
+    outline: 0;
+    background-color: white;
+    border: 1px solid #CCC;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container_24">
+        <div class="grid330">
+            <img src="image/logo.png" alt="" />
+        </div>
+        <div class="grid610 favpanel">
+            <ul>
+                <li><a href="#">设为首页</a> </li>
+                <li><a href="#">加入收藏</a> </li>
+                <li><a href="#">在线留言</a> </li>
+            </ul>
+        </div>
+        <div class="clear">
+        </div>
+        <!--row2 end-->
+        <div class="grid330">
+            <img src="image/nav.png" alt="" />
+        </div>
+        <div class="grid610 banner">
+            <img src="image/banner.png" alt="" style="width: 600px;" />
+        </div>
+        <div class="clear">
+        </div>
+        <div class="shadow">
+        </div>
+        <!--row3 end-->
+        <div class="grid330">
+            <div>
+                <img src="image/btn_message.png" alt="在线留言" />
+            </div>
+            <div>
+                <img src="image/btn_product.png" alt="产品中心" />
+            </div>
+            <div class="contact">
+                <h1>
+                    <img src="image/head_contact.png" alt="联系我们" />
+                </h1>
+                <p class="nor">
+                    <strong>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：</strong>江苏省栖霞区广月路22号<br />
+                    <strong>销售热线：</strong>025-85551160<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    025-85551956<br />
+                    <strong>传&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;真：</strong>025-85333695<br />
+                    <strong>&nbsp;E&nbsp;-&nbsp;mail&nbsp;：</strong>sales@soliner.com
+                </p>
+            </div>
+        </div>
+        <div class="grid610 news">
+            <h1>
+                在线留言
+            </h1>
+            <form id="form1" method="post" action="">
+            <div class="panel" id="login">
+                <div class="textrow">
+                    <input type="text" id="txt_UserName" class="textbox" id="t1" />
+                    <label class="placeholder" for="t1">
+                        请输入姓名</label>
+                </div>
+                <div class="textrow">
+                    <input type="text" id="txt_Title" class="textbox" id="Text1" />
+                    <label class="placeholder" for="Text1">
+                        输入标题</label>
+                </div>
+                <div class="textrow">
+                    <input type="text" id="txt_Email" class="textbox" id="Text2" />
+                    <label class="placeholder" for="Text2">
+                        输入Email</label>
+                </div>
+                <div class="textrow">
+                    <input type="text" id="txt_Tel" class="textbox" id="Text3" />
+                    <label class="placeholder" for="Text3">
+                        输入电话</label>
+                </div>
+                <div class="textrow">
+                    <input type="text" id="txt_Chat" class="textbox" id="Text4" />
+                    <label class="placeholder" for="Text4">
+                        QQ/MSN/ICQ</label>
+                </div>
+                <div class="textrow" style="height:130px">
+                    <textarea id="txt_Content" class="textbox" id="Text5" rows="4" cols="5" style="height:100px"></textarea>
+                    <label class="placeholder" for="Text5">
+                        留言内容</label>
+                </div>
+                <div class="textrow">
+                    <button type="submit" class="btn" id="sub" onclick="loading('正在保存，请稍候...')">
+                        留言</button>
+                </div>
+            </div>
+            </form>
+        </div>
+        <div class="clear">
+        </div>
+        <div class="jianbian">
+        </div>
+        <div class="clear">
+        </div>
+        <!--row4 end-->
+        <div class="grid950 copy">
+            <p>
+                Copyright &copy; 2009 ,sonywell.com All right reserved.</p>
+            <p>
+                讯联液压 版权所有 苏ICP备 08885527 南京三摩的科技 提供技术支持
+            </p>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+</body>
+</html>
