@@ -61,15 +61,15 @@ namespace Voodoo.Basement
         public string ReplaceContent(TemplateList temp, string TempString, News n, Class c)
         {
             string _title = "<font color='#" + n.TitleColor + "'>" + n.Title + "</font>";
-            if (n.TitleB == true)
+            if (n.TitleB.ToBoolean() == true)
             {
                 _title = "<strong>" + _title + "</strong>";
             }
-            if (n.TitleI == true)
+            if (n.TitleI.ToBoolean() == true)
             {
                 _title = "<I>" + _title + "</I>";
             }
-            if (n.TitleS == true)
+            if (n.TitleS.ToBoolean() == true)
             {
                 _title = "<STRIKE>" + _title + "</STRIKE>";
             }
@@ -984,7 +984,7 @@ namespace Voodoo.Basement
         /// <param name="cls"></param>
         public string CreateContentPage(News news, Class cls)
         {
-            if (news.NavUrl.Trim().Length > 0)//如果是外部连接新闻 则不需要生成
+            if (news.NavUrl.ToS().Trim().Length > 0)//如果是外部连接新闻 则不需要生成
             {
                 return string.Format("<script type='text/javascript'>location.href='';</script>", news.NavUrl);
             }

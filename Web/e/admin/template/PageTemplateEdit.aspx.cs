@@ -14,6 +14,7 @@ namespace Web.e.admin.template
 {
     public partial class PageTemplateEdit : AdminBase
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             int id = WS.RequestInt("id");

@@ -65,7 +65,7 @@
                 </td>
             </tr>
 
-            <tr>
+            <tr style="<%=showIfDevelopment%>">
                 <td>
                     模版内容
                 </td>

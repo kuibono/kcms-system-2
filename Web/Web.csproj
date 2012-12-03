@@ -812,6 +812,9 @@
     <Content Include="skin\product\css\reset_rtl.css" />
     <Content Include="skin\product\css\text.css" />
     <Content Include="skin\product\css\text_rtl.css" />
+    <Content Include="skin\product\flash\index.swf" />
+    <Content Include="skin\product\flash\nav.swf" />
+    <Content Include="skin\product\flash\navigation.swf" />
     <Content Include="skin\product\image\banner.png" />
     <Content Include="skin\product\image\bg_contact.png" />
     <Content Include="skin\product\image\bg_corperate.png" />
@@ -833,6 +836,7 @@
     <Content Include="skin\product\image\header_corp.png" />
     <Content Include="skin\product\image\header_product.png" />
     <Content Include="skin\product\image\head_contact.png" />
+    <Content Include="skin\product\image\index_bottom.png" />
     <Content Include="skin\product\image\jianbian_banner.png" />
     <Content Include="skin\product\image\jianbian_fav.png" />
     <Content Include="skin\product\image\logo.png" />
@@ -848,6 +852,7 @@
     <Content Include="skin\product\product.htm" />
     <Content Include="skin\script\ChapterCommon.js" />
     <Content Include="skin\script\contentpage.js" />
+    <Content Include="skin\script\favorite.js" />
     <Content Include="skin\script\indexpage.js" />
     <Content Include="skin\script\infocommon.js" />
     <Content Include="skin\script\jquery-1.3.2.min.js" />

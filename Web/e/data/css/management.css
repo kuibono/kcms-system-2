@@ -30,13 +30,15 @@ tfoot th
 {
 	padding:2px 2px 2px 0;
 }
-
+input[type='text'],input[type='password']
+{
+    width:300px;
+}
 input[type='text'],input[type='password'],textarea
 {
 	border:solid 1px #88F;
 	margin:auto 3px auto 3px;
 }
-input[typ
 input[type='button'],input[type='submit'],input[type='reset']
 {
 	background-image:url('../images/theader.png');
@@ -48,10 +50,11 @@ input[type='button'],input[type='submit'],input[type='reset']
     width: 36px;
 }
 
-
-	margin:auto 3px auto 3px;
+textarea
+{
+    width:500px;
+    height:100px;
 }
-
 
 .list td
 {

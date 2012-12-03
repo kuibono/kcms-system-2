@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <SysSetting xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <DefaultModel>4</DefaultModel>
+  <DefaultModel>7</DefaultModel>
   <EnableStatic>false</EnableStatic>
   <EnableReWrite>false</EnableReWrite>
   <ShowMenuMessage>true</ShowMenuMessage>

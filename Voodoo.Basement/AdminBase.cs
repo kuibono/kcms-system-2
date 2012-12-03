@@ -29,5 +29,13 @@ namespace Voodoo.Basement
 
             base.OnInit(e);
         }
+
+        protected string showIfDevelopment
+        {
+            get
+            {
+                return SysUserAction.IsDevelopment ? "display:block" : "display:none";
+            }
+        }
     }
 }

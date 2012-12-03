@@ -15,11 +15,11 @@ namespace Installer
         {
             if (Request["action"] == "compress")
             {
-                GZip.Compress(Server.MapPath("/"), Server.MapPath("/"), "/web.zip");
+                //GZip.Compress(Server.MapPath("/"), Server.MapPath("/"), "/web.zip");
             }
             else
             {
-                GZip.Decompress(Server.MapPath("/"), Server.MapPath("/"), "/web.zip");
+                //GZip.Decompress(Server.MapPath("/"), Server.MapPath("/"), "/web.zip");
                 //Decompress(Server.MapPath("/web.zip"), Server.MapPath("/"));
             }
         }

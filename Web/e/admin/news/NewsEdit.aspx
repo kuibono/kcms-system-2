@@ -168,7 +168,7 @@
                     </FCKeditorV2:FCKeditor>
                 </td>
             </tr>
-            <tr>
+            <tr style="display:none;">
                 <td colspan="2">
                     正文英文
                 </td>

@@ -103,6 +103,17 @@ namespace Voodoo.Basement
         }
         #endregion
 
+        /// <summary>
+        /// 是否开发人员
+        /// </summary>
+        public static bool IsDevelopment
+        {
+            get
+            {
+                return LocalUser.UserGroup == 1;
+            }
+        }
+
         #region 用户增加
         /// <summary>
         /// 用户增加

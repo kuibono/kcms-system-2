@@ -58,6 +58,9 @@ namespace Web
                         case 6://movie
                             indexurl = "/Movie/";
                             break;
+                        case 7:
+                            indexurl = "/index.htm";
+                            break;
                     }
                 }
                 else
