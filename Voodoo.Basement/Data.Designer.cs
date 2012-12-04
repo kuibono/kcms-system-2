@@ -11,7 +11,7 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmSchemaAttribute()]
 
 // 原始文件名:
-// 生成日期: 2012/12/2 20:41:39
+// 生成日期: 2012/12/4 21:18:02
 namespace Voodoo.Basement
 {
     
@@ -5848,6 +5848,33 @@ namespace Voodoo.Basement
         partial void OnSmallPathChanging(string value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         partial void OnSmallPathChanged();
+        /// <summary>
+        /// 架构中不存在属性 ItemID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<long> ItemID
+        {
+            get
+            {
+                return this._ItemID;
+            }
+            set
+            {
+                this.OnItemIDChanging(value);
+                this.ReportPropertyChanging("ItemID");
+                this._ItemID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("ItemID");
+                this.OnItemIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<long> _ItemID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnItemIDChanging(global::System.Nullable<long> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnItemIDChanged();
     }
     /// <summary>
     /// 架构中不存在 DataModel.GroupRole 的注释。

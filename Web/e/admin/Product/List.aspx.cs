@@ -99,6 +99,14 @@ namespace Web.e.admin.Product
             DataEntities ent = new DataEntities();
 
             var n = (from l in ent.Product where l.ID == id select l).FirstOrDefault();
+
+            var files = from l in ent.File where l.ItemID == id select l;
+            if (files.Count() > 0)
+            {
+                var file = files.First();
+                UpFile.Text = file.FileName;
+            }
+
             FormPanel1.SetValues(n);
             ent.Dispose();
             TabPanel1.SetActiveTab(1);
@@ -219,6 +227,34 @@ namespace Web.e.admin.Product
                     string fileName = string.Format("/u/products/{0}.jpg", n.ID);
                     Voodoo.Basement.BasePage.UpLoadImage(FaceImage.PostedFile, fileName, cls.ImageWidth.ToInt32(), cls.ImageHeight.ToInt32());//194, 204
                     n.FaceImage = fileName;
+                    ent.SaveChanges();
+                }
+
+                if (UpFile.HasFile)
+                {
+                    var files = from l in ent.File where l.ItemID == n.ID select l;
+                    foreach (var f in files)
+                    {
+                        ent.DeleteObject(f);
+                    }
+
+
+                    string ext = UpFile.FileName.GetFileExtNameFromPath();
+                    string fileName = string.Format("/u/products/{0}", UpFile.FileName);
+                    Voodoo.Basement.BasePage.UpLoadFile(UpFile.PostedFile, fileName);
+
+                    Voodoo.Basement.File file = new Voodoo.Basement.File();
+                    file.ClassID = n.ClassID;
+                    file.FileDirectory = "/u/products/";
+                    file.FileExtName = ext;
+                    file.FileName = UpFile.FileName;
+                    file.FilePath = fileName;
+                    file.FileSize = UpFile.PostedFile.ContentLength;
+                    file.FileType = 0;
+                    file.ItemID = n.ID;
+                    file.SmallPath = "";
+                    file.UpTime = DateTime.Now;
+                    ent.AddToFile(file);
                     ent.SaveChanges();
                 }
 

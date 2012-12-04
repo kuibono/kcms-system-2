@@ -198,6 +198,15 @@ namespace Voodoo.Basement
                 str_lst = str_lst.Replace("[!--product.units--]", p.Units);
                 str_lst = str_lst.Replace("[!--product.url--]", BasePage.GetProductUrl(p, c));
 
+                var files = from l in ent.File where l.ItemID == p.ID select l;
+                StringBuilder fileHtml=new StringBuilder();;
+                foreach (var file in files)
+                {
+                    string fTemp = string.Format("<a class=upfile href={0} target=_blank>{1}</a> <br/> ",file.FilePath,file.FileName);
+                    fileHtml.Append(fTemp);
+                }
+                str_lst = str_lst.Replace("[!--product.files--]", fileHtml.ToS());
+
                 return str_lst;
             }
         }

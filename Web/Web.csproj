@@ -41,9 +41,9 @@
     <Reference Include="Aspose.Words">
       <HintPath>..\ref\Aspose.Words.dll</HintPath>
     </Reference>
-    <Reference Include="Ext.Net, Version=1.1.0.42036, Culture=neutral, PublicKeyToken=2e12ce3d0176cd87, processorArchitecture=MSIL">
+    <Reference Include="Ext.Net, Version=1.3.0.31108, Culture=neutral, PublicKeyToken=2e12ce3d0176cd87, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ref\Ext.Net.dll</HintPath>
+      <HintPath>..\..\..\ext_net_demo\ref\Ext.Net.dll</HintPath>
     </Reference>
     <Reference Include="Ext.Net.Utilities, Version=1.1.0.42030, Culture=neutral, PublicKeyToken=2c34ac34702a3c23, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -55,7 +55,7 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.0.5.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ref\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\ext_net_demo\ref\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="QConnectSDK">
       <HintPath>..\ref\QConnectSDK.dll</HintPath>
@@ -157,7 +157,6 @@
     <Content Include="e\admin\news\NewsEdit.aspx" />
     <Content Include="e\admin\news\NewsList.aspx" />
     <Content Include="e\admin\Product\List.aspx" />
-    <Content Include="e\admin\system\Basement\AreaManagement.aspx" />
     <Content Include="e\admin\system\Basement\CityManagement.aspx" />
     <Content Include="e\admin\system\Basement\FileManagement.aspx" />
     <Content Include="e\admin\system\Basement\ProvinceManagement.aspx" />
@@ -659,7 +658,6 @@
     <Content Include="e\Rss.aspx" />
     <Content Include="e\Service\UserService.asmx" />
     <Content Include="e\tool\BookOperate.aspx" />
-    <Content Include="e\tool\Collect\Movie\ServerCollecor.aspx" />
     <Content Include="e\tool\Collect\Novel\ServerCollect.aspx" />
     <Content Include="e\tool\Create\CreatePage.aspx" />
     <Content Include="e\tool\MovieClick.aspx" />
@@ -857,6 +855,7 @@
     <Content Include="skin\script\infocommon.js" />
     <Content Include="skin\script\jquery-1.3.2.min.js" />
     <Content Include="skin\script\jquery.cookie.js" />
+    <Content Include="skin\script\jquery.gomap-1.3.2.min.js" />
     <Content Include="skin\script\jquery.hotkeys.min.js" />
     <Content Include="skin\script\jquery.qvod.js" />
     <Content Include="skin\script\public.js" />
@@ -1370,13 +1369,6 @@
     <Compile Include="e\admin\question\QuestionList.aspx.designer.cs">
       <DependentUpon>QuestionList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="e\admin\system\Basement\AreaManagement.aspx.cs">
-      <DependentUpon>AreaManagement.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="e\admin\system\Basement\AreaManagement.aspx.designer.cs">
-      <DependentUpon>AreaManagement.aspx</DependentUpon>
-    </Compile>
     <Compile Include="e\admin\system\Basement\CityManagement.aspx.cs">
       <DependentUpon>CityManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1847,13 +1839,6 @@
     <Compile Include="e\tool\click.aspx.designer.cs">
       <DependentUpon>click.aspx</DependentUpon>
     </Compile>
-    <Compile Include="e\tool\Collect\Movie\ServerCollecor.aspx.cs">
-      <DependentUpon>ServerCollecor.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="e\tool\Collect\Movie\ServerCollecor.aspx.designer.cs">
-      <DependentUpon>ServerCollecor.aspx</DependentUpon>
-    </Compile>
     <Compile Include="e\tool\Collect\Novel\ServerCollect.aspx.cs">
       <DependentUpon>ServerCollect.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2267,6 +2252,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="e\tool\Collect\Movie\" />
     <Folder Include="u\Ad\" />
     <Folder Include="u\fckup\" />
     <Folder Include="u\file\" />

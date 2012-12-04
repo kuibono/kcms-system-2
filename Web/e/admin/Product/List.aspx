@@ -259,6 +259,14 @@
                                 Icon="ImageAdd"
                                 AnchorHorizontal="95%"
                                 />
+                            <ext:FileUploadField 
+                                ID="UpFile" 
+                                runat="server" 
+                                FieldLabel="上传文档"
+                                ButtonText=""
+                                Icon="DiskUpload"
+                                AnchorHorizontal="95%"
+                                />
 
 							<ext:TextField ID="Contact" DataIndex="Contact" runat="server" FieldLabel="联系人" Visible="false" />
 

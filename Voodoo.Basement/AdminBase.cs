@@ -34,7 +34,7 @@ namespace Voodoo.Basement
         {
             get
             {
-                return SysUserAction.IsDevelopment ? "display:block" : "display:none";
+                return SysUserAction.IsDevelopment ? "display:;" : "display:none";
             }
         }
     }
