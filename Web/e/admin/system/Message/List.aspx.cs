@@ -80,7 +80,17 @@ namespace Web.e.admin.system.Message
             DataEntities ent = new DataEntities();
 
             var n = (from l in ent.Message where l.ID == id select l).FirstOrDefault();
-            FormPanel1.SetValues(n);
+
+            //FormPanel1.SetValues(n);
+            ID.Text = n.ID.ToS();
+            MessageTime.Value = n.MessageTime;
+            UserName.Text = n.UserName;
+            Email.Text = n.Email;
+            Tel.Text = n.Tel;
+            Title.Text = n.Title;
+            Chat.Text = n.Chat;
+            Content.Text = n.Content;
+
             ent.Dispose();
             TabPanel1.SetActiveTab(1);
             FormPanel1.Title = "编辑";

@@ -106,8 +106,21 @@ namespace Web.e.admin.Product
                 var file = files.First();
                 UpFile.Text = file.FileName;
             }
-
-            FormPanel1.SetValues(n);
+            Name.Text = n.Name;
+            Specification.Text = n.Specification;
+            Units.Text = n.Units;
+            Price.Value = n.Price;
+            ProduceLocation.Text = n.ProduceLocation;
+            FaceImage.Text = n.FaceImage;
+            Contact.Text = n.Contact;
+            Tel.Text = n.Tel;
+            Intro.Text = n.Intro;
+            AddTime.Value = n.AddTime;
+            Enable.Checked = n.Enable.ToBoolean();
+            SetTop.Checked = n.SetTop.ToBoolean();
+            ClickCount.Value = n.ClickCount;
+            OrderIndex.Value = n.OrderIndex.ToInt32();
+            //FormPanel1.SetValues(n);
             ent.Dispose();
             TabPanel1.SetActiveTab(1);
             FormPanel1.Title = "编辑";

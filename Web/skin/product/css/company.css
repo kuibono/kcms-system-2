@@ -2,6 +2,12 @@
 {
     color: rgb(107,107,107);
 }
+body
+{
+    background-image:url(../image/bg_body.png);
+    background-repeat:repeat-x;
+    padding-top:20px;
+}
 .shadow
 {
     height: 7px;

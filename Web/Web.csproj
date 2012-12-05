@@ -666,6 +666,7 @@
     <Content Include="e\tool\proxy.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Installer.aspx" />
+    <Content Include="skin\image\button_bg.png" />
     <Content Include="skin\job\about.html" />
     <Content Include="skin\job\apply.html" />
     <Content Include="skin\job\company.html" />
@@ -813,7 +814,9 @@
     <Content Include="skin\product\flash\index.swf" />
     <Content Include="skin\product\flash\nav.swf" />
     <Content Include="skin\product\flash\navigation.swf" />
+    <Content Include="skin\product\image\about_us.png" />
     <Content Include="skin\product\image\banner.png" />
+    <Content Include="skin\product\image\bg_body.png" />
     <Content Include="skin\product\image\bg_contact.png" />
     <Content Include="skin\product\image\bg_corperate.png" />
     <Content Include="skin\product\image\bg_productlist.png" />
@@ -845,6 +848,7 @@
     <Content Include="skin\product\image\p3.png" />
     <Content Include="skin\product\image\p4.png" />
     <Content Include="skin\product\image\plus.png" />
+    <Content Include="skin\product\image\tech_dev.png" />
     <Content Include="skin\product\message.htm" />
     <Content Include="skin\product\news.htm" />
     <Content Include="skin\product\product.htm" />
