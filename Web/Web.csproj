@@ -115,6 +115,7 @@
     <Content Include="Dynamic\Job\Password.aspx" />
     <Content Include="Dynamic\Job\ResumeBasic.aspx" />
     <Content Include="Dynamic\Job\ResumeEdu.aspx" />
+    <Content Include="Dynamic\Job\ResumeView.aspx" />
     <Content Include="Dynamic\Job\Search.aspx" />
     <Content Include="Dynamic\Movie\Default.aspx" />
     <Content Include="Dynamic\News\Class.aspx" />
@@ -1022,6 +1023,13 @@
     </Compile>
     <Compile Include="Dynamic\Job\ResumeEdu.aspx.designer.cs">
       <DependentUpon>ResumeEdu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dynamic\Job\ResumeView.aspx.cs">
+      <DependentUpon>ResumeView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Job\ResumeView.aspx.designer.cs">
+      <DependentUpon>ResumeView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dynamic\Job\Search.aspx.cs">
       <DependentUpon>Search.aspx</DependentUpon>
