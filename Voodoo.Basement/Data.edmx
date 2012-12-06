@@ -1023,6 +1023,7 @@
           <Property Name="QuestionIndex" Type="nvarchar(max)" />
           <Property Name="JobIndex" Type="nvarchar(max)" />
           <Property Name="MovieIndex" Type="nvarchar(max)" />
+          <Property Name="DefaultPage" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="TemplateReply">
           <Key>
@@ -2167,6 +2168,7 @@
           <Property Type="String" Name="QuestionIndex" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="JobIndex" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="MovieIndex" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DefaultPage" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="TemplateReply">
           <Key>
@@ -3300,6 +3302,7 @@
           <EntitySetMapping Name="TemplatePublic">
             <EntityTypeMapping TypeName="DataModel.TemplatePublic">
               <MappingFragment StoreEntitySet="TemplatePublic">
+                <ScalarProperty Name="DefaultPage" ColumnName="DefaultPage" />
                 <ScalarProperty Name="MovieIndex" ColumnName="MovieIndex" />
                 <ScalarProperty Name="JobIndex" ColumnName="JobIndex" />
                 <ScalarProperty Name="QuestionIndex" ColumnName="QuestionIndex" />

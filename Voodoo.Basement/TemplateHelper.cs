@@ -592,7 +592,14 @@ namespace Voodoo.Basement
             {
                 TemplatePage tp = (from l in ent.TemplatePage where l.id == id select l).FirstOrDefault();
                 string Content = tp.Content;
+                if (tp.Content.IsNullOrEmpty())
+                {
+                    tp.Content = GetTempateString(1, TempType.默认静态页);
+                }
                 //替换三层公共模版变量
+
+                Content = Content.Replace("[!--page.name--]", tp.PageName);
+
                 Content = ReplacePublicTemplate(Content);
                 Content = ReplacePublicTemplate(Content);
                 Content = ReplacePublicTemplate(Content);
@@ -1845,7 +1852,8 @@ namespace Voodoo.Basement
             图片首页,
             问答首页,
             人才首页,
-            影视首页
+            影视首页,
+            默认静态页
         }
         #endregion
 
@@ -1983,6 +1991,9 @@ namespace Voodoo.Basement
                         break;
                     case TempType.影视首页:
                         return tp.MovieIndex;
+                        break;
+                    case TempType.默认静态页:
+                        return tp.DefaultPage;
                         break;
                     default:
                         return "";

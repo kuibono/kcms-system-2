@@ -11,7 +11,7 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmSchemaAttribute()]
 
 // 原始文件名:
-// 生成日期: 2012/12/4 21:18:02
+// 生成日期: 2012/12/6 21:24:58
 namespace Voodoo.Basement
 {
     
@@ -20171,6 +20171,33 @@ namespace Voodoo.Basement
         partial void OnMovieIndexChanging(string value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         partial void OnMovieIndexChanged();
+        /// <summary>
+        /// 架构中不存在属性 DefaultPage 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string DefaultPage
+        {
+            get
+            {
+                return this._DefaultPage;
+            }
+            set
+            {
+                this.OnDefaultPageChanging(value);
+                this.ReportPropertyChanging("DefaultPage");
+                this._DefaultPage = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("DefaultPage");
+                this.OnDefaultPageChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _DefaultPage;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnDefaultPageChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnDefaultPageChanged();
     }
     /// <summary>
     /// 架构中不存在 DataModel.TemplateReply 的注释。

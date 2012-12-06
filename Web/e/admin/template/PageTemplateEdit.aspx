@@ -70,7 +70,7 @@
                     模版内容
                 </td>
                 <td>
-                    <vd:VTextBox ID="txt_Content" runat="server" EnableValidate="true" EnableNull="false" TextMode="MultiLine" Height="200px" Width="99%"></vd:VTextBox>
+                    <vd:VTextBox ID="txt_Content" runat="server" TextMode="MultiLine" Height="200px" Width="99%"></vd:VTextBox>
                 </td>
             </tr>
             <tr>
