@@ -1,10 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MovieEdit.aspx.cs" Inherits="Web.e.admin.Movie.MovieEdit" ValidateRequest="false" %>
 
-<%@ Register Assembly="FredCK.FCKeditorV2" Namespace="FredCK.FCKeditorV2" TagPrefix="FCKeditorV2" %>
 <%@ Register Assembly="Ext.Net" Namespace="Ext.Net" TagPrefix="ext" %>
 <%@ Import Namespace="Voodoo" %>
 <%@ Register Assembly="Voodoo" Namespace="Voodoo.UI" TagPrefix="vd" %>
-<%@ Register Assembly="FredCK.FCKeditorV2" Namespace="FredCK.FCKeditorV2" TagPrefix="FCKeditorV2" %>
+<%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
@@ -101,8 +100,10 @@
                     详情
                 </td>
                 <td>
-                    <FCKeditorV2:FCKeditor ID="FCKeditor1" runat="server" Height="300px">
-                    </FCKeditorV2:FCKeditor>
+                    <CKEditor:CKEditorControl ID="FCKeditor1" runat="server" Height="200" BasePath="~/e/data/ckeditor" Width="99%">
+		                </CKEditor:CKEditorControl>
+                   <%-- <FCKeditorV2:FCKeditor ID="FCKeditor1" runat="server" Height="300px">
+                    </FCKeditorV2:FCKeditor>--%>
                 </td>
             </tr>
             <tr>

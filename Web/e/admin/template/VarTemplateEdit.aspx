@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="VarTemplateEdit.aspx.cs" Inherits="Web.e.admin.template.VarTemplateEdit" ValidateRequest="false" %>
 <%@ Register Assembly="Voodoo" Namespace="Voodoo.UI" TagPrefix="vd" %>
+<%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -39,7 +40,9 @@
                     模版内容
                 </td>
                 <td>
-                    <vd:VTextBox ID="txt_Content" runat="server" EnableValidate="true" EnableNull="false" TextMode="MultiLine" Height="400px" Width="99%"></vd:VTextBox>
+                     <CKEditor:CKEditorControl ID="txt_Content" runat="server" Height="200" BasePath="~/e/data/ckeditor" Width="99%">
+		            </CKEditor:CKEditorControl>
+                   <%-- <vd:VTextBox ID="txt_Content" runat="server" EnableValidate="true" EnableNull="false" TextMode="MultiLine" Height="400px" Width="99%"></vd:VTextBox>--%>
                 </td>
             </tr>
 

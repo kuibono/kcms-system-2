@@ -42,6 +42,15 @@
                     </td>
                 </tr>
                 <tr>
+                    <td width="163">
+                        公司邮箱
+                    </td>
+                    <td>
+                        <vd:VTextBox ID="txt_MailAddress" runat="server" EnableValidate="true" 
+                            EnableNull="false" VType="email"></vd:VTextBox>
+                    </td>
+                </tr>
+                <tr>
                     <td>
                         所属行业
                     </td>

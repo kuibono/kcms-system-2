@@ -1,10 +1,11 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NewsEdit.aspx.cs" Inherits="Web.e.admin.news.NewsEdit"
     EnableEventValidation="false" %>
 
-<%@ Register Assembly="FredCK.FCKeditorV2" Namespace="FredCK.FCKeditorV2" TagPrefix="FCKeditorV2" %>
 <%@ Register Assembly="Ext.Net" Namespace="Ext.Net" TagPrefix="ext" %>
 <%@ Import Namespace="Voodoo" %>
 <%@ Register Assembly="Voodoo" Namespace="Voodoo.UI" TagPrefix="vd" %>
+<%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -164,8 +165,10 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <FCKeditorV2:FCKeditor ID="FCKeditor1" runat="server" Height="300px">
-                    </FCKeditorV2:FCKeditor>
+                    <CKEditor:CKEditorControl ID="FCKeditor1" runat="server" Height="300" BasePath="~/e/data/ckeditor" Width="99%">
+		            </CKEditor:CKEditorControl>
+                   <%-- <FCKeditorV2:FCKeditor ID="FCKeditor1" runat="server" Height="300px">
+                    </FCKeditorV2:FCKeditor>--%>
                 </td>
             </tr>
             <tr style="display:none;">
@@ -175,8 +178,11 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <FCKeditorV2:FCKeditor ID="FCKeditor2" runat="server" Height="300px">
-                    </FCKeditorV2:FCKeditor>
+                    <CKEditor:CKEditorControl ID="FCKeditor2" runat="server" Height="300" BasePath="~/e/data/ckeditor" Width="99%">
+		            </CKEditor:CKEditorControl>
+
+                    <%--<FCKeditorV2:FCKeditor ID="FCKeditor2" runat="server" Height="300px">
+                    </FCKeditorV2:FCKeditor>--%>
                 </td>
             </tr>
             <tr>

@@ -591,6 +591,7 @@ namespace Voodoo.Basement
         }
         #endregion
 
+        #region 上传简历
         /// <summary>
         /// 上传简历
         /// </summary>
@@ -790,5 +791,7 @@ namespace Voodoo.Basement
             ent.SaveChanges();
             ent.Dispose();
         }
+        #endregion
+
     }
 }

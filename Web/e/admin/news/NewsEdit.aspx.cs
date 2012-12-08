@@ -89,8 +89,8 @@ namespace Web.e.admin.news
             txt_Description.Text = n.Description;
             txt_Author.Text = n.Author;
             txt_Source.Text = n.Source;
-            FCKeditor1.Value = n.Content;
-            //FCKeditor2.Value = n.ContentEn;
+            FCKeditor1.Text = n.Content;
+            //FCKeditor2.Text = n.ContentEn;
 
             chk_SetTop.Checked = n.SetTop.ToBoolean();
             chk_CloseReply.Checked = !n.EnableReply.ToBoolean();
@@ -164,8 +164,8 @@ namespace Web.e.admin.news
             n.Description = txt_Description.Text.TrimDbDangerousChar();
             n.Author = txt_Author.Text.TrimDbDangerousChar();
             n.Source = txt_Source.Text.TrimDbDangerousChar();
-            n.Content = FCKeditor1.Value.TrimDbDangerousChar();
-            //n.ContentEn = FCKeditor2.Value.TrimDbDangerousChar();
+            n.Content = FCKeditor1.Text.TrimDbDangerousChar();
+            //n.ContentEn = FCKeditor2.Text.TrimDbDangerousChar();
 
             n.SetTop = chk_SetTop.Checked;
             n.EnableReply = !chk_CloseReply.Checked;

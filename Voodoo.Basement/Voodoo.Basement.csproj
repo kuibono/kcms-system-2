@@ -101,6 +101,7 @@
     <Compile Include="JobAction.cs" />
     <Compile Include="JobExtend.cs" />
     <Compile Include="Model\JobPostEduAndEmployeeCount.cs" />
+    <Compile Include="Model\JobSetting.cs" />
     <Compile Include="Model\PageAttribute.cs" />
     <Compile Include="NewsAction.cs" />
     <Compile Include="ObjectExtents.cs" />

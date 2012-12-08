@@ -11,7 +11,7 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmSchemaAttribute()]
 
 // 原始文件名:
-// 生成日期: 2012/12/6 21:24:58
+// 生成日期: 2012/12/8 22:23:32
 namespace Voodoo.Basement
 {
     
@@ -10406,6 +10406,33 @@ namespace Voodoo.Basement
         partial void OnSetTopTimeChanging(global::System.Nullable<global::System.DateTime> value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         partial void OnSetTopTimeChanged();
+        /// <summary>
+        /// 架构中不存在属性 MailAddress 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string MailAddress
+        {
+            get
+            {
+                return this._MailAddress;
+            }
+            set
+            {
+                this.OnMailAddressChanging(value);
+                this.ReportPropertyChanging("MailAddress");
+                this._MailAddress = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("MailAddress");
+                this.OnMailAddressChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _MailAddress;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnMailAddressChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnMailAddressChanged();
     }
     /// <summary>
     /// 架构中不存在 DataModel.JobEduSpecialty 的注释。

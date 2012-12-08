@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobSetting xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SendMail>true</SendMail>
+  <From>firstjob52@163.com</From>
+  <FromText>南京第一职</FromText>
+  <LoginName>firstjob52</LoginName>
+  <Password>52firstjob</Password>
+  <SmtpHost>smtp.163.com</SmtpHost>
+  <Subject>职位申请通知-南京第一职</Subject>
+  <MailBody>&lt;p&gt;
+	尊敬的企业用户：&lt;/p&gt;
+&lt;p&gt;
+	&amp;nbsp; &amp;nbsp; 您好，目前有用户申请您在南京第一职网发布的职位，请检查本邮件的附件或者联系南京第一职网查看您的职位申请情况。&lt;/p&gt;
+&lt;p&gt;
+	&amp;nbsp; &amp;nbsp;--南京第一职网(www.52firstjob.com)&lt;/p&gt;
+</MailBody>
+</JobSetting>

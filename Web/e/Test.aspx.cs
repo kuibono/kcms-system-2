@@ -32,6 +32,8 @@ namespace Web.e
             return "good" + a + b;
         }
 
+
+
         protected object ExecMethod(string className, string methodName, object[] objParas)
         {
             Type t = Type.GetType(className);

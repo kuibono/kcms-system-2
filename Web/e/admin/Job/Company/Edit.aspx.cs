@@ -70,6 +70,8 @@ namespace Web.e.admin.Job.Company
 
             ddl_CompanyType.SelectedValue = company.CompanyType.ToS();
             ddl_EmployeeCount.SelectedValue = company.EmployeeCount.ToS();
+
+            txt_MailAddress.Text = company.MailAddress;
         }
 
         protected void btn_Save_Click(object sender, EventArgs e)
@@ -93,6 +95,8 @@ namespace Web.e.admin.Job.Company
             com.DayClick = txt_DayClick.Text.ToInt32(0);
             com.IsSetTop = chk_Settop.Checked;
             com.SetTopTime = DateTime.Now;
+            com.MailAddress = txt_MailAddress.Text;
+
             if (id > 0 && com != null)
             {
 

@@ -473,6 +473,7 @@
           <Property Name="DayClick" Type="int" />
           <Property Name="IsSetTop" Type="bit" />
           <Property Name="SetTopTime" Type="datetime" />
+          <Property Name="MailAddress" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="JobEduSpecialty">
           <Key>
@@ -1653,6 +1654,7 @@
           <Property Type="Int32" Name="DayClick" />
           <Property Type="Boolean" Name="IsSetTop" />
           <Property Type="DateTime" Name="SetTopTime" />
+          <Property Type="String" Name="MailAddress" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="JobEduSpecialty">
           <Key>
@@ -2770,6 +2772,7 @@
           <EntitySetMapping Name="JobCompany">
             <EntityTypeMapping TypeName="DataModel.JobCompany">
               <MappingFragment StoreEntitySet="JobCompany">
+                <ScalarProperty Name="MailAddress" ColumnName="MailAddress" />
                 <ScalarProperty Name="SetTopTime" ColumnName="SetTopTime" />
                 <ScalarProperty Name="IsSetTop" ColumnName="IsSetTop" />
                 <ScalarProperty Name="DayClick" ColumnName="DayClick" />

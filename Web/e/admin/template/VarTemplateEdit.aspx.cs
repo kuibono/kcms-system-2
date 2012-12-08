@@ -30,6 +30,7 @@ namespace Web.e.admin.template
                 {
                     return;
                 }
+                txt_VarName.Enabled = false;
                 TemplateVar tl = (from l in ent.TemplateVar where l.ID == id select l).FirstOrDefault();
                 txt_VarName.Text = tl.VarName;
                 txt_Content.Text = tl.Content;
@@ -56,7 +57,7 @@ namespace Web.e.admin.template
             }
             ent.SaveChanges();
             ent.Dispose();
-            Js.AlertAndGoback("保存成功！");
+            Js.AlertAndChangUrl("保存成功！", "VarTemplateList.aspx");
         }
     }
 }

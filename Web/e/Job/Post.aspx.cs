@@ -41,6 +41,43 @@ namespace Web.e.Job
                 r.Status = 0;
                 r.UserID = user.ID;
                 ent.AddToJobApplicationRecord(r);
+
+                #region 发送邮件
+
+                var s = Voodoo.Basement.Model.JobSetting.Get();
+
+                //获取公司邮箱
+                var company = (from l in ent.JobCompany
+                               from p in ent.JobPost
+                               where l.ID == p.CompanyID
+                               && p.ID == postID
+                               select l).FirstOrDefault();
+
+                if (s.SendMail&&company.MailAddress.IsNullOrEmpty()==false)
+                {
+                    List<string> str_atts = new List<string>();
+
+                    var atts = (from l in ent.JobResumeFile where l.UserID == user.ID select l).ToList();
+                    foreach (var att in atts)
+                    {
+                        str_atts.Add(Server.MapPath(att.FilePath));
+                    }
+
+                    Voodoo.Net.Mail.SMTP.SentMail(s.From,
+                        s.LoginName,
+                        s.Password,
+                        company.MailAddress,//user to
+                        s.FromText,
+                        s.Subject,
+                        s.MailBody,
+                        s.SmtpHost,
+                        "",
+                        str_atts);
+
+                }
+
+                #endregion
+
             }
             try
             {

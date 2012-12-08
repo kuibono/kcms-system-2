@@ -52,7 +52,7 @@ namespace Web.e.admin.Movie
             txt_Location.Text = mi.Location;
             txt_PublicYear.Text = mi.PublicYear;
             txt_Intro.Text = mi.Intro;
-            FCKeditor1.Value = mi.Info;
+            FCKeditor1.Text = mi.Info;
             chk_IsMovie.Checked = mi.IsMove.ToBoolean();
             img_Movieface.ImageUrl = mi.FaceImage;
             rbl_Status.SelectedValue = mi.Status.ToS();
@@ -79,7 +79,7 @@ namespace Web.e.admin.Movie
             mi.IsMove = chk_IsMovie.Checked;
             mi.Status = rbl_Status.SelectedValue.ToInt32();
             mi.Enable = chk_Enable.Checked;
-            mi.Info = FCKeditor1.Value;
+            mi.Info = FCKeditor1.Text;
             mi.InsertTime = DateTime.UtcNow.AddHours(8);
             mi.UpdateTime = DateTime.UtcNow.AddHours(8);
             mi.LastClickTime = DateTime.UtcNow.AddHours(8);

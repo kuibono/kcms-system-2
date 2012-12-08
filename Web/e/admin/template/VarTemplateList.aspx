@@ -47,7 +47,7 @@
                             <%#Eval("VarName")%>
                         </td>
                         <td>
-                            <a href="VarTemplateEdit.aspx?id=<%#Eval("ID") %>">修改</a> <a href="?id=<%#Eval("ID") %>&action=del">
+                            <a href="VarTemplateEdit.aspx?id=<%#Eval("ID") %>">修改</a> <a href="?id=<%#Eval("ID") %>&action=del" onclick="return confirm('删除该项可能会引起严重问题，是否确认删除？')">
                                 删除</a>
                         </td>
                     </tr>

@@ -2,6 +2,7 @@
 
 <%@ Register Assembly="Voodoo" Namespace="Voodoo.UI" TagPrefix="vd" %>
 <%@ Register assembly="FredCK.FCKeditorV2" namespace="FredCK.FCKeditorV2" tagprefix="FCKeditorV2" %>
+<%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
@@ -70,6 +71,8 @@
                     模版内容
                 </td>
                 <td>
+                    <%--<CKEditor:CKEditorControl ID="txt_Content" runat="server" Height="200" BasePath="~/ckeditor" Width="99%">
+		            </CKEditor:CKEditorControl>--%>
                     <vd:VTextBox ID="txt_Content" runat="server" TextMode="MultiLine" Height="200px" Width="99%"></vd:VTextBox>
                 </td>
             </tr>
@@ -78,9 +81,10 @@
                     正文
                 </td>
                 <td>
-                    
-                    <FCKeditorV2:FCKeditor ID="FCKeditor1" runat="server" Height="300px">
-                    </FCKeditorV2:FCKeditor>
+                    <CKEditor:CKEditorControl ID="FCKeditor1" runat="server" Height="200" BasePath="~/e/data/ckeditor" Width="99%">
+		            </CKEditor:CKEditorControl>
+                    <%--<FCKeditorV2:FCKeditor ID="FCKeditor1" runat="server" Height="300px">
+                    </FCKeditorV2:FCKeditor>--%>
                     
                 </td>
             </tr>

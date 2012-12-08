@@ -38,12 +38,13 @@ namespace Web.e.admin.template
         protected void btn_Del_Click(object sender, EventArgs e)
         {
             DataEntities ent = new DataEntities();
-            var ids = WS.RequestString("id").Split(',').ToList(); ;
-            var qs = from l in ent.TemplateList where ids.IndexOf(l.ID.ToString()) > 0 select l;
+            var ids = WS.RequestString("id").Split(',').ToList().Select(p => Convert.ToInt32(p)); ;
+            var qs = from l in ent.TemplateList where ids.Contains(l.ID)  select l;
             foreach (var q in qs)
             {
                 ent.DeleteObject(q);
             }
+            ent.SaveChanges();
             ent.Dispose();
             BindList();
             
