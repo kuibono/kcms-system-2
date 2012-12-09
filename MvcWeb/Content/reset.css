@@ -1,0 +1,149 @@
+        body.ms-windows, body.ms-windows label, body.ms-windows input, body.ms-windows textarea, body.ms-windows select, body.ms-windows button
+        {
+            font-family: Arial,sans-serif;
+        }
+        body
+        {
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+            line-height: 18px;
+            color: #333;
+            background-color: white;
+            display: block;
+        }
+        form
+        {
+            font-size: 12px;
+        }
+        h1, h2, h3, h4, h5, h6
+        {
+            margin: 0;
+            color: #333;
+            text-rendering: optimizeLegibility;
+        }
+        h1
+        {
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 1;
+        }
+        div
+        {
+            display: block;
+        }
+        p
+        {
+            display: block;
+            -webkit-margin-before: 1em;
+            -webkit-margin-after: 1em;
+            -webkit-margin-start: 0px;
+            -webkit-margin-end: 0px;
+            margin: 0;
+        }
+        a
+        {
+            color: #0084B4;
+            text-decoration: none;
+        }
+        ul
+        {
+            list-style: none;
+        }
+        ul, ol
+        {
+            padding: 0;
+            margin: 0;
+        }
+        ul, menu, dir
+        {
+            display: block;
+            list-style-type: disc;
+            -webkit-margin-before: 1em;
+            -webkit-margin-after: 1em;
+            -webkit-margin-start: 0px;
+            -webkit-margin-end: 0px;
+            -webkit-padding-start: 40px;
+        }
+        li
+        {
+            display: list-item;
+            text-align: -webkit-match-parent;
+        }
+        img
+        {
+            border: 0;
+        }
+        table
+        {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        td, th
+        {
+            padding: 0;
+            display: table-cell;
+            vertical-align: inherit;
+        }
+        form
+        {
+            font-size: 12px;
+            margin-bottom: 0;
+            display: block;
+            margin-top: 0em;
+        }
+        input, textarea
+        {
+            -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, .05),0 1px 0 rgba(255, 255, 255, .075);
+            -moz-box-shadow: inset 0 1px 3px rgba(0,0,0,.05),0 1px 0 rgba(255,255,255,.075);
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, .05),0 1px 0 rgba(255, 255, 255, .075);
+            -webkit-transition: .2s linear background;
+            -moz-transition: .2s linear background;
+            transition: .2s linear background;
+        }
+        input, textarea, select
+        {
+            display: inline-block;
+            padding: 4px;
+            margin: 0;
+            outline: 0;
+            background-color: white;
+            border: 1px solid #CCC;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+        }
+        button
+        {
+            margin: 0;
+        }
+        input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button, button
+        {
+            -webkit-box-align: center;
+            text-align: center;
+            cursor: default;
+            color: buttontext;
+            padding: 2px 6px 3px;
+            border: 2px outset buttonface;
+            border-image: initial;
+            background-color: buttonface;
+            box-sizing: border-box;
+        }
+        input[type="checkbox"], input[type="radio"]
+        {
+            width: auto;
+            height: auto;
+            padding: 0;
+            margin: 3px 0;
+            line-height: normal;
+            border: 0;
+            background-color: transparent;
+            cursor: pointer;
+        }
+        label
+        {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            cursor: pointer;
+        }
