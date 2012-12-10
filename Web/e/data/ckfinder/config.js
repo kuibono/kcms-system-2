@@ -14,18 +14,18 @@ CKFinder.customConfig = function( config )
 	// config.language = 'fr';
 	// config.removePlugins = 'basket';
 };
-CKEDITOR.editorConfig = function (config) {
-    // Define changes to default configuration here. For example:
-    config.language = 'zh-cn'; //中文
-    // config.uiColor = '#AADC6E';
+//CKEDITOR.editorConfig = function (config) {
+//    // Define changes to default configuration here. For example:
+//    config.language = 'zh-cn'; //中文
+//    // config.uiColor = '#AADC6E';
 
-    //在 CKEditor 中集成 CKFinder，注意 ckfinder 的路径选择要正确。
-    var ckfinderPath = ""; //ckfinder路径
-    config.filebrowserBrowseUrl = ckfinderPath + '/ckfinder/ckfinder.html';
-    config.filebrowserImageBrowseUrl = ckfinderPath + '/ckfinder/ckfinder.html?type=Images';
-    config.filebrowserFlashBrowseUrl = ckfinderPath + '/ckfinder/ckfinder.html?type=Flash';
-    config.filebrowserUploadUrl = ckfinderPath + '/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Files';
-    config.filebrowserImageUploadUrl = ckfinderPath + '/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Images';
-    config.filebrowserFlashUploadUrl = ckfinderPath + '/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Flash';
+//    //在 CKEditor 中集成 CKFinder，注意 ckfinder 的路径选择要正确。
+//    var ckfinderPath = "/e/data"; //ckfinder路径
+//    config.filebrowserBrowseUrl = ckfinderPath + '/ckfinder/ckfinder.html';
+//    config.filebrowserImageBrowseUrl = ckfinderPath + '/ckfinder/ckfinder.html?type=Images';
+//    config.filebrowserFlashBrowseUrl = ckfinderPath + '/ckfinder/ckfinder.html?type=Flash';
+//    config.filebrowserUploadUrl = ckfinderPath + '/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Files';
+//    config.filebrowserImageUploadUrl = ckfinderPath + '/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Images';
+//    config.filebrowserFlashUploadUrl = ckfinderPath + '/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Flash';
 
-};
+//};

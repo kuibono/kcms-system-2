@@ -56,8 +56,23 @@ namespace Web.e.admin.template
                 ent.AddToTemplateVar(tl);
             }
             ent.SaveChanges();
+
+            var pages = (from l in ent.TemplatePage where l.CreateWith == 5 select l).ToList();
+            TemplateHelper th = new TemplateHelper();
+            foreach (var p in pages)
+            {
+                try
+                {
+                    string html = th.GetStatisPage(p.id);
+                    Voodoo.IO.File.Write(Server.MapPath(p.FileName), html);
+                }
+                catch { }
+            }
+
             ent.Dispose();
             Js.AlertAndChangUrl("保存成功！", "VarTemplateList.aspx");
+
+            
         }
     }
 }

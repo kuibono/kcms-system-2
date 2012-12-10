@@ -86,6 +86,19 @@ namespace Voodoo.Basement
 
                         System.Web.HttpContext.Current.Session["sys_user"] = user.ID;
 
+
+                        System.Web.HttpCookie cookie = new System.Web.HttpCookie("sys_user");
+                        cookie.Expires = DateTime.Now.AddDays(1);
+                        cookie.Values.Add("uid",user.ID.ToS());
+                        cookie.Values.Add("k", Voodoo.Security.Encrypt.Md5(string.Format("{0}{1}{2}",
+                            user.ID,
+                            user.UserName,
+                            user.UserPass,
+                            BasePage.SystemSetting.SiteName
+                            )));
+                        Cookies.Cookies.SetCookie(cookie);
+
+
                         r.Success = true;
                         r.Text = "登陆成功！";
                         return r;
@@ -105,6 +118,39 @@ namespace Voodoo.Basement
         {
             get
             {
+                if (System.Web.HttpContext.Current.Session["sys_user"] != null)
+                {
+                    System.Web.HttpCookie cookie = Cookies.Cookies.GetCookie("sys_user");
+                    if (cookie == null)
+                    {
+                        return new SysUser() { ID = int.MinValue };
+                    }
+                    int id = cookie.Values["uid"].ToInt32();
+                    string key = cookie.Values["k"].ToString();
+
+                    DataEntities ent=new DataEntities();
+                    SysUser _u=(from l in ent.SysUser where l.ID==id select l).FirstOrDefault();
+                    ent.Dispose();
+
+                    string userkey = Voodoo.Security.Encrypt.Md5(string.Format("{0}{1}{2}",
+                           _u.ID,
+                           _u.UserName,
+                           _u.UserPass,
+                           BasePage.SystemSetting.SiteName
+                           ));
+                    if (userkey != key)//伪造cookie
+                    {
+                        _u = new SysUser();
+                        _u.ID = int.MinValue;
+
+                    }
+                    else//正确
+                    {
+                        System.Web.HttpContext.Current.Session["sys_user"]=_u.ID;
+                    }
+
+                }
+
                 if (System.Web.HttpContext.Current.Session["sys_user"] != null)
                 {
                     using (DataEntities ent = new DataEntities())

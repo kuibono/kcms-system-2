@@ -116,7 +116,7 @@ namespace Web.Dynamic.Job
             long id = WS.RequestLong("id");
 
             JobResumeInfo
-                r = (from l in ent.JobResumeInfo where l.ID == UserAction.opuser.ID select l).FirstOrDefault();
+                r = (from l in ent.JobResumeInfo where l.UserID == UserAction.opuser.ID select l).FirstOrDefault();
             
             r.ChineseName = txt_ChineseName.Text;
             r.Birthday = new DateTime(ddl_Year.SelectedValue.ToInt32(),

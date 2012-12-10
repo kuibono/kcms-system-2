@@ -40,11 +40,25 @@ namespace Voodoo.Basement
 
         public static string GetProviceName(int id)
         {
-            return (from l in Provinces where l.ID == id select l).FirstOrDefault().province1;
+            try
+            {
+                return (from l in Provinces where l.ID == id select l).FirstOrDefault().province1;
+            }
+            catch
+            {
+                return "未设置";
+            }
         }
         public static string GetCityName(int id)
         {
-            return (from l in Cities where l.id == id select l).FirstOrDefault().city1;
+            try
+            {
+                return (from l in Cities where l.id == id select l).FirstOrDefault().city1;
+            }
+            catch
+            {
+                return "未设置";
+            }
         }
         #endregion
 
@@ -432,7 +446,7 @@ namespace Voodoo.Basement
             using (DataEntities ent = new DataEntities())
             {
 
-                var cts = (from l in ent.City where l.ProvinceID == pid select l).AsCache();
+                var cts = (from l in ent.City where l.ProvinceID == pid select l).ToList();
                 lst.Items.Clear();
                 foreach (var ct in cts)
                 {

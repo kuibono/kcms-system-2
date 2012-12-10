@@ -50,7 +50,6 @@
                                     <table width="752" border="0" cellspacing="0" cellpadding="0" class="tb-fillin">
                                         <tr>
                                             <td width="45" align="right">
-                                                <i class="star-fill">*</i>
                                             </td>
                                             <td width="76">
                                                 <strong>用户姓名</strong>
@@ -81,7 +80,6 @@
                                         </tr>
                                         <tr>
                                             <td width="45" align="right">
-                                                <i class="star-fill">*</i>
                                             </td>
                                             <td width="76">
                                                 <strong>现居住地</strong>
@@ -113,7 +111,6 @@
 
                                         <tr>
                                             <td width="45" align="right">
-                                                <i class="star-fill">*</i>
                                             </td>
                                             <td width="76">
                                                 <strong>期望工作地</strong>

@@ -11,6 +11,13 @@ namespace Web.e.admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            System.Web.HttpCookie cookie = new System.Web.HttpCookie("sys_user");
+            if (cookie != null)
+            {
+                cookie.Expires = DateTime.Now.AddDays(-1);
+                Voodoo.Cookies.Cookies.SetCookie(cookie);
+            }
             Session.Abandon();
             Response.Redirect("Login.aspx");
         }

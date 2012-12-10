@@ -118,7 +118,7 @@ namespace Web.e.admin.Job.Post {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Voodoo.UI.VTextBox txt_Intro;
+        protected global::CKEditor.NET.CKEditorControl txt_Intro;
         
         /// <summary>
         /// txt_ExpireTime 控件。

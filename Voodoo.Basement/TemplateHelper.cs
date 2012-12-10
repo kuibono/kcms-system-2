@@ -594,7 +594,7 @@ namespace Voodoo.Basement
                 string Content = tp.Content;
                 if (tp.Content.IsNullOrEmpty())
                 {
-                    tp.Content = GetTempateString(1, TempType.默认静态页);
+                    Content = GetTempateString(1, TempType.默认静态页);
                 }
                 //替换三层公共模版变量
 

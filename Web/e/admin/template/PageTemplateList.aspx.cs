@@ -16,7 +16,7 @@ namespace Web.e.admin.template
 {
     public partial class PageTemplateList : AdminBase
     {
-        protected string[] CREATE_WITH = "不生成,首页,列表,内容,章节/播放/图片".Split(',');
+        protected string[] CREATE_WITH = "不生成,首页,列表,内容,章节/播放/图片,公共模版".Split(',');
         protected void Page_Load(object sender, EventArgs e)
         {
             if (WS.RequestString("action") == "del")
