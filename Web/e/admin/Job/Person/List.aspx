@@ -78,6 +78,7 @@
                                 <a href="?id=<%#Eval("ID") %>&action=del">删除</a>
                                 <a href="../Resume/List.aspx?uid=<%#Eval("ID") %>">简历</a>
                                 <a href="../Application/List.aspx?id=<%#Eval("ID") %>">申请记录</a>
+                                <a href="/e/job/DownResume.aspx?id=<%#Eval("ID") %>">下载简历</a>
                             </td>
                         </tr>
                     </ItemTemplate>

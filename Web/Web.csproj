@@ -141,6 +141,7 @@
     <Content Include="e\admin\Job\Company\Edit.aspx" />
     <Content Include="e\admin\Job\Company\List.aspx" />
     <Content Include="e\admin\Job\Config\IndexProvinceCitys.aspx" />
+    <Content Include="e\admin\Job\Config\IndexTopCities.aspx" />
     <Content Include="e\admin\Job\Config\JobEduSpecialtyManagement.aspx" />
     <Content Include="e\admin\Job\Config\JobIndustryManagement.aspx" />
     <Content Include="e\admin\Job\Default.aspx" />
@@ -1170,6 +1171,7 @@
     <Content Include="e\data\themes\icons\tip.png" />
     <Content Include="e\data\themes\icons\undo.png" />
     <Content Include="e\file\addselect.aspx" />
+    <Content Include="e\Job\DownResume.aspx" />
     <Content Include="e\Job\multiupload.aspx" />
     <Content Include="e\Job\Post.aspx" />
     <Content Include="e\Job\UploadResume.aspx" />
@@ -1750,6 +1752,13 @@
     <Compile Include="e\admin\Job\Config\IndexProvinceCitys.aspx.designer.cs">
       <DependentUpon>IndexProvinceCitys.aspx</DependentUpon>
     </Compile>
+    <Compile Include="e\admin\Job\Config\IndexTopCities.aspx.cs">
+      <DependentUpon>IndexTopCities.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\admin\Job\Config\IndexTopCities.aspx.designer.cs">
+      <DependentUpon>IndexTopCities.aspx</DependentUpon>
+    </Compile>
     <Compile Include="e\admin\Job\Config\JobEduSpecialtyManagement.aspx.cs">
       <DependentUpon>JobEduSpecialtyManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2236,6 +2245,13 @@
     </Compile>
     <Compile Include="e\installer\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="e\Job\DownResume.aspx.cs">
+      <DependentUpon>DownResume.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e\Job\DownResume.aspx.designer.cs">
+      <DependentUpon>DownResume.aspx</DependentUpon>
     </Compile>
     <Compile Include="e\Job\multiupload.aspx.cs">
       <DependentUpon>multiupload.aspx</DependentUpon>

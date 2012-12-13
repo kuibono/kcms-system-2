@@ -119,7 +119,16 @@
                                                 <asp:Label ID="txt_WorkPlace" runat="server"></asp:Label>
                                             </td>
                                         </tr>
-                                        
+                                        <tr>
+                                            <td width="45" align="right">
+                                            </td>
+                                            <td width="76">
+                                                <strong>我上传的简历</strong>
+                                            </td>
+                                            <td>
+                                                <%=file_resume %>
+                                            </td>
+                                        </tr>
                                     </table>
                                     
                                     </form>
@@ -136,7 +145,6 @@
                             <ul class="l-nav">
                                 <li><a href="Home.aspx" class="my-baijob" id="wodebaibo">我的第一职</a></li>
                                 <li><a href="ResumeBasic.aspx" class="my-resume" id="jianliguanli">简历管理</a></li>
-                                <li class="here"><a href="ResumeView.aspx" class="my-resume" id="A1">我的信息</a></li>
                                 <li><a href="App.aspx" class="my-job" id="zhiweiguanli">职位管理</a></li>
                                 <li><a href="Password.aspx" class="my-manage" id="zhanghaoguanli">帐号管理</a></li>
                             </ul>

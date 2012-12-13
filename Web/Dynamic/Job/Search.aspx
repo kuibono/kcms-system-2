@@ -384,7 +384,7 @@
             </td>
             <td valign="top">
                 <div class="listLeft">
-                    <div class="blur-bor-box clearfix mb-10" style="height: 80px">
+                    <div class="blur-bor-box clearfix mb-10" style="height: 80px;display:none;">
                         <dl class="wzd-dl">
                             <dt>您的简历不完善，影响投递效果</dt>
                             <dd>
@@ -394,7 +394,7 @@
                         <dl class="wanshan">
                             <a target="_blank" href="ResumeBasic.aspx">请立即完善&raquo;</a></dl>
                     </div>
-                    <div class="blur-bor-box clearfix mb-10">
+                    <div class="blur-bor-box clearfix mb-10" style="display:none;">
                         <a href="#" target="_blank">
                             <img alt="" src="/skin/job/img/zwtj.jpg"></a>
                     </div>

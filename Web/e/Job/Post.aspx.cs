@@ -18,6 +18,8 @@ namespace Web.e.Job
 
             var user = UserAction.opuser;
             var resume = user.DefaultResume();
+
+            
             if (user.ID < 0)
             {
                 (new Result { Success = false, Text = "对不起，您还没有登录，请登录或注册后投递简历！" }).ResponseJson();
@@ -26,6 +28,11 @@ namespace Web.e.Job
             if (resume == null)
             {
                 (new Result { Success = false, Text = "您还没有创建简历，请创建简历之后进行投递！" }).ResponseJson();
+                return;
+            }
+            if (user.DefaultResumeFile() == null)
+            {
+                (new Result { Success = false, Text = "您还没有上传简历，请上传简历之后进行投递！" }).ResponseJson();
                 return;
             }
             DataEntities ent = new DataEntities();

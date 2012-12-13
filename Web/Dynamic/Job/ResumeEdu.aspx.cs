@@ -126,7 +126,8 @@ namespace Web.Dynamic.Job
             txt_edu_Intro.Text = "";
             ent.SaveChanges();
             ent.Dispose();
-            LoadInfo();
+
+            Response.Redirect("ResumeEdu.aspx");
         }
     }
 }

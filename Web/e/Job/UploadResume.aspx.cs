@@ -25,6 +25,20 @@ namespace Web.e.Job
             
 
             HttpPostedFile file = Request.Files[0];
+
+            string extName = Path.GetExtension(file.FileName).ToLower();
+            int size = file.ContentLength;
+            if (extName != ".doc" && extName != ".docx")
+            {
+                Js.AlertAndGoback("对不起，简历文件只允许上传微软Word格式(.doc|.docx)");
+                return;
+            }
+            if (size > 500 * 1024)
+            {
+                Js.AlertAndGoback("对不起，简历大小请限制在500K以内！");
+                return;
+            }
+
             JobAction.SaveResume(file, u.ID);
 
             Js.AlertAndChangUrl("简历上传成功！", "/Dynamic/Job/ResumeBasic.aspx");

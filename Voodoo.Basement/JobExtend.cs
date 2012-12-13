@@ -15,6 +15,13 @@ namespace Voodoo.Basement
                 return (from l in ent.JobResumeInfo where l.UserID==u.ID select l).FirstOrDefault();
             }
         }
+        public static JobResumeFile DefaultResumeFile(this User u)
+        {
+            using (DataEntities ent = new DataEntities())
+            {
+                return (from l in ent.JobResumeFile where l.UserID == u.ID select l).FirstOrDefault();
+            }
+        }
 
         public static int GetCompanyIDByPost(long postID)
         {

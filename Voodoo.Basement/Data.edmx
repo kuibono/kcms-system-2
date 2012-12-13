@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+    <Schema Namespace="DataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
         <EntityContainer Name="DataModelStoreContainer">
           <EntitySet Name="Ad" EntityType="DataModel.Store.Ad" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="AdGroup" EntityType="DataModel.Store.AdGroup" store:Type="Tables" Schema="dbo" />
@@ -263,7 +263,6 @@
           </Key>
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ClassID" Type="int" />
-          <Property Name="ItemID" Type="bigint" />
           <Property Name="UpTime" Type="datetime" />
           <Property Name="FileType" Type="int" />
           <Property Name="FileSize" Type="bigint" />
@@ -272,6 +271,7 @@
           <Property Name="FileExtName" Type="nvarchar" MaxLength="255" />
           <Property Name="FilePath" Type="nvarchar" MaxLength="500" />
           <Property Name="SmallPath" Type="nvarchar" MaxLength="500" />
+          <Property Name="ItemID" Type="bigint" />
         </EntityType>
         <EntityType Name="GroupRole">
           <Key>
@@ -1218,6 +1218,7 @@
           <EntitySet Name="JobResumeTrain" EntityType="DataModel.JobResumeTrain" />
           <EntitySet Name="JobType" EntityType="DataModel.JobType" />
           <EntitySet Name="Link" EntityType="DataModel.Link" />
+          <EntitySet Name="Message" EntityType="DataModel.Message" />
           <EntitySet Name="MovieDrama" EntityType="DataModel.MovieDrama" />
           <EntitySet Name="MovieDramaUrl" EntityType="DataModel.MovieDramaUrl" />
           <EntitySet Name="MovieInfo" EntityType="DataModel.MovieInfo" />
@@ -1226,6 +1227,7 @@
           <EntitySet Name="MovieUrlKuaib" EntityType="DataModel.MovieUrlKuaib" />
           <EntitySet Name="MovieUrlMag" EntityType="DataModel.MovieUrlMag" />
           <EntitySet Name="News" EntityType="DataModel.News" />
+          <EntitySet Name="Product" EntityType="DataModel.Product" />
           <EntitySet Name="Province" EntityType="DataModel.Province" />
           <EntitySet Name="Question" EntityType="DataModel.Question" />
           <EntitySet Name="Relpy" EntityType="DataModel.Relpy" />
@@ -1255,8 +1257,6 @@
           <EntitySet Name="UserRerm" EntityType="DataModel.UserRerm" />
           <EntitySet Name="ViewHistory" EntityType="DataModel.ViewHistory" />
           <EntitySet Name="Zt" EntityType="DataModel.Zt" />
-          <EntitySet Name="Product" EntityType="DataModel.Product" />
-          <EntitySet Name="Message" EntityType="DataModel.Message" />
         </EntityContainer>
         <EntityType Name="Ad">
           <Key>
@@ -1810,6 +1810,19 @@
           <Property Type="String" Name="Url" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="Index" />
         </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="MessageTime" />
+          <Property Type="String" Name="UserName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Tel" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Chat" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Content" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="MovieDrama">
           <Key>
             <PropertyRef Name="id" />
@@ -1955,6 +1968,28 @@
           <Property Type="Int32" Name="ReplyCount" />
           <Property Type="String" Name="Source" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="EnableReply" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ClassID" />
+          <Property Type="String" Name="ClassName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Name" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Specification" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Units" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="Price" Precision="18" Scale="2" />
+          <Property Type="String" Name="ProduceLocation" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FaceImage" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Contact" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Tel" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Intro" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="AddTime" />
+          <Property Type="Boolean" Name="Enable" />
+          <Property Type="Boolean" Name="SetTop" />
+          <Property Type="Int32" Name="ClickCount" />
+          <Property Type="Int32" Name="OrderIndex" />
         </EntityType>
         <EntityType Name="Province">
           <Key>
@@ -2327,41 +2362,6 @@
           <Property Type="Int32" Name="ListModel" />
           <Property Type="Int32" Name="ListOrder" />
           <Property Type="Int32" Name="ListPageSize" />
-        </EntityType>
-        <EntityType Name="Product">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="ClassID" />
-          <Property Type="String" Name="ClassName" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Name" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Specification" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Units" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Decimal" Name="Price" Precision="18" Scale="2" />
-          <Property Type="String" Name="ProduceLocation" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="FaceImage" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Contact" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Tel" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Intro" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="AddTime" />
-          <Property Type="Boolean" Name="Enable" />
-          <Property Type="Boolean" Name="SetTop" />
-          <Property Type="Int32" Name="ClickCount" />
-          <Property Type="Int32" Name="OrderIndex" />
-        </EntityType>
-        <EntityType Name="Message">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="DateTime" Name="MessageTime" />
-          <Property Type="String" Name="UserName" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Tel" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Title" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Chat" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Content" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -2952,6 +2952,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Message">
+            <EntityTypeMapping TypeName="DataModel.Message">
+              <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Chat" ColumnName="Chat" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="MessageTime" ColumnName="MessageTime" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="MovieDrama">
             <EntityTypeMapping TypeName="DataModel.MovieDrama">
               <MappingFragment StoreEntitySet="MovieDrama">
@@ -3102,6 +3116,29 @@
                 <ScalarProperty Name="TitleB" ColumnName="TitleB" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="NewsTime" ColumnName="NewsTime" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="DataModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="OrderIndex" ColumnName="OrderIndex" />
+                <ScalarProperty Name="ClickCount" ColumnName="ClickCount" />
+                <ScalarProperty Name="SetTop" ColumnName="SetTop" />
+                <ScalarProperty Name="Enable" ColumnName="Enable" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="Intro" ColumnName="Intro" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="FaceImage" ColumnName="FaceImage" />
+                <ScalarProperty Name="ProduceLocation" ColumnName="ProduceLocation" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Units" ColumnName="Units" />
+                <ScalarProperty Name="Specification" ColumnName="Specification" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="ClassID" ColumnName="ClassID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -3507,43 +3544,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Product">
-            <EntityTypeMapping TypeName="DataModel.Product">
-              <MappingFragment StoreEntitySet="Product">
-                <ScalarProperty Name="OrderIndex" ColumnName="OrderIndex" />
-                <ScalarProperty Name="ClickCount" ColumnName="ClickCount" />
-                <ScalarProperty Name="SetTop" ColumnName="SetTop" />
-                <ScalarProperty Name="Enable" ColumnName="Enable" />
-                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
-                <ScalarProperty Name="Intro" ColumnName="Intro" />
-                <ScalarProperty Name="Tel" ColumnName="Tel" />
-                <ScalarProperty Name="Contact" ColumnName="Contact" />
-                <ScalarProperty Name="FaceImage" ColumnName="FaceImage" />
-                <ScalarProperty Name="ProduceLocation" ColumnName="ProduceLocation" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Units" ColumnName="Units" />
-                <ScalarProperty Name="Specification" ColumnName="Specification" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
-                <ScalarProperty Name="ClassID" ColumnName="ClassID" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Message">
-            <EntityTypeMapping TypeName="DataModel.Message">
-              <MappingFragment StoreEntitySet="Message">
-                <ScalarProperty Name="Content" ColumnName="Content" />
-                <ScalarProperty Name="Chat" ColumnName="Chat" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Tel" ColumnName="Tel" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="MessageTime" ColumnName="MessageTime" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
@@ -3570,71 +3570,71 @@
         <EntityTypeShape EntityType="DataModel.Answer" Width="1.5" PointX="2.75" PointY="3.75" Height="2.3520719401041674" />
         <EntityTypeShape EntityType="DataModel.Area" Width="1.5" PointX="4.75" PointY="0.75" Height="1.5879931640624818" />
         <EntityTypeShape EntityType="DataModel.Book" Width="1.5" PointX="4.75" PointY="3.75" Height="6.1724658203124818" />
-        <EntityTypeShape EntityType="DataModel.BookChapter" Width="1.5" PointX="6.75" PointY="0.75" Height="4.4532885742187318" />
+        <EntityTypeShape EntityType="DataModel.BookChapter" Width="1.5" PointX="6.75" PointY="0.75" Height="4.6443082682291674" />
         <EntityTypeShape EntityType="DataModel.BookRole" Width="1.5" PointX="6.75" PointY="6.75" Height="1.7790128580729174" />
         <EntityTypeShape EntityType="DataModel.BookVolume" Width="1.5" PointX="0.75" PointY="7.75" Height="1.7790128580729174" />
-        <EntityTypeShape EntityType="DataModel.City" Width="1.5" PointX="8.75" PointY="0.75" Height="2.7341113281249818" />
-        <EntityTypeShape EntityType="DataModel.Class" Width="1.5" PointX="8.75" PointY="4.75" Height="8.6557218424479174" />
-        <EntityTypeShape EntityType="DataModel.File" Width="1.5" PointX="10.75" PointY="0.75" Height="2.9251310221354174" />
+        <EntityTypeShape EntityType="DataModel.City" Width="1.5" PointX="8.75" PointY="0.75" Height="2.9251310221354174" />
+        <EntityTypeShape EntityType="DataModel.Class" Width="1.5" PointX="8.75" PointY="4.75" Height="9.61082031250001" />
+        <EntityTypeShape EntityType="DataModel.File" Width="1.5" PointX="10.75" PointY="0.75" Height="3.1161507161458246" />
         <EntityTypeShape EntityType="DataModel.GroupRole" Width="1.5" PointX="0.75" PointY="10.75" Height="1.5879931640624818" />
         <EntityTypeShape EntityType="DataModel.ImageAlbum" Width="1.5" PointX="2.75" PointY="10.75" Height="4.0712491861979174" />
         <EntityTypeShape EntityType="DataModel.Images" Width="1.5" PointX="10.75" PointY="4.75" Height="3.1161507161458246" />
         <EntityTypeShape EntityType="DataModel.Info" Width="1.5" PointX="4.75" PointY="10.75" Height="12.667135416666667" />
-        <EntityTypeShape EntityType="DataModel.InfoImage" Width="1.5" PointX="10.75" PointY="8.75" Height="1.9700325520833246" />
-        <EntityTypeShape EntityType="DataModel.InfoType" Width="1.5" PointX="10.75" PointY="11.75" Height="9.9928597005208388" />
-        <EntityTypeShape EntityType="DataModel.JobApplicationRecord" Width="1.5" PointX="12.75" PointY="0.75" Height="2.5430916341145888" />
-        <EntityTypeShape EntityType="DataModel.JobCompany" Width="1.5" PointX="12.75" PointY="4.75" Height="2.9251310221354174" />
+        <EntityTypeShape EntityType="DataModel.InfoImage" Width="1.5" PointX="10.75" PointY="8.75" Height="1.9700325520833388" />
+        <EntityTypeShape EntityType="DataModel.InfoType" Width="1.5" PointX="10.75" PointY="11.75" Height="9.992859700520853" />
+        <EntityTypeShape EntityType="DataModel.JobApplicationRecord" Width="1.5" PointX="12.75" PointY="0.75" Height="2.543091634114603" />
+        <EntityTypeShape EntityType="DataModel.JobCompany" Width="1.5" PointX="12.75" PointY="4.75" Height="3.116150716145853" />
         <EntityTypeShape EntityType="DataModel.JobEduSpecialty" Width="1.5" PointX="12.75" PointY="8.75" Height="1.5879931640624818" />
         <EntityTypeShape EntityType="DataModel.JobIndustry" Width="1.5" PointX="12.75" PointY="11.75" Height="1.970032552083353" />
-        <EntityTypeShape EntityType="DataModel.JobPost" Width="1.5" PointX="14.75" PointY="0.75" Height="3.8802294921874818" />
+        <EntityTypeShape EntityType="DataModel.JobPost" Width="1.5" PointX="14.75" PointY="0.75" Height="4.0712491861979174" />
         <EntityTypeShape EntityType="DataModel.JobResumeCertificate" Width="1.5" PointX="14.75" PointY="5.75" Height="1.970032552083353" />
-        <EntityTypeShape EntityType="DataModel.JobResumeEdu" Width="1.5" PointX="6.75" PointY="14.75" Height="2.543091634114603" />
-        <EntityTypeShape EntityType="DataModel.JobResumeExperience" Width="1.5" PointX="14.75" PointY="8.75" Height="2.3520719401041674" />
-        <EntityTypeShape EntityType="DataModel.JobResumeFile" Width="1.5" PointX="14.75" PointY="12.75" Height="1.970032552083353" />
-        <EntityTypeShape EntityType="DataModel.JobResumeInfo" Width="1.5" PointX="0.75" PointY="15.75" Height="5.7904264322916674" />
-        <EntityTypeShape EntityType="DataModel.JobResumeLanguage" Width="1.5" PointX="12.75" PointY="15.75" Height="1.970032552083353" />
-        <EntityTypeShape EntityType="DataModel.JobResumeTrain" Width="1.5" PointX="14.75" PointY="15.75" Height="2.543091634114603" />
-        <EntityTypeShape EntityType="DataModel.JobType" Width="1.5" PointX="16.75" PointY="0.75" Height="1.5879931640624818" />
-        <EntityTypeShape EntityType="DataModel.Link" Width="1.5" PointX="16.75" PointY="3.75" Height="1.7790128580729174" />
-        <EntityTypeShape EntityType="DataModel.MovieDrama" Width="1.5" PointX="16.75" PointY="6.75" Height="2.1610522460937318" />
-        <EntityTypeShape EntityType="DataModel.MovieDramaUrl" Width="1.5" PointX="16.75" PointY="9.75" Height="2.9251310221354174" />
-        <EntityTypeShape EntityType="DataModel.MovieInfo" Width="1.5" PointX="16.75" PointY="13.75" Height="6.554505208333353" />
+        <EntityTypeShape EntityType="DataModel.JobResumeEdu" Width="1.5" PointX="14.75" PointY="8.75" Height="2.543091634114603" />
+        <EntityTypeShape EntityType="DataModel.JobResumeExperience" Width="1.5" PointX="14.75" PointY="12.75" Height="2.3520719401041674" />
+        <EntityTypeShape EntityType="DataModel.JobResumeFile" Width="1.5" PointX="0.75" PointY="15.75" Height="1.970032552083353" />
+        <EntityTypeShape EntityType="DataModel.JobResumeInfo" Width="1.5" PointX="6.75" PointY="15.75" Height="5.7904264322916674" />
+        <EntityTypeShape EntityType="DataModel.JobResumeLanguage" Width="1.5" PointX="16.75" PointY="0.75" Height="1.970032552083353" />
+        <EntityTypeShape EntityType="DataModel.JobResumeTrain" Width="1.5" PointX="16.75" PointY="3.75" Height="2.543091634114603" />
+        <EntityTypeShape EntityType="DataModel.JobType" Width="1.5" PointX="16.75" PointY="7.75" Height="1.5879931640624818" />
+        <EntityTypeShape EntityType="DataModel.Link" Width="1.5" PointX="16.75" PointY="10.75" Height="1.7790128580729174" />
+        <EntityTypeShape EntityType="DataModel.Message" Width="1.5" PointX="12.75" PointY="16.75" Height="2.543091634114603" />
+        <EntityTypeShape EntityType="DataModel.MovieDrama" Width="1.5" PointX="16.75" PointY="13.75" Height="2.1610522460937318" />
+        <EntityTypeShape EntityType="DataModel.MovieDramaUrl" Width="1.5" PointX="14.75" PointY="16.75" Height="2.9251310221354174" />
+        <EntityTypeShape EntityType="DataModel.MovieInfo" Width="1.5" PointX="16.75" PointY="16.75" Height="6.554505208333353" />
         <EntityTypeShape EntityType="DataModel.MovieUrl" Width="1.5" PointX="18.75" PointY="0.75" Height="2.9251310221354174" />
-        <EntityTypeShape EntityType="DataModel.MovieUrlBaidu" Width="1.5" PointX="18.75" PointY="4.75" Height="2.3520719401041674" />
-        <EntityTypeShape EntityType="DataModel.MovieUrlKuaib" Width="1.5" PointX="6.75" PointY="18.75" Height="2.3520719401041674" />
+        <EntityTypeShape EntityType="DataModel.MovieUrlBaidu" Width="1.5" PointX="0.75" PointY="18.75" Height="2.3520719401041674" />
+        <EntityTypeShape EntityType="DataModel.MovieUrlKuaib" Width="1.5" PointX="18.75" PointY="4.75" Height="2.3520719401041674" />
         <EntityTypeShape EntityType="DataModel.MovieUrlMag" Width="1.5" PointX="18.75" PointY="8.75" Height="2.3520719401041674" />
         <EntityTypeShape EntityType="DataModel.News" Width="1.5" PointX="18.75" PointY="12.75" Height="6.7455249023437318" />
-        <EntityTypeShape EntityType="DataModel.Province" Width="1.5" PointX="12.75" PointY="19.75" Height="2.3520719401041674" />
-        <EntityTypeShape EntityType="DataModel.Question" Width="1.5" PointX="20.75" PointY="0.75" Height="2.7341113281249818" />
-        <EntityTypeShape EntityType="DataModel.Relpy" Width="1.5" PointX="20.75" PointY="4.75" Height="2.543091634114603" />
-        <EntityTypeShape EntityType="DataModel.SysDepartment" Width="1.5" PointX="20.75" PointY="8.75" Height="1.396973470052103" />
-        <EntityTypeShape EntityType="DataModel.SysGroup" Width="1.5" PointX="20.75" PointY="11.75" Height="1.396973470052103" />
-        <EntityTypeShape EntityType="DataModel.SysKeyword" Width="1.5" PointX="20.75" PointY="14.75" Height="1.7790128580729174" />
-        <EntityTypeShape EntityType="DataModel.SysModel" Width="1.5" PointX="20.75" PointY="17.75" Height="1.7790128580729174" />
-        <EntityTypeShape EntityType="DataModel.SysNavPanel" Width="1.5" PointX="18.75" PointY="20.75" Height="1.970032552083353" />
-        <EntityTypeShape EntityType="DataModel.SysNavTree" Width="1.5" PointX="20.75" PointY="20.75" Height="2.7341113281249818" />
-        <EntityTypeShape EntityType="DataModel.SysRole" Width="1.5" PointX="14.75" PointY="21.75" Height="2.3520719401041674" />
-        <EntityTypeShape EntityType="DataModel.SysUser" Width="1.5" PointX="22.75" PointY="0.75" Height="3.689209798177103" />
-        <EntityTypeShape EntityType="DataModel.TemplateContent" Width="1.5" PointX="0.75" PointY="22.75" Height="2.1610522460937318" />
-        <EntityTypeShape EntityType="DataModel.TemplateFace" Width="1.5" PointX="22.75" PointY="5.75" Height="1.5879931640624818" />
-        <EntityTypeShape EntityType="DataModel.TemplateGroup" Width="1.5" PointX="6.75" PointY="22.75" Height="1.5879931640624818" />
-        <EntityTypeShape EntityType="DataModel.TemplateList" Width="1.5" PointX="22.75" PointY="8.75" Height="2.9251310221354174" />
-        <EntityTypeShape EntityType="DataModel.TemplatePage" Width="1.5" PointX="8.75" PointY="22.75" Height="2.3520719401041674" />
-        <EntityTypeShape EntityType="DataModel.TemplatePublic" Width="1.5" PointX="22.75" PointY="12.75" Height="5.5994067382812318" />
-        <EntityTypeShape EntityType="DataModel.TemplateReply" Width="1.5" PointX="22.75" PointY="19.75" Height="1.5879931640624818" />
-        <EntityTypeShape EntityType="DataModel.TemplateSearch" Width="1.5" PointX="22.75" PointY="22.75" Height="2.9251310221354174" />
-        <EntityTypeShape EntityType="DataModel.TemplateVar" Width="1.5" PointX="10.75" PointY="23.75" Height="1.970032552083353" />
-        <EntityTypeShape EntityType="DataModel.TemplTags" Width="1.5" PointX="16.75" PointY="23.75" Height="2.543091634114603" />
-        <EntityTypeShape EntityType="DataModel.User" Width="1.5" PointX="24.75" PointY="0.75" Height="6.554505208333353" />
-        <EntityTypeShape EntityType="DataModel.UserClassRelation" Width="1.5" PointX="2.75" PointY="24.75" Height="1.5879931640624818" />
-        <EntityTypeShape EntityType="DataModel.UserForm" Width="1.5" PointX="24.75" PointY="8.75" Height="1.5879931640624818" />
-        <EntityTypeShape EntityType="DataModel.UserGroup" Width="1.5" PointX="24.75" PointY="11.75" Height="2.543091634114603" />
-        <EntityTypeShape EntityType="DataModel.UserRegorm" Width="1.5" PointX="24.75" PointY="15.75" Height="1.7790128580729174" />
-        <EntityTypeShape EntityType="DataModel.UserRerm" Width="1.5" PointX="24.75" PointY="18.75" Height="1.7790128580729174" />
-        <EntityTypeShape EntityType="DataModel.ViewHistory" Width="1.5" PointX="18.75" PointY="24.75" Height="1.970032552083353" />
-        <EntityTypeShape EntityType="DataModel.Zt" Width="1.5" PointX="24.75" PointY="21.75" Height="3.689209798177103" />
-        <EntityTypeShape EntityType="DataModel.Product" Width="1.5" PointX="5.375" PointY="25.75" Height="4.2622688802083246" />
-        <EntityTypeShape EntityType="DataModel.Message" Width="1.5" PointX="13.375" PointY="25.75" Height="2.5430916341145746" />
+        <EntityTypeShape EntityType="DataModel.Product" Width="1.5" PointX="20.75" PointY="0.75" Height="4.262268880208353" />
+        <EntityTypeShape EntityType="DataModel.Province" Width="1.5" PointX="20.75" PointY="6.75" Height="2.3520719401041674" />
+        <EntityTypeShape EntityType="DataModel.Question" Width="1.5" PointX="20.75" PointY="10.75" Height="2.7341113281249818" />
+        <EntityTypeShape EntityType="DataModel.Relpy" Width="1.5" PointX="12.75" PointY="20.75" Height="2.543091634114603" />
+        <EntityTypeShape EntityType="DataModel.SysDepartment" Width="1.5" PointX="20.75" PointY="14.75" Height="1.396973470052103" />
+        <EntityTypeShape EntityType="DataModel.SysGroup" Width="1.5" PointX="20.75" PointY="17.75" Height="1.396973470052103" />
+        <EntityTypeShape EntityType="DataModel.SysKeyword" Width="1.5" PointX="18.75" PointY="20.75" Height="1.7790128580729174" />
+        <EntityTypeShape EntityType="DataModel.SysModel" Width="1.5" PointX="20.75" PointY="20.75" Height="1.7790128580729174" />
+        <EntityTypeShape EntityType="DataModel.SysNavPanel" Width="1.5" PointX="22.75" PointY="0.75" Height="1.970032552083353" />
+        <EntityTypeShape EntityType="DataModel.SysNavTree" Width="1.5" PointX="0.75" PointY="22.75" Height="2.7341113281249818" />
+        <EntityTypeShape EntityType="DataModel.SysRole" Width="1.5" PointX="22.75" PointY="3.75" Height="2.3520719401041674" />
+        <EntityTypeShape EntityType="DataModel.SysUser" Width="1.5" PointX="6.75" PointY="22.75" Height="3.689209798177103" />
+        <EntityTypeShape EntityType="DataModel.TemplateContent" Width="1.5" PointX="22.75" PointY="7.75" Height="2.1610522460937318" />
+        <EntityTypeShape EntityType="DataModel.TemplateFace" Width="1.5" PointX="8.75" PointY="22.75" Height="1.5879931640624818" />
+        <EntityTypeShape EntityType="DataModel.TemplateGroup" Width="1.5" PointX="22.75" PointY="10.75" Height="1.5879931640624818" />
+        <EntityTypeShape EntityType="DataModel.TemplateList" Width="1.5" PointX="22.75" PointY="13.75" Height="2.9251310221354174" />
+        <EntityTypeShape EntityType="DataModel.TemplatePage" Width="1.5" PointX="22.75" PointY="17.75" Height="2.3520719401041674" />
+        <EntityTypeShape EntityType="DataModel.TemplatePublic" Width="1.5" PointX="22.75" PointY="21.75" Height="6.9365445963541674" />
+        <EntityTypeShape EntityType="DataModel.TemplateReply" Width="1.5" PointX="18.75" PointY="23.75" Height="1.5879931640624818" />
+        <EntityTypeShape EntityType="DataModel.TemplateSearch" Width="1.5" PointX="24.75" PointY="0.75" Height="2.9251310221354174" />
+        <EntityTypeShape EntityType="DataModel.TemplateVar" Width="1.5" PointX="2.75" PointY="24.75" Height="1.970032552083353" />
+        <EntityTypeShape EntityType="DataModel.TemplTags" Width="1.5" PointX="24.75" PointY="4.75" Height="2.543091634114603" />
+        <EntityTypeShape EntityType="DataModel.User" Width="1.5" PointX="24.75" PointY="8.75" Height="6.554505208333353" />
+        <EntityTypeShape EntityType="DataModel.UserClassRelation" Width="1.5" PointX="10.75" PointY="24.75" Height="1.5879931640624818" />
+        <EntityTypeShape EntityType="DataModel.UserForm" Width="1.5" PointX="12.75" PointY="24.75" Height="1.5879931640624818" />
+        <EntityTypeShape EntityType="DataModel.UserGroup" Width="1.5" PointX="14.75" PointY="24.75" Height="2.543091634114603" />
+        <EntityTypeShape EntityType="DataModel.UserRegorm" Width="1.5" PointX="24.75" PointY="16.75" Height="1.7790128580729174" />
+        <EntityTypeShape EntityType="DataModel.UserRerm" Width="1.5" PointX="24.75" PointY="19.75" Height="1.7790128580729174" />
+        <EntityTypeShape EntityType="DataModel.ViewHistory" Width="1.5" PointX="24.75" PointY="22.75" Height="1.970032552083353" />
+        <EntityTypeShape EntityType="DataModel.Zt" Width="1.5" PointX="24.75" PointY="25.75" Height="3.689209798177103" />
       </Diagram>
     </Diagrams>
   </Designer>

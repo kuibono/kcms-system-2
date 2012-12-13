@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DownResume.aspx.cs" Inherits="Web.e.Job.DownResume" %>
