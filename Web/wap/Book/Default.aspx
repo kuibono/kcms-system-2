@@ -37,7 +37,7 @@
             <%
                 foreach (var c in ReadingChapters)
                 {
-                    var b = Voodoo.DAL.BookView.GetModelByID(c.BookID.ToString());
+                    var b = GetByID(c.BookID);
             %>
             <img src="http://m.baidu.com/static/wapxs/book.png" alt="" />
             <a href="/wap/book/b.aspx?id=<%=c.BookID %>"><%=c.BookTitle %></a>&nbsp;| <a href="/wap/book/c.aspx?id=<%=c.ID %>"><%=c.Title %></a>| <a href="/wap/book/c.aspx?id=<%=b.LastChapterID %>"><%=b.LastChapterTitle %></a>
@@ -48,33 +48,14 @@
             小说分类</div>
         <div class="left categorys list-wrap">
             <!--分类-->
-            <%= Voodoo.Basement.Functions.Getclassbyfilter("IsLeafClass=0", "<a href='/wap/book/cls.aspx?id={id}'>{classname}</a> ")%>
-        </div>
-        <div class="title-wrap left">
-            <span class="black">点击排行</span></div>
-        <div class="left list-wrap">
-            <%= Voodoo.Basement.Functions.Getnovellist("id>0 order by clickcount desc", 5, 20, "<div class=\"list-item rank-list-item red\"><a href=\"/wap/book/cls.aspx?id={classid}\">[{classname}]</a>&nbsp;<a href=\"/wap/book/b.aspx?id={id}\">{title}</a>&nbsp;</div>")%>
+            <%= Voodoo.Basement.Functions.Getclassbyfilter("t.IsLeafClass=false", "<a href='/wap/book/cls.aspx?id={id}'>{classname}</a> ")%>
         </div>
         <div class="title-wrap left">
             火热标签</div>
         <div class="list-wrap left">
-            <%= Voodoo.Basement.Functions.Getsearchkey("ModelID=4 order by clickcount desc", 10, "<a href=\"/wap/book/s.aspx?key={keyword}\">{keyword}</a> ")%>
+            <%= Voodoo.Basement.Functions.Getsearchkey("t.ModelID=4", 10, "<a href=\"/wap/book/s.aspx?key={keyword}\">{keyword}</a> ")%>
         </div>
-        <div class="title-wrap left">
-            <span class="black">完结榜</span></div>
-        <div class="left list-wrap">
-            <%= Voodoo.Basement.Functions.Getnovellist("Status=1 order by clickcount desc", 5, 20, "<div class=\"list-item rank-list-item red\"><a href=\"/wap/book/cls.aspx?id={classid}\">[{classname}]</a>&nbsp;<a href=\"/wap/book/b.aspx?id={id}\">{title}</a>&nbsp;</div>")%>
-        </div>
-        <div class="title-wrap left">
-            <img src="http://m.baidu.com/static/wapxs/wapxs-big-title-arrow.gif" width="11" height="11" />&nbsp;精品推荐</div>
-        <div class="list-wrap left">
-            <%= Voodoo.Basement.Functions.Getnovellist("id>0 order by tjcount desc", 10, 20, "<div class=\"list-item rank-list-item red\"><a href=\"/wap/book/cls.aspx?id={classid}\">[{classname}]</a>&nbsp;<a href=\"/wap/book/b.aspx?id={id}\">{title}</a>&nbsp;</div>")%>
-        </div>
-        <div class="title-wrap left bBottom">
-            最近更新</div>
-        <div class="list-wrap left bBottom">
-            <%= Voodoo.Basement.Functions.Getnovellist("id>0 order by updatetime desc", 20, 20, "<div class=\"list-item rank-list-item red\"><a href=\"/wap/book/b.aspx?id={id}\">{title}</a>&nbsp;<a style=\"color:black;\"href=\"/wap/book/c.aspx?id={lastchapterid}\">{lastchaptertitle}</a>&nbsp;</div>")%>
-        </div>
+
         <div class="center go-top">
             <a href="#top">
                 <img src="http://m.baidu.com/static/wapxs/wapxs-gotop.gif" width="46" height="16"
@@ -96,7 +77,6 @@
             </div>
         </div>
     </div>
-    <%=SystemSetting.CountCode %>
 </body>
 
 </html>

@@ -211,5 +211,10 @@ namespace Web.e.admin.Job.Person
         {
             BindList();
         }
+
+        protected void pager_PageChanged(object sender, EventArgs e)
+        {
+            BindList();
+        }
     }
 }

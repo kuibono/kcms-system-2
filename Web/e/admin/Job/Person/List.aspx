@@ -86,7 +86,7 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="8" class="ctrlPn">
+                    <td colspan="7" class="ctrlPn">
 <%--                        <asp:button id="btn_disable" text="停用" runat="server" onclick="btn_disable_Click" />
                         <asp:button id="btn_enable" text="启用" runat="server" onclick="btn_enable_Click" />--%>
                         <asp:button id="btn_Add" text="新增" runat="server" onclientclick="location.href='Edit.aspx';return false" />
@@ -94,10 +94,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="8">
-                        <vd:aspnetpager id="pager" runat="server" firstpagetext="首页" lastpagetext="尾页" nextpagetext="后页"
-                            prevpagetext="前页" alwaysshow="true">
-                        </vd:aspnetpager>
+                    <td colspan="7">
+                        <vd:AspNetPager id="pager" runat="server" firstpagetext="首页" lastpagetext="尾页" nextpagetext="后页"
+                            prevpagetext="前页" alwaysshow="true" onpagechanged="pager_PageChanged">
+                        </vd:AspNetPager>
                     </td>
                 </tr>
             </tfoot>

@@ -15,6 +15,15 @@ namespace Web.wap.Book
     public partial class Default : Voodoo.Basement.BasePage
     {
         protected List<BookChapter> ReadingChapters=new List<BookChapter>();
+
+        public Voodoo.Basement.Book GetByID(int? id)
+        {
+            using (DataEntities ent = new DataEntities())
+            {
+                return (from l in ent.Book where l.ID == id select l).FirstOrDefault();
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try

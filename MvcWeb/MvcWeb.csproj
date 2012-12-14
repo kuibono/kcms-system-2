@@ -739,6 +739,7 @@
     <Content Include="Scripts\jquery-1.7.min.js" />
     <Content Include="Scripts\management.js" />
     <Content Include="Views\Admin\Index.aspx" />
+    <Content Include="Views\ViewPage1.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

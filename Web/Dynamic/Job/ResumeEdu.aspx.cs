@@ -19,18 +19,40 @@ namespace Web.Dynamic.Job
         JobResumeInfo r;
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindDropItems();
-            LoadInfo();
-
-        }
-        protected void LoadInfo()
-        {
-            
             if (u.ID < 0)
             {
                 Js.AlertAndChangUrl("您还没有登录，请登录或注册后进入简历管理！", "/");
             }
             DataEntities ent = new DataEntities();
+            r = new JobResumeInfo();
+            try
+            {
+                r = (from l in ent.JobResumeInfo where l.UserID == u.ID select l).First();
+            }
+            catch
+            {
+                r.UserID = u.ID;
+                r.IsResumeOpen = true;
+                r.Image = "/u/ResumeFace/0.jpg";
+                r.Title = u.UserName + "的简历";
+                ent.AddToJobResumeInfo(r);
+                ent.SaveChanges();
+            }
+
+            if (!IsPostBack)
+            {
+                BindDropItems();
+               LoadInfo();
+            }
+            
+        }
+        protected void LoadInfo()
+        {
+            DataEntities ent = new DataEntities();
+            if (u.ID < 0)
+            {
+                Js.AlertAndChangUrl("您还没有登录，请登录或注册后进入简历管理！", "/");
+            }
             r = new JobResumeInfo();
             try
             {

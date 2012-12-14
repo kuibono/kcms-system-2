@@ -649,7 +649,27 @@ namespace Voodoo.Basement
             ent.AddToJobResumeInfo(r);
             ent.SaveChanges();
 
-            Voodoo.IO.File.Move(fileName, string.Format("/u/Resume/{0}.doc", r.ID));
+            //Voodoo.IO.File.Move(fileName, string.Format("/u/Resume/{0}.doc", r.ID));
+
+            var files = from l in ent.JobResumeFile where l.UserID == u.ID select l;
+            var resumeFile=new JobResumeFile();
+            if (files.Count() == 0)
+            {
+                resumeFile.UserID = u.ID;
+                resumeFile.ResumeID = r.ID;
+                resumeFile.FilePath = fileName;
+                resumeFile.FileName = file.FileName;
+
+                ent.AddToJobResumeFile(resumeFile);
+                
+            }
+            else
+            {
+                resumeFile = files.First();
+                resumeFile.FilePath = fileName;
+                resumeFile.FileName = file.FileName;
+            }
+            ent.SaveChanges();
 
             Match match = new Regex("男|女").Match(Context);
             string str_r = "";

@@ -586,6 +586,36 @@ namespace Voodoo.Basement
             return sb.ToS();
         }
 
+        public static string getnovellist(string m_where,string Order, string Top, string CutTitle, string firstClass, string ShowClickCount)
+        {
+            DataEntities ent = new DataEntities();
+
+            StringBuilder sb = new StringBuilder();
+
+            var NovelList = //BookView.GetModelList(m_where, Top.ToInt32());
+                ent.CreateQuery<Book>(string.Format("select VALUE t from Book as t where {1} order by {2} take {0}", Top, m_where,Order)).ToList();
+            ent.Dispose();
+
+            foreach (var b in NovelList)
+            {
+                string str_cls = "";
+                if (firstClass.Length > 0 && b == NovelList.First())
+                {
+                    str_cls = " class=\"" + firstClass + "\"";
+                }
+
+                string str_clickcount = "";
+                if (ShowClickCount.ToBoolean())
+                {
+                    str_clickcount = string.Format("<span>{0}</span>", b.ClickCount);
+                }
+
+                sb.Append(string.Format("<li" + str_cls + "><a title=\"{0}\" href=\"{1}\">{2}</a>{3}</li>", b.Title, BasePage.GetBookUrl(b, b.GetClass()), b.Title.CutString(CutTitle.ToInt32(10)), str_clickcount));
+            }
+
+            return sb.ToS();
+        }
+
         public static string Getnovellist(string m_where, int Top, int CutTitle, string Model)
         {
             StringBuilder sb = new StringBuilder();
@@ -640,7 +670,7 @@ namespace Voodoo.Basement
         {
             StringBuilder sb = new StringBuilder();
             DataEntities ent = new DataEntities();
-            var list = ent.CreateQuery<SysKeyword>(string.Format("select VALUE t from SysKeyword as t where {1} order by l.id desc limit  {0}", Top, m_where)).ToList();
+            var list = ent.CreateQuery<SysKeyword>(string.Format("select VALUE t from SysKeyword as t where {1} order by t.ClickCount desc limit  {0}", Top, m_where)).ToList();
             ent.Dispose();
 
             foreach (var item in list)

@@ -67,12 +67,15 @@ namespace Web.Dynamic.Job
             //           };
 
             var list = from l in ent.JobApplicationRecord
+                       from re in ent.JobResumeInfo
                        from com in ent.JobCompany
                        from p in ent.JobPost
                        where
                           l.UserID == u.ID
                           && l.CompanyID == com.ID
                           && p.CompanyID == com.ID
+                          && re.UserID==u.ID
+                          && re.WorkPlace==p.City
                        select new
                        {
                            l.ID,
