@@ -88,6 +88,10 @@ namespace Voodoo.Basement.UrlConverter
         /// <returns></returns>
         public string GetBookChapterUrl(BookChapter cp, Class cls)
         {
+            if (cp == null || cp.ID < 0)
+            {
+                return "";
+            }
             string url = RewriteRule.Get().BookChapter.Exp;
             url = url.Replace("{id}", cp.ID.ToS());
             url = url.Replace("{classname}", cls.ClassName);

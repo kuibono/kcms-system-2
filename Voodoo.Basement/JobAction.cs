@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Text.RegularExpressions;
+using System.IO;
 
 namespace Voodoo.Basement
 {
@@ -615,8 +616,8 @@ namespace Voodoo.Basement
         {
             DataEntities ent = new DataEntities();
 
-
-            string fileName = string.Format("/u/Resume/{0}.doc", DateTime.Now.ToString("yyyyMMddHHmmssfff"));
+            string extName = Path.GetExtension(file.FileName).ToLower();
+            string fileName = string.Format("/u/Resume/{0}{1}", DateTime.Now.ToString("yyyyMMddHHmmssfff"), extName);
             BasePage.UpLoadFile(file, fileName);
             Aspose.Words.Document doc = new Aspose.Words.Document(System.Web.HttpContext.Current.Server.MapPath(fileName));
             string Context = doc.GetText();
@@ -644,15 +645,27 @@ namespace Voodoo.Basement
             }
 
             JobResumeInfo r = new JobResumeInfo();
-            r.UserID = u.ID;
-            r.Title = string.Format("{0}的临时简历",u.UserName);
-            ent.AddToJobResumeInfo(r);
-            ent.SaveChanges();
+
+            var userResume = from l in ent.JobResumeInfo where l.UserID == u.ID select l;
+            if (userResume.Count() > 0)
+            {
+                r = userResume.First();
+            }
+            else
+            {
+                r.UserID = u.ID;
+                r.Title = string.Format("{0}的临时简历", u.UserName);
+                ent.AddToJobResumeInfo(r);
+                ent.SaveChanges();
+
+            }
+
+
 
             //Voodoo.IO.File.Move(fileName, string.Format("/u/Resume/{0}.doc", r.ID));
 
             var files = from l in ent.JobResumeFile where l.UserID == u.ID select l;
-            var resumeFile=new JobResumeFile();
+            var resumeFile = new JobResumeFile();
             if (files.Count() == 0)
             {
                 resumeFile.UserID = u.ID;
@@ -661,7 +674,7 @@ namespace Voodoo.Basement
                 resumeFile.FileName = file.FileName;
 
                 ent.AddToJobResumeFile(resumeFile);
-                
+
             }
             else
             {
@@ -698,7 +711,7 @@ namespace Voodoo.Basement
             if (match.Success)
             {
                 str_r = match.Groups[0].Value;
-                str_r = str_r.Replace("姓名", "");
+                str_r = str_r.Replace("姓名", "").Replace("：", "");
                 r.ChineseName = str_r;
                 if (id <= 0)
                 {
@@ -733,7 +746,7 @@ namespace Voodoo.Basement
             {
                 try
                 {
-                    r.City = (from l in ent.City select l).AsCache().Where(p => p.city1.Contains(match.Groups[0].Value)&& p.ProvinceID==r.Province).First().id;
+                    r.City = (from l in ent.City select l).AsCache().Where(p => p.city1.Contains(match.Groups[0].Value) && p.ProvinceID == r.Province).First().id;
                 }
                 catch
                 {
@@ -747,9 +760,20 @@ namespace Voodoo.Basement
 
 
             JobResumeEdu edu = new JobResumeEdu();
-            edu.ResumeID = r.ID;
-            edu.StartTime = DateTime.Now.AddYears(-1);
-            edu.LeftTime = DateTime.Now;
+            var resumeEdu = from l in ent.JobResumeEdu where l.ResumeID == r.ID select l;
+            if (resumeEdu.Count() > 0)
+            {
+                edu = resumeEdu.First();
+            }
+            else
+            {
+                edu.ResumeID = r.ID;
+                edu.StartTime = DateTime.Now.AddYears(-1);
+                edu.LeftTime = DateTime.Now;
+                ent.AddToJobResumeEdu(edu);
+            }
+
+            
 
             match = new Regex("[^ ：:]{2,20}?(大学|学院|学校|技校|中学|中专)").Match(Context);
             if (match.Success)
@@ -767,7 +791,7 @@ namespace Voodoo.Basement
                 //专业
             }
 
-            ent.AddToJobResumeEdu(edu);
+            
 
             match = new Regex("[0-9]{4}[-/年][0-9]{1,2}[-/月][0-9]{1,2}[日]{0,1}").Match(Context);
             if (match.Success)
