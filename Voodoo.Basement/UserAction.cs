@@ -312,5 +312,54 @@ namespace Voodoo.Basement
             return GetUserByID(id).UserName;
         }
         #endregion
+
+        #region 找回密码
+        /// <summary>
+        /// 找回密码
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public Result FindPassword(string email)
+        {
+            using (DataEntities ent = new DataEntities())
+            {
+                var users = from l in ent.User where l.Email == email select l;
+                if (users.Count() == 0)
+                {
+                    return new Result()
+                    {
+                        Success = false,
+                        Text = "没有用户使用这个邮箱地址"
+                    };
+                }
+                else
+                {
+                    var set = Model.JobSetting.Get();
+
+                    string newPass = @int.GetRandomNumber(100000, 999999).ToS();
+
+                    var user = users.First();
+                    user.UserPass = Voodoo.Security.Encrypt.Md5(newPass);
+                    Voodoo.Net.Mail.SMTP.SentMail(set.From,
+                        set.LoginName,
+                        set.Password,
+                        user.Email,
+                        set.FromText,
+                        "密码找回-" + BasePage.SystemSetting.SiteName,
+                        "您好，您在" + BasePage.SystemSetting.SiteName + "的密码已经被重置为：" + newPass + " ，请立即使用该密码登录系统并修改密码。" + BasePage.SystemSetting.SiteUrl,
+                        set.SmtpHost,
+                        user.UserName
+                        );
+
+                    return new Result()
+                    {
+                        Success = true,
+                        Text = "新密码已经发送到您的邮箱，请查收并重新修改密码！"
+                    };
+                }
+
+            }
+        }
+        #endregion
     }
 }

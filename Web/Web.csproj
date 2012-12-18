@@ -114,6 +114,7 @@
     <Content Include="Dynamic\Job\App.aspx" />
     <Content Include="Dynamic\Job\Company.aspx" />
     <Content Include="Dynamic\Job\Default.aspx" />
+    <Content Include="Dynamic\Job\FindPassword.aspx" />
     <Content Include="Dynamic\Job\Home.aspx" />
     <Content Include="Dynamic\Job\Job.aspx" />
     <Content Include="Dynamic\Job\Password.aspx" />
@@ -1280,8 +1281,10 @@
     <Content Include="skin\job\js\jquery.js" />
     <Content Include="skin\job\js\links.js" />
     <Content Include="skin\job\js\myjob.js" />
+    <Content Include="skin\job\location.html" />
     <Content Include="skin\job\password.html" />
     <Content Include="skin\job\position.html" />
+    <Content Include="skin\job\wjmm.html" />
     <Content Include="skin\movie\aimiziso.gif" />
     <Content Include="skin\movie\bf.gif" />
     <Content Include="skin\movie\bg05.gif" />
@@ -1520,6 +1523,13 @@
     </Compile>
     <Compile Include="Dynamic\Job\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dynamic\Job\FindPassword.aspx.cs">
+      <DependentUpon>FindPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Job\FindPassword.aspx.designer.cs">
+      <DependentUpon>FindPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dynamic\Job\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
