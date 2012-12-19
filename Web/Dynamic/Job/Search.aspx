@@ -132,8 +132,8 @@
                             <img src="/skin/job/img/9.jpg" id="btnSearch" width="38" height="34">
                         </td>
                         <td width="80" align="left" class="search">
-                            <a href="Search.aspx">高级搜索</a><br>
-                            <a href="Search.aspx">职位浏览</a>
+                            <a href="Search.aspx" style="visibility:hidden;">高级搜索</a><br>
+                            <a href="Search.aspx" style="visibility:hidden;">职位浏览</a>
                         </td>
                     </tr>
                 </tbody></table>

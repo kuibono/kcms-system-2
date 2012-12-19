@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Voodoo;
 
 namespace Web.e.member
 {
@@ -11,6 +12,7 @@ namespace Web.e.member
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string url = WS.RequestString("url","~/").UrlDecode();
 
             Voodoo.Cookies.Cookies.Clear();
 
@@ -18,7 +20,7 @@ namespace Web.e.member
             cookie.Expires = DateTime.Now.AddDays(-1);
             Voodoo.Cookies.Cookies.SetCookie(cookie);
 
-            Response.Redirect("~/");
+            Response.Redirect(url);
         }
     }
 }

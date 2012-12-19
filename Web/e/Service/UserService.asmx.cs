@@ -89,7 +89,7 @@ namespace Web.e.Service
             Result r = ua.UserRegister(u);
             if (r.Success)
             {
-                ua.UserLogin(u.UserName, u.UserPass, 1);
+                ua.UserLogin(u.UserName, pass, 1);
             }
             return r;
         }

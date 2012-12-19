@@ -114,6 +114,22 @@ namespace Voodoo.Basement
         }
         #endregion
 
+        #region  用户登出
+        /// <summary>
+        /// 用户登出
+        /// </summary>
+        public void LogOut()
+        {
+            System.Web.HttpCookie cookie = Cookies.Cookies.GetCookie("User");
+            if (cookie != null)
+            {
+                Voodoo.Cookies.Cookies.Clear();
+                cookie.Expires = DateTime.Now.AddDays(-1);
+                Voodoo.Cookies.Cookies.SetCookie(cookie);
+            }
+        }
+        #endregion
+
         #region 会员登陆
         /// <summary>
         /// 会员登陆
@@ -160,9 +176,21 @@ namespace Voodoo.Basement
                             return r;
                         }
 
+                        
                         //成功！
+
+                        LogOut();
                         //写入Cookie
-                        System.Web.HttpCookie cookie = new System.Web.HttpCookie("User");
+                        System.Web.HttpCookie cookie = Cookies.Cookies.GetCookie("User");
+                        if (cookie != null)
+                        {
+                            cookie.Values.Clear();
+                        }
+                        else
+                        {
+                            cookie = new System.Web.HttpCookie("User");
+                        }
+
                         cookie.Expires = DateTime.Now.AddDays(CookieDay);
                         cookie.Values.Add("uid", _user.ID.ToString());
                         cookie.Values.Add("k", Voodoo.Security.Encrypt.Md5(string.Format("{0}{1}{2}",
@@ -350,7 +378,7 @@ namespace Voodoo.Basement
                         set.SmtpHost,
                         user.UserName
                         );
-
+                    ent.SaveChanges();
                     return new Result()
                     {
                         Success = true,
