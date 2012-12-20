@@ -67,11 +67,11 @@
                                        <ItemTemplate>
                                        
                                         <li class="clearfix">
-                                            <input type="button" onclick="location.href='Job.aspx?id=<%#Eval("Pid")%>'" style="float: right" class="btn-blue114" value="查看详情" id="Button1" />
+                                            <input type="button" onclick="location.href='Job.aspx?id=<%#Eval("id")%>'" style="float: right" class="btn-blue114" value="查看详情" id="Button1" />
                                             <p>
                                                 <span class="mr-10">&nbsp;</span></p>
                                             <p>
-                                                <strong><a href="Job.aspx?id=<%#Eval("Pid")%>" target="_blank" class=" mr-40 ft14 ml-10"><%#Eval("Title")%></a></strong><a
+                                                <strong><a href="Job.aspx?id=<%#Eval("id")%>" target="_blank" class=" mr-40 ft14 ml-10"><%#Eval("Title")%></a></strong><a
                                                     href="Company.aspx?id=<%#Eval("CompanyID")%>" target="_blank"><%#Eval("CompanyName")%></a></p>
                                         </li>
                                         

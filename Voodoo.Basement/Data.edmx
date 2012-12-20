@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+    <Schema Namespace="DataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
         <EntityContainer Name="DataModelStoreContainer">
           <EntitySet Name="Ad" EntityType="DataModel.Store.Ad" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="AdGroup" EntityType="DataModel.Store.AdGroup" store:Type="Tables" Schema="dbo" />
@@ -72,8 +72,6 @@
           <EntitySet Name="UserClassRelation" EntityType="DataModel.Store.UserClassRelation" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="UserForm" EntityType="DataModel.Store.UserForm" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="UserGroup" EntityType="DataModel.Store.UserGroup" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="UserRegorm" EntityType="DataModel.Store.UserRegorm" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="UserRerm" EntityType="DataModel.Store.UserRerm" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ViewHistory" EntityType="DataModel.Store.ViewHistory" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Zt" EntityType="DataModel.Store.Zt" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
@@ -263,6 +261,7 @@
           </Key>
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ClassID" Type="int" />
+          <Property Name="ItemID" Type="bigint" />
           <Property Name="UpTime" Type="datetime" />
           <Property Name="FileType" Type="int" />
           <Property Name="FileSize" Type="bigint" />
@@ -271,7 +270,6 @@
           <Property Name="FileExtName" Type="nvarchar" MaxLength="255" />
           <Property Name="FilePath" Type="nvarchar" MaxLength="500" />
           <Property Name="SmallPath" Type="nvarchar" MaxLength="500" />
-          <Property Name="ItemID" Type="bigint" />
         </EntityType>
         <EntityType Name="GroupRole">
           <Key>
@@ -588,6 +586,7 @@
           <Property Name="MSN" Type="nvarchar" MaxLength="255" />
           <Property Name="Intro" Type="nvarchar(max)" />
           <Property Name="ChineseName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Keywords" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="JobResumeLanguage">
           <Key>
@@ -1135,24 +1134,6 @@
           <Property Name="EnableReg" Type="bit" />
           <Property Name="RegAutoAudit" Type="bit" />
         </EntityType>
-        <EntityType Name="UserRegorm">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="FormName" Type="varchar" MaxLength="50" />
-          <Property Name="FormContent" Type="varchar" MaxLength="4000" />
-          <Property Name="Remark" Type="varchar" MaxLength="2000" />
-        </EntityType>
-        <EntityType Name="UserRerm">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="FormName" Type="nvarchar" MaxLength="50" />
-          <Property Name="FormContent" Type="nvarchar(max)" />
-          <Property Name="Remark" Type="nvarchar(max)" />
-        </EntityType>
         <EntityType Name="ViewHistory">
           <Key>
             <PropertyRef Name="ID" />
@@ -1253,8 +1234,6 @@
           <EntitySet Name="UserClassRelation" EntityType="DataModel.UserClassRelation" />
           <EntitySet Name="UserForm" EntityType="DataModel.UserForm" />
           <EntitySet Name="UserGroup" EntityType="DataModel.UserGroup" />
-          <EntitySet Name="UserRegorm" EntityType="DataModel.UserRegorm" />
-          <EntitySet Name="UserRerm" EntityType="DataModel.UserRerm" />
           <EntitySet Name="ViewHistory" EntityType="DataModel.ViewHistory" />
           <EntitySet Name="Zt" EntityType="DataModel.Zt" />
         </EntityContainer>
@@ -1444,6 +1423,7 @@
           </Key>
           <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Int32" Name="ClassID" />
+          <Property Type="Int64" Name="ItemID" />
           <Property Type="DateTime" Name="UpTime" />
           <Property Type="Int32" Name="FileType" />
           <Property Type="Int64" Name="FileSize" />
@@ -1452,7 +1432,6 @@
           <Property Type="String" Name="FileExtName" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="FilePath" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="SmallPath" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="Int64" Name="ItemID" />
         </EntityType>
         <EntityType Name="GroupRole">
           <Key>
@@ -1769,6 +1748,7 @@
           <Property Type="String" Name="MSN" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Intro" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="ChineseName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Keywords" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="JobResumeLanguage">
           <Key>
@@ -2316,24 +2296,6 @@
           <Property Type="Boolean" Name="EnableReg" />
           <Property Type="Boolean" Name="RegAutoAudit" />
         </EntityType>
-        <EntityType Name="UserRegorm">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="FormName" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="FormContent" MaxLength="4000" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Remark" MaxLength="2000" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="UserRerm">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="FormName" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="FormContent" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Remark" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="ViewHistory">
           <Key>
             <PropertyRef Name="ID" />
@@ -2562,7 +2524,6 @@
           <EntitySetMapping Name="File">
             <EntityTypeMapping TypeName="DataModel.File">
               <MappingFragment StoreEntitySet="File">
-                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
                 <ScalarProperty Name="SmallPath" ColumnName="SmallPath" />
                 <ScalarProperty Name="FilePath" ColumnName="FilePath" />
                 <ScalarProperty Name="FileExtName" ColumnName="FileExtName" />
@@ -2571,6 +2532,7 @@
                 <ScalarProperty Name="FileSize" ColumnName="FileSize" />
                 <ScalarProperty Name="FileType" ColumnName="FileType" />
                 <ScalarProperty Name="UpTime" ColumnName="UpTime" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
                 <ScalarProperty Name="ClassID" ColumnName="ClassID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
@@ -2880,6 +2842,7 @@
           <EntitySetMapping Name="JobResumeInfo">
             <EntityTypeMapping TypeName="DataModel.JobResumeInfo">
               <MappingFragment StoreEntitySet="JobResumeInfo">
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
                 <ScalarProperty Name="ChineseName" ColumnName="ChineseName" />
                 <ScalarProperty Name="Intro" ColumnName="Intro" />
                 <ScalarProperty Name="MSN" ColumnName="MSN" />
@@ -3493,26 +3456,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="UserRegorm">
-            <EntityTypeMapping TypeName="DataModel.UserRegorm">
-              <MappingFragment StoreEntitySet="UserRegorm">
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="FormContent" ColumnName="FormContent" />
-                <ScalarProperty Name="FormName" ColumnName="FormName" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="UserRerm">
-            <EntityTypeMapping TypeName="DataModel.UserRerm">
-              <MappingFragment StoreEntitySet="UserRerm">
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="FormContent" ColumnName="FormContent" />
-                <ScalarProperty Name="FormName" ColumnName="FormName" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ViewHistory">
             <EntityTypeMapping TypeName="DataModel.ViewHistory">
               <MappingFragment StoreEntitySet="ViewHistory">
@@ -3591,7 +3534,7 @@
         <EntityTypeShape EntityType="DataModel.JobResumeEdu" Width="1.5" PointX="14.75" PointY="8.75" Height="2.543091634114603" />
         <EntityTypeShape EntityType="DataModel.JobResumeExperience" Width="1.5" PointX="14.75" PointY="12.75" Height="2.3520719401041674" />
         <EntityTypeShape EntityType="DataModel.JobResumeFile" Width="1.5" PointX="0.75" PointY="15.75" Height="1.970032552083353" />
-        <EntityTypeShape EntityType="DataModel.JobResumeInfo" Width="1.5" PointX="6.75" PointY="15.75" Height="5.7904264322916674" />
+        <EntityTypeShape EntityType="DataModel.JobResumeInfo" Width="1.5" PointX="6.75" PointY="15.75" Height="5.981446126302103" />
         <EntityTypeShape EntityType="DataModel.JobResumeLanguage" Width="1.5" PointX="16.75" PointY="0.75" Height="1.970032552083353" />
         <EntityTypeShape EntityType="DataModel.JobResumeTrain" Width="1.5" PointX="16.75" PointY="3.75" Height="2.543091634114603" />
         <EntityTypeShape EntityType="DataModel.JobType" Width="1.5" PointX="16.75" PointY="7.75" Height="1.5879931640624818" />
@@ -3631,10 +3574,8 @@
         <EntityTypeShape EntityType="DataModel.UserClassRelation" Width="1.5" PointX="10.75" PointY="24.75" Height="1.5879931640624818" />
         <EntityTypeShape EntityType="DataModel.UserForm" Width="1.5" PointX="12.75" PointY="24.75" Height="1.5879931640624818" />
         <EntityTypeShape EntityType="DataModel.UserGroup" Width="1.5" PointX="14.75" PointY="24.75" Height="2.543091634114603" />
-        <EntityTypeShape EntityType="DataModel.UserRegorm" Width="1.5" PointX="24.75" PointY="16.75" Height="1.7790128580729174" />
-        <EntityTypeShape EntityType="DataModel.UserRerm" Width="1.5" PointX="24.75" PointY="19.75" Height="1.7790128580729174" />
-        <EntityTypeShape EntityType="DataModel.ViewHistory" Width="1.5" PointX="24.75" PointY="22.75" Height="1.970032552083353" />
-        <EntityTypeShape EntityType="DataModel.Zt" Width="1.5" PointX="24.75" PointY="25.75" Height="3.689209798177103" />
+        <EntityTypeShape EntityType="DataModel.ViewHistory" Width="1.5" PointX="24.75" PointY="16.75" Height="1.970032552083353" />
+        <EntityTypeShape EntityType="DataModel.Zt" Width="1.5" PointX="24.75" PointY="19.75" Height="3.689209798177103" />
       </Diagram>
     </Diagrams>
   </Designer>

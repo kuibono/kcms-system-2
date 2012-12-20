@@ -152,6 +152,17 @@
                                         </tr>
                                         <tr>
                                             <td width="45" align="right">
+                                                <i class="star-fill">*</i>
+                                            </td>
+                                            <td width="76">
+                                                <strong>求职关键词<br/>多个使用逗号隔开</strong>
+                                            </td>
+                                            <td>
+                                                <vd:vtextbox id="txt_Keywords" runat="server" cssclass="inp-154 bor-d7d7d7 radius-4"></vd:vtextbox>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="45" align="right">
                                                 &nbsp;
                                             </td>
                                             <td width="76" valign="top">

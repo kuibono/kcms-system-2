@@ -27,7 +27,7 @@ namespace Web.Dynamic.Job
             {
                 Js.AlertAndChangUrl("您还没有登录，请登录或注册后进入简历管理！", "/");
             }
-            DataEntities ent=new DataEntities();
+            DataEntities ent = new DataEntities();
             JobResumeInfo r = new JobResumeInfo();
             try
             {
@@ -38,7 +38,7 @@ namespace Web.Dynamic.Job
                 r.UserID = u.ID;
                 r.IsResumeOpen = true;
                 r.Image = "/u/ResumeFace/0.jpg";
-                r.Title = u.UserName+"的简历";
+                r.Title = u.UserName + "的简历";
                 ent.AddToJobResumeInfo(r);
                 ent.SaveChanges();
             }
@@ -66,48 +66,70 @@ namespace Web.Dynamic.Job
             //               l.ViewTime
             //           };
 
-            var list = from l in ent.JobApplicationRecord
+            //var list = from l in ent.JobApplicationRecord
+            //           from re in ent.JobResumeInfo
+            //           from com in ent.JobCompany
+            //           from p in ent.JobPost
+            //           where
+            //              l.UserID == u.ID
+            //              && l.CompanyID == com.ID
+            //              && p.CompanyID == com.ID
+            //              && re.UserID==u.ID
+            //              && re.WorkPlace==p.City
+            //           select new
+            //           {
+            //               l.ID,
+            //               l.CompanyID,
+            //               com.CompanyName,
+            //               Pid = p.ID,
+            //               p.Title,
+            //               l.ApplicationTime
+
+            //           };
+            var list = from l in ent.JobPost
                        from re in ent.JobResumeInfo
                        from com in ent.JobCompany
-                       from p in ent.JobPost
                        where
-                          l.UserID == u.ID
-                          && l.CompanyID == com.ID
-                          && p.CompanyID == com.ID
-                          && re.UserID==u.ID
-                          && re.WorkPlace==p.City
+                          l.CompanyID == com.ID
+                          && re.UserID == u.ID
+                          && re.WorkPlace == l.City
                        select new
                        {
                            l.ID,
                            l.CompanyID,
-                           com.CompanyName,
-                           Pid = p.ID,
-                           p.Title,
-                           l.ApplicationTime
-
+                           l.Title,
+                           l.Intro,
+                           l.PostTime,
+                           com.CompanyName
                        };
 
-            rp_lis.DataSource = list.OrderByDescending(p => p.Pid).Take(10);
+            var keywords = r.Keywords.ToS().Split(',', '，', ' ').ToList();
+            foreach (var keyword in keywords)
+            {
+                list = from l in list where l.Title.Contains(keyword) || l.Intro.Contains(keyword) select l;
+            }
+
+            rp_lis.DataSource = list.OrderByDescending(p => p.ID).Take(10);
             rp_lis.DataBind();
 
             var list2 = from l in ent.ViewHistory
-                       from com in ent.JobCompany
-                       from p in ent.JobPost
-                       where
-                       l.ItemID == p.ID
-                       && p.CompanyID == com.ID
-                       && l.ModelID == 5
-                       && l.UserID == u.ID
-                       orderby l.ViewTime descending
-                       select new
-                       {
-                           p.ID,
-                           CompanyID = com.ID,
-                           com.CompanyName,
-                           Pid = p.ID,
-                           p.Title,
-                           l.ViewTime
-                       };
+                        from com in ent.JobCompany
+                        from p in ent.JobPost
+                        where
+                        l.ItemID == p.ID
+                        && p.CompanyID == com.ID
+                        && l.ModelID == 5
+                        && l.UserID == u.ID
+                        orderby l.ViewTime descending
+                        select new
+                        {
+                            p.ID,
+                            CompanyID = com.ID,
+                            com.CompanyName,
+                            Pid = p.ID,
+                            p.Title,
+                            l.ViewTime
+                        };
             rp_lis2.DataSource = list2.OrderBy(p => p.Pid).Take(10);
             rp_lis2.DataBind();
         }

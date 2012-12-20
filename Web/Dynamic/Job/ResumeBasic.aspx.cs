@@ -60,6 +60,7 @@ namespace Web.Dynamic.Job
             ddl_Year.SetValue(r.Birthday.ToDateTime().Year.ToString());
             ddl_Month.SetValue(r.Birthday.ToDateTime().Month.ToString());
             ddl_Day.SetValue(r.Birthday.ToDateTime().Day.ToString());
+            txt_Keywords.Text = r.Keywords;
 
             ResumeOpen = r.IsResumeOpen == true ? "简历完全开放" : "简历关闭";
             Image = r.Image;
@@ -129,6 +130,7 @@ namespace Web.Dynamic.Job
             r.Mobile = txt_Mobile.Text;
             r.Email = txt_Email.Text;
             r.IsResumeOpen = ckl_Enable.SelectedValue == "1";
+            r.Keywords = txt_Keywords.Text;
 
             if (r.ID <= 0)
             {
