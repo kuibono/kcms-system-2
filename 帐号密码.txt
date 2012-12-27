@@ -2,3 +2,13 @@
 数据库用户名：web415273
 数据库密码：2QzWiObG4V
 数据库名称：db_web415273 
+
+
+FTP主机地址：415273.ftp.chinadns.net
+用户名：web415273
+密码：2QzWiObG4V
+控制面板登陆地址：http://cp.chinadns.net 
+
+KCMSProductSystem
+productsystem
+Kuiboon@442735
