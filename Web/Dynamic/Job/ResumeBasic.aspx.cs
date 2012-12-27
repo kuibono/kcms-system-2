@@ -14,6 +14,7 @@ namespace Web.Dynamic.Job
     {
         public string ResumeOpen = "";
         public string Image = "";
+        public string file_resume = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -48,6 +49,15 @@ namespace Web.Dynamic.Job
                 ent.SaveChanges();
             }
 
+            var file = u.DefaultResumeFile();
+            if (u.ID > 0)
+            {
+                file_resume = string.Format("<a href='{0}' target='_blank'>{1}</a>", file.FilePath, file.FileName);
+            }
+            else
+            {
+                file_resume = "还没有上传简历";
+            }
 
             txt_ChineseName.Text = r.ChineseName;
             ckl_sex.SetValue(r.IsMale == true ? "1" : "0");

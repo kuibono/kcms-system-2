@@ -1,8 +1,8 @@
-ï»¿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-    <title>ç”¨æˆ·æ³¨å†Œ-å—äº¬ç¬¬ä¸€èŒ</title>
+    <title>ÓÃ»§×¢²á-ÄÏ¾©µÚÒ»Ö°</title>
     <link type="text/css" rel="stylesheet" href="/skin/job/css/zhuce.css" />
     <style type="text/css">
         .success
@@ -19,7 +19,7 @@
         $(function () {
             $("#txtUsername").blur(function () {
                 if ($(this).val() == "") {
-                    $("#valUsername").removeClass("success").addClass("unsuccess").text("ä¸èƒ½ä¸ºç©º");
+                    $("#valUsername").removeClass("success").addClass("unsuccess").text("²»ÄÜÎª¿Õ");
                     return false;
                 }
                 else {
@@ -49,7 +49,7 @@
 
             $("#txtPass").blur(function () {
                 if ($(this).val() == "") {
-                    $("#valPass").removeClass("success").addClass("unsuccess").text("ä¸èƒ½ä¸ºç©º");
+                    $("#valPass").removeClass("success").addClass("unsuccess").text("²»ÄÜÎª¿Õ");
                 }
                 else {
                     $("#valPass").removeClass("unsuccess").addClass("success").text("");
@@ -58,13 +58,13 @@
 
             $("#txtConfirmPass").blur(function () {
                 if ($(this).val() == "") {
-                    $("#valConfirmPass").removeClass("success").addClass("unsuccess").text("ä¸èƒ½ä¸ºç©º");
+                    $("#valConfirmPass").removeClass("success").addClass("unsuccess").text("²»ÄÜÎª¿Õ");
                 }
                 else {
                     $("#valConfirmPass").removeClass("unsuccess").addClass("success").text("");
                 }
                 if ($(this).val() != $("#txtPass").val()) {
-                    $("#valConfirmPass").removeClass("success").addClass("unsuccess").text("ä¸¤æ¬¡å¯†ç è¾“å…¥ä¸ä¸€è‡´");
+                    $("#valConfirmPass").removeClass("success").addClass("unsuccess").text("Á½´ÎÃÜÂëÊäÈë²»Ò»ÖÂ");
                 }
             });
 
@@ -73,11 +73,11 @@
                     $(this).blur();
                 });
                 if ($(".unsuccess").size() > 0) {
-                    alert("è¡¨å•å†…å®¹å­˜åœ¨é”™è¯¯ï¼Œè¯·ä¿®æ­£åç»§ç»­æ³¨å†Œï¼");
+                    alert("±íµ¥ÄÚÈİ´æÔÚ´íÎó£¬ÇëĞŞÕıºó¼ÌĞø×¢²á£¡");
                     return false;
                 }
                 if ($("#chkAgree").prop("checked") == false) {
-                    alert("è¯·é˜…è¯»å¹¶ç¡®å®šåŒæ„æœåŠ¡æ¡æ¬¾åç»§ç»­æ³¨å†Œï¼");
+                    alert("ÇëÔÄ¶Á²¢È·¶¨Í¬Òâ·şÎñÌõ¿îºó¼ÌĞø×¢²á£¡");
                     return false;
                 }
 
@@ -88,7 +88,7 @@
                     group: $("#ddlGroup").val()
                 }, function (r) {
                     if ($(r).find("Success").text() == "true") {
-                        alert("æ³¨å†ŒæˆåŠŸï¼Œæ‚¨ç°åœ¨å¯ä»¥è®¾ç½®ç®€å†å¹¶ä¸”ç”³è¯·èŒä½äº†ï¼");
+                        alert("×¢²á³É¹¦£¬ÄúÏÖÔÚ¿ÉÒÔÉèÖÃ¼òÀú²¢ÇÒÉêÇëÖ°Î»ÁË£¡");
                         location.href = "/Dynamic/Job/ResumeBasic.aspx";
                     }
                     else {
@@ -127,15 +127,14 @@
                         <td valign="top" class="zc">
                             <div id="con">
                                 <ul id="tags">
-                                    <li class="selectTag"><a href="javascript:void(0)">ä¸ªäººæ³¨å†Œ</a> </li>
-                                    <li><a href="javascript:void(0)">ä¼ä¸šæ³¨å†Œ</a> </li>
+                                    <li class="selectTag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/skin/job/img/27.jpg" /></li>
                                 </ul>
                                 <div id="tagContent">
                                     <div class="tagContent" id="tagContent0">
                                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                             <tr>
                                                 <td width="100" align="right" class="denglu">
-                                                    <span style="color: #FF0000">*</span>é‚®ç®±ï¼š
+                                                    <span style="color: #FF0000">*</span>ÓÊÏä£º
                                                 </td>
                                                 <td>
                                                     <input type="text" class="input" id="" />
@@ -143,7 +142,7 @@
                                             </tr>
                                             <tr>
                                                 <td width="100" align="right" class="denglu">
-                                                    <span style="color: #FF0000">*</span>ä¼ä¸šåç§°ï¼š
+                                                    <span style="color: #FF0000">*</span>ÆóÒµÃû³Æ£º
                                                 </td>
                                                 <td>
                                                     <input type="text" class="input" />
@@ -151,7 +150,7 @@
                                             </tr>
                                             <tr>
                                                 <td width="100" align="right" class="denglu">
-                                                    <span style="color: #FF0000">*</span>å¯†ç ï¼š
+                                                    <span style="color: #FF0000">*</span>ÃÜÂë£º
                                                 </td>
                                                 <td>
                                                     <input type="text" class="input" />
@@ -159,7 +158,7 @@
                                             </tr>
                                             <tr>
                                                 <td width="100" align="right" class="denglu">
-                                                    <span style="color: #FF0000">*</span>ç¡®è®¤å¯†ç ï¼š
+                                                    <span style="color: #FF0000">*</span>È·ÈÏÃÜÂë£º
                                                 </td>
                                                 <td>
                                                     <input type="password" class="input" />
@@ -172,7 +171,7 @@
                                             </tr>
                                             <tr>
                                                 <td height="20" colspan="2" align="right" style="padding-right: 55px;">
-                                                    <input type="checkbox" />æˆ‘å·²é˜…è¯»<span style="color: #ff7300"><a href="/prot.htm">æœåŠ¡å£°æ˜</a></span>
+                                                    <input type="checkbox" />ÎÒÒÑÔÄ¶Á<span style="color: #ff7300"><a href="/prot.htm">·şÎñÉùÃ÷</a></span>
                                                 </td>
                                             </tr>
                                         </table>
@@ -181,7 +180,7 @@
                                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                             <tr>
                                                 <td width="100" align="right" class="denglu">
-                                                    <span style="color: #FF0000">*</span>é‚®ç®±ï¼š
+                                                    <span style="color: #FF0000">*</span>ÓÊÏä£º
                                                 </td>
                                                 <td>
                                                     <input type="text" class="input" id="txtEmail" />
@@ -190,7 +189,7 @@
                                             </tr>
                                             <tr>
                                                 <td width="100" align="right" class="denglu">
-                                                    <span style="color: #FF0000">*</span>ç”¨æˆ·åï¼š
+                                                    <span style="color: #FF0000">*</span>ÓÃ»§Ãû£º
                                                 </td>
                                                 <td>
                                                     <input type="text" class="input" id="txtUsername" />
@@ -199,7 +198,7 @@
                                             </tr>
                                             <tr>
                                                 <td width="100" align="right" class="denglu">
-                                                    <span style="color: #FF0000">*</span>å¯†ç ï¼š
+                                                    <span style="color: #FF0000">*</span>ÃÜÂë£º
                                                 </td>
                                                 <td>
                                                     <input type="password" class="input" id="txtPass" />
@@ -208,22 +207,22 @@
                                             </tr>
                                             <tr>
                                                 <td width="100" align="right" class="denglu">
-                                                    <span style="color: #FF0000">*</span>ç¡®è®¤å¯†ç ï¼š
+                                                    <span style="color: #FF0000">*</span>È·ÈÏÃÜÂë£º
                                                 </td>
                                                 <td>
-                                                    <input type="text" class="input" id="txtConfirmPass" />
+                                                    <input type="password" class="input" id="txtConfirmPass" />
                                                     <span id="valConfirmPass"></span>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td width="100" align="right" class="denglu">
-                                                    <span style="color: #FF0000">*</span>é€‰æ‹©ç±»å‹ï¼š
+                                                    <span style="color: #FF0000">*</span>Ñ¡ÔñÀàĞÍ£º
                                                 </td>
                                                 <td>
                                                     <select class="denglu" id="ddlGroup" style="width: 178px; height: 30px; line-height: 30px;
                                                         border: 1px solid #c2c2c2">
-                                                        <option value="1">åº”å±Šæ¯•ä¸šç”Ÿ</option>
-                                                        <option value="3">å®ä¹ ç”Ÿ</option>
+                                                        <option value="1">Ó¦½ì±ÏÒµÉú</option>
+                                                        <option value="3">ÊµÏ°Éú</option>
                                                     </select>
                                                 </td>
                                             </tr>
@@ -234,7 +233,7 @@
                                             </tr>
                                             <tr>
                                                 <td height="20" colspan="2" align="right" style="padding-right: 55px;">
-                                                    <input type="checkbox" id="chkAgree" />æˆ‘å·²é˜…è¯»<span style="color: #ff7300"><a href="/prot.htm">æœåŠ¡å£°æ˜</a></span>
+                                                    <input type="checkbox" id="chkAgree" />ÎÒÒÑÔÄ¶Á<span style="color: #ff7300"><a href="/prot.htm">·şÎñÉùÃ÷</a></span>
                                                 </td>
                                             </tr>
                                         </table>
@@ -244,14 +243,14 @@
                             <p>
                                 <script type="text/javascript">
                                     function selectTag(showContent, selfObj) {
-                                        // æ“ä½œæ ‡ç­¾
+                                        // ²Ù×÷±êÇ©
                                         var tag = document.getElementById("tags").getElementsByTagName("li");
                                         var taglength = tag.length;
                                         for (i = 0; i < taglength; i++) {
                                             tag[i].className = "";
                                         }
                                         selfObj.parentNode.className = "selectTag";
-                                        // æ“ä½œå†…å®¹
+                                        // ²Ù×÷ÄÚÈİ
                                         for (i = 0; j = document.getElementById("tagContent" + i); i++) {
                                             j.style.display = "none";
                                         }
@@ -273,19 +272,33 @@
         </tr>
         <tr>
             <td align="center" class="foot">
-               <table width="989" bgcolor="#FFFFFF" align="center" border="0" cellspacing="0" cellpadding="0">
+               <table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="989">
+ <tbody>
   <tr>
-    <td height="20"></td>
+   <td height="20">&nbsp;
+    </td>
   </tr>
   <tr>
-    <td align="center" class="foot"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td height="25" valign="bottom" align="center">&copy; 2011-2012 <a href="/Dynamic/Job/">ç¬¬ä¸€èŒ</a>&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;<a href="/about.htm">å…³äºæˆ‘ä»¬</a>&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;<a href="/prot.htm">ç”¨æˆ·åè®®</a>&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;<a href="/Cooperation.htm">ç½‘ç«™åˆä½œ</a>&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;<a href="/contact.htm">è”ç³»æˆ‘ä»¬</a>&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;<a href="/join.htm">åŠ å…¥æˆ‘ä»¬</a>&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;<a href="/suggestion.htm">æ„è§åé¦ˆ</a> </td>
+   <td align="middle" class="foot">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+     <tbody>
+      <tr>
+       <td align="middle" height="25" valign="bottom">
+        &copy; 2011-2012 <a href="/Dynamic/Job/">µÚÒ»Ö°</a>&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;<a href="/about.htm">¹ØÓÚÎÒÃÇ</a>&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;<a href="/prot.htm">ÓÃ»§Ğ­Òé</a>&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;<a href="/Cooperation.htm">ÍøÕ¾ºÏ×÷</a>&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;<a href="/contact.htm">ÁªÏµÎÒÃÇ</a>&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;<a href="/join.htm">¼ÓÈëÎÒÃÇ</a>&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;<a href="/suggestion.htm">Òâ¼û·´À¡</a>&nbsp;|&nbsp; <a href="/hzyx.html">ºÏ×÷ÔºĞ£</a></td>
+      </tr>
+      <tr>
+       <td align="middle" height="40" style="color: #7a7a7a">
+        &copy; 2011£­2012 all rights reserved  ËÕICP±¸12066898ºÅ ¼¼ÊõÖ§³Ö£º<a href="http://www.nj-gm.com">¹âÃ¢¿Æ¼¼</a>&nbsp;&nbsp;<script src="http://s4.cnzz.com/stat.php?id=4812669&web_id=4812669&show=pic1" language="JavaScript"></script></td>
+      </tr>
+     </tbody>
+    </table>
+   </td>
   </tr>
-  <tr>
-    <td height="40" align="center" style="color:#7a7a7a">&copy; 2011ï¼2012 all rights reserved  è‹ICPå¤‡88888å· æŠ€æœ¯æ”¯æŒï¼š<a href="http://www.nj-gm.com">å…‰èŠ’ç§‘æŠ€</a></td>
-  </tr>
+ </tbody>
 </table>
+<p>&nbsp;
+ </p>
+
             </td>
         </tr>
     </table>

@@ -250,7 +250,7 @@ namespace Web.Dynamic.Job
             province = WS.RequestNullInt32("p");
             city = WS.RequestNullInt32("c");
             page = WS.RequestInt("page", 1);
-            location = WS.RequestString("l");
+            location = WS.RequestString("l").UrlDecode();
             employeeCount = WS.RequestNullInt32("em");
             exp = WS.RequestNullInt32("ex");
         }

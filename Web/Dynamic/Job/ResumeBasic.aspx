@@ -163,6 +163,17 @@
                                         </tr>
                                         <tr>
                                             <td width="45" align="right">
+                                                <i class="star-fill"></i>
+                                            </td>
+                                            <td width="76">
+                                                <strong>上传的简历</strong>
+                                            </td>
+                                            <td>
+                                                <%=file_resume %>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="45" align="right">
                                                 &nbsp;
                                             </td>
                                             <td width="76" valign="top">
