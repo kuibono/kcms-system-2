@@ -50,7 +50,7 @@ namespace Web.Dynamic.Job
             }
 
             var file = u.DefaultResumeFile();
-            if (u.ID > 0)
+            if (u.ID > 0 && file != null && file.ID > 0)
             {
                 file_resume = string.Format("<a href='{0}' target='_blank'>{1}</a>", file.FilePath, file.FileName);
             }
@@ -128,7 +128,7 @@ namespace Web.Dynamic.Job
 
             JobResumeInfo
                 r = (from l in ent.JobResumeInfo where l.UserID == UserAction.opuser.ID select l).FirstOrDefault();
-            
+
             r.ChineseName = txt_ChineseName.Text;
             r.Birthday = new DateTime(ddl_Year.SelectedValue.ToInt32(),
                 ddl_Month.SelectedValue.ToInt32(),
