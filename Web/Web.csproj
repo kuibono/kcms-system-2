@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -16,7 +17,12 @@
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
-    <OldToolsVersion>3.5</OldToolsVersion>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,29 +48,22 @@
       <HintPath>..\ref\Aspose.Words.dll</HintPath>
     </Reference>
     <Reference Include="CKEditor.NET">
-      <HintPath>..\ref\CKEditor.NET.dll</HintPath>
+      <HintPath>..\..\..\voodoo\ref\CKEditor.NET.dll</HintPath>
     </Reference>
-    <Reference Include="CKFinder, Version=2.3.0.2394, Culture=neutral, PublicKeyToken=579e7adc719a1423, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ref\CKFinder.dll</HintPath>
+    <Reference Include="CKFinder">
+      <HintPath>..\..\..\voodoo\ref\CKFinder.dll</HintPath>
     </Reference>
-    <Reference Include="Ext.Net, Version=1.5.0.0, Culture=neutral, PublicKeyToken=2e12ce3d0176cd87, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\extnet-Ext.NET.Pro-b02ae28\Ext.Net\bin\Debug\Ext.Net.dll</HintPath>
+    <Reference Include="Ext.Net">
+      <HintPath>..\..\..\voodoo\ref\Ext.Net.dll</HintPath>
     </Reference>
-    <Reference Include="Ext.Net.Utilities, Version=1.1.0.42030, Culture=neutral, PublicKeyToken=2c34ac34702a3c23, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ref\Ext.Net.Utilities.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.0.5.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\ext_net_demo\ref\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\voodoo\ref\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="QConnectSDK">
-      <HintPath>..\ref\QConnectSDK.dll</HintPath>
+      <HintPath>..\..\..\voodoo\ref\QConnectSDK.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp">
-      <HintPath>..\ref\RestSharp.dll</HintPath>
+      <HintPath>..\..\..\voodoo\ref\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -1456,6 +1455,16 @@
     <Content Include="wap\Book\cls.aspx" />
     <Content Include="wap\Book\Default.aspx" />
     <Content Include="wap\Book\s.aspx" />
+    <Content Include="wap\b\b.aspx" />
+    <Content Include="wap\b\default.aspx" />
+    <Content Include="wap\b\images\arr-green.png" />
+    <Content Include="wap\b\images\mypos-split-right.png" />
+    <Content Include="wap\b\images\nav\channel-head.png" />
+    <Content Include="wap\b\images\nav\header-icons.png" />
+    <Content Include="wap\b\images\nav\sidebar-bg.png" />
+    <Content Include="wap\b\script\jquery-1.4.1.min.js" />
+    <Content Include="wap\b\script\s.js" />
+    <Content Include="wap\b\style\s.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -2530,6 +2539,20 @@
     <Compile Include="wap\Book\s.aspx.designer.cs">
       <DependentUpon>s.aspx</DependentUpon>
     </Compile>
+    <Compile Include="wap\b\b.aspx.cs">
+      <DependentUpon>b.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wap\b\b.aspx.designer.cs">
+      <DependentUpon>b.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wap\b\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wap\b\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Voodoo\Voodoo.csproj">
@@ -2841,6 +2864,7 @@
     <None Include="e\data\fckeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.pl" />
     <None Include="e\data\themes\default\images\Thumbs.db" />
     <None Include="e\installer\2000.sql" />
+    <Content Include="wap\b\images\nav\Thumbs.db" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2853,8 +2877,13 @@
     <Folder Include="u\ResumeFile\" />
     <Folder Include="u\Resume\" />
   </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

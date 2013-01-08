@@ -835,7 +835,7 @@ namespace Voodoo.Basement
         {
             StringBuilder sb = new StringBuilder();
             DataEntities ent = new DataEntities();
-            List<Class> cls = ent.CreateQuery<Class>(string.Format("select top {0} * from Class where {1}", top, m_where)).ToList();
+            List<Class> cls = ent.CreateQuery<Class>(string.Format("select VALUE t from Class as t where {1} order by t.id desc limit {0}", top, m_where)).ToList();
             ent.Dispose();
 
             foreach (Class c in cls)
